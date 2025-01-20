@@ -2,3 +2,6 @@
     width: 60%;
     height: auto;
 }
+.announcement-bar-slider, .announcement-bar-slider .slider{
+    width: 70% !important;
+}
