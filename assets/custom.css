@@ -2,6 +2,40 @@
     width: 60%;
     height: auto;
 }
-.announcement-bar-slider, .announcement-bar-slider .slider{
+
+.announcement-bar-slider,
+.announcement-bar-slider .slider {
     width: 70% !important;
+}
+
+.kanit {
+    font-family: 'Kanit', sans-serif;
+    line-height: 6rem;
+    font-size: 6rem;
+    font-weight: 700;
+}
+
+.slideshow__text p {
+    line-height: 2.4rem;
+}
+
+slideshow-component .slideshow__controls {
+    position: absolute;
+    border: none;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+slideshow-component .slider-counter__link--active.slider-counter__link--dots .dot {
+    background-color: #fff !important;
+}
+
+slideshow-component .slider-counter__link--dots .dot {
+    border: none !important;
+    background-color: #ffffff40 !important;
+}
+
+slideshow-component .slider-button {
+    display: none;
 }

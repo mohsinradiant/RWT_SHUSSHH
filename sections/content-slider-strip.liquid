@@ -1,0 +1,69 @@
+<div class="content-slider-strip-container">
+  <div class="content-slider-strip">
+    <p>
+      {{ section.settings.text | replace: '.', '<span class="bullet-dot">.</span>' }}
+    </p>
+    <p>
+      {{ section.settings.text | replace: '.', '<span class="bullet-dot">.</span>' }}
+    </p>
+  </div>
+</div>
+
+<style>
+  .content-slider-strip-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: #332b3a;
+  }
+
+  .content-slider-strip {
+    display: inline-flex;
+    animation: scrollText 150s linear infinite;
+  }
+
+  .content-slider-strip p {
+    font-weight: 600;
+    display: inline-block;
+    padding: 0 1rem;
+    white-space: nowrap;
+    color: white;
+  }
+
+  .bullet-dot {
+    color: #ffb800;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 5px;
+    margin: 0 15px;
+  }
+
+  @keyframes scrollText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Content Slider Strip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Content Slider Strip"
+    }
+  ]
+}
+{% endschema %}
