@@ -1,0 +1,228 @@
+<div class="home-home-quiz-cta">
+  <img class="background_image" src="{{section.settings.bg_image | img_url: 'master'}}">
+  <div class="left-img">
+    <img class="big-img" src="{{section.settings.image | img_url: 'master'}}" alt="Discreet Packaging">
+    <div class="small-images-container">
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_13.png?v=1737619704"
+        style="
+                    --x: -30px;
+          --y: 110px; --rotate: 30deg;
+        "
+      >
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_11.png?v=1737619704"
+        style="
+                        --x: 20px;
+          --y: 50px; --rotate: -45deg;
+        "
+      >
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_7.png?v=1737619704"
+        style="
+                              --x: 170px;
+          --y: 20px; --rotate: 60deg;
+        "
+      >
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_17.png?v=1737619704"
+        style="
+          --x: 250px;
+          --y: 30px; --rotate: -30deg;
+        "
+      >
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_6.png?v=1737619704"
+        style="
+          --x: 90px;
+          --y: 21px; --rotate: 15deg;
+        "
+      >
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_10_1.png?v=1737619704"
+        style="
+                    --x: 360px;
+          --y: 120px; --rotate: -10deg;
+        "
+      >
+      <img
+        class="small-image"
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_16.png?v=1737619704"
+        style="
+          --x: 320px;
+          --y: 60px; --rotate: 25deg;
+        "
+      >
+    </div>
+  </div>
+
+  <div class="home-quiz-cta-right-section">
+    <p class="home-quiz-cta-heading">
+      Wondering<br>
+      Where to Begin?
+    </p>
+    <p class="home-quiz-cta-subheading">Take Our Quiz and Get <span>15% Discount</span></p>
+    <a class="home-quiz-cta-button" href="{{section.settings.button_link}}">{{ section.settings.button_text }}</a>
+  </div>
+</div>
+
+<style>
+  .background_image {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100% !important;
+    bottom: 0;
+    height: 100% !important;
+  }
+  .home-home-quiz-cta {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 380px;
+    margin: 70px 0 0;
+  }
+  .home-quiz-cta-heading {
+    background: linear-gradient(90deg, #ef4d70 0%, #7313b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Kanit';
+    letter-spacing: 0px;
+    text-align: center;
+    line-height: 3rem;
+    margin: 0 0 10px;
+  }
+  .home-quiz-cta-subheading {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .home-home-quiz-cta .left-img {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+  }
+
+  .home-home-quiz-cta .left-img .big-img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+  }
+  .home-quiz-cta-button {
+    font-size: 1.2rem;
+    padding: 1.3rem 3rem;
+    background-color: #ffb800;
+    color: #333333;
+    border-radius: 500px;
+    text-decoration: none;
+    border: 0;
+    margin-top: 20px;
+  }
+  .home-quiz-cta-right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-quiz-cta-subheading span {
+    font-weight: 600;
+  }
+
+  .small-images-container {
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+  .small-image {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    transition: transform 1.5s ease, opacity 1s ease;
+    transform: translate(150px, 220px) rotate(0);
+    opacity: 0;
+  }
+
+  .home-home-quiz-cta.animate .small-image {
+    opacity: 1;
+    transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+  }
+</style>
+<script>
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const quizSection = document.querySelector('.home-home-quiz-cta');
+
+    const handleScroll = () => {
+      if (isInViewport(quizSection)) {
+        quizSection.classList.add('animate');
+        quizSection.classList.remove('reverse');
+      } else {
+        quizSection.classList.add('reverse');
+        quizSection.classList.remove('animate');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Home Quiz CTA",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "TAKE YOUR QUIZ"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Quiz CTA"
+    }
+  ]
+}
+{% endschema %}

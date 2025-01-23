@@ -1,0 +1,54 @@
+<div class="home-discreet-packaging">
+  <img src="{{section.settings.image | img_url: 'master'}}" alt="Discreet Packaging">
+  <button>{{ section.settings.button_text }}</button>
+</div>
+
+<style>
+  .home-discreet-packaging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 70px 0 0;
+  }
+  .home-discreet-packaging img {
+    width: 150%;
+    height: auto;
+  }
+  .home-discreet-packaging button {
+    position: absolute;
+    bottom: 30px;
+    font-size: 1.2rem;
+    padding: 1.3rem 3rem;
+    background-color: #ffb800;
+    color: #333333;
+    border-radius: 500px;
+    border: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Discreet Delivery",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CHECK PACKAGING"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Discreet Delivery"
+    }
+  ]
+}
+{% endschema %}

@@ -20,7 +20,43 @@
             "heading_size": "h1",
             "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
             "button_label": "SHOP NOW",
-            "link": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_7a3QgW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Group_255.jpg",
+            "heading": "Elevate Your Passion, Privately",
+            "heading_size": "h1",
+            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_WB7aHK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Group_255.jpg",
+            "heading": "Elevate Your Passion, Privately",
+            "heading_size": "h1",
+            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": false,
@@ -32,7 +68,9 @@
         }
       },
       "block_order": [
-        "slide_HJCMH7"
+        "slide_HJCMH7",
+        "slide_7a3QgW",
+        "slide_WB7aHK"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -45,37 +83,122 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "content_slider_strip_qpKFNJ": {
+      "type": "content-slider-strip",
+      "settings": {
+        "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
+        "title": "Shop Our Best Sellers",
+        "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
+        "enable_desktop_slider": true,
         "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
+        "show_rating": true,
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "home_deal_of_the_day_NJGxyT": {
+      "type": "home-deal-of-the-day",
+      "settings": {
+        "product_1": "crave",
+        "product_2": "ecstasy-personal",
+        "product_3": "lush-women-massager"
+      }
+    },
+    "shoppable_videos_FFPLxM": {
+      "type": "shoppable-videos",
+      "blocks": {
+        "video_product_drr6xr": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "product": "crave"
+          }
+        },
+        "video_product_9Bmmcf": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "product": "crave"
+          }
+        },
+        "video_product_EHRaap": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "product": "crave"
+          }
+        },
+        "video_product_4EaYia": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "product": "crave"
+          }
+        },
+        "video_product_mFV6QX": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "product": "crave"
+          }
+        }
+      },
+      "block_order": [
+        "video_product_drr6xr",
+        "video_product_9Bmmcf",
+        "video_product_EHRaap",
+        "video_product_4EaYia",
+        "video_product_mFV6QX"
+      ],
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
+      }
+    },
+    "home_discreet_packaging_bKNnKt": {
+      "type": "home-discreet-packaging",
+      "settings": {
+        "image": "shopify://shop_images/Group_257_1.jpg",
+        "button_text": "CHECK PACKAGING"
+      }
+    },
+    "home_quiz_cta_yVMz3E": {
+      "type": "home-quiz-cta",
+      "settings": {
+        "bg_image": "shopify://shop_images/Half_Sunburst_Orange_Background.png",
+        "image": "shopify://shop_images/file_28_1.png",
+        "button_text": "TAKE YOUR QUIZ",
+        "button_link": "shopify://pages/new-quiz"
       }
     }
   },
   "order": [
     "slideshow_VzBdWB",
-    "featured_collection"
+    "content_slider_strip_qpKFNJ",
+    "featured_collection",
+    "home_deal_of_the_day_NJGxyT",
+    "shoppable_videos_FFPLxM",
+    "home_discreet_packaging_bKNnKt",
+    "home_quiz_cta_yVMz3E"
   ]
 }

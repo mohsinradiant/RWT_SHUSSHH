@@ -178,6 +178,9 @@
                   assign rating_decimal = 1
                 endif
               %}
+              <div class="product-card-subeading">
+                {{ card_product.metafields.content.product_card_usp }}
+              </div>
               <div
                 class="rating"
                 role="img"
@@ -196,14 +199,16 @@
                 </span>
               </p>
               <p class="rating-count caption">
-                <span aria-hidden="true">({{ card_product.metafields.reviews.rating_count }})</span>
+                <span aria-hidden="true">{{ card_product.metafields.reviews.rating_count }} Reviews</span>
                 <span class="visually-hidden">
                   {{- card_product.metafields.reviews.rating_count }}
                   {{ 'accessibility.total_reviews' | t -}}
                 </span>
               </p>
             {%- endif -%}
-
+            <div class="product-card-description">
+              {{ card_product.metafields.content.product_card_description }}
+            </div>
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}

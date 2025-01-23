@@ -1,0 +1,86 @@
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<div class="deal-of-the-day-container">
+  <img
+    class="background-image"
+    src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_256.jpg?v=1737550774"
+  >
+  <div class="deal-of-the-day-content">
+    <div class="deal-of-the-day-text-container">
+      <div class="deal-of-the-day-text">
+        <p class="deal-of-the-day-heading">Deals</p>
+        <p class="deal-of-the-day-heading-2">of the Day</p>
+        <p class="deal-of-the-day-subheading">
+          New Deals Everyday,<br>
+          Grab upto <span>50% Off</span>
+        </p>
+      </div>
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_255.png?v=1737550749">
+    </div>
+    <div class="deal-of-the-day-products">
+      {% render 'card-product',
+        card_product: section.settings.product_1,
+        show_secondary_image: true,
+        lazy_load: true,
+        quick_add: true,
+        section_id: section.id,
+        horizontal_class: true,
+        horizontal_quick_add: true,
+        show_rating: true,
+        media_aspect_ratio: 'square'
+      %}
+
+      {% render 'card-product',
+        card_product: section.settings.product_2,
+        show_secondary_image: true,
+        lazy_load: true,
+        quick_add: true,
+        section_id: section.id,
+        horizontal_class: true,
+        horizontal_quick_add: true,
+        show_rating: true,
+        media_aspect_ratio: 'square'
+      %}
+
+      {% render 'card-product',
+        card_product: section.settings.product_3,
+        show_secondary_image: true,
+        lazy_load: true,
+        quick_add: true,
+        section_id: section.id,
+        horizontal_class: true,
+        horizontal_quick_add: true,
+        show_rating: true,
+        media_aspect_ratio: 'square'
+      %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Deal of the Day",
+  "settings": [
+    {
+      "id": "product_1",
+      "type": "product",
+      "label": "Select Product 1"
+    },
+    {
+      "id": "product_2",
+      "type": "product",
+      "label": "Select Product 2"
+    },
+    {
+      "id": "product_3",
+      "type": "product",
+      "label": "Select Product 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Deal of the Day"
+    }
+  ]
+}
+{% endschema %}
