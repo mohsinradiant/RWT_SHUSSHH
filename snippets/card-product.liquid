@@ -206,9 +206,11 @@
                 </span>
               </p>
             {%- endif -%}
-            <div class="product-card-description">
-              {{ card_product.metafields.content.product_card_description }}
-            </div>
+            {% if card_product.metafields.content.product_card_description %}
+              <div class="product-card-description">
+                {{ card_product.metafields.content.product_card_description }}
+              </div>
+            {% endif %}
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}

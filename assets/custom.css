@@ -22,7 +22,7 @@
 slideshow-component .slideshow__controls {
     position: absolute;
     border: none;
-    bottom: 0;
+    bottom: 15px;
     right: 0;
     left: 0;
 }

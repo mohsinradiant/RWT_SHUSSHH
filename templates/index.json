@@ -190,6 +190,64 @@
         "button_text": "TAKE YOUR QUIZ",
         "button_link": "shopify://pages/new-quiz"
       }
+    },
+    "home_combos_8LUwCe": {
+      "type": "home-combos",
+      "settings": {
+        "collection": "bachelorette-gifting"
+      }
+    },
+    "home_categories_section_M7r4cE": {
+      "type": "home-categories-section",
+      "blocks": {
+        "category_gbhLnT": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image.png",
+            "title": "For Her",
+            "subtitle": "Products designed for her ultimate satisfaction",
+            "collection": "shopify://collections/best-sellers"
+          }
+        },
+        "category_Yn7AM8": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image-1.png",
+            "title": "For Him",
+            "subtitle": "Products designed for his satisfaction and exploration",
+            "collection": "shopify://collections/best-sellers"
+          }
+        },
+        "category_cPNefU": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image-2.png",
+            "title": "For Couples",
+            "subtitle": "Products made for mutual satisfaction",
+            "collection": "shopify://collections/best-sellers"
+          }
+        },
+        "category_Lnfkzt": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/image-3.png",
+            "title": "For Gifting",
+            "subtitle": "Give the gift of intimacy, and  connection",
+            "collection": "shopify://collections/best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "category_gbhLnT",
+        "category_Yn7AM8",
+        "category_cPNefU",
+        "category_Lnfkzt"
+      ],
+      "settings": {
+        "image_1": "shopify://shop_images/file_5_7.png",
+        "image_2": "shopify://shop_images/file_12.png",
+        "heading": "What Are You Looking For?"
+      }
     }
   },
   "order": [
@@ -199,6 +257,8 @@
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
     "home_discreet_packaging_bKNnKt",
-    "home_quiz_cta_yVMz3E"
+    "home_quiz_cta_yVMz3E",
+    "home_combos_8LUwCe",
+    "home_categories_section_M7r4cE"
   ]
 }

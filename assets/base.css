@@ -296,6 +296,8 @@ h5,
 h1,
 .h1 {
   font-size: calc(var(--font-heading-scale) * 3rem);
+  font-family: 'Kanit', sans-serif;
+  color: #392d43;
 }
 
 @media only screen and (min-width: 750px) {

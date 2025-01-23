@@ -1,0 +1,140 @@
+<div class="page-width home-combo-section">
+  <img
+    class="home-combos-slider-button--prev"
+    src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+  >
+  <div class="carousel-track">
+    {% for product in section.settings.collection.products %}
+      {% render 'card-product',
+        card_product: product,
+        show_secondary_image: true,
+        lazy_load: true,
+        quick_add: 'standard',
+        section_id: section.id,
+        horizontal_quick_add: true,
+        show_rating: false,
+        media_aspect_ratio: 'square'
+      %}
+    {% endfor %}
+  </div>
+
+  <img
+    class="home-combos-slider-button--next"
+    style="transform: rotate(180deg);"
+    src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+  >
+</div>
+
+<style>
+  .home-combo-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    gap: 10px;
+    overflow: auto;
+  }
+
+  .carousel-item {
+    flex: 0 0 25%;
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Navigation Buttons */
+  .home-combos-slider-button--prev {
+    position: absolute;
+    background: #3f2d4b;
+    width: 40px;
+    z-index: 2;
+    left: -40px;
+    top: 50%;
+    bottom: 50%;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .home-combos-slider-button--next {
+    position: absolute;
+    background: #3f2d4b;
+    width: 40px;
+    z-index: 2;
+    right: -40px;
+    top: 50%;
+    bottom: 50%;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .carousel-track .card-wrapper {
+    min-width: 350px;
+  }
+  .carousel-track .card__inner {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .carousel-track a,
+  .carousel-track span {
+    text-align: center;
+  }
+  .carousel-track a {
+    font-weight: 400;
+    font-family: 'Kanit';
+    font-size: 2.6rem;
+  }
+  .carousel-track span {
+    font-size: 2rem;
+  }
+  .carousel-track .price__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .carousel-track .quick-add form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.home-combos-slider-button--prev');
+    const nextButton = document.querySelector('.home-combos-slider-button--next');
+
+    const scrollAmount = track.clientWidth / 3; // Adjust based on items shown
+
+    prevButton.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextButton.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Home Combo",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Combo Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Combo"
+    }
+  ]
+}
+{% endschema %}
