@@ -35,6 +35,21 @@
     width: 100%;
     height: auto;
   }
+  @media (max-width: 850px) {
+    .home-testimonials-container {
+      overflow-x: auto;
+    }
+    .testimonial-block {
+      min-width: 300px;
+    }
+    .home-testimonials-container::-webkit-scrollbar {
+      display: none;
+    }
+    .home-testimonials-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {

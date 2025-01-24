@@ -35,7 +35,7 @@ slideshow-component .slideshow__controls {
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
-    color: #392d43;
+    color: #382D43;
     margin: 50px auto 30px;
     font-family: 'Kanit', sans-serif;
     letter-spacing: -1px;
@@ -139,10 +139,22 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .deal-of-the-day-container .card-wrapper {
+    min-width: 220px;
     width: 220px;
     background: white;
     height: auto;
     padding: 10px;
+    border-radius: 10px;
+}
+
+.card-wrapper {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 7px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-wrapper img {
     border-radius: 10px;
 }
 
@@ -200,4 +212,306 @@ slideshow-component .slider-counter__link--dots .dot {
 
 .deal-of-the-day-subheading span {
     font-weight: 600;
+}
+
+.slideshow_media_mobile_image {
+    display: none !important;
+    aspect-ratio: 686 / 600 !important;
+    height: auto !important;
+}
+
+.slideshow_media_desktop_image {
+    display: flex !important;
+}
+
+.collection .slider-buttons {
+    display: none !important;
+}
+
+.banner__buttons a,
+.collection__view-all a:not(.link),
+.home-quiz-cta-button,
+.home-discreet-packaging button {
+    transition: all ease-in .2s;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+.banner__buttons a:hover,
+.collection__view-all a:not(.link):hover,
+.home-quiz-cta-button:hover,
+.home-discreet-packaging button:hover {
+    background-color: #382D43 !important;
+    border: none !important;
+    color: #FF9D00 !important;
+}
+
+.footer-block__newsletter {
+    padding: 2rem;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.footer__content-top {
+    padding: 0 !important;
+}
+
+.footer-block__newsletter p {
+    width: 35% !important;
+    font-size: 1.2rem;
+    color: #fff !important;
+    text-align: left !important;
+    line-height: 1.6rem;
+    letter-spacing: 0px;
+
+}
+
+.newsletter-form__field-wrapper .field__input {
+    background: transparent;
+    border: #fff solid 1px;
+    border-radius: 500px;
+    color: #fff;
+}
+
+.newsletter-form__field-wrapper .field__label {
+    color: #fff;
+}
+
+.newsletter-form__button {
+    width: fit-content !important;
+    padding: 0 3rem;
+    background-color: #FF9D00 !important;
+    height: 100% !important;
+    font-weight: 600;
+    color: #382D43;
+    border-radius: 110px;
+    right: -140px !important;
+}
+
+.newsletter-form__field-wrapper .field:after {
+    display: none !important;
+}
+
+.newsletter-form__field-wrapper {
+    max-width: 54rem !important;
+}
+
+.newsletter-form {
+    width: 60% !important;
+    max-width: none !important;
+    margin: 0 -5rem 0 0 !important;
+    padding: 0;
+    scale: .8;
+}
+
+.footer {
+    background: linear-gradient(125deg, #F5DCFF, #FFEDA5) !important;
+}
+
+.footer-menus-content {
+    padding: 4rem;
+}
+
+.footer-newsletter-content {
+    background-color: #382D43;
+    padding: 4rem;
+}
+
+.footer-block__image-wrapper {
+    width: 14rem !important;
+    max-width: none !important;
+    height: auto !important;
+}
+
+.footer-block__image-wrapper img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.footer-menus-content a,
+.footer-menus-content p {
+    font-size: 1.2rem !important;
+    letter-spacing: 0;
+    text-decoration: none;
+    line-height: 1.7rem;
+}
+
+.footer-block {
+    width: fit-content !important;
+}
+
+.footer-block__brand-info {
+    width: 230px !important;
+}
+
+.footer__content-top {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+}
+
+.footer-gototop {
+    display: flex;
+    gap: 10px;
+    padding: 1.5rem 2rem;
+    border-radius: 620px;
+    cursor: pointer;
+    background: #625C69;
+    border: none;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.footer-gototop img {
+    width: 12px;
+    height: auto;
+}
+
+.footer__copyright {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+@media(max-width:850px) {
+    .footer-block__newsletter p {
+        width: 100% !important;
+    }
+
+    .newsletter-form {
+        width: 100% !important;
+        margin: 0 0rem 0 -6rem !important;
+    }
+
+    .deal-of-the-day-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .deal-of-the-day-text-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+        align-items: center;
+    }
+
+    .deal-of-the-day-container {
+        height: 950px;
+    }
+
+    .deal-of-the-day-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .deal-of-the-day-text-container img {
+        width: 100%;
+        margin-top: 20px;
+        scale: 1;
+        margin-left: 0;
+    }
+
+    .deal-of-the-day-products {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        padding: 0 20px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .deal-of-the-day-products::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+@media(max-width:750px) {
+    .price {
+        font-size: 1.4rem !important;
+        letter-spacing: 0rem !important;
+    }
+
+    .announcement-bar-slider,
+    .announcement-bar-slider .slider {
+        width: 100% !important;
+    }
+
+    .slideshow__text {
+        background: transparent !important;
+    }
+
+    .banner__box>*+.banner__buttons {
+        margin-top: 2rem !important;
+    }
+
+    .banner__box>*:first-child {
+        margin-top: 0;
+        font-size: 3.6rem !important;
+        line-height: 3.5rem !important;
+    }
+
+    .slideshow__text-wrapper {
+        background: transparent !important;
+        position: absolute !important;
+        top: 50%;
+        bottom: 50%;
+    }
+
+    .deal-of-the-day-container {
+        height: 1010px;
+    }
+
+    .slideshow_media_desktop_image {
+        display: none !important;
+    }
+
+    .slideshow_media_mobile_image {
+        display: block !important;
+    }
+}
+
+@media(max-width:500px) {
+    .footer__blocks-wrapper .footer-block__brand-info {
+        width: 100% !important;
+    }
+
+    .footer__blocks-wrapper .footer-block:first-of-type {
+        width: 100% !important;
+
+    }
+
+    .footer-block__details-content {
+        margin-bottom: 0rem !important;
+    }
+
+    .footer-block.grid__item {
+        margin: 2rem 0 !important;
+    }
+
+    .footer-block {
+        width: 48% !important;
+
+    }
+
+    .footer__blocks-wrapper {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+
+    .deal-of-the-day-container {
+        height: 930px;
+    }
+
+    .section-heading {
+        font-size: 3rem;
+    }
 }

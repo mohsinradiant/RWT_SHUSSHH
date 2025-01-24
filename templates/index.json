@@ -16,42 +16,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Group_255.jpg",
-            "heading": "Elevate Your Passion, Privately",
-            "heading_size": "h1",
-            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
-            "button_label": "SHOP NOW",
-            "link": "shopify://collections/all",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_7a3QgW": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Group_255.jpg",
-            "heading": "Elevate Your Passion, Privately",
-            "heading_size": "h1",
-            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
-            "button_label": "SHOP NOW",
-            "link": "shopify://collections/all",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_WB7aHK": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Group_255.jpg",
+            "mobile_image": "shopify://shop_images/Group_270.jpg",
             "heading": "Elevate Your Passion, Privately",
             "heading_size": "h1",
             "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
@@ -68,9 +33,7 @@
         }
       },
       "block_order": [
-        "slide_HJCMH7",
-        "slide_7a3QgW",
-        "slide_WB7aHK"
+        "slide_HJCMH7"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -179,6 +142,7 @@
       "type": "home-discreet-packaging",
       "settings": {
         "image": "shopify://shop_images/Group_257_1.jpg",
+        "mobile_image": "shopify://shop_images/Group_274.jpg",
         "button_text": "CHECK PACKAGING"
       }
     },
