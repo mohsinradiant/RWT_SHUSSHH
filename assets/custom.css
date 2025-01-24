@@ -41,6 +41,16 @@ slideshow-component .slideshow__controls {
     letter-spacing: -1px;
 }
 
+.section-subheading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #FF9D00;
+    margin: 50px auto 0px;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: -1px;
+}
+
 slideshow-component .slider-counter__link--active.slider-counter__link--dots .dot {
     background-color: #fff !important;
 }

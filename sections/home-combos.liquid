@@ -1,34 +1,44 @@
-<div class="page-width home-combo-section">
-  <img
-    class="home-combos-slider-button--prev"
-    src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
-  >
-  <div class="carousel-track">
-    {% for product in section.settings.collection.products %}
-      {% render 'card-product',
-        card_product: product,
-        show_secondary_image: true,
-        lazy_load: true,
-        quick_add: 'standard',
-        section_id: section.id,
-        horizontal_quick_add: true,
-        show_rating: false,
-        media_aspect_ratio: 'square'
-      %}
-    {% endfor %}
-  </div>
+<div class="home-combo-section-container">
+  <p class="section-subheading">{{ section.settings.section_subheading }}</p>
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  <div class="page-width home-combo-section">
+    <img
+      class="home-combos-slider-button--prev"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
+    <div class="carousel-track">
+      {% for product in section.settings.collection.products %}
+        {% render 'card-product',
+          card_product: product,
+          show_secondary_image: true,
+          lazy_load: true,
+          quick_add: 'standard',
+          section_id: section.id,
+          horizontal_quick_add: true,
+          show_rating: false,
+          media_aspect_ratio: 'square'
+        %}
+      {% endfor %}
+    </div>
 
-  <img
-    class="home-combos-slider-button--next"
-    style="transform: rotate(180deg);"
-    src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
-  >
+    <img
+      class="home-combos-slider-button--next"
+      style="transform: rotate(180deg);"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
+  </div>
 </div>
 
 <style>
+  .home-combo-section-container {
+    padding: 0 0 50px;
+  }
+  .home-combo-section-container .section-heading {
+    margin-top: 0 !important;
+    line-height: 3.5rem;
+  }
   .home-combo-section {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
+    padding: 0 20px;
     position: relative;
   }
 
@@ -40,7 +50,14 @@
     gap: 10px;
     overflow: auto;
   }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
 
+  .carousel-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   .carousel-item {
     flex: 0 0 25%;
     margin: 0 10px;
@@ -129,6 +146,18 @@
       "type": "collection",
       "id": "collection",
       "label": "Combo Collection"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Section SubHeading",
+      "default": "Money Saver Combos"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "More Pleasure, More Savings"
     }
   ],
   "presets": [

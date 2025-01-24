@@ -1,0 +1,84 @@
+<div class="home-promises-parent-container">
+  <img
+    class="promises-background-image"
+    src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/2151001627.jpg?v=1737700954"
+  >
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  <div class="page-width home-promises-container">
+    <div class="background-images-container">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_29_1.png?v=1737700505">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_30_1.png?v=1737700505">
+    </div>
+    <img
+      class="promises-main-image"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_269.png?v=1737700505"
+    >
+    <img
+      class="promises-main-image"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_268.png?v=1737700505"
+    >
+    <img
+      class="promises-main-image"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_266.png?v=1737700504"
+    >
+    <img
+      class="promises-main-image"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_267.png?v=1737700505"
+    >
+  </div>
+</div>
+<style>
+  .home-promises-parent-container {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    margin-top: 50px;
+  }
+  .home-promises-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .promises-background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  .background-images-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: end;
+  }
+  .background-images-container img {
+    width: 250px;
+    height: auto;
+  }
+  .promises-main-image {
+    width: 150px;
+    height: auto;
+  }
+</style>
+{% schema %}
+{
+  "name": "Home Promises",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Our Promises"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Promises"
+    }
+  ]
+}
+{% endschema %}

@@ -113,8 +113,8 @@
         "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     },
     "home_deal_of_the_day_NJGxyT": {
@@ -194,7 +194,9 @@
     "home_combos_8LUwCe": {
       "type": "home-combos",
       "settings": {
-        "collection": "bachelorette-gifting"
+        "collection": "bachelorette-gifting",
+        "section_subheading": "Money Saver Combos",
+        "section_heading": "More Pleasure, More Savings"
       }
     },
     "home_categories_section_M7r4cE": {
@@ -248,6 +250,54 @@
         "image_2": "shopify://shop_images/file_12.png",
         "heading": "What Are You Looking For?"
       }
+    },
+    "home_testimonials_YW7Q6D": {
+      "type": "home-testimonials",
+      "blocks": {
+        "testimonial_rAjCaA": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_262.png"
+          }
+        },
+        "testimonial_Eq9YkQ": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_264.png"
+          }
+        },
+        "testimonial_A8XmAH": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_265.png"
+          }
+        },
+        "testimonial_3gNtj6": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_262.png"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_rAjCaA",
+        "testimonial_Eq9YkQ",
+        "testimonial_A8XmAH",
+        "testimonial_3gNtj6"
+      ],
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
+      }
+    },
+    "home_promises_itd8DF": {
+      "type": "home-promises",
+      "settings": {
+        "section_heading": "Our Promises"
+      }
     }
   },
   "order": [
@@ -259,6 +309,8 @@
     "home_discreet_packaging_bKNnKt",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
-    "home_categories_section_M7r4cE"
+    "home_categories_section_M7r4cE",
+    "home_testimonials_YW7Q6D",
+    "home_promises_itd8DF"
   ]
 }
