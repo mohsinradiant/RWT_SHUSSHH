@@ -14,45 +14,53 @@
           New Deals Everyday,<br>
           Grab upto <span>50% Off</span>
         </p>
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_282.png?v=1737758542">
       </div>
       <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_255.png?v=1737550749">
     </div>
     <div class="deal-of-the-day-products">
-      {% render 'card-product',
-        card_product: section.settings.product_1,
-        show_secondary_image: true,
-        lazy_load: true,
-        quick_add: 'standard',
-        section_id: section.id,
-        horizontal_class: true,
-        horizontal_quick_add: true,
-        show_rating: true,
-        media_aspect_ratio: 'square'
-      %}
-
-      {% render 'card-product',
-        card_product: section.settings.product_2,
-        show_secondary_image: true,
-        lazy_load: true,
-        quick_add: 'standard',
-        section_id: section.id,
-        horizontal_class: true,
-        horizontal_quick_add: true,
-        show_rating: true,
-        media_aspect_ratio: 'square'
-      %}
-
-      {% render 'card-product',
-        card_product: section.settings.product_3,
-        show_secondary_image: true,
-        lazy_load: true,
-        quick_add: 'standard',
-        section_id: section.id,
-        horizontal_class: true,
-        horizontal_quick_add: true,
-        show_rating: true,
-        media_aspect_ratio: 'square'
-      %}
+      <div class="dotd-product-1">
+        {% render 'card-product',
+          card_product: section.settings.product_1,
+          show_secondary_image: true,
+          lazy_load: true,
+          quick_add: 'standard',
+          section_id: section.id,
+          horizontal_class: false,
+          horizontal_quick_add: false,
+          show_rating: true,
+          media_aspect_ratio: 'square'
+        %}
+        <p class="lowest-price-badege">Lowest Price Ever</p>
+      </div>
+      <div class="dotd-product-2">
+        {% render 'card-product',
+          card_product: section.settings.product_2,
+          show_secondary_image: true,
+          lazy_load: true,
+          quick_add: 'standard',
+          section_id: section.id,
+          horizontal_class: false,
+          horizontal_quick_add: true,
+          show_rating: true,
+          media_aspect_ratio: 'square'
+        %}
+        <p class="lowest-price-badege">Lowest Price Ever</p>
+      </div>
+      <div class="dotd-product-3">
+        {% render 'card-product',
+          card_product: section.settings.product_3,
+          show_secondary_image: true,
+          lazy_load: true,
+          quick_add: 'standard',
+          section_id: section.id,
+          horizontal_class: false,
+          horizontal_quick_add: true,
+          show_rating: true,
+          media_aspect_ratio: 'square'
+        %}
+        <p class="lowest-price-badege">Lowest Price Ever</p>
+      </div>
     </div>
   </div>
 </div>

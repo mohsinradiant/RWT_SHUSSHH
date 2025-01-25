@@ -10,13 +10,17 @@
 
 .kanit {
     font-family: 'Kanit', sans-serif;
-    line-height: 6rem;
-    font-size: 6rem;
+    line-height: 4.6rem;
+    font-size: 4.8rem;
     font-weight: 700;
 }
 
 .slideshow__text p {
-    line-height: 2.4rem;
+    line-height: 1.8rem;
+    font-weight: 200;
+    width: 75%;
+    margin: 0 auto;
+    font-size: 1.3rem;
 }
 
 slideshow-component .slideshow__controls {
@@ -34,7 +38,7 @@ slideshow-component .slideshow__controls {
 .section-heading {
     text-align: center;
     font-size: 4rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #382D43;
     margin: 50px auto 30px;
     font-family: 'Kanit', sans-serif;
@@ -67,41 +71,68 @@ slideshow-component .slider-counter__link--dots .dot {
 .quick-add button {
     background-color: #3F2D4B !important;
     color: #ffffff !important;
+    min-width: fit-content;
+    width: fit-content;
+    padding: 10px 55px;
+    font-size: 1rem;
 }
 
 .card__heading {
-    font-size: 2.8rem !important;
-    color: #3F2D4B;
+    font-size: 2.5rem !important;
+    color: #483B54;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+.card__content a {
+    text-decoration: none !important;
 }
 
 .product-card-subeading {
     color: #B089CC !important;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    letter-spacing: 0px;
+    margin: 0 !important;
 }
 
 .card-information .rating-count {
     font-size: 1.2rem;
     margin-left: 7px;
+    color: #626262
 }
 
 .product-card-description {
     font-size: 1.2rem;
     margin: 0 0 15px !important;
+    color: #626262
+}
 
+.price-item--sale {
+    color: #382D43 !important;
+}
+
+.price--on-sale .price-item--regular {
+    color: #7B7B7B;
+}
+
+.product-card-wrapper .quick-add {
+    margin: 1rem 0 !important;
 }
 
 .card-information .price-item--sale {
-    font-weight: 800;
-}
-
-.quick-add button {
-    min-width: fit-content;
-    width: fit-content;
-    padding: 10px 30px;
+    font-weight: 600;
 }
 
 .collection__title h2 {
     text-align: center;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.collection {
+    background-color: #FAF3FF
 }
 
 .deal-of-the-day-container {
@@ -139,24 +170,38 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .deal-of-the-day-container .card-wrapper {
-    min-width: 220px;
-    width: 220px;
+    min-width: 240px;
+    width: 240px;
     background: white;
-    height: auto;
-    padding: 10px;
+    height: 100%;
     border-radius: 10px;
+}
+
+.dotd-product-1,
+.dotd-product-2,
+.dotd-product-3 {
+    position: relative;
+}
+
+.lowest-price-badege {
+    position: absolute;
+    top: 211px;
+    left: 0;
+    background-color: #FF5757;
+    border-radius: 0 50px 0 0;
+    padding: 5px 20px 5px 15px;
+    font-size: 1rem;
+    margin: 0;
+    color: #fff;
 }
 
 .card-wrapper {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 7px;
     border-radius: 10px;
     overflow: hidden;
+    background-color: #fff
 }
 
-.card-wrapper img {
-    border-radius: 10px;
-}
 
 .deal-of-the-day-container .price-item {
     font-size: 1.6rem !important;
@@ -167,8 +212,14 @@ slideshow-component .slider-counter__link--dots .dot {
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    height: 430px;
+    height: 470px;
     width: 25%;
+}
+
+.deal-of-the-day-text-container .deal-of-the-day-text img {
+    width: 80%;
+    scale: 1;
+    margin: 0;
 }
 
 .deal-of-the-day-text-container img {
@@ -179,10 +230,10 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .deal-of-the-day-heading {
+    display: none;
     color: #fff;
     font-size: 7rem;
     text-wrap: wrap;
-    display: flex;
     text-shadow: 3px 3px #7300C5;
     font-weight: 600;
     margin: 0;
@@ -191,10 +242,10 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .deal-of-the-day-heading-2 {
+    display: none;
     color: #fff;
     font-size: 5rem;
     text-wrap: wrap;
-    display: flex;
     text-shadow: 3px 3px #7300C5;
     margin: 0;
     font-weight: 600;
@@ -203,6 +254,7 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .deal-of-the-day-subheading {
+    display: none;
     color: white;
     font-size: 2rem;
     text-wrap: wrap;
@@ -231,16 +283,23 @@ slideshow-component .slider-counter__link--dots .dot {
 .banner__buttons a,
 .collection__view-all a:not(.link),
 .home-quiz-cta-button,
-.home-discreet-packaging button {
+.home-discreet-packaging button,
+.home-all-combos-cta-button,
+.carousel-track .quick-add__submit {
     transition: all ease-in .2s;
     border: none !important;
+    padding: 10px 55px !important;
     cursor: pointer !important;
+    font-size: 1rem !important;
+    border-radius: 500px !important;
+    text-transform: capitalize;
 }
 
 .banner__buttons a:hover,
 .collection__view-all a:not(.link):hover,
 .home-quiz-cta-button:hover,
-.home-discreet-packaging button:hover {
+.home-discreet-packaging button:hover,
+.home-all-combos-cta-button:hover {
     background-color: #382D43 !important;
     border: none !important;
     color: #FF9D00 !important;
@@ -376,6 +435,86 @@ slideshow-component .slider-counter__link--dots .dot {
     align-items: center;
 }
 
+.header__menu-item span {
+    font-weight: 500;
+}
+
+.header--middle-center a.header__heading-link {
+    padding-bottom: 0 !important;
+}
+
+.header__icon .svg-wrapper,
+.header__icon {
+    width: fit-content !important;
+    height: auto !important;
+}
+
+.header__search {
+    align-items: center;
+}
+
+.header__icon--cart {
+    margin: 0 -12px;
+}
+
+.header__icons img {
+    width: 50px;
+    aspect-ratio: 79 / 38;
+    height: fit-content;
+    margin-bottom: -3px;
+}
+
+.header__icons {
+    align-items: center;
+}
+
+.header-categories-container {
+    background-color: #FBF4FF;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    overflow-x: auto;
+}
+
+.header-categories-container a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-category {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-category img {
+    width: 90px;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+.header-category p {
+    color: #222222;
+    font-size: 1.3rem;
+    margin: 0;
+    letter-spacing: 0;
+}
+
+.images-carousel-home {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 1920 / 600;
+}
+
+sticky-header {
+    box-shadow: 0px -3px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
 @media(max-width:850px) {
     .footer-block__newsletter p {
         width: 100% !important;
@@ -435,6 +574,91 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 @media(max-width:750px) {
+    .deal-of-the-day-text img {
+        display: none;
+    }
+
+    .deal-of-the-day-heading,
+    .deal-of-the-day-heading-2,
+    .deal-of-the-day-subheading {
+        display: flex;
+    }
+
+    .deal-of-the-day-container {
+        height: 930px;
+    }
+
+    .section-heading {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .product-title,
+    .sale-price {
+        font-weight: 400;
+    }
+
+    .section-subheading {
+        line-height: 2rem;
+    }
+
+    .footer-newsletter-content {
+        padding: 1rem;
+    }
+
+    .header__icons {
+        padding-right: 0 !important;
+        margin-right: -20px !important;
+    }
+
+    .deal-of-the-day-heading {
+        font-size: 6rem;
+    }
+
+    .deal-of-the-day-heading-2 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .deal-of-the-day-subheading {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .deal-of-the-day-container .background-image {
+        height: 40%;
+    }
+
+    .deal-of-the-day-container {
+        background-color: #581472;
+    }
+
+    .header__icons img {
+        display: none;
+    }
+
+    .header-categories-container {
+        justify-content: start;
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .deal-of-the-day-container .card-wrapper {
+        min-width: 210px;
+        width: 210px;
+    }
+
+    .quick-add button {
+        padding: 10px 35px;
+        text-wrap: nowrap;
+    }
+
+    .images-carousel-home {
+        aspect-ratio: 686 / 600;
+    }
+
     .price {
         font-size: 1.4rem !important;
         letter-spacing: 0rem !important;
@@ -477,9 +701,23 @@ slideshow-component .slider-counter__link--dots .dot {
     .slideshow_media_mobile_image {
         display: block !important;
     }
+
+    .lowest-price-badege {
+        top: 182px;
+    }
 }
 
-@media(max-width:500px) {
+@media(max-width:600px) {
+
+
+
+    .slider--tablet.grid--peek.grid--2-col-tablet-down .grid__item,
+    .grid--peek .grid__item {
+        width: calc(70% - var(--grid-mobile-horizontal-spacing) - 3rem);
+    }
+
+
+
     .footer__blocks-wrapper .footer-block__brand-info {
         width: 100% !important;
     }
@@ -507,11 +745,5 @@ slideshow-component .slider-counter__link--dots .dot {
         flex-wrap: wrap !important;
     }
 
-    .deal-of-the-day-container {
-        height: 930px;
-    }
 
-    .section-heading {
-        font-size: 3rem;
-    }
 }

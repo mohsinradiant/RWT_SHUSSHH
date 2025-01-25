@@ -30,10 +30,50 @@
             "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_DUHbHa": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Group_255.jpg",
+            "mobile_image": "shopify://shop_images/Group_270.jpg",
+            "heading": "Elevate Your Passion, Privately",
+            "heading_size": "h1",
+            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_F4dbxc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Group_255.jpg",
+            "mobile_image": "shopify://shop_images/Group_270.jpg",
+            "heading": "Elevate Your Passion, Privately",
+            "heading_size": "h1",
+            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
-        "slide_HJCMH7"
+        "slide_HJCMH7",
+        "slide_DUHbHa",
+        "slide_F4dbxc"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -95,6 +135,7 @@
           "type": "video_product",
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_265.png",
             "product": "crave"
           }
         },
@@ -102,6 +143,7 @@
           "type": "video_product",
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_264.png",
             "product": "crave"
           }
         },
@@ -109,6 +151,7 @@
           "type": "video_product",
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_262.png",
             "product": "crave"
           }
         },
@@ -116,13 +159,7 @@
           "type": "video_product",
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
-            "product": "crave"
-          }
-        },
-        "video_product_mFV6QX": {
-          "type": "video_product",
-          "settings": {
-            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_265.png",
             "product": "crave"
           }
         }
@@ -131,8 +168,7 @@
         "video_product_drr6xr",
         "video_product_9Bmmcf",
         "video_product_EHRaap",
-        "video_product_4EaYia",
-        "video_product_mFV6QX"
+        "video_product_4EaYia"
       ],
       "settings": {
         "section_heading": "Discover What’s Making Everyone Go Wild!"
@@ -160,7 +196,8 @@
       "settings": {
         "collection": "bachelorette-gifting",
         "section_subheading": "Money Saver Combos",
-        "section_heading": "More Pleasure, More Savings"
+        "section_heading": "More Pleasure, More Savings",
+        "button_link": "shopify://collections/bachelorette-gifting"
       }
     },
     "home_categories_section_M7r4cE": {

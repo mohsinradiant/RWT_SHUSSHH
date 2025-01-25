@@ -102,10 +102,10 @@
     "drawer_shadow_horizontal_offset": 0,
     "drawer_shadow_vertical_offset": 4,
     "drawer_shadow_blur": 5,
-    "badge_position": "bottom left",
-    "badge_corner_radius": 40,
-    "sale_badge_color_scheme": "scheme-4",
-    "sold_out_badge_color_scheme": "scheme-3",
+    "badge_position": "top right",
+    "badge_corner_radius": 0,
+    "sale_badge_color_scheme": "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb",
+    "sold_out_badge_color_scheme": "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb",
     "brand_headline": "",
     "brand_description": "<p>Shusshh is more than a collection of body massagers; it's a movement that invites you to elevate your lifestyle. Join us in embracing a holistic approach to well-being, where self-care becomes an art, and every Shusshh product is a brushstroke that adds serenity to your life's canvas.</p>",
     "brand_image": "shopify://shop_images/image_6_1.png",
@@ -206,6 +206,17 @@
           "text": "#ffffff",
           "button": "#ffb800",
           "button_label": "#333333",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb": {
+        "settings": {
+          "background": "#ff5757",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#ffffff",
           "secondary_button_label": "#ffffff",
           "shadow": "#121212"
         }

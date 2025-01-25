@@ -1305,7 +1305,7 @@ button.shopify-payment-button__button--unbranded {
 .button-label,
 .shopify-challenge__button,
 .customer button {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
@@ -2509,6 +2509,7 @@ input[type='checkbox'] {
 
 /* Header icons */
 .header__icons {
+  gap: 7px;
   display: flex;
   grid-area: icons;
   justify-self: end;
@@ -2811,10 +2812,10 @@ details[open]>.header__submenu {
   transition: text-decoration var(--duration-short) ease;
 }
 
-.header__menu-item:hover span {
+/* .header__menu-item:hover span {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-}
+} */
 
 details[open]>.header__menu-item {
   text-decoration: underline;
