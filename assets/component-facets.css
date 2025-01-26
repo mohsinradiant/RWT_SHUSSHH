@@ -49,7 +49,7 @@
   display: block;
   color: rgba(var(--color-foreground), 0.85);
   font-size: 1.4rem;
-  margin: 0 2rem 0 0;
+  margin: 0 4px 0 0;
 }
 
 .facet-filters__summary {

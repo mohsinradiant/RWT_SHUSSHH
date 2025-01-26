@@ -479,6 +479,114 @@ slideshow-component .slider-counter__link--dots .dot {
     overflow-x: auto;
 }
 
+.collection-categories-container {
+    background-color: #FBF4FF;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.collection-categories-container::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #f0f0f0;
+    z-index: -1;
+}
+
+.collection-categories-container a {
+    text-decoration: none;
+    cursor: default;
+}
+
+.collection-categories-container .page-width {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+    text-decoration: none;
+}
+
+.collection-circle-category.active {
+    position: relative;
+}
+
+.collection-circle-category.active img.arrow {
+    position: absolute;
+    bottom: -39px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 43px;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    aspect-ratio: 47 / 22;
+}
+
+.collection-circle-category.active .image-container {
+    position: relative;
+    z-index: 1;
+}
+
+.collection-circle-category.active img {
+    background: #fff;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.collection-circle-category.active .image-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: linear-gradient(90deg, rgba(255, 201, 62, 1), rgba(176, 65, 255, 1) 100%);
+    z-index: -1;
+    border-radius: 5000px;
+    aspect-ratio: 1 / 1;
+}
+
+.collection-circle-category.active p {
+    font-weight: 600;
+}
+
+.collection-circle-category {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.collection-categories-container .collection-circle-category:not(.active) {
+    cursor: pointer;
+}
+
+.collection-categories-container .collection-circle-category:not(.active):hover {
+    opacity: .7;
+}
+
+.collection-circle-category img {
+    width: 75px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.collection-circle-category p {
+    color: #222222;
+    font-size: 1.3rem;
+    margin: 0;
+    letter-spacing: 0;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
 .header-categories-container a {
     cursor: pointer;
     text-decoration: none;
@@ -493,9 +601,9 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .header-category img {
-    width: 90px;
+    width: 75px;
     height: auto;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
 }
 
 .header-category p {
@@ -513,6 +621,59 @@ slideshow-component .slider-counter__link--dots .dot {
 
 sticky-header {
     box-shadow: 0px -3px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.facets-wrapper--no-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collection_active_category_name,
+.collection-hero__title {
+    margin: 0;
+    font-size: 3.5rem;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    width: 100%;
+}
+
+.collection_page_products-grid {
+    margin-top: 15px;
+}
+
+.facet-filters__field {
+    background-color: #F8F8F8;
+    box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 520px;
+}
+
+.facet-filters__field select,
+.facet-filters__field option,
+.facet-filters__field h2 {
+    font-size: 1.3rem;
+    color: #000;
+}
+
+.facet-filters__field option {
+    width: auto;
+}
+
+.facet-filters__field select {
+    width: 92px;
+}
+
+.product-grid-container .collection {
+    background-color: transparent;
+}
+
+.collection_page_products-grid .facets-wrapper--no-filters #FacetFiltersForm {
+    gap: 0;
+}
+
+.collection_page_products-grid .facets-container {
+    width: 100%;
 }
 
 @media(max-width:850px) {
@@ -640,6 +801,12 @@ sticky-header {
     }
 
     .header-categories-container {
+        justify-content: start;
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .collection-categories-container .page-width {
         justify-content: start;
         padding: 20px 10px;
         gap: 20px;

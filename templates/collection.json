@@ -1,36 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
+        "show_collection_description": false,
+        "show_collection_image": true,
         "color_scheme": "scheme-1"
       }
     },
+    "collection_banner_QG38Ee": {
+      "type": "collection-banner",
+      "settings": {}
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "blocks": {
+        "product_category_8bbeWH": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/1_dd5df897-4463-455d-9505-b29ffb9e1ee7.png",
+            "text": "Massagers",
+            "url": "shopify://collections/best-sellers"
+          }
+        },
+        "product_category_EWxNgJ": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/2_11a22d71-e1c9-4501-bee2-79565ea27f46.png",
+            "text": "Vibrators",
+            "url": "shopify://collections/collection"
+          }
+        },
+        "product_category_LLbff7": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/3_71ebc1f2-2abf-4517-8a66-2dda8db0e392.png",
+            "text": "Bundles",
+            "url": "shopify://collections/free-lube"
+          }
+        },
+        "product_category_zdtXfW": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/4_39f990cb-99be-4fc7-97c7-3e90e1fb27a4.png",
+            "text": "Lubes & Oils",
+            "url": "shopify://collections/frontpage"
+          }
+        },
+        "product_category_twKGnB": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/5_4deab1c7-0e0f-4235-914b-765770139836.png",
+            "text": "Deals",
+            "url": "shopify://collections/bachelorette-gifting"
+          }
+        },
+        "product_category_7EUBfz": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/6_470f0c3f-5b16-44e2-a051-89eb7b7b8e58.png",
+            "text": "Gifting",
+            "url": "shopify://collections/free-lube"
+          }
+        }
+      },
+      "block_order": [
+        "product_category_8bbeWH",
+        "product_category_EWxNgJ",
+        "product_category_LLbff7",
+        "product_category_zdtXfW",
+        "product_category_twKGnB",
+        "product_category_7EUBfz"
+      ],
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "enable_filtering": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "enable_filtering": false,
         "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "home_promises_nCggac": {
+      "type": "home-promises",
+      "settings": {
+        "section_heading": "Our Promises"
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "collection_banner_QG38Ee",
+    "product-grid",
+    "home_promises_nCggac"
   ]
 }

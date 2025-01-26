@@ -299,9 +299,19 @@
       "settings": {
         "section_heading": "Our Promises"
       }
+    },
+    "home_circle_collections_gjnENC": {
+      "type": "home-circle-collections",
+      "settings": {
+        "collection": "",
+        "section_subheading": "Money Saver Combos",
+        "section_heading": "More Pleasure, More Savings",
+        "button_link": ""
+      }
     }
   },
   "order": [
+    "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
     "content_slider_strip_qpKFNJ",
     "featured_collection",
