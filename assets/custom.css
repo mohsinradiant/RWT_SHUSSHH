@@ -292,7 +292,7 @@ slideshow-component .slider-counter__link--dots .dot {
     cursor: pointer !important;
     font-size: 1rem !important;
     border-radius: 500px !important;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .banner__buttons a:hover,
