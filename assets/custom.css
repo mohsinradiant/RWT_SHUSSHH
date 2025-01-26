@@ -285,7 +285,8 @@ slideshow-component .slider-counter__link--dots .dot {
 .home-quiz-cta-button,
 .home-discreet-packaging button,
 .home-all-combos-cta-button,
-.carousel-track .quick-add__submit {
+.carousel-track .quick-add__submit,
+.newsletter-form__button {
     transition: all ease-in .2s;
     border: none !important;
     padding: 10px 55px !important;
@@ -318,23 +319,30 @@ slideshow-component .slider-counter__link--dots .dot {
 
 .footer-block__newsletter p {
     width: 35% !important;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #fff !important;
     text-align: left !important;
-    line-height: 1.6rem;
-    letter-spacing: 0px;
-
+    line-height: 2.1rem;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
 }
 
 .newsletter-form__field-wrapper .field__input {
     background: transparent;
-    border: #fff solid 1px;
+    border: #ffffff70 solid 1px;
     border-radius: 500px;
     color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .newsletter-form__field-wrapper .field__label {
-    color: #fff;
+    top: 30% !important;
+}
+
+.newsletter-form__field-wrapper .field__label {
+    color: #ffffff70;
+    font-weight: 300;
 }
 
 .newsletter-form__button {
@@ -345,7 +353,7 @@ slideshow-component .slider-counter__link--dots .dot {
     font-weight: 600;
     color: #382D43;
     border-radius: 110px;
-    right: -140px !important;
+    right: -180px !important;
 }
 
 .newsletter-form__field-wrapper .field:after {
@@ -353,7 +361,7 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .newsletter-form__field-wrapper {
-    max-width: 54rem !important;
+    max-width: 65% !important;
 }
 
 .newsletter-form {
@@ -645,7 +653,7 @@ sticky-header {
 .facet-filters__field {
     background-color: #F8F8F8;
     box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
+    padding: 1.1rem 1.5rem;
     border-radius: 520px;
 }
 
@@ -735,6 +743,15 @@ sticky-header {
 }
 
 @media(max-width:750px) {
+    .collection_page_products-grid .facet-filters {
+        padding-left: 1rem;
+    }
+
+    .collection_page_products-grid .mobile-facets__wrapper,
+    .collection_page_products-grid .product-count {
+        display: none !important;
+    }
+
     .deal-of-the-day-text img {
         display: none;
     }
@@ -810,7 +827,19 @@ sticky-header {
         justify-content: start;
         padding: 20px 10px;
         gap: 20px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
+
+    .collection-categories-container .page-width::-webkit-scrollbar {
+        display: none;
+    }
+
+    .collection-circle-category.active img.arrow {
+        display: none;
+    }
+
 
     .deal-of-the-day-container .card-wrapper {
         min-width: 210px;
@@ -875,6 +904,15 @@ sticky-header {
 }
 
 @media(max-width:600px) {
+    .newsletter-form__field-wrapper {
+        max-width: 60vw !important;
+    }
+
+    .newsletter-form {
+        width: fit-content !important;
+        margin-left: -37px !important;
+    }
+
     .deal-of-the-day-container {
         height: 870px;
     }
