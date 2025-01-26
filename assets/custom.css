@@ -708,7 +708,9 @@ sticky-header {
 }
 
 @media(max-width:600px) {
-
+    .deal-of-the-day-container {
+        height: 870px;
+    }
 
 
     .slider--tablet.grid--peek.grid--2-col-tablet-down .grid__item,
