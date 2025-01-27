@@ -1,0 +1,428 @@
+<product-info
+  id="MainProduct-{{ section.id }}"
+  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  data-section="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-update-url="true"
+  data-url="{{ product.url }}"
+  {% if section.settings.image_zoom == 'hover' %}
+    data-zoom-on-hover
+  {% endif %}
+>
+  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- if product.quantity_price_breaks_configured? -%}
+    <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- if request.design_mode -%}
+    <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- assign product_form_id = 'product-form-' | append: section.id -%}
+  <div class="product-info-fold-container">
+    <div class="page-width">
+      <div class="product-info-fold-left-container">
+        <h1>{{ product.title | escape }}</h1>
+        <p class="product-info-fold-left-subheadng">{{ product.metafields.content.subheading }}</p>
+        <p class="product-info-fold-left-description">{{ product.metafields.content.info_fold_description }}</p>
+        <div class="product-info-fold-price-and-rating-container">
+          <div class="product-info-fold-price-container">
+            <div id="price-{{ section.id }}" role="status">
+              {%- render 'price',
+                product: product,
+                use_variant: true,
+                show_badges: false,
+                price_class: 'price--large'
+              -%}
+            </div>
+            {% comment %}
+              {%- if product.quantity_price_breaks_configured? -%}
+                <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                  <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                </div>
+              {%- endif -%}
+                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                  <div class="product__tax caption rte">
+                    {%- if cart.duties_included and cart.taxes_included -%}
+                      {{ 'products.product.duties_and_taxes_included' | t }}
+                    {%- elsif cart.taxes_included -%}
+                      {{ 'products.product.taxes_included' | t }}
+                    {%- elsif cart.duties_included -%}
+                      {{ 'products.product.duties_included' | t }}
+                    {%- endif -%}
+                    {%- if shop.shipping_policy.body != blank -%}
+                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+            {% endcomment %}
+            <div>
+              {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+              {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                {{ form | payment_terms }}
+              {%- endform -%}
+            </div>
+          </div>
+          {%- if product.metafields.reviews.rating.value != blank -%}
+            <div class="rating-wrapper">
+              {% liquid
+                assign rating_decimal = 0
+                assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+                if decimal >= 0.3 and decimal <= 0.7
+                  assign rating_decimal = 0.5
+                elsif decimal > 0.7
+                  assign rating_decimal = 1
+                endif
+              %}
+              <div
+                class="rating"
+                role="img"
+                aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
+              >
+                <span
+                  aria-hidden="true"
+                  class="rating-star"
+                  style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+                ></span>
+              </div>
+              <p class="rating-text caption">
+                <span aria-hidden="true">
+                  {{- product.metafields.reviews.rating.value }} /
+                  {{ product.metafields.reviews.rating.value.scale_max -}}
+                </span>
+              </p>
+              <p class="rating-count caption">
+                <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
+                <span class="visually-hidden">
+                  {{- product.metafields.reviews.rating_count }}
+                  {{ 'accessibility.total_reviews' | t -}}
+                </span>
+              </p>
+            </div>
+          {%- endif -%}
+        </div>
+        {%- render 'buy-buttons',
+          product: product,
+          product_form_id: product_form_id,
+          section_id: section.id,
+          show_pickup_availability: true
+        -%}
+        <div class="product-info-fold-claims-container">
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-discreet-shipping.png?v=1737969814">
+            <p>Free discreet shipping</p>
+          </div>
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-warranty.png?v=1737969814">
+            <p>100 Days Warranty</p>
+          </div>
+        </div>
+      </div>
+      {% if product.metafields.content.product_png %}
+        <div class="product-info-fold-middle-container">
+          <img src="{{ product.metafields.content.product_png | image_url }}" alt="{{ product.title }}">
+          {% if product.metafields.content.product_png_hotspots.value %}
+            {% for hotspot in product.metafields.content.product_png_hotspots.value %}
+              <div
+                class="hotspot"
+                style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+              >
+                <span class="hotspot-toggle">+</span>
+                <div class="hotspot-detail">{{ hotspot.text }}</div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="product-info-fold-right-container">
+        <div class="product-info-fold-right-parent">
+          {% for block in section.blocks %}
+            <div class="product-info-fold-right-usp-div">
+              <img src="{{block.settings.image |  image_url }}">
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</product-info>
+<style>
+  .product-info-fold-container {
+    display: flex;
+    width: 100%;
+    background-color: #faf3ff;
+    padding: 80px 0;
+    overflow: hidden;
+  }
+  .product-info-fold-left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 33%;
+  }
+  .product-info-fold-middle-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    position: relative;
+  }
+  .product-info-fold-right-container {
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    align-items: center;
+    width: 27%;
+  }
+  .product-info-fold-container .page-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-info-fold-left-container h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    font-size: 4.5rem;
+  }
+  .product-info-fold-left-subheadng {
+    margin: 0;
+    color: #b089cc;
+    font-weight: 500;
+    font-size: 1.7rem;
+    letter-spacing: 0;
+  }
+  .product-info-fold-left-description {
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    margin: 25px 0 0 0;
+  }
+  .product-info-fold-price-and-rating-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0 0 0;
+    gap: 10px;
+  }
+  .product-info-fold-price-container .price-item--last {
+    font-size: 1.7rem !important;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .product-info-fold-price-container .price-item--regular,
+  .product-info-fold-price-and-rating-container .rating-count span {
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .product-info-fold-price-and-rating-container .rating-star::before {
+    background-color: #ffb800 !important;
+    font-size: 2rem;
+  }
+  .product-info-fold-left-container .product-form__submit {
+    color: #fff;
+    background: #3f2d4b;
+    text-transform: uppercase;
+    padding: 25px 65px;
+    font-size: 1.3rem;
+    margin: 15px 0 20px;
+    font-weight: 600;
+  }
+  .product-info-fold-claims-container {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    gap: 10px;
+  }
+  .product-info-fold-claims-container div {
+    width: fit-content;
+    display: flex;
+    gap: 6px;
+  }
+  .product-info-fold-claims-container div img {
+    width: 24px;
+    height: fit-content;
+  }
+  .product-info-fold-claims-container div p {
+    margin: 0;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #000;
+  }
+  .product-info-fold-middle-container img {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+  .product-info-fold-right-parent {
+    background: #fff;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 20px;
+    box-shadow: 0 14px 18px rgba(0, 0, 0, 0.04);
+  }
+  .product-info-fold-right-usp-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: auto;
+  }
+  .product-info-fold-right-usp-div img {
+    width: 50%;
+    height: auto;
+  }
+  .product-info-fold-right-usp-div p {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333333;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+  }
+  .hotspot {
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hotspot-toggle {
+    width: 37px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    color: #3f2d4b;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+    font-size: 2.5rem;
+    line-height: 0;
+  }
+  .hotspot-detail {
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    background-color: #fff;
+    color: #333333;
+    padding: 10px 20px 10px 52px;
+    opacity: 0;
+    border-radius: 5000px;
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+  .hotspot.active .hotspot-detail {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .hotspot.active .hotspot-toggle {
+    box-shadow: none;
+    background-color: #f9f0ff;
+  }
+  @media (max-width: 850px) {
+    .product-info-fold-container .page-width {
+      display: flex;
+      flex-direction: column;
+    }
+    .product-info-fold-left-container {
+      order: 2;
+      width: 100%;
+    }
+    .product-info-fold-middle-container {
+      order: 1;
+    }
+    .product-info-fold-right-container {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+    }
+    .product-info-fold-right-parent {
+      flex-direction: row;
+      margin-top: 30px;
+      width: 100%;
+      padding: 30px;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+<script>
+  document.querySelectorAll('.hotspot').forEach((hotspot) => {
+    const toggle = hotspot.querySelector('.hotspot-toggle'); // Select the toggle button
+    const detail = hotspot.querySelector('.hotspot-detail'); // Select the detail div
+
+    toggle.addEventListener('click', () => {
+      if (hotspot.classList.contains('active')) {
+        toggle.textContent = '+'; // Change the toggle text to '+'
+        hotspot.classList.remove('active');
+        detail.style.opacity = '0'; // Fade out
+        detail.style.pointerEvents = 'none';
+      } else {
+        toggle.textContent = '-'; // Change the toggle text to '-'
+        hotspot.classList.add('active');
+        detail.style.opacity = '1'; // Fade in
+        detail.style.pointerEvents = 'auto';
+      }
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Product Info Fold",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Info Fold"
+    }
+  ]
+}
+{% endschema %}
