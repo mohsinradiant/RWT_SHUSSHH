@@ -1,0 +1,158 @@
+<div class="page-width product-content-fold-container">
+  <img src="{{section.settings.image |  image_url}}">
+  <div class="product-content-fold-right">
+    {% if product.metafields.content.content_fold_text %}
+      <div class="product-content-fold">
+        {% for metaobject in product.metafields.content.content_fold_text.value %}
+          {% if metaobject.title and metaobject.description %}
+            <div class="product-content-fold-item">
+              <button class="product-content-fold-question" aria-expanded="false">
+                <span>{{ metaobject.title }}</span>
+                <span class="product-content-fold-toggle-icon">+</span>
+              </button>
+              <div class="product-content-fold-answer">
+                <p>{{ metaobject.description | metafield_tag }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .product-content-fold-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    height: fit-content;
+  }
+  .product-content-fold-container img {
+    width: 60%;
+    height: auto;
+    aspect-ratio: 1065/662;
+    border-radius: 15px;
+  }
+  .product-content-fold-question span {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .product-content-fold-right {
+    width: 38%;
+    padding: 20px;
+    background: #faf3ff;
+    border-radius: 15px;
+  }
+  .product-content-fold-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+  }
+  .product-content-fold-item:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .product-content-fold-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+  }
+  .product-content-fold-toggle-icon {
+    padding: 4px;
+    border: solid 2px #333333;
+    border-radius: 50%;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    line-height: 12px;
+    font-size: 4rem !important;
+    font-weight: 300 !important;
+    scale: 0.7;
+  }
+  .product-content-fold-answer {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease, padding 0.3s ease;
+  }
+  .product-content-fold-answer p {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    font-family: 'Kanit';
+    line-height: 1.5rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const faqItems = document.querySelectorAll('.product-content-fold-item');
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector('.product-content-fold-question');
+      const answer = item.querySelector('.product-content-fold-answer');
+      const icon = item.querySelector('.product-content-fold-toggle-icon');
+
+      question.addEventListener('click', function () {
+        // Close all other answers before opening the current one
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            const otherAnswer = otherItem.querySelector('.product-content-fold-answer');
+            const otherIcon = otherItem.querySelector('.product-content-fold-toggle-icon');
+            otherAnswer.style.height = '0';
+            otherAnswer.style.padding = '0';
+            otherIcon.textContent = '+';
+          }
+        });
+
+        // Check if the current item is already expanded
+        const isExpanded = answer.style.height !== '0px';
+
+        // Toggle the current answer
+        if (isExpanded) {
+          answer.style.height = '0';
+          answer.style.padding = '0';
+          icon.textContent = '+';
+        } else {
+          // Set the height to fit-content + 20px
+          answer.style.height = `${answer.scrollHeight + 20}px`;
+          answer.style.padding = '10px 0';
+          icon.textContent = '-';
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Content Fold",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Product Content Fold"
+    }
+  ]
+}
+{% endschema %}

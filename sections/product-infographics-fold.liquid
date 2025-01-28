@@ -1,0 +1,171 @@
+<div class="page-width infinite-carousel">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      {% for image in product.images %}
+        <div class="carousel-item">
+          <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt }}">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="carousel-dots">
+    {% for image in product.images %}
+      <button class="dot" data-index="{{ forloop.index0 }}"></button>
+    {% endfor %}
+  </div>
+  <button class="carousel-arrow left">
+    <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+  </button>
+  <button class="carousel-arrow right" style="transform: rotate(180deg);">
+    <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+  </button>
+</div>
+
+<style>
+  .infinite-carousel {
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  #shopify-section-template--23829512061238__product_infographics_fold_7ecJwW {
+    background-color: #faf3ff;
+  }
+
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-item {
+    flex: 0 0 33.33%;
+    margin-right: 10px;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-item {
+      flex: 0 0 calc(66.66% - 10px);
+    }
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .dot {
+    width: 6px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .dot.active {
+    transform: scale(1.3);
+    background-color: black;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: auto;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: transparent;
+  }
+  .carousel-arrow img {
+    width: 100%;
+    height: 100%;
+  }
+  .carousel-arrow:hover {
+    scale: 1.2;
+  }
+
+  .carousel-arrow.left {
+    left: 10px;
+  }
+
+  .carousel-arrow.right {
+    right: 10px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
+
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      const itemWidth = items[0].getBoundingClientRect().width + 10; // Include margin
+      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    const moveToNext = () => {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateCarousel();
+    };
+
+    const moveToPrevious = () => {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateCarousel();
+    };
+
+    rightArrow.addEventListener('click', moveToNext);
+    leftArrow.addEventListener('click', moveToPrevious);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Auto-scroll
+    setInterval(moveToNext, 5000);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Infographics Fold",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Infographics Fold"
+    }
+  ]
+}
+{% endschema %}

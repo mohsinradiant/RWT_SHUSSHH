@@ -127,10 +127,12 @@
           {% if product.metafields.content.product_png_hotspots.value %}
             {% for hotspot in product.metafields.content.product_png_hotspots.value %}
               <div
-                class="hotspot"
+                class="hotspot {% if forloop.first %}active{% endif %}"
                 style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
               >
-                <span class="hotspot-toggle">+</span>
+                <span class="hotspot-toggle">
+                  {%- if forloop.first %}- {% else %}+{% endif -%}
+                </span>
                 <div class="hotspot-detail">{{ hotspot.text }}</div>
               </div>
             {% endfor %}
@@ -151,6 +153,10 @@
   </div>
 </product-info>
 <style>
+  .content-slider-strip p {
+    font-size: 1.1rem !important;
+    text-transform: uppercase;
+  }
   .product-info-fold-container {
     display: flex;
     width: 100%;
@@ -261,10 +267,22 @@
     font-size: 1.3rem;
     color: #000;
   }
+  @keyframes floatUpDown {
+    0% {
+      transform: translateY(0);
+    }
+    33% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
   .product-info-fold-middle-container img {
     height: 100%;
     width: auto;
     display: block;
+    animation: floatUpDown 3s ease-in-out infinite;
   }
   .product-info-fold-right-parent {
     background: #fff;
