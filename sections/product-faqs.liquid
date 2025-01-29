@@ -4,7 +4,8 @@
 <div class="collapsible-content-wrapper-narrow">
   <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="grid__item">
-    {%- for faq in product.metafields.content.frequently_asked_questions.value -%}
+    {%- assign faq_list = product.metafields.content.frequently_asked_questions.value -%}
+    {%- for faq in faq_list -%}
       <div
         class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
       >
@@ -27,7 +28,7 @@
       </div>
     {%- endfor -%}
   </div>
-  {%- if product.metafields.content.frequently_asked_questions.value.size > 3 -%}
+  {%- if faq_list.size > 3 -%}
     <button id="toggle-faq" class="see-more-btn">See More</button>
   {%- endif -%}
 </div>
@@ -45,6 +46,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
   }
   .collapsible-content-wrapper-narrow .grid__item {
     width: 100% !important;
