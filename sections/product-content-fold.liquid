@@ -25,7 +25,10 @@
         <span class="product-content-fold-toggle-icon">+</span>
       </button>
       <div class="product-content-fold-answer">
-        <p>{{ metaobject.description | metafield_tag }}</p>
+        {% comment %} <p>{{ metaobject.description | metafield_tag }}</p> {% endcomment %}
+        {% for images in product.metafields.content.whats_in_the_box.value %}
+          <img src="{{images |  image_url}}">
+        {% endfor %}
       </div>
     </div>
   </div>
