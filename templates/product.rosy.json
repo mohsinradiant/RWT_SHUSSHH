@@ -208,8 +208,8 @@
         "padding_bottom": 28
       }
     },
-    "shoppable_videos_WYJQLW": {
-      "type": "shoppable-videos",
+    "product_shoppable_videos_7XLkhn": {
+      "type": "product-shoppable-videos",
       "settings": {
         "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
@@ -223,9 +223,9 @@
     "product_infographics_fold_7ecJwW",
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
+    "product_shoppable_videos_7XLkhn",
     "home_promises_ACUrRd",
     "main",
-    "related-products",
-    "shoppable_videos_WYJQLW"
+    "related-products"
   ]
 }
