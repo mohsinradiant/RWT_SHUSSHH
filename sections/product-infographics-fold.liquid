@@ -1,4 +1,5 @@
 <div class="page-width infinite-carousel">
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="carousel-container">
     <div class="carousel-track">
       {% assign collection = product.metafields.content.combos_collection.value %}
@@ -168,7 +169,14 @@
 {% schema %}
 {
   "name": "Product Combos Fold",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Discover What’s Making Everyone Go Wild!"
+    }
+  ],
   "presets": [
     {
       "name": "Product Combos Fold"
