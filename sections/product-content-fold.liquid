@@ -18,6 +18,16 @@
         {% endfor %}
       </div>
     {% endif %}
+
+    <div class="product-content-fold-item">
+      <button class="product-content-fold-question" aria-expanded="false">
+        <span>What's in the box</span>
+        <span class="product-content-fold-toggle-icon">+</span>
+      </button>
+      <div class="product-content-fold-answer">
+        <p>{{ metaobject.description | metafield_tag }}</p>
+      </div>
+    </div>
   </div>
 </div>
 
