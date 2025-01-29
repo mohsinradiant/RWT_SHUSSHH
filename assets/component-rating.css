@@ -32,15 +32,12 @@
   content: '★★★★★';
   background: linear-gradient(90deg,
       #FFB800 var(--percent),
-      rgba(0, 0, 0, 0.15) var(--percent)
-    );
+      rgba(0, 0, 0, 0.15) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.05em;
   font-family: 'Arial', sans-serif;
 }
-
-
 
 .rating-text {
   display: none;
