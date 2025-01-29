@@ -24,7 +24,7 @@
         <span>What's in the box</span>
         <span class="product-content-fold-toggle-icon">+</span>
       </button>
-      <div class="product-content-fold-answer">
+      <div class="product-content-fold-answer product-content-fold-answer-image-container-parent">
         {% for image in product.metafields.content.whats_in_the_box.value %}
           <div class="product-content-fold-answer-image-container">
             <img src="{{ image | image_url }}">
@@ -127,6 +127,12 @@
     height: 100%;
     width: fit-content;
     border-radius: 0;
+  }
+  .product-content-fold-answer-image-container-parent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 </style>
 
