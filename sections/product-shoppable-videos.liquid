@@ -10,8 +10,10 @@
           <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_334.png?v=1738186521" alt="Pause">
         </div>
 
+        <!-- Placeholder Image -->
         <img src="{{ testimonial.placeholder | img_url: 'medium' }}" class="product-shoppable-video-image">
 
+        <!-- Video Container (Initially Hidden) -->
         <div class="product-shoppable-product-shoppable-video-container" style="display: none;">
           {{ testimonial.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: false }}
         </div>
@@ -187,11 +189,11 @@
 
       // When image is clicked, show video & play
       image.addEventListener('click', () => {
-        image.style.display = 'none';
-        videoContainer.style.display = 'flex';
+        image.style.display = 'none'; // Hide placeholder
+        videoContainer.style.display = 'flex'; // Show video
         video.play();
-        playIcon.classList.remove('visible');
-        showTemporaryIcon(pauseIcon);
+        playIcon.classList.remove('visible'); // Hide play icon
+        showTemporaryIcon(pauseIcon); // Show pause icon briefly
       });
 
       // Toggle play/pause on video click
@@ -202,12 +204,17 @@
           showTemporaryIcon(pauseIcon);
         } else {
           video.pause();
+          videoContainer.style.display = 'none'; // Hide video
+          image.style.display = 'flex'; // Show placeholder
+          playIcon.classList.add('visible'); // Show play icon
         }
       });
 
       // Show play icon when video is paused
       video.addEventListener('pause', () => {
-        playIcon.classList.add('visible');
+        videoContainer.style.display = 'none'; // Hide video
+        image.style.display = 'flex'; // Show placeholder
+        playIcon.classList.add('visible'); // Always show play icon
       });
 
       // Hide play icon & briefly show pause icon when playing
