@@ -1,23 +1,17 @@
 <div class="page-width infinite-carousel">
   <div class="carousel-container">
     <div class="carousel-track">
-      {% assign collection_handle = product.metafields.content.combos_collection %}
-      {{ collection_handle | json }}
-      {% if collection_handle %}
-        {% assign collection = collections[collection_handle.value] %}
-        {% if collection and collection.products.size > 0 %}
-          {% for product in collection.products %}
-            <div class="carousel-item">
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
-              </a>
-            </div>
-          {% endfor %}
-        {% else %}
-          <p>No products found in the specified collection.</p>
-        {% endif %}
+      {% assign collection = product.metafields.content.combos_collection.value %}
+      {% if collection and collection.products.size > 0 %}
+        {% for product in collection.products %}
+          <div class="carousel-item">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+            </a>
+          </div>
+        {% endfor %}
       {% else %}
-        <p>No collection specified in the metafield.</p>
+        <p>No products found in the specified collection.</p>
       {% endif %}
     </div>
   </div>
