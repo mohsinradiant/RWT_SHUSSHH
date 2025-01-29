@@ -1,12 +1,12 @@
 <div class="page-width product-content-fold-container">
   <div class="product-content-fold-container-parent">
-    <div class="play-pause-icon" id="play-icon">
+    <div class="play-pause-icon visible" id="play-icon">
       <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
     </div>
     <div class="play-pause-icon" id="pause-icon">
       <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
     </div>
-    <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}">
+    <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
     <div style="display: none;" class="product-content-fold_video">
       {{
         product.metafields.content.product_video.value.video.value
@@ -53,7 +53,7 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const image = document.querySelector('.product-content-fold-container img');
+    const image = document.querySelector('.video-placeholder');
     const videoContainer = document.querySelector('.product-content-fold_video');
     const video = videoContainer ? videoContainer.querySelector('video') : null;
 
@@ -68,23 +68,29 @@
     }
 
     if (image && videoContainer && video) {
+      // Initially hide the video container and display the play icon
       videoContainer.style.display = 'none';
+      playIcon.classList.add('visible');
 
+      // When the image is clicked
       image.addEventListener('click', () => {
-        image.style.display = 'none';
-        videoContainer.style.display = 'block';
-        showIcon(pauseIcon); // Show pause icon
-        video.play();
+        image.style.display = 'none'; // Hide the image
+        videoContainer.style.display = 'block'; // Show the video
+        video.play(); // Play the video
+        playIcon.classList.remove('visible'); // Hide the play icon
+        showIcon(pauseIcon); // Temporarily show the pause icon
       });
 
+      // When the video is paused
       video.addEventListener('pause', () => {
-        videoContainer.style.display = 'none';
-        image.style.display = 'block';
-        showIcon(playIcon); // Show play icon
+        videoContainer.style.display = 'none'; // Hide the video
+        image.style.display = 'block'; // Show the image
+        showIcon(playIcon); // Temporarily show the play icon
       });
 
+      // When the video is played again (optional: on play event)
       video.addEventListener('play', () => {
-        showIcon(pauseIcon); // Show pause icon on video play
+        showIcon(pauseIcon); // Temporarily show the pause icon
       });
     } else {
       console.error('Required elements for video interaction are missing.');
@@ -103,13 +109,13 @@
     transition: opacity 0.5s ease-in-out;
   }
 
+  .play-pause-icon.visible {
+    opacity: 1;
+  }
+
   .play-pause-icon img {
     width: 50px; /* Adjust size as needed */
     height: 50px;
-  }
-
-  .play-pause-icon.visible {
-    opacity: 1;
   }
 
   .product-content-fold-container-parent {
