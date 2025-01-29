@@ -213,6 +213,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_faqs_tLQNqz": {
+      "type": "product-faqs",
+      "settings": {}
     }
   },
   "order": [
@@ -224,6 +228,7 @@
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
     "product_shoppable_videos_7XLkhn",
+    "product_faqs_tLQNqz",
     "home_promises_ACUrRd",
     "main",
     "related-products"
