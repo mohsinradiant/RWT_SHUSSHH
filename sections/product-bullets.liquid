@@ -1,6 +1,6 @@
 <div class="product-bullets-container">
   <div class="page-width">
-    {% for bullet in product.metafields.content.product_bullet.value %}
+    {% for bullet in product.metafields.content.product_bullets.value %}
       <div class="product-bullet">
         <img src="{{bullet.image |  image_url }}">
         <p>{{ bullet.text }}</p>
