@@ -144,22 +144,38 @@
     const rightArrow = document.querySelector('.carousel-arrow.right');
 
     let currentIndex = 0;
+    const visibleItems = 3; // Number of items visible in the viewport
+    const totalItems = items.length;
 
     const updateCarousel = () => {
       const itemWidth = items[0].getBoundingClientRect().width + 10; // Include margin
       track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+      // Update active dot
       dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
       });
     };
 
     const moveToNext = () => {
-      currentIndex = (currentIndex + 1) % items.length;
+      // Stop when the last item becomes fully visible
+      if (currentIndex < totalItems - visibleItems) {
+        currentIndex++;
+      } else {
+        // Reset to the start when reaching the end
+        currentIndex = 0;
+      }
       updateCarousel();
     };
 
     const moveToPrevious = () => {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      // Ensure it doesn't scroll before the first item
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        // Jump to the last group of items
+        currentIndex = Math.max(0, totalItems - visibleItems);
+      }
       updateCarousel();
     };
 
@@ -168,7 +184,7 @@
 
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        currentIndex = index;
+        currentIndex = Math.min(index, totalItems - visibleItems);
         updateCarousel();
       });
     });
