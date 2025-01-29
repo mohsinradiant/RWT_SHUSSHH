@@ -187,16 +187,22 @@
         "padding_bottom": 28
       }
     },
-    "1738182124f4b9e4f4": {
+    "home_promises_ACUrRd": {
+      "type": "home-promises",
+      "settings": {
+        "section_heading": "Our Promises"
+      }
+    },
+    "1738182448a0149dbc": {
       "type": "apps",
       "blocks": {
-        "klaviyo_reviews_product_reviews_tgWhd7": {
-          "type": "shopify://apps/klaviyo-reviews/blocks/product-reviews/db20e365-d984-4ac4-9655-e1588d951ca9",
+        "judge_me_reviews_review_widget_6FwXw6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         }
       },
       "block_order": [
-        "klaviyo_reviews_product_reviews_tgWhd7"
+        "judge_me_reviews_review_widget_6FwXw6"
       ],
       "settings": {
         "include_margins": true
@@ -212,6 +218,7 @@
     "product_bullets_8bLf4H",
     "main",
     "related-products",
-    "1738182124f4b9e4f4"
+    "1738182448a0149dbc",
+    "home_promises_ACUrRd"
   ]
 }
