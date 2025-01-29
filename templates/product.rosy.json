@@ -90,6 +90,12 @@
         "include_margins": true
       }
     },
+    "home_promises_ACUrRd": {
+      "type": "home-promises",
+      "settings": {
+        "section_heading": "Our Promises"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -202,10 +208,10 @@
         "padding_bottom": 28
       }
     },
-    "home_promises_ACUrRd": {
-      "type": "home-promises",
+    "product_testimonial_videos_QngpjT": {
+      "type": "product-testimonial-videos",
       "settings": {
-        "section_heading": "Our Promises"
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     }
   },
@@ -217,6 +223,7 @@
     "product_infographics_fold_7ecJwW",
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
+    "product_testimonial_videos_QngpjT",
     "home_promises_ACUrRd",
     "main",
     "related-products"
