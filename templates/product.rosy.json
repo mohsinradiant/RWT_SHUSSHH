@@ -181,6 +181,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_bullets_8bLf4H": {
+      "type": "product-bullets",
+      "settings": {}
     }
   },
   "order": [
@@ -189,6 +193,7 @@
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
     "product_infographics_fold_7ecJwW",
+    "product_bullets_8bLf4H",
     "main",
     "related-products"
   ]
