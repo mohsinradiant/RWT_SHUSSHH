@@ -1,7 +1,7 @@
 <div class="page-width infinite-carousel">
   <div class="carousel-container">
     <div class="carousel-track">
-      {% assign collection_handle = product.metafields.content.combos_collection %}
+      {% assign collection_handle = product.metafields.content.combos_collection.value %}
       {{ collection_handle | json }}
       {% if collection_handle %}
         {% assign collection = collections[collection_handle.value] %}
