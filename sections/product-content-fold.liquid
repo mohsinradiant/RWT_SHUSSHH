@@ -58,18 +58,34 @@
     const videoContainer = document.querySelector('.product-content-fold_video');
     const video = videoContainer ? videoContainer.querySelector('video') : null;
 
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+
+    function showIcon(icon) {
+      icon.classList.add('visible');
+      setTimeout(() => {
+        icon.classList.remove('visible');
+      }, 1000); // Show for 1 second
+    }
+
     if (image && videoContainer && video) {
       videoContainer.style.display = 'none';
 
       image.addEventListener('click', () => {
         image.style.display = 'none';
         videoContainer.style.display = 'block';
+        showIcon(pauseIcon); // Show pause icon
         video.play();
       });
 
       video.addEventListener('pause', () => {
         videoContainer.style.display = 'none';
         image.style.display = 'block';
+        showIcon(playIcon); // Show play icon
+      });
+
+      video.addEventListener('play', () => {
+        showIcon(pauseIcon); // Show pause icon on video play
       });
     } else {
       console.error('Required elements for video interaction are missing.');
