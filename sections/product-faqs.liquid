@@ -28,7 +28,9 @@
       </div>
     {%- endfor -%}
   </div>
-  <button id="toggle-faq" class="see-more-btn">See More</button>
+  {%- if product.metafields.content.frequently_asked_questions.value.size > 3 -%}
+    <button id="toggle-faq" class="see-more-btn">See More</button>
+  {%- endif -%}
 </div>
 <style>
   .hidden-faq {
