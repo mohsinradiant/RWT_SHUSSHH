@@ -1,22 +1,18 @@
 <div class="product-bullets-container">
-  <div class="page-width">
-    {% for bullet in product.metafields.content.product_bullets.value %}
-      <div class="product-bullet">
-        <img src="{{bullet.image |  image_url }}">
-        <p>{{ bullet.text }}</p>
-      </div>
-    {% endfor %}
-  </div>
+  {% for bullet in product.metafields.content.product_bullets.value %}
+    <div class="product-bullet">
+      <img src="{{bullet.image |  image_url }}">
+      <p>{{ bullet.text }}</p>
+    </div>
+  {% endfor %}
 </div>
 <style>
   .product-bullets-container {
     background-color: #382d43;
     color: #fff;
     padding: 10px 0;
-  }
-  .product-bullets-container .page-width {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
   .product-bullets-container .product-bullet {
