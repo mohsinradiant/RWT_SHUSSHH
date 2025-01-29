@@ -27,7 +27,7 @@
       </div>
     {%- endfor -%}
   </div>
-  {%- if product.metafields.content.frequently_asked_questions.value.size > 3 -%}
+  {%- if product.metafields.content.frequently_asked_questions.size > 3 -%}
     <button id="toggle-faq" class="see-more-btn">See More</button>
   {%- endif -%}
 </div>
