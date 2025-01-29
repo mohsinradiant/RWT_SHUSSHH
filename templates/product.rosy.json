@@ -61,6 +61,10 @@
         "image": "shopify://shop_images/image_efa77f71-f944-4304-aca9-6bf62a330bf6.png"
       }
     },
+    "product_infographics_fold_7ecJwW": {
+      "type": "product-infographics-fold",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -163,14 +167,15 @@
         "padding_bottom": 28
       }
     },
-    "product_infographics_fold_7ecJwW": {
-      "type": "product-infographics-fold",
+    "product_banner_fold_7AiTqg": {
+      "type": "product-banner-fold",
       "settings": {}
     }
   },
   "order": [
     "content_slider_strip_hA3y4W",
     "product_info_fold_PK4khL",
+    "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
     "product_infographics_fold_7ecJwW",
     "main",
