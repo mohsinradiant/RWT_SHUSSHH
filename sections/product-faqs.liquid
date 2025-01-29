@@ -6,10 +6,10 @@
   <div class="grid__item">
     {%- for faq in product.metafields.content.frequently_asked_questions.value -%}
       <div
-        class="accordion content-container"
+        class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
       >
-        <details id="Details-{{ section.id }}">
-          <summary id="Summary-{{ section.id }}">
+        <details id="Details-{{ section.id }}-{{ forloop.index }}">
+          <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
             <h3 class="accordion__title inline-richtext h4">
               {{ faq.title }}
             </h3>
@@ -17,9 +17,9 @@
           </summary>
           <div
             class="accordion__content rte"
-            id="CollapsibleAccordion-{{ section.id }}"
+            id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
             role="region"
-            aria-labelledby="Summary-{{ section.id }}"
+            aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
           >
             {{ faq.description | metafield_tag }}
           </div>
@@ -27,8 +27,25 @@
       </div>
     {%- endfor -%}
   </div>
+  {%- if product.metafields.content.frequently_asked_questions.value.size > 3 -%}
+    <button id="toggle-faq" class="see-more-btn">See More</button>
+  {%- endif -%}
 </div>
 <style>
+  .hidden-faq {
+    display: none;
+  }
+  .see-more-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   .collapsible-content-wrapper-narrow .grid__item {
     width: 100% !important;
     max-width: 100% !important;
@@ -73,6 +90,17 @@
     letter-spacing: 0;
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('toggle-faq');
+    if (toggleButton) {
+      toggleButton.addEventListener('click', function () {
+        document.querySelectorAll('.hidden-faq').forEach((faq) => (faq.style.display = 'block'));
+        toggleButton.style.display = 'none';
+      });
+    }
+  });
+</script>
 {% schema %}
 {
   "name": "Product FAQs",
