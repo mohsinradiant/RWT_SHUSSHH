@@ -96,6 +96,10 @@
         "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
+    "product_faqs_j8mFEY": {
+      "type": "product-faqs",
+      "settings": {}
+    },
     "home_promises_ACUrRd": {
       "type": "home-promises",
       "settings": {
@@ -224,6 +228,7 @@
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
     "product_shoppable_videos_7XLkhn",
+    "product_faqs_j8mFEY",
     "home_promises_ACUrRd",
     "main",
     "related-products"
