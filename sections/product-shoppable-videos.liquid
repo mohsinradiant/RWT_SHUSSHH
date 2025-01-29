@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      {% assign product = testimonial.product %}
+      {% assign product = testimonial.product.value %}
       {% if product %}
         <div class="product-card">
           <a href="{{ product.url }}" class="product-link">
