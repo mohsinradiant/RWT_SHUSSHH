@@ -1,0 +1,29 @@
+<div class="product-banners-fold-container page-width">
+  <img src="{{ product.metafields.content.banner_1 | image_url }}">
+  <img src="{{ product.metafields.content.banner_2 | image_url }}">
+</div>
+<style>
+  .product-banners-fold-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 1%;
+  }
+  .product-banners-fold-container img {
+    border-radius: 10px;
+    width: 49%;
+  }
+</style>
+{% schema %}
+{
+  "name": "Product Banners Fold",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Product Banners Fold"
+    }
+  ]
+}
+{% endschema %}

@@ -1,5 +1,20 @@
 <div class="page-width product-content-fold-container">
-  <img src="{{section.settings.image |  image_url}}">
+  <div class="product-content-fold-container-parent">
+    <div class="play-pause-icon visible" id="play-icon">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
+    </div>
+    <div class="play-pause-icon" id="pause-icon">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
+    </div>
+    <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
+    <div style="display: none;" class="product-content-fold_video">
+      {{
+        product.metafields.content.product_video.value.video.value
+        | video_tag: autoplay: false, loop: true, muted: false, controls: true
+      }}
+    </div>
+  </div>
+
   <div class="product-content-fold-right">
     {% if product.metafields.content.content_fold_text %}
       <div class="product-content-fold">
@@ -18,25 +33,122 @@
         {% endfor %}
       </div>
     {% endif %}
+
+    <div class="">
+      <button class="product-content-fold-question" aria-expanded="false">
+        <span>What's in the box</span>
+      </button>
+      <div
+        style="padding: 25px 0 10px; height: fit-content;"
+        class="product-content-fold-answer product-content-fold-answer-image-container-parent"
+      >
+        {% for image in product.metafields.content.whats_in_the_box.value %}
+          <div class="product-content-fold-answer-image-container">
+            <img src="{{ image | image_url }}">
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const image = document.querySelector('.video-placeholder');
+    const videoContainer = document.querySelector('.product-content-fold_video');
+    const video = videoContainer ? videoContainer.querySelector('video') : null;
+
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+
+    function showIcon(icon) {
+      icon.classList.add('visible');
+      setTimeout(() => {
+        icon.classList.remove('visible');
+      }, 1000); // Show for 1 second
+    }
+
+    if (image && videoContainer && video) {
+      // Initially hide the video container and display the play icon
+      videoContainer.style.display = 'none';
+      playIcon.classList.add('visible');
+
+      // When the image is clicked
+      image.addEventListener('click', () => {
+        image.style.display = 'none'; // Hide the image
+        videoContainer.style.display = 'block'; // Show the video
+        video.play(); // Play the video
+        playIcon.classList.remove('visible'); // Hide the play icon
+        showIcon(pauseIcon); // Temporarily show the pause icon
+      });
+
+      // When the video is paused
+      video.addEventListener('pause', () => {
+        videoContainer.style.display = 'none'; // Hide the video
+        image.style.display = 'block'; // Show the image
+        showIcon(playIcon); // Temporarily show the play icon
+      });
+
+      // When the video is played again (optional: on play event)
+      video.addEventListener('play', () => {
+        showIcon(pauseIcon); // Temporarily show the pause icon
+      });
+    } else {
+      console.error('Required elements for video interaction are missing.');
+    }
+  });
+</script>
 
 <style>
+  .play-pause-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    width: 50px;
+    height: 50px;
+  }
+
+  .play-pause-icon.visible {
+    opacity: 1;
+  }
+
+  .play-pause-icon img {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+  }
+  .product-content-fold_video {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .product-content-fold-container {
     display: flex;
     justify-content: center;
     align-items: stretch;
     gap: 20px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     height: fit-content;
   }
-  .product-content-fold-container img {
+  .product-content-fold-container-parent {
     width: 60%;
+    position: relative;
+    cursor: pointer;
     height: auto;
-    aspect-ratio: 1065/662;
     border-radius: 15px;
   }
+  .product-content-fold-container img,
+  .product-content-fold-container video {
+    width: 100%;
+    height: 100%;
+  }
+
   .product-content-fold-question span {
     font-family: 'Kanit', sans-serif;
     font-size: 1.8rem;
@@ -49,12 +161,12 @@
     background: #faf3ff;
     border-radius: 15px;
   }
-  .product-content-fold-item {
+  .product-content-fold-right .product-content-fold .product-content-fold-item {
     margin-bottom: 1rem;
     border-bottom: 1px solid #ddd;
     padding-bottom: 1rem;
   }
-  .product-content-fold-item:last-child {
+  .product-content-fold-right .product-content-fold-item {
     border-bottom: 0;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -95,6 +207,30 @@
     letter-spacing: 0;
     font-family: 'Kanit';
     line-height: 1.5rem;
+  }
+  .product-content-fold-answer-image-container {
+    display: flex;
+    width: 21%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    padding: 9px;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    border-radius: 10px;
+  }
+  .product-content-fold-container .product-content-fold-answer img {
+    aspect-ratio: unset;
+    height: 100%;
+    width: fit-content;
+    border-radius: 0;
+  }
+  .product-content-fold-answer-image-container-parent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5.33%;
   }
 </style>
 

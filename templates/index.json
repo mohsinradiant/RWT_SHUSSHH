@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "home_circle_collections_gjnENC": {
+      "type": "home-circle-collections",
+      "settings": {}
+    },
     "slideshow_VzBdWB": {
       "type": "slideshow",
       "blocks": {
@@ -123,7 +127,7 @@
     "home_deal_of_the_day_NJGxyT": {
       "type": "home-deal-of-the-day",
       "settings": {
-        "product_1": "crave",
+        "product_1": "rosy",
         "product_2": "ecstasy-personal",
         "product_3": "lush-women-massager"
       }
@@ -136,7 +140,7 @@
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
             "image": "shopify://shop_images/Group_265.png",
-            "product": "crave"
+            "product": "rosy"
           }
         },
         "video_product_9Bmmcf": {
@@ -144,7 +148,7 @@
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
             "image": "shopify://shop_images/Group_264.png",
-            "product": "crave"
+            "product": "ecstasy-personal"
           }
         },
         "video_product_EHRaap": {
@@ -152,7 +156,7 @@
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
             "image": "shopify://shop_images/Group_262.png",
-            "product": "crave"
+            "product": "lush-women-massager"
           }
         },
         "video_product_4EaYia": {
@@ -160,7 +164,7 @@
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
             "image": "shopify://shop_images/Group_265.png",
-            "product": "crave"
+            "product": "passion-massager-for-men"
           }
         }
       },
@@ -299,10 +303,6 @@
       "settings": {
         "section_heading": "Our Promises"
       }
-    },
-    "home_circle_collections_gjnENC": {
-      "type": "home-circle-collections",
-      "settings": {}
     }
   },
   "order": [
