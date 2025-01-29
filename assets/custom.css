@@ -684,6 +684,12 @@ sticky-header {
     width: 100%;
 }
 
+.rating-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media(max-width:850px) {
     .footer-block__newsletter p {
         width: 100% !important;
