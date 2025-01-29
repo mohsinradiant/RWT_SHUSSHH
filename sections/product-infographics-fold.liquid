@@ -139,42 +139,48 @@
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
     const items = Array.from(track.children);
-    const dots = Array.from(document.querySelectorAll('.dot'));
     const leftArrow = document.querySelector('.carousel-arrow.left');
     const rightArrow = document.querySelector('.carousel-arrow.right');
+    const dotsContainer = document.querySelector('.carousel-dots');
 
-    let currentIndex = 0;
-    const visibleItems = 3; // Number of items visible in the viewport
+    const visibleItems = 3; // Number of visible items in the viewport
     const totalItems = items.length;
+    const steps = Math.ceil(totalItems / visibleItems); // Total number of steps
+    let currentStep = 0;
+
+    // Generate dots dynamically
+    dotsContainer.innerHTML = Array(steps)
+      .fill(0)
+      .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
+      .join('');
+    const dots = Array.from(dotsContainer.children);
 
     const updateCarousel = () => {
       const itemWidth = items[0].getBoundingClientRect().width + 10; // Include margin
-      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+      const offset = currentStep * visibleItems * itemWidth;
+      track.style.transform = `translateX(-${offset}px)`;
 
       // Update active dot
       dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
+        dot.classList.toggle('active', index === currentStep);
       });
     };
 
     const moveToNext = () => {
-      // Stop when the last item becomes fully visible
-      if (currentIndex < totalItems - visibleItems) {
-        currentIndex++;
+      // Scroll until the last step
+      if (currentStep < steps - 1) {
+        currentStep++;
       } else {
-        // Reset to the start when reaching the end
-        currentIndex = 0;
+        currentStep = 0; // Reset to start
       }
       updateCarousel();
     };
 
     const moveToPrevious = () => {
-      // Ensure it doesn't scroll before the first item
-      if (currentIndex > 0) {
-        currentIndex--;
+      if (currentStep > 0) {
+        currentStep--;
       } else {
-        // Jump to the last group of items
-        currentIndex = Math.max(0, totalItems - visibleItems);
+        currentStep = steps - 1; // Jump to the last step
       }
       updateCarousel();
     };
@@ -184,7 +190,7 @@
 
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        currentIndex = Math.min(index, totalItems - visibleItems);
+        currentStep = index;
         updateCarousel();
       });
     });
