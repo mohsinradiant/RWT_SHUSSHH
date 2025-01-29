@@ -1,6 +1,6 @@
 <div class="product-banners-fold-container page-width">
-  <img src="{{product.metafields.content.banner_1}}">
-  <img src="{{product.metafields.content.banner_2}}">
+  <img src="{{ product.metafields.content.banner_1 | image_url }}">
+  <img src="{{ product.metafields.content.banner_2 | image_url }}">
 </div>
 {% schema %}
 {
