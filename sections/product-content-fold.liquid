@@ -26,7 +26,9 @@
       </button>
       <div class="product-content-fold-answer">
         {% for image in product.metafields.content.whats_in_the_box.value %}
-          <img src="{{ image | image_url }}">
+          <div class="product-content-fold-answer-image-container">
+            <img src="{{ image | image_url }}">
+          </div>
         {% endfor %}
       </div>
     </div>
@@ -107,6 +109,8 @@
     letter-spacing: 0;
     font-family: 'Kanit';
     line-height: 1.5rem;
+  }
+  .product-content-fold-container .product-content-fold-item .product-content-fold-answer img {
   }
 </style>
 
