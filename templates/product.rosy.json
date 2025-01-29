@@ -96,12 +96,6 @@
         "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
-    "product_faqs_tLQNqz": {
-      "type": "product-faqs",
-      "settings": {
-        "section_heading": "Frequently Asked Questions"
-      }
-    },
     "home_promises_ACUrRd": {
       "type": "home-promises",
       "settings": {
@@ -219,6 +213,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_faqs_tLQNqz": {
+      "type": "product-faqs",
+      "settings": {}
     }
   },
   "order": [
