@@ -1,11 +1,7 @@
 <div class="page-width product-content-fold-container">
   <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}">
   <div class="product-content-fold_video">
-    {% assign video_id = product.metafields.content.product_video.value.video | replace: 'gid://shopify/Video/', '' %}
-    <video autoplay="false" loop="true" muted="false" controls="true">
-      <source src="https://cdn.shopify.com/videos/{{ video_id }}" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    {{ product.metafields.content.product_video.value | json }}
   </div>
 
   <div class="product-content-fold-right">
