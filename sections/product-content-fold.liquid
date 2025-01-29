@@ -1,10 +1,7 @@
 <div class="page-width product-content-fold-container">
   <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}">
   <div class="product-content-fold_video">
-    {{
-      product.metafields.content.product_video.value.video
-      | video_tag: autoplay: false, loop: true, muted: false, controls: true
-    }}
+    {{ product.metafields.content.product_video.value.video | video_tag }}
   </div>
 
   <div class="product-content-fold-right">
