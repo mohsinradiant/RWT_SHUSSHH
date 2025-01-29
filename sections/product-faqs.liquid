@@ -12,7 +12,6 @@
             <h3 class="accordion__title inline-richtext h4">
               {{ faq.title }}
             </h3>
-            {{- 'icon-caret.svg' | inline_asset_content -}}
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_336.png?v=1738191413">
           </summary>
           <div
@@ -46,6 +45,12 @@
   }
   .accordion details[open] > summary img {
     transform: rotate(180deg);
+  }
+  .collapsible-content-wrapper-narrow .accordion details img {
+    position: absolute;
+    height: 0.6rem;
+    right: 1.5rem;
+    top: calc(50% - 0.2rem);
   }
 </style>
 {% schema %}
