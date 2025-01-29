@@ -47,18 +47,24 @@
   document.addEventListener('DOMContentLoaded', function () {
     const image = document.querySelector('.product-content-fold-container img');
     const videoContainer = document.querySelector('.product-content-fold_video');
-    const video = videoContainer.querySelector('video');
-    videoContainer.style.display = 'none';
-    image.addEventListener('click', () => {
-      image.style.display = 'none';
-      videoContainer.style.display = 'block';
-      video.play();
-    });
+    const video = videoContainer ? videoContainer.querySelector('video') : null;
 
-    video.addEventListener('pause', () => {
+    if (image && videoContainer && video) {
       videoContainer.style.display = 'none';
-      image.style.display = 'block';
-    });
+
+      image.addEventListener('click', () => {
+        image.style.display = 'none';
+        videoContainer.style.display = 'block';
+        video.play();
+      });
+
+      video.addEventListener('pause', () => {
+        videoContainer.style.display = 'none';
+        image.style.display = 'block';
+      });
+    } else {
+      console.error('Required elements for video interaction are missing.');
+    }
   });
 </script>
 <style>
