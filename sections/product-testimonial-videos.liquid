@@ -1,13 +1,13 @@
 <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
 <div class="page-width product-testimonials-container">
-  {% for block in section.blocks %}
+  {% for video in product.metafields.content.product_testimonial_videos %}
     <div class="product-testimonial-block" id="product-testimonial-{{ block.id }}">
       <img
-        src="{{ block.settings.image | img_url: 'medium' }}"
+        src="{{ video.value.placeholder | img_url: 'medium' }}"
         class="product-testimonial-image"
       >
       <div class="product-testimonial-video-container">
-        {{ block.settings.video_url | video_tag: autoplay: false, loop: true, muted: false, controls: true }}
+        {{ video.value.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: true }}
       </div>
     </div>
   {% endfor %}
