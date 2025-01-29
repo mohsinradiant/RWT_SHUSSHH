@@ -1,0 +1,22 @@
+<div class="product-bullets-container">
+  <div class="page-width">
+    {% for bullet in product.metafields.product_bullet.value %}
+      <div class="product-bullet">
+        <img src="{{bullet.image |  image_url }}">
+        <p>{{ bullet.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Bullets Strip",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Bullets Strip"
+    }
+  ]
+}
+{% endschema %}
