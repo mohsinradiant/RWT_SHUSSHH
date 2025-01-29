@@ -71,6 +71,10 @@
         "section_heading": "Bundles"
       }
     },
+    "product_bullets_8bLf4H": {
+      "type": "product-bullets",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -166,6 +170,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -182,9 +187,20 @@
         "padding_bottom": 28
       }
     },
-    "product_bullets_8bLf4H": {
-      "type": "product-bullets",
-      "settings": {}
+    "1738177776d8ea47b9": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Nntaan": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Nntaan"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -195,6 +211,7 @@
     "product_infographics_fold_7ecJwW",
     "product_bullets_8bLf4H",
     "main",
-    "related-products"
+    "related-products",
+    "1738177776d8ea47b9"
   ]
 }
