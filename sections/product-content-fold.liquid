@@ -43,7 +43,24 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const image = dosument.querySelector('.product-content-fold-container img');
+    const videoContainer = dosument.querySelector('.product-content-fold_video');
+    const video = videoContainer.querySelector('video');
+    videoContainer.style.display = 'none';
+    image.addEventListener('click', () => {
+      image.style.display = 'none';
+      videoContainer.style.display = 'block';
+      video.play();
+    });
 
+    video.addEventListener('pause', () => {
+      videoContainer.style.display = 'none';
+      image.style.display = 'block';
+    });
+  });
+</script>
 <style>
   .product-content-fold-container {
     display: flex;
