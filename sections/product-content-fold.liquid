@@ -1,10 +1,12 @@
 <div class="page-width product-content-fold-container">
-  <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}">
-  <div class="product-content-fold_video">
-    {{
-      product.metafields.content.product_video.value.video.value
-      | video_tag: autoplay: false, loop: true, muted: false, controls: true
-    }}
+  <div class="product-content-fold-container-parent">
+    <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}">
+    <div class="product-content-fold_video">
+      {{
+        product.metafields.content.product_video.value.video.value
+        | video_tag: autoplay: false, loop: true, muted: false, controls: true
+      }}
+    </div>
   </div>
 
   <div class="product-content-fold-right">
@@ -77,11 +79,15 @@
     margin-bottom: 50px;
     height: fit-content;
   }
-  .product-content-fold-container img {
+  .product-content-fold-container-parent {
     width: 60%;
     height: auto;
     aspect-ratio: 1065/662;
     border-radius: 15px;
+  }
+  .product-content-fold-container {
+    width: 100%;
+    height: auto;
   }
   .product-content-fold-question span {
     font-family: 'Kanit', sans-serif;
