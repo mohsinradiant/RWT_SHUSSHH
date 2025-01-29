@@ -2,6 +2,7 @@
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
 
 <div class="collapsible-content-wrapper-narrow">
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="grid__item">
     {%- for faq in product.metafields.content.frequently_asked_questions.value -%}
       <div
@@ -75,7 +76,14 @@
 {% schema %}
 {
   "name": "Product FAQs",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Discover What’s Making Everyone Go Wild!"
+    }
+  ],
   "blocks": [],
   "presets": [
     {
