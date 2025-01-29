@@ -8,11 +8,11 @@
           class="product-shoppable-video-image"
         >
         <div class="product-shoppable-product-shoppable-video-container">
-          {{ testimonial.value.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: true }}
+          {{ testimonial.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: true }}
         </div>
       </div>
 
-      {% assign product = testimonial.value.product %}
+      {% assign product = testimonial.product %}
       {% if product %}
         <div class="product-card">
           <a href="{{ product.url }}" class="product-link">
