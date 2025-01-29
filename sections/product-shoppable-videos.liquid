@@ -1,20 +1,18 @@
 <div class="page-width product-shoppable-videos">
   {% for testimonial in product.metafields.content.product_shoppable_videos.value %}
     <div class="product-shoppable-video-block">
-      <div class="product-shoppable-video-container">
-        <img
-          src="{{ testimonial.placeholder | img_url: 'medium' }}"
-          class="product-shoppable-video-image"
-        >
-
-        <div class="play-pause-icon visible" id="play-icon-{{ forloop.index }}">
+      <div class="product-shoppable-video-container" style="position: relative;">
+        <!-- Play & Pause Icons -->
+        <div class="play-pause-icon play-icon visible" id="play-icon-{{ forloop.index }}">
           <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_335.png?v=1738186522" alt="Play">
         </div>
-        <div class="play-pause-icon" id="pause-icon-{{ forloop.index }}">
+        <div class="play-pause-icon pause-icon" id="pause-icon-{{ forloop.index }}">
           <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_334.png?v=1738186521" alt="Pause">
         </div>
 
-        <div class="product-shoppable-product-shoppable-video-container">
+        <img src="{{ testimonial.placeholder | img_url: 'medium' }}" class="product-shoppable-video-image">
+
+        <div class="product-shoppable-product-shoppable-video-container" style="display: none;">
           {{ testimonial.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: false }}
         </div>
       </div>
@@ -23,13 +21,7 @@
       {% if product %}
         <div class="product-card">
           <a href="{{ product.url }}" class="product-link">
-            <img
-              src="{{ product.featured_image | img_url: 'medium' }}"
-              alt="{{ product.title }}"
-              class="product-image"
-              height="auto"
-              width="auto"
-            >
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
             <div class="product-info">
               <h3 class="product-title">{{ product.title }}</h3>
               <p class="product-prices">
@@ -53,10 +45,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
   }
+
   .play-pause-icon.visible {
+    opacity: 1;
+  }
+
+  .play-icon.visible {
     opacity: 1;
   }
   .product-shoppable-product-shoppable-video-container {
@@ -165,45 +165,55 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const shoppableVideoBlocks = document.querySelectorAll('.product-shoppable-video-container');
+    const videoBlocks = document.querySelectorAll('.product-shoppable-video-container');
 
-    shoppableVideoBlocks.forEach((block, index) => {
+    videoBlocks.forEach((block, index) => {
       const image = block.querySelector('.product-shoppable-video-image');
-      const shoppableVideoContainer = block.querySelector('.product-shoppable-product-shoppable-video-container');
-      const video = shoppableVideoContainer.querySelector('video');
+      const videoContainer = block.querySelector('.product-shoppable-product-shoppable-video-container');
+      const video = videoContainer.querySelector('video');
+
       const playIcon = document.getElementById(`play-icon-${index + 1}`);
       const pauseIcon = document.getElementById(`pause-icon-${index + 1}`);
 
-      // Hide the video container initially
-      shoppableVideoContainer.style.display = 'none';
-      playIcon.classList.add('visible');
-
-      function showIcon(icon) {
+      function showTemporaryIcon(icon) {
         icon.classList.add('visible');
         setTimeout(() => {
           icon.classList.remove('visible');
-        }, 1000); // Show for 1 second
+        }, 800);
       }
 
-      // Add click event to the image
+      // Show play icon initially
+      playIcon.classList.add('visible');
+
+      // When image is clicked, show video & play
       image.addEventListener('click', () => {
-        image.style.display = 'none'; // Hide the image
-        shoppableVideoContainer.style.display = 'flex'; // Show the video container
-        video.play(); // Play the video
-        playIcon.classList.remove('visible'); // Hide the play icon
-        showIcon(pauseIcon); // Temporarily show the pause icon
+        image.style.display = 'none';
+        videoContainer.style.display = 'flex';
+        video.play();
+        playIcon.classList.remove('visible');
+        showTemporaryIcon(pauseIcon);
       });
 
-      // Add pause event to the video
+      // Toggle play/pause on video click
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playIcon.classList.remove('visible');
+          showTemporaryIcon(pauseIcon);
+        } else {
+          video.pause();
+        }
+      });
+
+      // Show play icon when video is paused
       video.addEventListener('pause', () => {
-        shoppableVideoContainer.style.display = 'none'; // Hide the video container
-        image.style.display = 'flex'; // Show the image
-        showIcon(playIcon); // Temporarily show the play icon
+        playIcon.classList.add('visible');
       });
 
-      // When the video is played
+      // Hide play icon & briefly show pause icon when playing
       video.addEventListener('play', () => {
-        showIcon(pauseIcon); // Temporarily show the pause icon
+        playIcon.classList.remove('visible');
+        showTemporaryIcon(pauseIcon);
       });
     });
   });
