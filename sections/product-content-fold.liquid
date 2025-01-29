@@ -25,9 +25,8 @@
         <span class="product-content-fold-toggle-icon">+</span>
       </button>
       <div class="product-content-fold-answer">
-        {% comment %} <p>{{ metaobject.description | metafield_tag }}</p> {% endcomment %}
-        {% for images in product.metafields.content.whats_in_the_box.value %}
-          <img src="{{images |  image_url}}">
+        {% for image in product.metafields.content.whats_in_the_box.value %}
+          <img src="{{ image | image_url }}">
         {% endfor %}
       </div>
     </div>
@@ -68,7 +67,7 @@
     padding-bottom: 1rem;
   }
   .product-content-fold-right .product-content-fold-item {
-    border-bottom: 0 !important;
+    border-bottom: 0;
     margin-bottom: 0;
     padding-bottom: 0;
   }
