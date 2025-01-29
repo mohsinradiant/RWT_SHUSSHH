@@ -690,6 +690,17 @@ sticky-header {
     align-items: center;
 }
 
+.rating-star::before {
+    content: '★★★★★';
+    background: linear-gradient(90deg,
+            #FFB800 var(--percent),
+            rgba(0, 0, 0, 0.15) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
+    font-family: 'Arial', sans-serif;
+}
+
 @media(max-width:850px) {
     .footer-block__newsletter p {
         width: 100% !important;
