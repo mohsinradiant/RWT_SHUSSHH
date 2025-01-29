@@ -2,7 +2,7 @@
   <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}">
   <div class="product-content-fold_video">
     {{
-      product.metafields.content.product_video.value.video
+      product.metafields.content.product_video.value.url
       | video_tag: autoplay: false, loop: true, muted: false, controls: true
     }}
   </div>
