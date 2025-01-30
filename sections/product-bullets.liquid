@@ -41,11 +41,14 @@
     .product-bullets-container .product-bullet img {
       height: 30px;
     }
+  }
+
+  @media (max-width: 800px) {
     .product-bullets-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Two columns */
-      grid-template-rows: repeat(2, auto); /* Two rows */
-      gap: 15px; /* Space between items */
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 15px;
       padding: 25px 15px;
       justify-content: center;
       align-items: center;
