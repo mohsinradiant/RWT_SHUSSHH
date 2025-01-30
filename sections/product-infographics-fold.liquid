@@ -156,11 +156,12 @@
     const dots = Array.from(dotsContainer.children);
 
     const updateCarousel = () => {
-      const itemWidth = items[0].getBoundingClientRect().width + 10;
-      const offset = currentIndex * itemWidth;
-      track.style.transform = `translateX(-${offset}px - 10px)`;
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const containerPadding = 10;
+      const offset = currentIndex * itemWidth + containerPadding;
 
-      // Update active dot
+      track.style.transform = `translateX(-${offset}px)`;
+
       dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
       });
