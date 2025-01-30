@@ -27,34 +27,38 @@
         <h1>{{ product.title | escape }}</h1>
         <p class="product-info-fold-left-subheadng">{{ product.metafields.content.subheading }}</p>
         <p class="product-info-fold-left-description">{{ product.metafields.content.info_fold_description }}</p>
-
-        <p
-          class="product__inventory {% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
-          id="Inventory-{{ section.id }}"
-          role="status"
-        >
-          {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-            {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
-              <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
-                {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-              </span>
+        {% comment %} Product Inventory {% endcomment %}
+        {% comment %}
+          <p
+            class="product__inventory {% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+            id="Inventory-{{ section.id }}"
+            role="status"
+          >
+            {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
+              {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- else -%}
+                <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- endif -%}
             {%- else -%}
-              <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-              </span>
+              {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
+                <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- else -%}
+                <span class="svg-wrapper" style="color: rgb(200, 200, 200)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- endif -%}
             {%- endif -%}
-          {%- else -%}
-            {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-              <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-              </span>
-            {%- else -%}
-              <span class="svg-wrapper" style="color: rgb(200, 200, 200)">
-                {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-              </span>
-            {%- endif -%}
-          {%- endif -%}
-        </p>
+          </p>
+        {% endcomment %}
+        {% comment %} Product Variant {% endcomment %}
+        {% render 'product-variant-picker', product: product, product_form_id: product_form_id %}
 
         <div class="product-info-fold-price-and-rating-container">
           <div class="product-info-fold-price-container">
