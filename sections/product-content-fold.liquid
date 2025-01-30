@@ -51,6 +51,9 @@
                 <span class="product-content-fold-toggle-icon">+</span>
               </button>
               <div class="product-content-fold-answer">
+                {% if metaobject.file.value %}
+                  <img src="{{ metaobject.file.value |  image_url }}">
+                {% endif %}
                 <p>{{ metaobject.description | metafield_tag }}</p>
               </div>
             </div>
@@ -242,6 +245,10 @@
     letter-spacing: 0;
     font-family: 'Kanit';
     line-height: 1.5rem;
+  }
+  .product-content-fold-answer img {
+    width: 100%;
+    height: auto;
   }
   .product-content-fold-answer-image-container {
     display: flex;
