@@ -473,13 +473,14 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const isViewportWide = window.innerWidth > 850;
+    const backdrop = document.querySelector('.hotspot-backdrop');
 
     document.querySelectorAll('.hotspot').forEach((hotspot, index) => {
       const toggle = hotspot.querySelector('.hotspot-toggle');
       const detail = hotspot.querySelector('.hotspot-detail');
       const isInitiallyActive = hotspot.dataset.active === 'true';
 
-      // Set initial state based on viewport width and first hotspot
+      // Set initial state
       if (isViewportWide && isInitiallyActive) {
         hotspot.classList.add('active');
         toggle.textContent = '-';
@@ -494,17 +495,28 @@
 
       // Toggle functionality
       toggle.addEventListener('click', () => {
-        if (hotspot.classList.contains('active')) {
-          toggle.textContent = '+';
-          hotspot.classList.remove('active');
-          detail.style.opacity = '0';
-          detail.style.pointerEvents = 'none';
-          detail.style.transform = '';
-        } else {
-          toggle.textContent = '-';
+        const isCurrentlyActive = hotspot.classList.contains('active');
+
+        // Deactivate all hotspots
+        document.querySelectorAll('.hotspot').forEach((otherHotspot) => {
+          otherHotspot.classList.remove('active');
+          const otherToggle = otherHotspot.querySelector('.hotspot-toggle');
+          const otherDetail = otherHotspot.querySelector('.hotspot-detail');
+          otherToggle.textContent = '+';
+          otherDetail.style.opacity = '0';
+          otherDetail.style.pointerEvents = 'none';
+          otherDetail.style.transform = '';
+        });
+
+        // If it was not active, activate this hotspot
+        if (!isCurrentlyActive) {
           hotspot.classList.add('active');
+          toggle.textContent = '-';
           detail.style.opacity = '1';
           detail.style.pointerEvents = 'auto';
+
+          // Show backdrop
+          backdrop.style.display = 'block';
 
           // Center the .hotspot-detail horizontally and vertically when viewport width is less than 850px
           if (!isViewportWide) {
@@ -517,8 +529,27 @@
 
             detail.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
           }
+        } else {
+          // Hide backdrop when all hotspots are deactivated
+          backdrop.style.display = 'none';
         }
       });
+    });
+
+    // Close backdrop when clicked
+    backdrop.addEventListener('click', () => {
+      document.querySelectorAll('.hotspot').forEach((hotspot) => {
+        hotspot.classList.remove('active');
+        const toggle = hotspot.querySelector('.hotspot-toggle');
+        const detail = hotspot.querySelector('.hotspot-detail');
+        toggle.textContent = '+';
+        detail.style.opacity = '0';
+        detail.style.pointerEvents = 'none';
+        detail.style.transform = '';
+      });
+
+      // Hide backdrop
+      backdrop.style.display = 'none';
     });
   });
 </script>
