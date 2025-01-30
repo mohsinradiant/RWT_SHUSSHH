@@ -458,11 +458,23 @@
         hotspot.classList.remove('active');
         detail.style.opacity = '0'; // Fade out
         detail.style.pointerEvents = 'none';
+
+        // Reset transform when closing
+        hotspot.style.transform = '';
       } else {
         toggle.textContent = '-'; // Change the toggle text to '-'
         hotspot.classList.add('active');
         detail.style.opacity = '1'; // Fade in
         detail.style.pointerEvents = 'auto';
+
+        // Center the hotspot horizontally if viewport width is less than 850px
+        if (window.innerWidth < 850) {
+          const viewportWidth = window.innerWidth;
+          const hotspotRect = hotspot.getBoundingClientRect();
+          const offsetX = viewportWidth / 2 - hotspotRect.width / 2 - hotspotRect.left;
+
+          hotspot.style.transform = `translateX(${offsetX}px)`;
+        }
       }
     });
   });
