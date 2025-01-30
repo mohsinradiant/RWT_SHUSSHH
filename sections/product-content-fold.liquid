@@ -19,9 +19,20 @@
     {% endif %}
   {% endcomment %}
   <div class="product-content-fold-container-parent-carousel">
-    {% for image in product.metafields.content.info_images.value %}
-      <img src="{{image | image_url}}">
-    {% endfor %}
+    <div class="carousel-wrapper-custom">
+      <button class="carousel-btn-custom left-btn-custom">&#8249;</button>
+      <div class="carousel-track-custom">
+        {% for image in product.metafields.content.info_images.value %}
+          <img class="carousel-item-custom" src="{{image | image_url}}">
+        {% endfor %}
+      </div>
+      <button class="carousel-btn-custom right-btn-custom">&#8250;</button>
+    </div>
+    <div class="carousel-indicators-custom">
+      {% for image in product.metafields.content.info_images.value %}
+        <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
+      {% endfor %}
+    </div>
   </div>
 
   <div class="product-content-fold-right">
@@ -250,6 +261,68 @@
     flex-wrap: wrap;
     gap: 5.33%;
   }
+  /* carousel */
+  .product-content-fold-container-parent-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-wrapper-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel-track-custom {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+
+  .carousel-item-custom {
+    min-width: 100%;
+  }
+
+  .carousel-btn-custom {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .left-btn-custom {
+    left: 0;
+  }
+
+  .right-btn-custom {
+    right: 0;
+  }
+
+  .carousel-indicators-custom {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  .dot-custom {
+    height: 10px;
+    width: 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .dot-custom.active {
+    background-color: #555;
+  }
   @media (max-width: 850px) {
     .product-content-fold-container {
       flex-direction: column;
@@ -308,7 +381,64 @@
     });
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track-custom');
+    const items = document.querySelectorAll('.carousel-item-custom');
+    const dots = document.querySelectorAll('.dot-custom');
+    const prevBtn = document.querySelector('.left-btn-custom');
+    const nextBtn = document.querySelector('.right-btn-custom');
+    const itemCount = items.length;
 
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % itemCount;
+      updateCarousel();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Swipe functionality
+    let startX;
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      const endX = e.touches[0].clientX;
+      const diff = startX - endX;
+
+      if (diff > 50) {
+        nextBtn.click();
+      } else if (diff < -50) {
+        prevBtn.click();
+      }
+
+      startX = null;
+    });
+
+    updateCarousel();
+  });
+</script>
 {% schema %}
 {
   "name": "Product Content Fold",
