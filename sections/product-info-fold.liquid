@@ -459,9 +459,8 @@
         detail.style.opacity = '0'; // Fade out
         detail.style.pointerEvents = 'none';
 
-        // Reset transforms when closing
+        // Reset transform when closing
         hotspot.style.transform = '';
-        detail.style.transform = ''; // Reset child alignment
       } else {
         toggle.textContent = '-'; // Change the toggle text to '-'
         hotspot.classList.add('active');
@@ -472,13 +471,11 @@
         if (window.innerWidth < 850) {
           const viewportWidth = window.innerWidth;
           const hotspotRect = hotspot.getBoundingClientRect();
-          const detailRect = detail.getBoundingClientRect();
 
-          const hotspotOffsetX = viewportWidth / 2 - hotspotRect.width / 2 - hotspotRect.left;
-          const detailOffsetX = hotspotRect.width / 2 - detailRect.width / 2;
+          // Calculate the amount needed to move hotspot to the center
+          const offsetX = viewportWidth / 2 - hotspotRect.width / 2 - hotspotRect.left;
 
-          hotspot.style.transform = `translateX(${hotspotOffsetX}px)`;
-          detail.style.transform = `translateX(${detailOffsetX}px)`; // Adjust the child element
+          hotspot.style.transform = `translateX(${offsetX}px)`;
         }
       }
     });
