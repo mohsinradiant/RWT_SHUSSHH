@@ -320,13 +320,16 @@
   }
 
   .dot-custom {
-    height: 10px;
-    width: 10px;
-    background-color: #ddd;
-    border: none;
+    width: 5px;
+    height: 5px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
-    margin: 0 5px;
+    background-color: #cdcdcd;
+    border: none;
     cursor: pointer;
+    transition: all 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    padding: 0;
   }
 
   .dot-custom.active {
