@@ -2,7 +2,9 @@
   <div class="page-width">
     {%- assign product_form_id = 'product-form-' | append: section.id -%}
     {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
-    {%- render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id -%}
+    <div class="sticky-atc-container-buy-button">
+      {%- render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id -%}
+    </div>
   </div>
 </div>
 <style>
@@ -28,7 +30,7 @@
   .sticky-atc-container .page-width .price--large {
     width: 30%;
   }
-  .sticky-atc-container .page-width product-form {
+  .sticky-atc-container-buy-button {
     width: 70%;
   }
 </style>
