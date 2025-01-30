@@ -1,21 +1,29 @@
 <div class="page-width product-content-fold-container">
-  {% if product.metafields.content.product_video.value.video.value %}
-    <div class="product-content-fold-container-parent">
-      <div class="play-pause-icon visible" id="play-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
+  {% comment %}
+    {% if product.metafields.content.product_video.value.video.value %}
+      <div class="product-content-fold-container-parent">
+        <div class="play-pause-icon visible" id="play-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
+        </div>
+        <div class="play-pause-icon" id="pause-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
+        </div>
+        <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
+        <div style="display: none;" class="product-content-fold_video">
+          {{
+            product.metafields.content.product_video.value.video.value
+            | video_tag: autoplay: false, loop: true, muted: false, controls: true
+          }}
+        </div>
       </div>
-      <div class="play-pause-icon" id="pause-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
-      </div>
-      <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
-      <div style="display: none;" class="product-content-fold_video">
-        {{
-          product.metafields.content.product_video.value.video.value
-          | video_tag: autoplay: false, loop: true, muted: false, controls: true
-        }}
-      </div>
-    </div>
-  {% endif %}
+    {% endif %}
+  {% endcomment %}
+  <div class="product-content-fold-container-parent-carousel">
+    {% for image in product.metafields.content.info_images %}
+      <img src="{{image.value | image_url}}">
+    {% endfor %}
+  </div>
+
   <div class="product-content-fold-right">
     {% if product.metafields.content.content_fold_text %}
       <div class="product-content-fold">
@@ -143,6 +151,12 @@
     cursor: pointer;
     height: auto;
   }
+  .product-content-fold-container-parent-carousel {
+    width: 50%;
+    position: relative;
+    cursor: pointer;
+    height: auto;
+  }
   .product-content-fold-container img,
   .product-content-fold-container video {
     width: 100%;
@@ -238,6 +252,9 @@
       flex-direction: column;
     }
     .product-content-fold-container-parent {
+      width: 100%;
+    }
+    .product-content-fold-container-parent-carousel {
       width: 100%;
     }
     .product-content-fold-right {
