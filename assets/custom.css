@@ -374,6 +374,7 @@ slideshow-component .slider-counter__link--dots .dot {
 
 .footer {
     background: linear-gradient(125deg, #F5DCFF, #FFEDA5) !important;
+    z-index: 10 !important;
 }
 
 .footer-menus-content {
