@@ -75,12 +75,6 @@
     border-radius: 15px;
   }
 
-  @media (max-width: 768px) {
-    .carousel-item {
-      flex: 0 0 calc(66.66% - 10px);
-    }
-  }
-
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -134,6 +128,14 @@
   .carousel-arrow.right {
     right: 30px;
   }
+  @media (max-width: 850px) {
+    .carousel-item {
+      width: 230px;
+    }
+    .carousel-container {
+      justify-content: start;
+    }
+  }
 </style>
 
 <script>
@@ -144,60 +146,104 @@
     const rightArrow = document.querySelector('.carousel-arrow.right');
     const dotsContainer = document.querySelector('.carousel-dots');
 
-    const visibleItems = 3; // Number of visible items in the viewport
     const totalItems = items.length;
-    const steps = Math.ceil(totalItems / visibleItems); // Total number of steps
-    let currentStep = 0;
+    let currentIndex = 0;
+    let startX = 0,
+      isDragging = false,
+      moveX = 0;
 
     // Generate dots dynamically
-    dotsContainer.innerHTML = Array(steps)
-      .fill(0)
+    dotsContainer.innerHTML = items
       .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
       .join('');
     const dots = Array.from(dotsContainer.children);
 
     const updateCarousel = () => {
-      const itemWidth = items[0].getBoundingClientRect().width + 10; // Include margin
-      const offset = currentStep * visibleItems * itemWidth;
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const containerPadding = 10; // Adjust this based on actual padding
+      const offset = currentIndex * itemWidth + containerPadding;
+
+      track.style.transition = 'transform 0.3s ease-in-out';
       track.style.transform = `translateX(-${offset}px)`;
 
       // Update active dot
       dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentStep);
+        dot.classList.toggle('active', index === currentIndex);
       });
     };
 
     const moveToNext = () => {
-      // Scroll until the last step
-      if (currentStep < steps - 1) {
-        currentStep++;
+      if (currentIndex < totalItems - 1) {
+        currentIndex++;
       } else {
-        currentStep = 0; // Reset to start
+        currentIndex = 0;
       }
       updateCarousel();
     };
 
     const moveToPrevious = () => {
-      if (currentStep > 0) {
-        currentStep--;
+      if (currentIndex > 0) {
+        currentIndex--;
       } else {
-        currentStep = steps - 1; // Jump to the last step
+        currentIndex = totalItems - 1;
       }
       updateCarousel();
     };
 
+    // Click Event Listeners for Arrows
     rightArrow.addEventListener('click', moveToNext);
     leftArrow.addEventListener('click', moveToPrevious);
 
+    // Click Event for Dots
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        currentStep = index;
+        currentIndex = index;
         updateCarousel();
       });
     });
 
-    // Auto-scroll
-    setInterval(moveToNext, 5000);
+    // Touch & Drag Support
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      track.style.transition = 'none'; // Disable smooth scrolling while dragging
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      moveX = e.touches[0].clientX - startX;
+    });
+
+    track.addEventListener('touchend', () => {
+      if (moveX < -50) {
+        moveToNext();
+      } else if (moveX > 50) {
+        moveToPrevious();
+      }
+      isDragging = false;
+    });
+
+    track.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+      track.style.transition = 'none';
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      moveX = e.clientX - startX;
+    });
+
+    track.addEventListener('mouseup', () => {
+      if (moveX < -50) {
+        moveToNext();
+      } else if (moveX > 50) {
+        moveToPrevious();
+      }
+      isDragging = false;
+    });
+
+    setInterval(moveToNext, 8000);
   });
 </script>
 

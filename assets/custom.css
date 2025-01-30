@@ -376,6 +376,10 @@ slideshow-component .slider-counter__link--dots .dot {
     background: linear-gradient(125deg, #F5DCFF, #FFEDA5) !important;
 }
 
+.shopify-section-group-footer-group {
+    z-index: 10 !important;
+}
+
 .footer-menus-content {
     padding: 4rem;
 }

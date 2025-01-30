@@ -1,20 +1,21 @@
 <div class="page-width product-content-fold-container">
-  <div class="product-content-fold-container-parent">
-    <div class="play-pause-icon visible" id="play-icon">
-      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
+  {% if product.metafields.content.product_video.value.video.value %}
+    <div class="product-content-fold-container-parent">
+      <div class="play-pause-icon visible" id="play-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
+      </div>
+      <div class="play-pause-icon" id="pause-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
+      </div>
+      <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
+      <div style="display: none;" class="product-content-fold_video">
+        {{
+          product.metafields.content.product_video.value.video.value
+          | video_tag: autoplay: false, loop: true, muted: false, controls: true
+        }}
+      </div>
     </div>
-    <div class="play-pause-icon" id="pause-icon">
-      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
-    </div>
-    <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
-    <div style="display: none;" class="product-content-fold_video">
-      {{
-        product.metafields.content.product_video.value.video.value
-        | video_tag: autoplay: false, loop: true, muted: false, controls: true
-      }}
-    </div>
-  </div>
-
+  {% endif %}
   <div class="product-content-fold-right">
     {% if product.metafields.content.content_fold_text %}
       <div class="product-content-fold">
@@ -141,11 +142,11 @@
     position: relative;
     cursor: pointer;
     height: auto;
-    border-radius: 15px;
   }
   .product-content-fold-container img,
   .product-content-fold-container video {
     width: 100%;
+    border-radius: 15px;
     height: 100%;
   }
 
@@ -231,6 +232,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5.33%;
+  }
+  @media (max-width: 850px) {
+    .product-content-fold-container {
+      flex-direction: column;
+    }
+    .product-content-fold-container-parent {
+      width: 100%;
+    }
+    .product-content-fold-right {
+      width: 100%;
+    }
+    .product-content-fold-answer-image-container {
+      width: 21%;
+    }
   }
 </style>
 

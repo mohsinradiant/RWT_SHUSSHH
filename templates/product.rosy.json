@@ -17,42 +17,6 @@
     },
     "product_info_fold_PK4khL": {
       "type": "product-info-fold",
-      "blocks": {
-        "usp_RP6WeX": {
-          "type": "usp",
-          "settings": {
-            "image": "shopify://shop_images/image_8c1dec64-240f-4de3-822d-2ff646e27428.png",
-            "text": "10 Vibration Patterns"
-          }
-        },
-        "usp_QrDGfV": {
-          "type": "usp",
-          "settings": {
-            "image": "shopify://shop_images/image-1_e3ea22ba-e3b5-4afa-b3a9-79e27798893a.png",
-            "text": "Water-Proof Body"
-          }
-        },
-        "usp_wcHUDj": {
-          "type": "usp",
-          "settings": {
-            "image": "shopify://shop_images/image-2_5ed8223d-29dd-442c-89b7-7a38b413c87b.png",
-            "text": "Body SafeSilicon"
-          }
-        },
-        "usp_WLwEyK": {
-          "type": "usp",
-          "settings": {
-            "image": "shopify://shop_images/image-3_3fde6d55-2ba7-448b-9e84-89b615936b8e.png",
-            "text": "5 Suction Modes"
-          }
-        }
-      },
-      "block_order": [
-        "usp_RP6WeX",
-        "usp_QrDGfV",
-        "usp_wcHUDj",
-        "usp_WLwEyK"
-      ],
       "settings": {}
     },
     "product_banner_fold_7AiTqg": {
@@ -128,6 +92,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
@@ -219,6 +184,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "sticky_add_to_cart_EtkrPq": {
+      "type": "sticky-add_to_cart",
+      "settings": {}
     }
   },
   "order": [
@@ -233,6 +202,7 @@
     "product_faqs_tLQNqz",
     "home_promises_ACUrRd",
     "main",
-    "related-products"
+    "related-products",
+    "sticky_add_to_cart_EtkrPq"
   ]
 }
