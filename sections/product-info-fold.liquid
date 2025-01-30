@@ -472,54 +472,42 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const isViewportWide = window.innerWidth > 850;
     const backdrop = document.querySelector('.hotspot-backdrop');
 
-    document.querySelectorAll('.hotspot').forEach((hotspot, index) => {
+    document.querySelectorAll('.hotspot').forEach((hotspot) => {
       const toggle = hotspot.querySelector('.hotspot-toggle');
       const detail = hotspot.querySelector('.hotspot-detail');
-      const isInitiallyActive = hotspot.dataset.active === 'true';
-
-      // Set initial state
-      if (isViewportWide && isInitiallyActive) {
-        hotspot.classList.add('active');
-        toggle.textContent = '-';
-        detail.style.opacity = '1';
-        detail.style.pointerEvents = 'auto';
-      } else {
-        hotspot.classList.remove('active');
-        toggle.textContent = '+';
-        detail.style.opacity = '0';
-        detail.style.pointerEvents = 'none';
-      }
 
       // Toggle functionality
       toggle.addEventListener('click', () => {
+        const isViewportNarrow = window.innerWidth < 850;
         const isCurrentlyActive = hotspot.classList.contains('active');
 
-        // Deactivate all hotspots
-        document.querySelectorAll('.hotspot').forEach((otherHotspot) => {
-          otherHotspot.classList.remove('active');
-          const otherToggle = otherHotspot.querySelector('.hotspot-toggle');
-          const otherDetail = otherHotspot.querySelector('.hotspot-detail');
-          otherToggle.textContent = '+';
-          otherDetail.style.opacity = '0';
-          otherDetail.style.pointerEvents = 'none';
-          otherDetail.style.transform = '';
-        });
+        if (isViewportNarrow) {
+          // Deactivate all other hotspots and hide their details
+          document.querySelectorAll('.hotspot').forEach((otherHotspot) => {
+            if (otherHotspot !== hotspot) {
+              otherHotspot.classList.remove('active');
+              const otherToggle = otherHotspot.querySelector('.hotspot-toggle');
+              const otherDetail = otherHotspot.querySelector('.hotspot-detail');
+              otherToggle.textContent = '+';
+              otherDetail.style.opacity = '0';
+              otherDetail.style.pointerEvents = 'none';
+              otherDetail.style.transform = '';
+            }
+          });
 
-        // If it was not active, activate this hotspot
-        if (!isCurrentlyActive) {
-          hotspot.classList.add('active');
-          toggle.textContent = '-';
-          detail.style.opacity = '1';
-          detail.style.pointerEvents = 'auto';
+          // Toggle the current hotspot
+          if (!isCurrentlyActive) {
+            hotspot.classList.add('active');
+            toggle.textContent = '-';
+            detail.style.opacity = '1';
+            detail.style.pointerEvents = 'auto';
 
-          // Show backdrop
-          backdrop.style.display = 'block';
+            // Show the backdrop
+            backdrop.style.display = 'block';
 
-          // Center the .hotspot-detail horizontally and vertically when viewport width is less than 850px
-          if (!isViewportWide) {
+            // Center the .hotspot-detail horizontally and vertically
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
             const detailRect = detail.getBoundingClientRect();
@@ -528,28 +516,50 @@
             const offsetY = viewportHeight / 2 - detailRect.height / 2 - detailRect.top;
 
             detail.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          } else {
+            hotspot.classList.remove('active');
+            toggle.textContent = '+';
+            detail.style.opacity = '0';
+            detail.style.pointerEvents = 'none';
+            detail.style.transform = '';
+
+            // Hide the backdrop
+            backdrop.style.display = 'none';
           }
         } else {
-          // Hide backdrop when all hotspots are deactivated
-          backdrop.style.display = 'none';
+          // For wider viewports, simply toggle the current hotspot without affecting others
+          if (isCurrentlyActive) {
+            hotspot.classList.remove('active');
+            toggle.textContent = '+';
+            detail.style.opacity = '0';
+            detail.style.pointerEvents = 'none';
+            detail.style.transform = '';
+          } else {
+            hotspot.classList.add('active');
+            toggle.textContent = '-';
+            detail.style.opacity = '1';
+            detail.style.pointerEvents = 'auto';
+          }
         }
       });
     });
 
-    // Close backdrop when clicked
+    // Close the backdrop when clicked (only for narrow viewports)
     backdrop.addEventListener('click', () => {
-      document.querySelectorAll('.hotspot').forEach((hotspot) => {
-        hotspot.classList.remove('active');
-        const toggle = hotspot.querySelector('.hotspot-toggle');
-        const detail = hotspot.querySelector('.hotspot-detail');
-        toggle.textContent = '+';
-        detail.style.opacity = '0';
-        detail.style.pointerEvents = 'none';
-        detail.style.transform = '';
-      });
+      if (window.innerWidth < 850) {
+        document.querySelectorAll('.hotspot').forEach((hotspot) => {
+          hotspot.classList.remove('active');
+          const toggle = hotspot.querySelector('.hotspot-toggle');
+          const detail = hotspot.querySelector('.hotspot-detail');
+          toggle.textContent = '+';
+          detail.style.opacity = '0';
+          detail.style.pointerEvents = 'none';
+          detail.style.transform = '';
+        });
 
-      // Hide backdrop
-      backdrop.style.display = 'none';
+        // Hide the backdrop
+        backdrop.style.display = 'none';
+      }
     });
   });
 </script>
