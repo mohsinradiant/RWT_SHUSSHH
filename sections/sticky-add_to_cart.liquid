@@ -3,7 +3,17 @@
   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
   {%- render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id -%}
 </div>
-
+<style>
+  .sticky-atc-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+</style>
 {% schema %}
 {
   "name": "Sticky A2C",
