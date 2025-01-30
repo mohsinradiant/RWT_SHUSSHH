@@ -452,38 +452,54 @@
   }
 </style>
 <script>
-  document.querySelectorAll('.hotspot').forEach((hotspot) => {
-    const toggle = hotspot.querySelector('.hotspot-toggle'); // Select the toggle button
-    const detail = hotspot.querySelector('.hotspot-detail'); // Select the detail div
+  document.addEventListener('DOMContentLoaded', () => {
+    const isViewportWide = window.innerWidth > 850;
 
-    toggle.addEventListener('click', () => {
-      if (hotspot.classList.contains('active')) {
-        toggle.textContent = '+'; // Change the toggle text to '+'
-        hotspot.classList.remove('active');
-        detail.style.opacity = '0'; // Fade out
-        detail.style.pointerEvents = 'none';
+    document.querySelectorAll('.hotspot').forEach((hotspot, index) => {
+      const toggle = hotspot.querySelector('.hotspot-toggle');
+      const detail = hotspot.querySelector('.hotspot-detail');
+      const isInitiallyActive = hotspot.dataset.active === 'true';
 
-        // Reset transform when closing
-        detail.style.transform = '';
-      } else {
-        toggle.textContent = '-'; // Change the toggle text to '-'
+      // Set initial state based on viewport width and first hotspot
+      if (isViewportWide && isInitiallyActive) {
         hotspot.classList.add('active');
-        detail.style.opacity = '1'; // Fade in
+        toggle.textContent = '-';
+        detail.style.opacity = '1';
         detail.style.pointerEvents = 'auto';
-
-        // Center the .hotspot-detail horizontally and vertically when viewport width is less than 850px
-        if (window.innerWidth < 850) {
-          const viewportWidth = window.innerWidth;
-          const viewportHeight = window.innerHeight;
-          const detailRect = detail.getBoundingClientRect();
-
-          // Calculate the amount needed to move .hotspot-detail to the center of the viewport
-          const offsetX = viewportWidth / 2 - detailRect.width / 2 - detailRect.left;
-          const offsetY = viewportHeight / 2 - detailRect.height / 2 - detailRect.top;
-
-          detail.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-        }
+      } else {
+        hotspot.classList.remove('active');
+        toggle.textContent = '+';
+        detail.style.opacity = '0';
+        detail.style.pointerEvents = 'none';
       }
+
+      // Toggle functionality
+      toggle.addEventListener('click', () => {
+        if (hotspot.classList.contains('active')) {
+          toggle.textContent = '+';
+          hotspot.classList.remove('active');
+          detail.style.opacity = '0';
+          detail.style.pointerEvents = 'none';
+          detail.style.transform = '';
+        } else {
+          toggle.textContent = '-';
+          hotspot.classList.add('active');
+          detail.style.opacity = '1';
+          detail.style.pointerEvents = 'auto';
+
+          // Center the .hotspot-detail horizontally and vertically when viewport width is less than 850px
+          if (!isViewportWide) {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const detailRect = detail.getBoundingClientRect();
+
+            const offsetX = viewportWidth / 2 - detailRect.width / 2 - detailRect.left;
+            const offsetY = viewportHeight / 2 - detailRect.height / 2 - detailRect.top;
+
+            detail.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          }
+        }
+      });
     });
   });
 </script>
