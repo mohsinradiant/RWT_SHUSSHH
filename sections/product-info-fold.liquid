@@ -186,6 +186,18 @@
   </div>
 </product-info>
 <style>
+  .hotspot-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    display: none;
+  }
+
   .content-slider-strip p {
     font-size: 1.1rem !important;
     text-transform: uppercase;
@@ -332,6 +344,8 @@
   .product-info-fold-middle-container img {
     height: 100%;
     width: auto;
+    position: relative;
+    z-index: 2;
     display: block;
     animation: floatUpDown 3s ease-in-out infinite;
   }
@@ -412,8 +426,12 @@
     font-weight: 400;
     font-size: 1.5rem;
   }
+  .hotspot.active {
+    z-index: 3;
+  }
   .hotspot.active .hotspot-detail {
     opacity: 1;
+    z-index: 3;
     pointer-events: auto;
   }
   .hotspot.active .hotspot-toggle {
