@@ -12,6 +12,12 @@
         <p>{{ bullet.text }}</p>
       </div>
     {% endfor %}
+    {% for bullet in product.metafields.content.product_bullets.value %}
+      <div class="product-bullet">
+        <img src="{{bullet.image |  image_url }}">
+        <p>{{ bullet.text }}</p>
+      </div>
+    {% endfor %}
   </div>
 </div>
 
