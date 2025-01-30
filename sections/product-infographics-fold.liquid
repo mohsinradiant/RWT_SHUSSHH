@@ -147,7 +147,10 @@
     const dotsContainer = document.querySelector('.carousel-dots');
 
     const totalItems = items.length;
-    let currentIndex = 0; // Track the current slide index
+    let currentIndex = 0;
+    let startX = 0,
+      isDragging = false,
+      moveX = 0;
 
     // Generate dots dynamically
     dotsContainer.innerHTML = items
@@ -157,11 +160,13 @@
 
     const updateCarousel = () => {
       const itemWidth = items[0].getBoundingClientRect().width;
-      const containerPadding = 10;
+      const containerPadding = 10; // Adjust this based on actual padding
       const offset = currentIndex * itemWidth + containerPadding;
 
+      track.style.transition = 'transform 0.3s ease-in-out';
       track.style.transform = `translateX(-${offset}px)`;
 
+      // Update active dot
       dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
       });
@@ -185,14 +190,57 @@
       updateCarousel();
     };
 
+    // Click Event Listeners for Arrows
     rightArrow.addEventListener('click', moveToNext);
     leftArrow.addEventListener('click', moveToPrevious);
 
+    // Click Event for Dots
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         currentIndex = index;
         updateCarousel();
       });
+    });
+
+    // Touch & Drag Support
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      track.style.transition = 'none'; // Disable smooth scrolling while dragging
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      moveX = e.touches[0].clientX - startX;
+    });
+
+    track.addEventListener('touchend', () => {
+      if (moveX < -50) {
+        moveToNext();
+      } else if (moveX > 50) {
+        moveToPrevious();
+      }
+      isDragging = false;
+    });
+
+    track.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+      track.style.transition = 'none';
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      moveX = e.clientX - startX;
+    });
+
+    track.addEventListener('mouseup', () => {
+      if (moveX < -50) {
+        moveToNext();
+      } else if (moveX > 50) {
+        moveToPrevious();
+      }
+      isDragging = false;
     });
 
     setInterval(moveToNext, 8000);
