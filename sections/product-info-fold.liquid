@@ -460,22 +460,22 @@
         detail.style.pointerEvents = 'none';
 
         // Reset transform when closing
-        hotspot.style.transform = '';
+        detail.style.transform = '';
       } else {
         toggle.textContent = '-'; // Change the toggle text to '-'
         hotspot.classList.add('active');
         detail.style.opacity = '1'; // Fade in
         detail.style.pointerEvents = 'auto';
 
-        // Center the hotspot horizontally if viewport width is less than 850px
+        // Center the .hotspot-detail horizontally when viewport width is less than 850px
         if (window.innerWidth < 850) {
           const viewportWidth = window.innerWidth;
-          const hotspotRect = hotspot.getBoundingClientRect();
+          const detailRect = detail.getBoundingClientRect();
 
-          // Calculate the amount needed to move hotspot to the center
-          const offsetX = viewportWidth / 2 - hotspotRect.width / 2 - hotspotRect.left;
+          // Calculate the amount needed to move .hotspot-detail to the center of the viewport
+          const offsetX = viewportWidth / 2 - detailRect.width / 2 - detailRect.left;
 
-          hotspot.style.transform = `translateX(${offsetX}px)`;
+          detail.style.transform = `translateX(${offsetX}px)`;
         }
       }
     });
