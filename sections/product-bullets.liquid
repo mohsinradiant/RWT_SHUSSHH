@@ -1,12 +1,41 @@
 <div class="product-bullets-container">
-  {% for bullet in product.metafields.content.product_bullets.value %}
-    <div class="product-bullet">
-      <img src="{{bullet.image |  image_url }}">
-      <p>{{ bullet.text }}</p>
-    </div>
-  {% endfor %}
+  <div class="product-bullets">
+    {% for bullet in product.metafields.content.product_bullets.value %}
+      <div class="product-bullet">
+        <img src="{{bullet.image |  image_url }}">
+        <p>{{ bullet.text }}</p>
+      </div>
+    {% endfor %}
+    {% for bullet in product.metafields.content.product_bullets.value %}
+      <div class="product-bullet">
+        <img src="{{bullet.image |  image_url }}">
+        <p>{{ bullet.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
 </div>
+
 <style>
+  <style > .product-bullets-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: #332b3a;
+  }
+
+  .product-bullets {
+    display: inline-flex;
+    animation: scrollText 150s linear infinite;
+  }
+
+  @keyframes scrollText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
   .product-bullets-container {
     background-color: #382d43;
     color: #fff;
