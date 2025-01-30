@@ -162,7 +162,7 @@
                 class="hotspot"
                 style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
               >
-                <span class="hotspot-toggle"> - </span>
+                <span class="hotspot-toggle"> + </span>
                 <div class="hotspot-detail">{{ hotspot.text }}</div>
               </div>
             {% endfor %}
@@ -427,7 +427,7 @@
   }
   .hotspot.active .hotspot-detail {
     opacity: 1;
-    z-index: 3;
+    z-index: -1;
     pointer-events: auto;
   }
   .hotspot.active .hotspot-toggle {
@@ -437,7 +437,7 @@
   @media (max-width: 850px) {
     .hotspot.active .hotspot-detail {
       padding: 10px 20px;
-      z-index: 99;
+      z-index: 3;
     }
     .product-info-fold-container .page-width {
       display: flex;
