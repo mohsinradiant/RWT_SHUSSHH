@@ -168,7 +168,18 @@
                 style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
               >
                 <span class="hotspot-toggle"> + </span>
-                <div class="hotspot-detail">{{ hotspot.text }}</div>
+                <div
+                  {% if hotspot.text_in_left %}
+                    style="
+                      left: unset;
+                      right: -5px;
+                      padding: 10px 52px 10px 20px;
+                    "
+                  {% endif -%}
+                  class="hotspot-detail"
+                >
+                  {{ hotspot.text }}
+                </div>
               </div>
             {% endfor %}
           {% endif %}
