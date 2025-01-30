@@ -156,8 +156,8 @@
     const dots = Array.from(dotsContainer.children);
 
     const updateCarousel = () => {
-      const itemWidth = items[0].getBoundingClientRect().width + 10; // Include margin
-      const offset = currentIndex * itemWidth; // Move one item at a time
+      const itemWidth = items[0].getBoundingClientRect().width + 15;
+      const offset = currentIndex * itemWidth;
       track.style.transform = `translateX(-${offset}px)`;
 
       // Update active dot
@@ -168,18 +168,18 @@
 
     const moveToNext = () => {
       if (currentIndex < totalItems - 1) {
-        currentIndex++; // Move forward by one slide
+        currentIndex++;
       } else {
-        currentIndex = 0; // Loop back to first slide
+        currentIndex = 0;
       }
       updateCarousel();
     };
 
     const moveToPrevious = () => {
       if (currentIndex > 0) {
-        currentIndex--; // Move backward by one slide
+        currentIndex--;
       } else {
-        currentIndex = totalItems - 1; // Loop to last slide
+        currentIndex = totalItems - 1;
       }
       updateCarousel();
     };
@@ -194,8 +194,7 @@
       });
     });
 
-    // Auto-scroll every 5 seconds
-    setInterval(moveToNext, 5000);
+    setInterval(moveToNext, 8000);
   });
 </script>
 
