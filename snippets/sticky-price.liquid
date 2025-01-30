@@ -111,28 +111,31 @@
         </span>
       </small>
     </div>
-    {%- unless product.price_varies == false and product.compare_at_price_varies %}
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-      <span>
-        <s class="price-item price-item--regular">
-          {% if settings.currency_code_enabled %}
-            {{ compare_at_price | money_with_currency }}
-          {% else %}
-            {{ compare_at_price | money }}
-          {% endif %}
-        </s>
-      </span>
-    {%- endunless -%}
-    <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-      {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
-      {%- assign discount = product.compare_at_price | minus: product.price -%}
-      {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
-      {{ discount_percentage }}
-      %
-    </span>
 
-    <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
-      {{ 'products.product.sold_out' | t }}
-    </span>
+    <div class="price-row-2">
+      {%- unless product.price_varies == false and product.compare_at_price_varies %}
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <span>
+          <s class="price-item price-item--regular">
+            {% if settings.currency_code_enabled %}
+              {{ compare_at_price | money_with_currency }}
+            {% else %}
+              {{ compare_at_price | money }}
+            {% endif %}
+          </s>
+        </span>
+      {%- endunless -%}
+      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+        {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
+        {%- assign discount = product.compare_at_price | minus: product.price -%}
+        {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
+        {{ discount_percentage }}
+        %
+      </span>
+
+      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+        {{ 'products.product.sold_out' | t }}
+      </span>
+    </div>
   </div>
 {% endunless %}
