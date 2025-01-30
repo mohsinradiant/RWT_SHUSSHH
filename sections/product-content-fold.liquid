@@ -52,7 +52,7 @@
               </button>
               <div class="product-content-fold-answer">
                 {% if metaobject.file.value %}
-                  <img src="{{ metaobject.file.value |  image_url }}">
+                  <img class="product-content-fold-answer-image" src="{{ metaobject.file.value |  image_url }}">
                 {% endif %}
                 <p>{{ metaobject.description | metafield_tag }}</p>
               </div>
@@ -248,7 +248,7 @@
     font-family: 'Kanit';
     line-height: 1.5rem;
   }
-  .product-content-fold-answer img {
+  .product-content-fold-answer-image {
     width: 100% !important;
     height: auto !important;
   }
