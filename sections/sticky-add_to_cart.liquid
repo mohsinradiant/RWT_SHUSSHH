@@ -1,0 +1,17 @@
+<div class="sticky-atc-container">
+  {%- assign product_form_id = 'product-form-' | append: section.id -%}
+  {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+  {%- render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id -%}
+</div>
+
+{% schema %}
+{
+  "name": "Sticky A2C",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Sticky A2C"
+    }
+  ]
+}
+{% endschema %}
