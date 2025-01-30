@@ -769,6 +769,9 @@ sticky-header {
 }
 
 @media(max-width:750px) {
+    .header-category p {
+        font-size: 1.15rem;
+    }
     .collection_page_products-grid .facet-filters {
         padding-left: 1rem;
     }
