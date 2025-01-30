@@ -172,10 +172,10 @@
       {% endif %}
       <div class="product-info-fold-right-container">
         <div class="product-info-fold-right-parent">
-          {% for block in section.blocks %}
+          {% for usp in product.metafields.content.product_usp.value %}
             <div class="product-info-fold-right-usp-div">
-              <img src="{{block.settings.image |  image_url }}">
-              <p>{{ block.settings.text }}</p>
+              <img src="{{usp.image |  image_url }}">
+              <p>{{ usp.text }}</p>
             </div>
           {% endfor %}
         </div>
