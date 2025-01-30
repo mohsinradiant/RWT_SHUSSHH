@@ -156,9 +156,9 @@
     const dots = Array.from(dotsContainer.children);
 
     const updateCarousel = () => {
-      const itemWidth = items[0].getBoundingClientRect().width + 15;
+      const itemWidth = items[0].getBoundingClientRect().width + 10;
       const offset = currentIndex * itemWidth;
-      track.style.transform = `translateX(-${offset}px)`;
+      track.style.transform = `translateX(-${offset}px - 10px)`;
 
       // Update active dot
       dots.forEach((dot, index) => {
