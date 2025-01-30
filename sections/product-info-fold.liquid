@@ -467,15 +467,17 @@
         detail.style.opacity = '1'; // Fade in
         detail.style.pointerEvents = 'auto';
 
-        // Center the .hotspot-detail horizontally when viewport width is less than 850px
+        // Center the .hotspot-detail horizontally and vertically when viewport width is less than 850px
         if (window.innerWidth < 850) {
           const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
           const detailRect = detail.getBoundingClientRect();
 
           // Calculate the amount needed to move .hotspot-detail to the center of the viewport
           const offsetX = viewportWidth / 2 - detailRect.width / 2 - detailRect.left;
+          const offsetY = viewportHeight / 2 - detailRect.height / 2 - detailRect.top;
 
-          detail.style.transform = `translateX(${offsetX}px)`;
+          detail.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         }
       }
     });
