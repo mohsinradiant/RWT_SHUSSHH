@@ -156,35 +156,33 @@
           </div>
         </div>
       </div>
-      {% if product.metafields.content.product_png %}
-        <div class="product-info-fold-middle-container">
-          <div class="hotspot-backdrop"></div>
-          <img src="{{ product.selected_or_first_available_variant.image | image_url }}" alt="{{ product.title }}">
-          {% comment %} <img src="{{ product.metafields.content.product_png | image_url }}" alt="{{ product.title }}"> {% endcomment %}
-          {% if product.metafields.content.product_png_hotspots.value %}
-            {% for hotspot in product.metafields.content.product_png_hotspots.value %}
+      <div class="product-info-fold-middle-container">
+        <div class="hotspot-backdrop"></div>
+        <img src="{{ product.selected_or_first_available_variant.image | image_url }}" alt="{{ product.title }}">
+        {% comment %} <img src="{{ product.metafields.content.product_png | image_url }}" alt="{{ product.title }}"> {% endcomment %}
+        {% if product.metafields.content.product_png_hotspots.value %}
+          {% for hotspot in product.metafields.content.product_png_hotspots.value %}
+            <div
+              class="hotspot"
+              style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+            >
+              <span class="hotspot-toggle"> + </span>
               <div
-                class="hotspot"
-                style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+                {% if hotspot.text_in_left == true %}
+                  style="
+                    left: unset;
+                    right: -5px;
+                    padding: 10px 52px 10px 20px;
+                  "
+                {% endif -%}
+                class="hotspot-detail"
               >
-                <span class="hotspot-toggle"> + </span>
-                <div
-                  {% if hotspot.text_in_left == true %}
-                    style="
-                      left: unset;
-                      right: -5px;
-                      padding: 10px 52px 10px 20px;
-                    "
-                  {% endif -%}
-                  class="hotspot-detail"
-                >
-                  {{ hotspot.text }}
-                </div>
+                {{ hotspot.text }}
               </div>
-            {% endfor %}
-          {% endif %}
-        </div>
-      {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
       <div class="product-info-fold-right-container">
         <div class="product-info-fold-right-parent">
           {% for usp in product.metafields.content.product_usp.value %}
