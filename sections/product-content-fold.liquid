@@ -15,6 +15,30 @@
         }}
       </div>
     </div>
+  {% elsif product.metafields.content.info_images.value %}
+    <div class="product-content-fold-container-parent-carousel">
+      <div class="carousel-wrapper-custom">
+        <button class="carousel-btn-custom left-btn-custom">
+          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+        </button>
+        <div class="carousel-track-custom">
+          {% for image in product.metafields.content.info_images.value %}
+            <img class="carousel-item-custom" src="{{image | image_url}}">
+          {% endfor %}
+        </div>
+        <button class="carousel-btn-custom right-btn-custom">
+          <img
+            style="transform: rotate(180deg);"
+            src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+          >
+        </button>
+      </div>
+      <div class="carousel-indicators-custom">
+        {% for image in product.metafields.content.info_images.value %}
+          <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
+        {% endfor %}
+      </div>
+    </div>
   {% endif %}
   <div class="product-content-fold-right">
     {% if product.metafields.content.content_fold_text %}
@@ -27,6 +51,9 @@
                 <span class="product-content-fold-toggle-icon">+</span>
               </button>
               <div class="product-content-fold-answer">
+                {% if metaobject.file.value %}
+                  <img class="product-content-fold-answer-image" src="{{ metaobject.file.value |  image_url }}">
+                {% endif %}
                 <p>{{ metaobject.description | metafield_tag }}</p>
               </div>
             </div>
@@ -132,7 +159,7 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 20px;
+    gap: 1%;
     margin-top: 50px;
     margin-bottom: 50px;
     height: fit-content;
@@ -142,6 +169,16 @@
     position: relative;
     cursor: pointer;
     height: auto;
+  }
+  .product-content-fold-container-parent-carousel {
+    width: 50%;
+    height: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    height: auto;
+    border-radius: 15px;
   }
   .product-content-fold-container img,
   .product-content-fold-container video {
@@ -157,7 +194,9 @@
     letter-spacing: 0;
   }
   .product-content-fold-right {
-    width: 38%;
+    max-height: auto;
+    overflow-y: auto;
+    width: 49%;
     padding: 20px;
     background: #faf3ff;
     border-radius: 15px;
@@ -209,6 +248,10 @@
     font-family: 'Kanit';
     line-height: 1.5rem;
   }
+  .product-content-fold-item .product-content-fold-answer .product-content-fold-answer-image {
+    width: 100% !important;
+    height: auto !important;
+  }
   .product-content-fold-answer-image-container {
     display: flex;
     width: 21%;
@@ -223,8 +266,8 @@
   }
   .product-content-fold-container .product-content-fold-answer img {
     aspect-ratio: unset;
-    height: 100%;
-    width: fit-content;
+    height: 100% !important;
+    width: fit-content !important;
     border-radius: 0;
   }
   .product-content-fold-answer-image-container-parent {
@@ -233,15 +276,89 @@
     flex-wrap: wrap;
     gap: 5.33%;
   }
+  /* carousel */
+
+  .carousel-wrapper-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel-track-custom {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+  }
+
+  .carousel-item-custom {
+    min-width: 100%;
+    border-radius: 0 !important;
+  }
+
+  .carousel-btn-custom {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    background: transparent;
+    border-radius: 240px;
+    padding: 0;
+  }
+
+  .left-btn-custom {
+    left: 20px;
+  }
+
+  .right-btn-custom {
+    right: 20px;
+  }
+
+  .carousel-indicators-custom {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: -30px;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 9;
+    right: 0;
+  }
+
+  .dot-custom {
+    width: 5px;
+    height: 5px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: #cdcdcd;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    padding: 0;
+  }
+
+  .dot-custom.active {
+    background-color: #d5b7e0;
+  }
   @media (max-width: 850px) {
     .product-content-fold-container {
       flex-direction: column;
+      gap: 15px;
     }
     .product-content-fold-container-parent {
       width: 100%;
     }
+    .product-content-fold-container-parent-carousel {
+      width: 100%;
+    }
     .product-content-fold-right {
       width: 100%;
+      max-height: max-content;
     }
     .product-content-fold-answer-image-container {
       width: 21%;
@@ -288,7 +405,64 @@
     });
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track-custom');
+    const items = document.querySelectorAll('.carousel-item-custom');
+    const dots = document.querySelectorAll('.dot-custom');
+    const prevBtn = document.querySelector('.left-btn-custom');
+    const nextBtn = document.querySelector('.right-btn-custom');
+    const itemCount = items.length;
 
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % itemCount;
+      updateCarousel();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Swipe functionality
+    let startX;
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      const endX = e.touches[0].clientX;
+      const diff = startX - endX;
+
+      if (diff > 50) {
+        nextBtn.click();
+      } else if (diff < -50) {
+        prevBtn.click();
+      }
+
+      startX = null;
+    });
+
+    updateCarousel();
+  });
+</script>
 {% schema %}
 {
   "name": "Product Content Fold",

@@ -1,7 +1,9 @@
-<div class="product-banners-fold-container page-width">
-  <img src="{{ product.metafields.content.banner_1 | image_url }}">
-  <img src="{{ product.metafields.content.banner_2 | image_url }}">
-</div>
+{% if product.metafields.content.banner_1 and product.metafields.content.banner_2 %}
+  <div class="product-banners-fold-container page-width">
+    <img src="{{ product.metafields.content.banner_1 | image_url }}">
+    <img src="{{ product.metafields.content.banner_2 | image_url }}">
+  </div>
+{% endif %}
 <style>
   .product-banners-fold-container {
     display: flex;
