@@ -146,44 +146,40 @@
     const rightArrow = document.querySelector('.carousel-arrow.right');
     const dotsContainer = document.querySelector('.carousel-dots');
 
-    const visibleItems = 3; // Number of visible items in the viewport
     const totalItems = items.length;
-    const steps = Math.ceil(totalItems / visibleItems); // Total number of steps
-    let currentStep = 0;
+    let currentIndex = 0; // Track the current slide index
 
     // Generate dots dynamically
-    dotsContainer.innerHTML = Array(steps)
-      .fill(0)
+    dotsContainer.innerHTML = items
       .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
       .join('');
     const dots = Array.from(dotsContainer.children);
 
     const updateCarousel = () => {
       const itemWidth = items[0].getBoundingClientRect().width + 10; // Include margin
-      const offset = currentStep * visibleItems * itemWidth;
+      const offset = currentIndex * itemWidth; // Move one item at a time
       track.style.transform = `translateX(-${offset}px)`;
 
       // Update active dot
       dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentStep);
+        dot.classList.toggle('active', index === currentIndex);
       });
     };
 
     const moveToNext = () => {
-      // Scroll until the last step
-      if (currentStep < steps - 1) {
-        currentStep++;
+      if (currentIndex < totalItems - 1) {
+        currentIndex++; // Move forward by one slide
       } else {
-        currentStep = 0; // Reset to start
+        currentIndex = 0; // Loop back to first slide
       }
       updateCarousel();
     };
 
     const moveToPrevious = () => {
-      if (currentStep > 0) {
-        currentStep--;
+      if (currentIndex > 0) {
+        currentIndex--; // Move backward by one slide
       } else {
-        currentStep = steps - 1; // Jump to the last step
+        currentIndex = totalItems - 1; // Loop to last slide
       }
       updateCarousel();
     };
@@ -193,12 +189,12 @@
 
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        currentStep = index;
+        currentIndex = index;
         updateCarousel();
       });
     });
 
-    // Auto-scroll
+    // Auto-scroll every 5 seconds
     setInterval(moveToNext, 5000);
   });
 </script>
