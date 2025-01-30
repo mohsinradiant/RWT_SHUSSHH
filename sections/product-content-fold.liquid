@@ -1,47 +1,45 @@
 <div class="page-width product-content-fold-container">
-  {% comment %}
-    {% if product.metafields.content.product_video.value.video.value %}
-      <div class="product-content-fold-container-parent">
-        <div class="play-pause-icon visible" id="play-icon">
-          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
-        </div>
-        <div class="play-pause-icon" id="pause-icon">
-          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
-        </div>
-        <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
-        <div style="display: none;" class="product-content-fold_video">
-          {{
-            product.metafields.content.product_video.value.video.value
-            | video_tag: autoplay: false, loop: true, muted: false, controls: true
-          }}
-        </div>
+  {% if product.metafields.content.product_video.value.video.value %}
+    <div class="product-content-fold-container-parent">
+      <div class="play-pause-icon visible" id="play-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
       </div>
-    {% elsif product.metafields.content.info_images.value %}
-  {% endcomment %}
-  <div class="product-content-fold-container-parent-carousel">
-    <div class="carousel-wrapper-custom">
-      <button class="carousel-btn-custom left-btn-custom">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-      </button>
-      <div class="carousel-track-custom">
+      <div class="play-pause-icon" id="pause-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
+      </div>
+      <img src="{{ product.metafields.content.product_video.value.placeholder | image_url }}" class="video-placeholder">
+      <div style="display: none;" class="product-content-fold_video">
+        {{
+          product.metafields.content.product_video.value.video.value
+          | video_tag: autoplay: false, loop: true, muted: false, controls: true
+        }}
+      </div>
+    </div>
+  {% elsif product.metafields.content.info_images.value %}
+    <div class="product-content-fold-container-parent-carousel">
+      <div class="carousel-wrapper-custom">
+        <button class="carousel-btn-custom left-btn-custom">
+          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+        </button>
+        <div class="carousel-track-custom">
+          {% for image in product.metafields.content.info_images.value %}
+            <img class="carousel-item-custom" src="{{image | image_url}}">
+          {% endfor %}
+        </div>
+        <button class="carousel-btn-custom right-btn-custom">
+          <img
+            style="transform: rotate(180deg);"
+            src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+          >
+        </button>
+      </div>
+      <div class="carousel-indicators-custom">
         {% for image in product.metafields.content.info_images.value %}
-          <img class="carousel-item-custom" src="{{image | image_url}}">
+          <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
         {% endfor %}
       </div>
-      <button class="carousel-btn-custom right-btn-custom">
-        <img
-          style="transform: rotate(180deg);"
-          src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
-        >
-      </button>
     </div>
-    <div class="carousel-indicators-custom">
-      {% for image in product.metafields.content.info_images.value %}
-        <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
-      {% endfor %}
-    </div>
-  </div>
-  {% comment %} {% endif %} {% endcomment %}
+  {% endif %}
   <div class="product-content-fold-right">
     {% if product.metafields.content.content_fold_text %}
       <div class="product-content-fold">
