@@ -19,8 +19,8 @@
     {% endif %}
   {% endcomment %}
   <div class="product-content-fold-container-parent-carousel">
-    {% for image in product.metafields.content.info_images %}
-      <img src="{{image.value | image_url}}">
+    {% for image in product.metafields.content.info_images.value %}
+      <img src="{{image | image_url}}">
     {% endfor %}
   </div>
 
