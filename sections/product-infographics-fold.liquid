@@ -1,37 +1,39 @@
-<div class="infinite-carousel">
-  <div class="page-width">
-    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
-    <div class="carousel-container">
-      <div class="carousel-track">
-        {% assign collection = product.metafields.content.combos_collection.value %}
+{% if product.metafields.content.combos_collection %}
+  <div class="infinite-carousel">
+    <div class="page-width">
+      <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+      <div class="carousel-container">
+        <div class="carousel-track">
+          {% assign collection = product.metafields.content.combos_collection.value %}
+          {% if collection and collection.products.size > 0 %}
+            {% for product in collection.products %}
+              <div class="carousel-item">
+                <a href="{{ product.url }}">
+                  <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+                </a>
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No products found in the specified collection.</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="carousel-dots">
         {% if collection and collection.products.size > 0 %}
           {% for product in collection.products %}
-            <div class="carousel-item">
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
-              </a>
-            </div>
+            <button class="dot" data-index="{{ forloop.index0 }}"></button>
           {% endfor %}
-        {% else %}
-          <p>No products found in the specified collection.</p>
         {% endif %}
       </div>
+      <button class="carousel-arrow left">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+      </button>
+      <button class="carousel-arrow right" style="transform: rotate(180deg);">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+      </button>
     </div>
-    <div class="carousel-dots">
-      {% if collection and collection.products.size > 0 %}
-        {% for product in collection.products %}
-          <button class="dot" data-index="{{ forloop.index0 }}"></button>
-        {% endfor %}
-      {% endif %}
-    </div>
-    <button class="carousel-arrow left">
-      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-    </button>
-    <button class="carousel-arrow right" style="transform: rotate(180deg);">
-      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-    </button>
   </div>
-</div>
+{% endif %}
 <style>
   .infinite-carousel {
     background-color: #faf3ff;

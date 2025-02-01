@@ -1,53 +1,55 @@
-<div class="product-shoppable-videos">
-  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
-  <div class="page-width">
-    {% for testimonial in product.metafields.content.product_shoppable_videos.value %}
-      <div class="product-shoppable-video-block">
-        <div class="product-shoppable-video-container" style="position: relative;">
-          <!-- Play & Pause Icons -->
-          <div class="play-pause-icon play-icon visible" id="play-icon-{{ forloop.index }}">
-            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_335.png?v=1738186522" alt="Play">
-          </div>
-          <div class="play-pause-icon pause-icon" id="pause-icon-{{ forloop.index }}">
-            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_334.png?v=1738186521" alt="Pause">
+{% if product.metafields.content.product_shoppable_videos %}
+  <div class="product-shoppable-videos">
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+    <div class="page-width">
+      {% for testimonial in product.metafields.content.product_shoppable_videos.value %}
+        <div class="product-shoppable-video-block">
+          <div class="product-shoppable-video-container" style="position: relative;">
+            <!-- Play & Pause Icons -->
+            <div class="play-pause-icon play-icon visible" id="play-icon-{{ forloop.index }}">
+              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_335.png?v=1738186522" alt="Play">
+            </div>
+            <div class="play-pause-icon pause-icon" id="pause-icon-{{ forloop.index }}">
+              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_334.png?v=1738186521" alt="Pause">
+            </div>
+
+            <!-- Placeholder Image -->
+            <img src="{{ testimonial.placeholder | img_url: 'medium' }}" class="product-shoppable-video-image">
+
+            <!-- Video Container (Initially Hidden) -->
+            <div class="product-shoppable-product-shoppable-video-container" style="display: none;">
+              {{ testimonial.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: false }}
+            </div>
           </div>
 
-          <!-- Placeholder Image -->
-          <img src="{{ testimonial.placeholder | img_url: 'medium' }}" class="product-shoppable-video-image">
-
-          <!-- Video Container (Initially Hidden) -->
-          <div class="product-shoppable-product-shoppable-video-container" style="display: none;">
-            {{ testimonial.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: false }}
-          </div>
+          {% assign product = testimonial.product.value %}
+          {% if product %}
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-link">
+                <img
+                  src="{{ product.featured_image | img_url: 'medium' }}"
+                  alt="{{ product.title }}"
+                  class="product-image"
+                >
+                <div class="product-info">
+                  <h3 class="product-title">{{ product.title }}</h3>
+                  <p class="product-prices">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="sale-price">{{ product.price | money }}</span>
+                      <span class="regular-price">{{ product.compare_at_price | money }}</span>
+                    {% else %}
+                      <span class="regular-price">{{ product.price | money }}</span>
+                    {% endif %}
+                  </p>
+                </div>
+              </a>
+            </div>
+          {% endif %}
         </div>
-
-        {% assign product = testimonial.product.value %}
-        {% if product %}
-          <div class="product-card">
-            <a href="{{ product.url }}" class="product-link">
-              <img
-                src="{{ product.featured_image | img_url: 'medium' }}"
-                alt="{{ product.title }}"
-                class="product-image"
-              >
-              <div class="product-info">
-                <h3 class="product-title">{{ product.title }}</h3>
-                <p class="product-prices">
-                  {% if product.compare_at_price > product.price %}
-                    <span class="sale-price">{{ product.price | money }}</span>
-                    <span class="regular-price">{{ product.compare_at_price | money }}</span>
-                  {% else %}
-                    <span class="regular-price">{{ product.price | money }}</span>
-                  {% endif %}
-                </p>
-              </div>
-            </a>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
-</div>
+{% endif %}
 <style>
   .play-pause-icon {
     position: absolute;
