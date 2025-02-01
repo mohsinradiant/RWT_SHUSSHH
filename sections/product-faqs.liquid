@@ -1,36 +1,37 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
-
-<div class="collapsible-content-wrapper-narrow">
-  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
-  <div class="grid__item">
-    {%- for faq in product.metafields.content.frequently_asked_questions.value -%}
-      <div
-        class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
-      >
-        <details id="Details-{{ section.id }}-{{ forloop.index }}">
-          <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
-            <h3 class="accordion__title inline-richtext h4">
-              {{ faq.title }}
-            </h3>
-            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_336.png?v=1738191413">
-          </summary>
-          <div
-            class="accordion__content rte"
-            id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
-            role="region"
-            aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
-          >
-            {{ faq.description | metafield_tag }}
-          </div>
-        </details>
-      </div>
-    {%- endfor -%}
+{% if product.metafields.content.frequently_asked_questions %}
+  <div class="collapsible-content-wrapper-narrow">
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+    <div class="grid__item">
+      {%- for faq in product.metafields.content.frequently_asked_questions.value -%}
+        <div
+          class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
+        >
+          <details id="Details-{{ section.id }}-{{ forloop.index }}">
+            <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
+              <h3 class="accordion__title inline-richtext h4">
+                {{ faq.title }}
+              </h3>
+              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_336.png?v=1738191413">
+            </summary>
+            <div
+              class="accordion__content rte"
+              id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
+              role="region"
+              aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
+            >
+              {{ faq.description | metafield_tag }}
+            </div>
+          </details>
+        </div>
+      {%- endfor -%}
+    </div>
+    {% comment %} {%- if product.metafields.content.frequently_asked_questions.value.size > 3 -%} {% endcomment %}
+    <button id="toggle-faq" class="see-more-btn">See More</button>
+    {% comment %} {%- endif -%} {% endcomment %}
   </div>
-  {% comment %} {%- if product.metafields.content.frequently_asked_questions.value.size > 3 -%} {% endcomment %}
-  <button id="toggle-faq" class="see-more-btn">See More</button>
-  {% comment %} {%- endif -%} {% endcomment %}
-</div>
+{% endif %}
 <style>
   .hidden-faq {
     display: none;
