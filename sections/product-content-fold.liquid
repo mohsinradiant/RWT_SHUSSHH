@@ -1,91 +1,97 @@
-<div class="page-width product-content-fold-container">
-  {% if product.metafields.content.product_video.value.video.value %}
-    <div class="product-content-fold-container-parent">
-      <div class="play-pause-icon visible" id="play-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
-      </div>
-      <div class="play-pause-icon" id="pause-icon">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
-      </div>
-      <img
-        src="{{ product.metafields.content.product_video.value.placeholder | image_url }}"
-        class="video-placeholder"
-      >
-      <div style="display: none;" class="product-content-fold_video">
-        {{
-          product.metafields.content.product_video.value.video.value
-          | video_tag: autoplay: false, loop: true, muted: false, controls: true
-        }}
-      </div>
-    </div>
-  {% elsif product.metafields.content.info_images.value %}
-    <div class="product-content-fold-container-parent-carousel">
-      <div class="carousel-wrapper-custom">
-        <button class="carousel-btn-custom left-btn-custom">
-          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-        </button>
-        <div class="carousel-track-custom">
-          {% for image in product.metafields.content.info_images.value %}
-            <img class="carousel-item-custom" src="{{image | image_url}}">
-          {% endfor %}
+{% if product.metafields.content.product_video
+  or product.metafields.content.info_images
+  or product.metafields.content.content_fold_text
+  or product.metafields.content.whats_in_the_box
+%}
+  <div class="page-width product-content-fold-container">
+    {% if product.metafields.content.product_video.value.video.value %}
+      <div class="product-content-fold-container-parent">
+        <div class="play-pause-icon visible" id="play-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/play.png?v=1738176698" alt="Play">
         </div>
-        <button class="carousel-btn-custom right-btn-custom">
-          <img
-            style="transform: rotate(180deg);"
-            src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
-          >
-        </button>
-      </div>
-      <div class="carousel-indicators-custom">
-        {% for image in product.metafields.content.info_images.value %}
-          <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-  {% if product.metafields.content.content_fold_text or product.metafields.content.whats_in_the_box %}
-    <div class="product-content-fold-right">
-      {% if product.metafields.content.content_fold_text %}
-        <div class="product-content-fold">
-          {% for metaobject in product.metafields.content.content_fold_text.value %}
-            {% if metaobject.title and metaobject.description %}
-              <div class="product-content-fold-item">
-                <button class="product-content-fold-question" aria-expanded="false">
-                  <span>{{ metaobject.title }}</span>
-                  <span class="product-content-fold-toggle-icon">+</span>
-                </button>
-                <div class="product-content-fold-answer">
-                  {% if metaobject.file.value %}
-                    <img class="product-content-fold-answer-image" src="{{ metaobject.file.value |  image_url }}">
-                  {% endif %}
-                  <p>{{ metaobject.description | metafield_tag }}</p>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
+        <div class="play-pause-icon" id="pause-icon">
+          <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pause.png?v=1738176699" alt="Pause">
         </div>
-      {% endif %}
-
-      {% if product.metafields.content.whats_in_the_box %}
-        <div class="">
-          <button class="product-content-fold-question" aria-expanded="false">
-            <span>What's in the box</span>
+        <img
+          src="{{ product.metafields.content.product_video.value.placeholder | image_url }}"
+          class="video-placeholder"
+        >
+        <div style="display: none;" class="product-content-fold_video">
+          {{
+            product.metafields.content.product_video.value.video.value
+            | video_tag: autoplay: false, loop: true, muted: false, controls: true
+          }}
+        </div>
+      </div>
+    {% elsif product.metafields.content.info_images.value %}
+      <div class="product-content-fold-container-parent-carousel">
+        <div class="carousel-wrapper-custom">
+          <button class="carousel-btn-custom left-btn-custom">
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
           </button>
-          <div
-            style="padding: 25px 0 10px; height: fit-content;"
-            class="product-content-fold-answer product-content-fold-answer-image-container-parent"
-          >
-            {% for image in product.metafields.content.whats_in_the_box.value %}
-              <div class="product-content-fold-answer-image-container">
-                <img src="{{ image | image_url }}">
-              </div>
+          <div class="carousel-track-custom">
+            {% for image in product.metafields.content.info_images.value %}
+              <img class="carousel-item-custom" src="{{image | image_url}}">
             {% endfor %}
           </div>
+          <button class="carousel-btn-custom right-btn-custom">
+            <img
+              style="transform: rotate(180deg);"
+              src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+            >
+          </button>
         </div>
-      {% endif %}
-    </div>
-  {% endif %}
-</div>
+        <div class="carousel-indicators-custom">
+          {% for image in product.metafields.content.info_images.value %}
+            <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    {% if product.metafields.content.content_fold_text or product.metafields.content.whats_in_the_box %}
+      <div class="product-content-fold-right">
+        {% if product.metafields.content.content_fold_text %}
+          <div class="product-content-fold">
+            {% for metaobject in product.metafields.content.content_fold_text.value %}
+              {% if metaobject.title and metaobject.description %}
+                <div class="product-content-fold-item">
+                  <button class="product-content-fold-question" aria-expanded="false">
+                    <span>{{ metaobject.title }}</span>
+                    <span class="product-content-fold-toggle-icon">+</span>
+                  </button>
+                  <div class="product-content-fold-answer">
+                    {% if metaobject.file.value %}
+                      <img class="product-content-fold-answer-image" src="{{ metaobject.file.value |  image_url }}">
+                    {% endif %}
+                    <p>{{ metaobject.description | metafield_tag }}</p>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if product.metafields.content.whats_in_the_box %}
+          <div class="">
+            <button class="product-content-fold-question" aria-expanded="false">
+              <span>What's in the box</span>
+            </button>
+            <div
+              style="padding: 25px 0 10px; height: fit-content;"
+              class="product-content-fold-answer product-content-fold-answer-image-container-parent"
+            >
+              {% for image in product.metafields.content.whats_in_the_box.value %}
+                <div class="product-content-fold-answer-image-container">
+                  <img src="{{ image | image_url }}">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const image = document.querySelector('.video-placeholder');
