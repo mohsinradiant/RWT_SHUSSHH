@@ -62,21 +62,23 @@
       </div>
     {% endif %}
 
-    <div class="">
-      <button class="product-content-fold-question" aria-expanded="false">
-        <span>What's in the box</span>
-      </button>
-      <div
-        style="padding: 25px 0 10px; height: fit-content;"
-        class="product-content-fold-answer product-content-fold-answer-image-container-parent"
-      >
-        {% for image in product.metafields.content.whats_in_the_box.value %}
-          <div class="product-content-fold-answer-image-container">
-            <img src="{{ image | image_url }}">
-          </div>
-        {% endfor %}
+    {% if product.metafields.content.whats_in_the_box %}
+      <div class="">
+        <button class="product-content-fold-question" aria-expanded="false">
+          <span>What's in the box</span>
+        </button>
+        <div
+          style="padding: 25px 0 10px; height: fit-content;"
+          class="product-content-fold-answer product-content-fold-answer-image-container-parent"
+        >
+          {% for image in product.metafields.content.whats_in_the_box.value %}
+            <div class="product-content-fold-answer-image-container">
+              <img src="{{ image | image_url }}">
+            </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </div>
 <script>
