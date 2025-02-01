@@ -53,7 +53,7 @@
         {% if product.metafields.content.content_fold_text %}
           <div class="product-content-fold">
             {% for metaobject in product.metafields.content.content_fold_text.value %}
-              {% if metaobject.title and metaobject.description %}
+              {% if metaobject.title %}
                 <div class="product-content-fold-item">
                   <button class="product-content-fold-question" aria-expanded="false">
                     <span>{{ metaobject.title }}</span>
