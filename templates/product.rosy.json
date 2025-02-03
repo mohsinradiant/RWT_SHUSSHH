@@ -188,6 +188,21 @@
     "sticky_add_to_cart_EtkrPq": {
       "type": "sticky-add_to_cart",
       "settings": {}
+    },
+    "1738589613f985f8d8": {
+      "type": "apps",
+      "blocks": {
+        "shiprocket_promise_promise_widget_QPnUmb": {
+          "type": "shopify://apps/shiprocket-promise/blocks/promise_widget/c8f3f033-bec6-4084-8d6a-4d05e2a5ba32",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "shiprocket_promise_promise_widget_QPnUmb"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -203,6 +218,7 @@
     "home_promises_ACUrRd",
     "main",
     "related-products",
-    "sticky_add_to_cart_EtkrPq"
+    "sticky_add_to_cart_EtkrPq",
+    "1738589613f985f8d8"
   ]
 }
