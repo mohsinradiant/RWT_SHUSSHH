@@ -710,6 +710,14 @@ sticky-header {
     display: none;
 }
 
+.mobile-usp-right-container {
+    display: none !important;
+}
+
+.desktop-usp-right-container {
+    display: flex !important;
+}
+
 @media(max-width:850px) {
     .footer-block__newsletter p {
         width: 100% !important;
@@ -769,9 +777,18 @@ sticky-header {
 }
 
 @media(max-width:750px) {
+    .mobile-usp-right-container {
+        display: flex !important;
+    }
+
+    .desktop-usp-right-container {
+        display: none !important;
+    }
+
     .header-category p {
         font-size: 1.15rem;
     }
+
     .collection_page_products-grid .facet-filters {
         padding-left: 1rem;
     }
