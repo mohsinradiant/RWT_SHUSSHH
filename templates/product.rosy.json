@@ -30,6 +30,7 @@
       "block_order": [
         "shiprocket_promise_promise_widget_QPnUmb"
       ],
+      "disabled": true,
       "settings": {
         "include_margins": true
       }
