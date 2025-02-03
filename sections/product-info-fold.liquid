@@ -59,7 +59,16 @@
         {% endcomment %}
         {% comment %} Product Variant {% endcomment %}
         {% comment %} {% render 'product-variant-picker', product: product, product_form_id: product_form_id %} {% endcomment %}
-
+        <div class="product-info-fold-right-container mobile-usp-right-container">
+          <div class="product-info-fold-right-parent">
+            {% for usp in product.metafields.content.product_usp.value %}
+              <div class="product-info-fold-right-usp-div">
+                <img src="{{usp.image |  image_url }}">
+                <p>{{ usp.text }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
         <div class="product-info-fold-price-and-rating-container">
           <div class="product-info-fold-price-container">
             <div id="price-{{ section.id }}" role="status">
@@ -183,7 +192,7 @@
           {% endfor %}
         {% endif %}
       </div>
-      <div class="product-info-fold-right-container">
+      <div class="product-info-fold-right-container desktop-usp-right-container">
         <div class="product-info-fold-right-parent">
           {% for usp in product.metafields.content.product_usp.value %}
             <div class="product-info-fold-right-usp-div">
