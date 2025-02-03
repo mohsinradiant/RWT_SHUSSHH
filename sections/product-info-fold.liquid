@@ -155,7 +155,10 @@
           show_pickup_availability: true
         -%}
         <div class="product-info-fold-claims-container">
-          <img class="product-info-fold-claims-discreet-image" src="{{ product.metafields.content.banner_2 | image_url }}">
+          <img
+            class="product-info-fold-claims-discreet-image"
+            src="{{ product.metafields.content.banner_2 | image_url }}"
+          >
           <div>
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-discreet-shipping.png?v=1737969814">
             <p>Free discreet shipping</p>
@@ -403,7 +406,7 @@
     gap: 6px;
   }
   .product-info-fold-claims-container div img {
-    width: 24px !important;
+    width: 24px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -627,7 +630,7 @@
     }
   }
   @media (max-width: 756px) {
-    .product-info-fold-claims-container img:first-of-type {
+    .product-info-fold-claims-discreet-image {
       width: 100%;
       border-radius: 10px;
     }
