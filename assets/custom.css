@@ -777,6 +777,10 @@ sticky-header {
 }
 
 @media(max-width:750px) {
+    .announcement-bar__message {
+        padding: .65rem 0 !important;
+    }
+
     .mobile-usp-right-container {
         display: flex !important;
     }
