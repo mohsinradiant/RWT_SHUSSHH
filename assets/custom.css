@@ -112,6 +112,8 @@ slideshow-component .slider-counter__link--dots .dot {
 .price-dropped-product-card {
     color: #382D43 !important;
     font-weight: 600;
+    font-size: 1.3rem !important;
+    margin: 10px 0 !important;
 }
 
 .price-item--sale {
