@@ -195,44 +195,7 @@
             });
           });
         </script>
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            // Parse the URL to get the active variant ID
-            const urlParams = new URLSearchParams(window.location.search);
-            const activeVariantId = urlParams.get('variant');
 
-            if (activeVariantId) {
-              // Find the input associated with the active variant ID
-              const activeInput = document.querySelector(`input[value="${activeVariantId}"]`);
-
-              if (activeInput) {
-                // Click the radio button to ensure it is selected
-                activeInput.click();
-
-                // Update the featured image dynamically
-                const featuredImage = document.querySelector('img[data-featured-image]');
-                if (featuredImage) {
-                  const mediaUrl = activeInput.getAttribute('data-media-url'); // Add `data-media-url` to your inputs
-                  if (mediaUrl) {
-                    featuredImage.src = mediaUrl;
-                  }
-                }
-              }
-            }
-
-            // Add click listeners to update the image when a variant is selected
-            const variantInputs = document.querySelectorAll('input[name="variant"]');
-            variantInputs.forEach((input) => {
-              input.addEventListener('change', () => {
-                const mediaUrl = input.getAttribute('data-media-url');
-                const featuredImage = document.querySelector('img[data-featured-image]');
-                if (featuredImage && mediaUrl) {
-                  featuredImage.src = mediaUrl;
-                }
-              });
-            });
-          });
-        </script>
         {%- render 'buy-buttons',
           product: product,
           product_form_id: product_form_id,
@@ -259,7 +222,6 @@
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
         <img
-          data-featured-image
           src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
           alt="{{ product.title }}"
         >
