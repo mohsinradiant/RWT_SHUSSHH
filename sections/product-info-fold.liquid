@@ -95,11 +95,21 @@
             const variantDivs = document.querySelectorAll('.variant-div');
 
             variantDivs.forEach((div) => {
+              const color = div.getAttribute('data-color');
+              if (color) {
+                // Set inline background color for unmatched colors
+                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
+                div.style.backgroundColor = formattedColor;
+
+                // Set a fallback if the color isn't recognized
+                div.style.backgroundColor = div.style.backgroundColor || '#ccc';
+              }
+
               div.addEventListener('click', () => {
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
 
-                // Deselect other variants
+                // Unselect other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected');
                 });
