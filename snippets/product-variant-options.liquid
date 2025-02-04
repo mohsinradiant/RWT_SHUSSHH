@@ -107,18 +107,6 @@
       additional_props: input_dataset
     %}
   {%- elsif picker_type == 'button' -%}
-    {%- for color in color_mapping -%}
-      {%- assign key_value = color | split: ':' -%}
-      {%- assign color_key = key_value[0] -%}
-      {%- assign color_value = key_value[1] -%}
-      {%- capture color_styles -%}
-              {{ color_styles }}
-              [data-color="{{ color_key }}"] {
-                background-color: {{ color_value }} !important;
-                color: {{ color_value }} !important;
-              }
-            {%- endcapture -%}
-    {%- endfor -%}
     <input
       type="radio"
       id="{{ input_id }}"
