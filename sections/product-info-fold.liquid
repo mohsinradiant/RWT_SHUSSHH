@@ -157,42 +157,35 @@
         {%- endfor -%}
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-            const variantDivs = document.querySelectorAll('.variant-div');
+            // Parse the URL to get the active variant ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const activeVariantId = urlParams.get('variant');
 
-            variantDivs.forEach((div) => {
-              const color = div.getAttribute('data-color');
-              if (color) {
-                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                div.style.backgroundColor = formattedColor || '#ccc';
-              }
+            if (activeVariantId) {
+              // Find the input associated with the active variant ID
+              const activeInput = document.querySelector(`input[value="${activeVariantId}"]`);
 
-              div.addEventListener('click', () => {
-                const inputId = div.getAttribute('data-input-id');
-                const radioInput = document.getElementById(inputId);
+              if (activeInput) {
+                // Mark the input as checked
+                activeInput.checked = true;
 
-                // Deselect all other variants
-                document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected');
-                });
-
-                if (radioInput) {
-                  // Check the radio input and trigger a change event
-                  radioInput.checked = true;
-                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-
-                  // Add 'selected' class to the clicked variant
-                  div.classList.add('selected');
-
-                  // Update the color name dynamically
-                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-                  if (colorNameElement) {
-                    colorNameElement.textContent = color;
+                // Update the featured image dynamically
+                const featuredImage = document.querySelector('img[data-featured-image]');
+                if (featuredImage) {
+                  const mediaUrl = activeInput.getAttribute('data-media-url'); // Add `data-media-url` to your inputs
+                  if (mediaUrl) {
+                    featuredImage.src = mediaUrl;
                   }
-                } else {
-                  console.warn(`Radio input with ID "${inputId}" not found.`);
                 }
-              });
-            });
+
+                // Mark the associated div as selected
+                const activeDiv = document.querySelector(`.variant-div[data-input-id="${activeInput.id}"]`);
+                if (activeDiv) {
+                  document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
+                  activeDiv.classList.add('selected');
+                }
+              }
+            }
           });
         </script>
 
