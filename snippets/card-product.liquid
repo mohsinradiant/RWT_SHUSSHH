@@ -301,10 +301,12 @@
                 </quantity-popover>
               {% endif %}
             {%- endif -%}
-            <p class="price-dropped-product-card">
-              ↓ price dropped by
-              <span>{{ discount | money }}</span>
-            </p>
+            {% if discount > 0 and != null %}
+              <p class="price-dropped-product-card">
+                ↓ price dropped by
+                <span>{{ discount | money }}</span>
+              </p>
+            {% endif %}
           </div>
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
