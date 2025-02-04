@@ -183,11 +183,26 @@
                 if (radioInput) {
                   radioInput.checked = true;
                   div.classList.add('selected');
+
+                  // 1. Update the color name
+                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                  if (colorNameElement) {
+                    colorNameElement.textContent = color; // Update color name
+                  }
+
+                  // 2. Update the product image
+                  const selectedVariantImage = radioInput.getAttribute('data-image-url'); // Assuming image URL is stored as a data attribute
+                  const productImageElement = document.querySelector('.product-image'); // Update selector for the product image
+                  if (productImageElement && selectedVariantImage) {
+                    productImageElement.src = selectedVariantImage;
+                    productImageElement.alt = `${color} variant image`; // Optionally update the alt text
+                  }
                 }
               });
             });
           });
         </script>
+
         {%- render 'buy-buttons',
           product: product,
           product_form_id: product_form_id,
