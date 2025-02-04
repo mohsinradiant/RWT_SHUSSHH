@@ -157,37 +157,39 @@
         {%- endfor -%}
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-            // Parse the URL to get the active variant ID
-            const urlParams = new URLSearchParams(window.location.search);
-            const activeVariantId = urlParams.get('variant');
+            const variantDivs = document.querySelectorAll('.variant-div');
 
-            if (activeVariantId) {
-              // Find the input associated with the active variant ID
-              const activeInput = document.querySelector(`input[value="${activeVariantId}"]`);
-
-              if (activeInput) {
-                // Click the radio button to ensure it is selected
-                activeInput.click();
-
-                // Update the featured image dynamically
-                const featuredImage = document.querySelector('img[data-featured-image]');
-                if (featuredImage) {
-                  const mediaUrl = activeInput.getAttribute('data-media-url'); // Add `data-media-url` to your inputs
-                  if (mediaUrl) {
-                    featuredImage.src = mediaUrl;
-                  }
-                }
+            variantDivs.forEach((div) => {
+              const color = div.getAttribute('data-color');
+              if (color) {
+                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
+                div.style.backgroundColor = formattedColor || '#ccc';
               }
-            }
 
-            // Add click listeners to update the image when a variant is selected
-            const variantInputs = document.querySelectorAll('input[name="variant"]');
-            variantInputs.forEach((input) => {
-              input.addEventListener('change', () => {
-                const mediaUrl = input.getAttribute('data-media-url');
-                const featuredImage = document.querySelector('img[data-featured-image]');
-                if (featuredImage && mediaUrl) {
-                  featuredImage.src = mediaUrl;
+              div.addEventListener('click', () => {
+                const inputId = div.getAttribute('data-input-id');
+                const radioInput = document.getElementById(inputId);
+
+                // Deselect all other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected');
+                });
+
+                if (radioInput) {
+                  // Check the radio input and trigger a change event
+                  radioInput.checked = true;
+                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+                  // Add 'selected' class to the clicked variant
+                  div.classList.add('selected');
+
+                  // Update the color name dynamically
+                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                  if (colorNameElement) {
+                    colorNameElement.textContent = color;
+                  }
+                } else {
+                  console.warn(`Radio input with ID "${inputId}" not found.`);
                 }
               });
             });
@@ -220,7 +222,6 @@
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
         <img
-          data-featured-image
           src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
           alt="{{ product.title }}"
         >
