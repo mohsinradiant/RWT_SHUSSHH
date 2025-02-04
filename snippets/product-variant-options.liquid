@@ -97,22 +97,22 @@
 
     <input
       type="radio"
-      id="variant-{{ option.value | handleize }}"
-      name="product-variant"
-      value="{{ option.value | escape }}"
-      {% if option.selected %}
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
+      value="{{ value | escape }}"
+      form="{{ product_form_id }}"
+      {% if value.selected %}
         checked
       {% endif %}
+      {% if option_disabled %}
+        class="disabled"
+      {% endif %}
+      {{ input_dataset }}
     >
-    <div
-      class="variant-div {% if option.selected %}selected{% endif %}"
-      data-color="{{ option.value | downcase }}"
-      data-input-id="variant-{{ option.value | handleize }}"
-    >
-      {{ option.value }}
-    </div>
-    <label for="variant-{{ option.value | handleize }}">
-      {{ option.value }}
+    <div style="height: 20px; width: 20px; background-color:#000; color:#000; border-radius:50%">.</div>
+    <label for="{{ input_id }}">
+      {{ value -}}
+      {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
