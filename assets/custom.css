@@ -306,7 +306,6 @@ slideshow-component .slider-counter__link--dots .dot {
 .carousel-track .quick-add__submit {
     width: 90%;
     padding: 0 !important;
-    margin-left: -20px;
 }
 
 .banner__buttons a:hover,
