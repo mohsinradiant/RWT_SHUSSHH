@@ -57,72 +57,6 @@
             {%- endif -%}
           </p>
         {% endcomment %}
-        {% comment %} Product Variant {% endcomment %}
-        {% comment %}
-          {%- unless product.has_only_default_variant -%}
-            <variant-selects
-              id="variant-selects-{{ section.id }}"
-              data-section="{{ section.id }}"
-            >
-              {%- for option in product.options_with_values -%}
-                {%- liquid
-                  assign swatch_count = option.values | map: 'swatch' | compact | size
-                  assign picker_type = 'button'
-                  if swatch_count > 0
-                    assign picker_type = 'swatch'
-                  endif
-                -%}
-                <fieldset class="js product-form__input product-form__input--pill">
-                  <legend class="form__label">{{ option.name }}</legend>
-                  {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
-                </fieldset>
-              {%- endfor -%}
-
-              <script type="application/json" data-selected-variant>
-                {{ product.selected_or_first_available_variant | json }}
-              </script>
-            </variant-selects>
-          {%- endunless -%}
-        {% endcomment %}
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-          {%- endcase -%}
-        {%- endfor -%}
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const variantDivs = document.querySelectorAll('.variant-div');
-
-            variantDivs.forEach((div) => {
-              const color = div.getAttribute('data-color');
-              if (color) {
-                // Set inline background color for unmatched colors
-                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                div.style.backgroundColor = formattedColor;
-
-                // Set a fallback if the color isn't recognized
-                div.style.backgroundColor = div.style.backgroundColor || '#ccc';
-              }
-
-              div.addEventListener('click', () => {
-                const inputId = div.getAttribute('data-input-id');
-                const radioInput = document.getElementById(inputId);
-
-                // Unselect other variants
-                document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected');
-                });
-
-                // Select the clicked variant
-                if (radioInput) {
-                  radioInput.checked = true;
-                  div.classList.add('selected');
-                }
-              });
-            });
-          });
-        </script>
         <div class="product-info-fold-right-container mobile-usp-right-container">
           <div class="product-info-fold-right-parent">
             {% for usp in product.metafields.content.product_usp.value %}
@@ -212,6 +146,56 @@
             {%- endif -%}
           {% endcomment %}
         </div>
+        {% comment %} Product Variant {% endcomment %}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'variant_picker' -%}
+              <div class="product-info-fold-variant-parent-container">
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const variantDivs = document.querySelectorAll('.variant-div');
+
+            variantDivs.forEach((div) => {
+              const color = div.getAttribute('data-color');
+              if (color) {
+                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
+                div.style.backgroundColor = formattedColor || '#ccc';
+              }
+
+              div.addEventListener('click', () => {
+                const inputId = div.getAttribute('data-input-id');
+                const radioInput = document.getElementById(inputId);
+
+                // Deselect all other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected');
+                });
+
+                if (radioInput) {
+                  // Check the radio input and trigger a change event
+                  radioInput.checked = true;
+                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+                  // Add 'selected' class to the clicked variant
+                  div.classList.add('selected');
+
+                  // Update the color name dynamically
+                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                  if (colorNameElement) {
+                    colorNameElement.textContent = color;
+                  }
+                } else {
+                  console.warn(`Radio input with ID "${inputId}" not found.`);
+                }
+              });
+            });
+          });
+        </script>
+
         {%- render 'buy-buttons',
           product: product,
           product_form_id: product_form_id,
@@ -237,8 +221,10 @@
       </div>
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
-        <img src="{{ product.selected_or_first_available_variant.image | image_url }}" alt="{{ product.title }}">
-        {% comment %} <img src="{{ product.metafields.content.product_png | image_url }}" alt="{{ product.title }}"> {% endcomment %}
+        <img
+          src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+          alt="{{ product.title }}"
+        >
         {% if product.metafields.content.product_png_hotspots.value %}
           {% for hotspot in product.metafields.content.product_png_hotspots.value %}
             <div
@@ -389,6 +375,15 @@
     letter-spacing: 0;
     line-height: 2rem;
     margin: 25px 0 0 0;
+  }
+  .product-info-fold-variant-color-name {
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    line-height: 2rem;
+  }
+  .product-info-fold-variant-color-name span {
+    font-weight: 700;
   }
   .product-info-fold-price-and-rating-container {
     display: -webkit-box;
@@ -646,6 +641,9 @@
     box-shadow: none;
     background-color: #f9f0ff;
   }
+  .product-info-fold-variant-parent-container {
+    width: 100%;
+  }
   @media (max-width: 850px) {
     .hotspot.active .hotspot-detail {
       padding: 10px 20px;
@@ -705,7 +703,7 @@
       margin-bottom: -83px;
       margin-top: -60px;
     }
-    .product-info-fold-price-and-rating-container {
+    .product-info-fold-variant-parent-container {
       border-bottom: solid 1px #3b2b4a50;
       padding-bottom: 14px;
     }

@@ -2,12 +2,10 @@
   <p class="section-subheading">{{ section.settings.section_subheading }}</p>
   <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="page-width home-combo-section">
-    {% comment %}
-      <img
-        class="home-combos-slider-button--prev"
-        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
-      >
-    {% endcomment %}
+    <img
+      class="home-combos-slider-button--prev"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
     <div class="carousel-track">
       {% for product in section.settings.collection.products %}
         {% render 'card-product',
@@ -23,15 +21,15 @@
       {% endfor %}
     </div>
 
-    {% comment %}
-      <img
-        class="home-combos-slider-button--next"
-        style="transform: rotate(180deg);"
-        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
-      >
-    {% endcomment %}
+    <img
+      class="home-combos-slider-button--next"
+      style="transform: rotate(180deg);"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
   </div>
-  <a class="home-all-combos-cta-button" href="{{section.settings.button_link}}">All Combos</a>
+  {% if section.settings.button_link %}
+    <a class="home-all-combos-cta-button" href="{{section.settings.button_link}}">All Combos</a>
+  {% endif %}
 </div>
 
 <style>
@@ -116,22 +114,31 @@
     background: #3f2d4b;
     width: 40px;
     z-index: 2;
-    left: -40px;
-    top: 50%;
+    left: 0;
+    top: 37%;
+    cursor: pointer;
     bottom: 50%;
     padding: 10px;
     border-radius: 50%;
+    transition: all ease-in 0.3s;
   }
   .home-combos-slider-button--next {
     position: absolute;
     background: #3f2d4b;
     width: 40px;
-    z-index: 2;
-    right: -40px;
-    top: 50%;
+    z-index: 9;
+    right: 0;
+    top: 37%;
     bottom: 50%;
+    cursor: pointer;
     padding: 10px;
     border-radius: 50%;
+    transition: all ease-in 0.3s;
+  }
+  .home-combos-slider-button--prev:hover,
+  .home-combos-slider-button--next:hover {
+    scale: 1.1;
+    opacity: 0.8;
   }
   .carousel-track .card-wrapper {
     min-width: 320px;
@@ -179,6 +186,9 @@
     justify-content: center;
     align-items: center;
   }
+  .carousel-track .price-dropped-product-card {
+    text-align: center;
+  }
   @media (max-width: 1200px) {
     .home-combos-slider-button--next {
       right: 40px;
@@ -215,14 +225,14 @@
   }
 </style>
 
-{% comment %}
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const track = document.querySelector('.carousel-track');
-      const prevButton = document.querySelector('.home-combos-slider-button--prev');
-      const nextButton = document.querySelector('.home-combos-slider-button--next');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.home-combos-slider-button--prev');
+    const nextButton = document.querySelector('.home-combos-slider-button--next');
 
-      const scrollAmount = track.clientWidth / 3; // Adjust based on items shown
+    if (track && prevButton && nextButton) {
+      const scrollAmount = track.clientWidth / 3; // Adjust this value as needed
 
       prevButton.addEventListener('click', () => {
         track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -231,9 +241,11 @@
       nextButton.addEventListener('click', () => {
         track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       });
-    });
-  </script>
-{% endcomment %}
+    } else {
+      console.error('Carousel track or buttons not found');
+    }
+  });
+</script>
 
 {% schema %}
 {
