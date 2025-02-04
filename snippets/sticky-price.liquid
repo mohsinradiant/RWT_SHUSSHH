@@ -94,6 +94,29 @@
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
         <span class="price-item price-item--sale price-item--last"> {{ money_price | remove: '.00' }}/- </span>
       </div>
+      {%- unless product.price_varies == false and product.compare_at_price_varies %}
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <span>
+          <s class="price-item price-item--regular">
+            {% if settings.currency_code_enabled %}
+              {{ compare_at_price | money_with_currency | remove: '.00' }}/-
+            {% else %}
+              {{ compare_at_price | money | remove: '.00' }}/-
+            {% endif %}
+          </s>
+        </span>
+      {%- endunless -%}
+      {% comment %}
+        <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+          {%- assign discount = product.compare_at_price | minus: product.price -%}
+          {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
+          {{ discount_percentage }}
+          %
+        </span>
+      {% endcomment %}
+      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+        {{ 'products.product.sold_out' | t }}
+      </span>
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
         <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
         <span class="price-item price-item--last">
@@ -108,32 +131,6 @@
           </span>
         </span>
       </small>
-    </div>
-
-    <div class="price-row-2">
-      {%- unless product.price_varies == false and product.compare_at_price_varies %}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <span>
-          <s class="price-item price-item--regular">
-            {% if settings.currency_code_enabled %}
-              {{ compare_at_price | money_with_currency | remove: '.00' }}/-
-            {% else %}
-              {{ compare_at_price | money | remove: '.00' }}/-
-            {% endif %}
-          </s>
-        </span>
-      {%- endunless -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
-        {%- assign discount = product.compare_at_price | minus: product.price -%}
-        {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
-        {{ discount_percentage }}
-        %
-      </span>
-
-      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
-        {{ 'products.product.sold_out' | t }}
-      </span>
     </div>
   </div>
 {% endunless %}
