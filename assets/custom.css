@@ -724,7 +724,7 @@ sticky-header {
 .desktop-usp-right-container {
     display: flex !important;
 }
-.product-info-fold-container variant-selects ul{
+.product-info-fold-left-container ul{
     display: none !important;
 }
 @media(max-width:850px) {
