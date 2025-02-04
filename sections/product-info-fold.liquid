@@ -58,7 +58,7 @@
           </p>
         {% endcomment %}
         {% comment %} Product Variant {% endcomment %}
-
+        {% comment %} {% render 'product-variant-picker', product: product, product_form_id: product_form_id %} {% endcomment %}
         <div class="product-info-fold-right-container mobile-usp-right-container">
           <div class="product-info-fold-right-parent">
             {% for usp in product.metafields.content.product_usp.value %}
