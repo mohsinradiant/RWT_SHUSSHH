@@ -49,6 +49,7 @@
     },
     "product_banner_fold_7AiTqg": {
       "type": "product-banner-fold",
+      "disabled": true,
       "settings": {}
     },
     "product_content_fold_mWfjjY": {
