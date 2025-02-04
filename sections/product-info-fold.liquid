@@ -191,10 +191,10 @@
                   }
 
                   // 2. Update the product image
-                  const selectedVariantImage = radioInput.getAttribute('data-image-url'); // Assuming image URL is stored as a data attribute
-                  const productImageElement = document.querySelector('.product-image'); // Update selector for the product image
-                  if (productImageElement && selectedVariantImage) {
-                    productImageElement.src = selectedVariantImage;
+                  const variantImage = radioInput.getAttribute('data-image-url'); // Fetch the variant image URL
+                  const productImageElement = document.querySelector('.product-image');
+                  if (productImageElement && variantImage) {
+                    productImageElement.src = variantImage;
                     productImageElement.alt = `${color} variant image`; // Optionally update the alt text
                   }
                 }
