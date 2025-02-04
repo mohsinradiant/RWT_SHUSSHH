@@ -301,7 +301,7 @@
                 </quantity-popover>
               {% endif %}
             {%- endif -%}
-            {% if discount > 0 and != null %}
+            {% if discount > 0 and discount != null %}
               <p class="price-dropped-product-card">
                 ↓ price dropped by
                 <span>{{ discount | money }}</span>
