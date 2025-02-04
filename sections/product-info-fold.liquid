@@ -57,72 +57,6 @@
             {%- endif -%}
           </p>
         {% endcomment %}
-        {% comment %} Product Variant {% endcomment %}
-        {% comment %}
-          {%- unless product.has_only_default_variant -%}
-            <variant-selects
-              id="variant-selects-{{ section.id }}"
-              data-section="{{ section.id }}"
-            >
-              {%- for option in product.options_with_values -%}
-                {%- liquid
-                  assign swatch_count = option.values | map: 'swatch' | compact | size
-                  assign picker_type = 'button'
-                  if swatch_count > 0
-                    assign picker_type = 'swatch'
-                  endif
-                -%}
-                <fieldset class="js product-form__input product-form__input--pill">
-                  <legend class="form__label">{{ option.name }}</legend>
-                  {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
-                </fieldset>
-              {%- endfor -%}
-
-              <script type="application/json" data-selected-variant>
-                {{ product.selected_or_first_available_variant | json }}
-              </script>
-            </variant-selects>
-          {%- endunless -%}
-        {% endcomment %}
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-          {%- endcase -%}
-        {%- endfor -%}
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const variantDivs = document.querySelectorAll('.variant-div');
-
-            variantDivs.forEach((div) => {
-              const color = div.getAttribute('data-color');
-              if (color) {
-                // Set inline background color for unmatched colors
-                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                div.style.backgroundColor = formattedColor;
-
-                // Set a fallback if the color isn't recognized
-                div.style.backgroundColor = div.style.backgroundColor || '#ccc';
-              }
-
-              div.addEventListener('click', () => {
-                const inputId = div.getAttribute('data-input-id');
-                const radioInput = document.getElementById(inputId);
-
-                // Unselect other variants
-                document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected');
-                });
-
-                // Select the clicked variant
-                if (radioInput) {
-                  radioInput.checked = true;
-                  div.classList.add('selected');
-                }
-              });
-            });
-          });
-        </script>
         <div class="product-info-fold-right-container mobile-usp-right-container">
           <div class="product-info-fold-right-parent">
             {% for usp in product.metafields.content.product_usp.value %}
@@ -212,6 +146,46 @@
             {%- endif -%}
           {% endcomment %}
         </div>
+        {% comment %} Product Variant {% endcomment %}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'variant_picker' -%}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+          {%- endcase -%}
+        {%- endfor -%}
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const variantDivs = document.querySelectorAll('.variant-div');
+
+            variantDivs.forEach((div) => {
+              const color = div.getAttribute('data-color');
+              if (color) {
+                // Set inline background color for unmatched colors
+                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
+                div.style.backgroundColor = formattedColor;
+
+                // Set a fallback if the color isn't recognized
+                div.style.backgroundColor = div.style.backgroundColor || '#ccc';
+              }
+
+              div.addEventListener('click', () => {
+                const inputId = div.getAttribute('data-input-id');
+                const radioInput = document.getElementById(inputId);
+
+                // Unselect other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected');
+                });
+
+                // Select the clicked variant
+                if (radioInput) {
+                  radioInput.checked = true;
+                  div.classList.add('selected');
+                }
+              });
+            });
+          });
+        </script>
         {%- render 'buy-buttons',
           product: product,
           product_form_id: product_form_id,
