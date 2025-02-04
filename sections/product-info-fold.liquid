@@ -160,7 +160,6 @@
             const variantDivs = document.querySelectorAll('.variant-div');
 
             variantDivs.forEach((div) => {
-              // Set the background color of the div based on data-color
               const color = div.getAttribute('data-color');
               if (color) {
                 const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
@@ -177,10 +176,12 @@
                 });
 
                 if (radioInput) {
-                  // Click the radio button programmatically
-                  radioInput.click();
+                  // Check the radio input explicitly
+                  if (!radioInput.checked) {
+                    radioInput.checked = true; // Select the radio input
+                  }
 
-                  // Highlight the clicked variant
+                  // Add 'selected' class to the clicked variant
                   div.classList.add('selected');
 
                   // Update the color name dynamically
