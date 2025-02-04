@@ -19,6 +19,22 @@
       "type": "product-info-fold",
       "settings": {}
     },
+    "1738589613f985f8d8": {
+      "type": "apps",
+      "blocks": {
+        "shiprocket_promise_promise_widget_QPnUmb": {
+          "type": "shopify://apps/shiprocket-promise/blocks/promise_widget/c8f3f033-bec6-4084-8d6a-4d05e2a5ba32",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "shiprocket_promise_promise_widget_QPnUmb"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
     "product_banner_fold_7AiTqg": {
       "type": "product-banner-fold",
       "settings": {}
@@ -193,6 +209,7 @@
   "order": [
     "content_slider_strip_hA3y4W",
     "product_info_fold_PK4khL",
+    "1738589613f985f8d8",
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
     "product_infographics_fold_7ecJwW",

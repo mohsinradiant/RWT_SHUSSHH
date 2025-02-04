@@ -339,7 +339,7 @@ slider-component.slider-component-full-width {
   border: none;
   cursor: pointer;
   width: 44px;
-  height: 44px;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
