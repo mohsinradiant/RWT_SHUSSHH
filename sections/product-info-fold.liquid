@@ -150,7 +150,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'variant_picker' -%}
-              <div style="width: 100%; border-bottom:solid 1px #3b2b4a50;">
+              <div class="product-info-fold-variant-parent-container"="width: 100%; border-bottom:solid 1px #3b2b4a50;">
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               </div>
           {%- endcase -%}
@@ -621,6 +621,9 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     background-color: #f9f0ff;
+  }
+  .product-info-fold-variant-parent-container{
+    width: 100%;
   }
   @media (max-width: 850px) {
     .hotspot.active .hotspot-detail {
