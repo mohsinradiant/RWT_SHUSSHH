@@ -34,7 +34,6 @@
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>
-            {{- option.selected_value -}}
           </legend>
           {% render 'product-variant-options',
             product: product,
@@ -60,6 +59,7 @@
           </label>
           <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
+              {{- option.selected_value -}}
               <span
                 data-selected-value
                 class="dropdown-swatch"
@@ -67,6 +67,7 @@
                 {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
               </span>
             {%- endif -%}
+            {{- option.selected_value -}}
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
               class="select__select"
