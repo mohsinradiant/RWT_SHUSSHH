@@ -88,6 +88,14 @@
     }
   }
 </style>
+<script>
+  document.querySelector('.go-to-top-button').addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Sticky A2C",
