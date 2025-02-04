@@ -105,6 +105,7 @@
           {%- assign color_value = key_value[1] -%}
           .variant-div[data-color="{{ color_key }}"] {
               background-color: {{ color_value }} !important;
+              color: {{ color_value }} !important;
           }
       {%- endfor -%}
     </style>
