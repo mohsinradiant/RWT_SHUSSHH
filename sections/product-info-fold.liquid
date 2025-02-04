@@ -204,7 +204,10 @@
         -%}
         <div class="product-info-fold-claims-container">
           {% if product.metafields.content.banner_1 %}
-            <img src="{{ product.metafields.content.banner_1 | image_url }}">
+            <img
+              class="product-info-fold-claims-container-first-image"
+              src="{{ product.metafields.content.banner_1 | image_url }}"
+            >
           {% endif %}
 
           <div>
