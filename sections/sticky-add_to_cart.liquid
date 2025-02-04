@@ -1,7 +1,6 @@
 <div class="sticky-atc-container">
   <div class="page-width">
     {%- assign product_form_id = 'product-form-' | append: section.id -%}
-    <img src="{{ product.featured_image |  image_url }}">
     {%- render 'sticky-price', product: product, use_variant: true, price_class: 'price--large' -%}
     <div class="sticky-atc-container-buy-button">
       {%- render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id -%}
