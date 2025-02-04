@@ -170,13 +170,20 @@
               div.addEventListener('click', () => {
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
+
+                // Remove 'selected' class from all divs
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected');
                 });
+
                 if (radioInput) {
-                  radioInput.checked = true;
+                  // Click the radio button
+                  radioInput.click();
+
+                  // Add 'selected' class to the clicked div
                   div.classList.add('selected');
 
+                  // Update the color name dynamically
                   const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
                   if (colorNameElement) {
                     colorNameElement.textContent = color;
