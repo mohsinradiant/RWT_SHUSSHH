@@ -109,6 +109,13 @@ slideshow-component .slider-counter__link--dots .dot {
     color: #626262
 }
 
+.price-dropped-product-card {
+    color: #382D43 !important;
+    font-weight: 600;
+    font-size: 1.3rem !important;
+    margin: 7px 0 !important;
+}
+
 .price-item--sale {
     color: #382D43 !important;
 }
@@ -953,7 +960,9 @@ sticky-header {
     }
 }
 
-@media(max-width:600px) {
+@media(max-width:600px) {.price-dropped-product-card {
+    font-size: 1.2rem !important;
+}
     .newsletter-form__field-wrapper {
         max-width: 60vw !important;
     }
