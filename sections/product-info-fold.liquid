@@ -146,6 +146,14 @@
             {%- endif -%}
           {% endcomment %}
         </div>
+
+        {% if discount > 0 and discount != null %}
+          <p class="price-dropped-product-card price">
+            ↓ price dropped by
+            <span>{{ discount | money }}</span>
+          </p>
+        {% endif %}
+
         {% comment %} Product Variant {% endcomment %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
