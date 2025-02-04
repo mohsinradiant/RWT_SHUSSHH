@@ -164,18 +164,21 @@
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
 
-                // Ensure all variants are unselected
-                document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected');
-                });
-
-                // Select the clicked variant
                 if (radioInput) {
-                  radioInput.checked = true; // Simulate selecting the radio button
-                  div.classList.add('selected'); // Add the selected class
+                  // Click the radio input programmatically to ensure all related events fire
+                  radioInput.click();
+
+                  // Ensure only the clicked variant is marked as selected
+                  document.querySelectorAll('.variant-div').forEach((item) => {
+                    item.classList.remove('selected');
+                  });
+
+                  div.classList.add('selected'); // Highlight the clicked variant
+                } else {
+                  console.warn(`Radio input with ID "${inputId}" not found.`);
                 }
 
-                // Optional: Update the color name or other UI elements here
+                // Optional: Update the color name dynamically
                 const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
                 if (colorNameElement) {
                   const color = div.getAttribute('data-color');
