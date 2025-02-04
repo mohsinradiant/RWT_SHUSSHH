@@ -43,9 +43,6 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <p class="product-info-fold-variant-color-name">
-          Color: <span>{{- option.selected_value -}}</span>
-        </p>
         <fieldset class="js product-form__input product-form__input--pill">
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options',
