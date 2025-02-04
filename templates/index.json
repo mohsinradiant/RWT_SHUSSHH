@@ -19,12 +19,12 @@
         "slide_HJCMH7": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Group_255.jpg",
-            "mobile_image": "shopify://shop_images/Group_270.jpg",
-            "heading": "Elevate Your Passion, Privately",
+            "image": "shopify://shop_images/Wen_banners.zip_-_1_199602e8-cdd0-447f-8b9b-f77de99f81af.png",
+            "mobile_image": "shopify://shop_images/phone_banners.zip_-_2_4c3441b1-7ac0-462e-ae4d-21e7060164db.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
-            "button_label": "SHOP NOW",
+            "subheading": "",
+            "button_label": "",
             "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
