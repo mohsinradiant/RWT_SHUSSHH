@@ -77,50 +77,6 @@
       additional_props: input_dataset
     %}
   {%- elsif picker_type == 'button' -%}
-    {%- assign color_mapping = 'baby pink:#ffc0cb,lime yellow:#dfff00,white:#fff' | split: ',' -%}
-    {%- assign color_styles = '' -%}
-
-    {%- for color in color_mapping -%}
-      {%- assign key_value = color | split: ':' -%}
-      {%- assign color_key = key_value[0] -%}
-      {%- assign color_value = key_value[1] -%}
-      {%- capture color_styles -%}
-          {{ color_styles }}
-          [data-color="{{ color_key }}"] {
-            background-color: {{ color_value }} !important;
-            color: {{ color_value }} !important;
-          }
-        {%- endcapture -%}
-    {%- endfor -%}
-
-    <style>
-            {{ color_styles }}
-            .variant-div {
-        display: inline-block;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        margin: 5px;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        transition: transform 0.2s ease;
-      }
-
-      .variant-div[data-color] {
-        background-color: transparent;
-      }
-
-      .variant-div.selected {
-        transform: scale(1.1);
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      input[type="radio"], label {
-        display: none;
-      }
-    </style>
-
     <input
       type="radio"
       id="{{ input_id }}"
@@ -135,13 +91,10 @@
       {% endif %}
       {{ input_dataset }}
     >
-    <div
-      class="variant-div {% if value.selected %}selected{% endif %}"
-      data-color="{{ value | downcase }}"
-      data-input-id="{{ input_id }}"
-    >
-      .
-    </div>
+    <label for="{{ input_id }}">
+      {{ value -}}
+      {{ label_unavailable }}
+    </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"
