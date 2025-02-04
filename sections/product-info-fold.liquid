@@ -58,30 +58,40 @@
           </p>
         {% endcomment %}
         {% comment %} Product Variant {% endcomment %}
-        {%- unless product.has_only_default_variant -%}
-          <variant-selects
-            id="variant-selects-{{ section.id }}"
-            data-section="{{ section.id }}"
-          >
-            {%- for option in product.options_with_values -%}
-              {%- liquid
-                assign swatch_count = option.values | map: 'swatch' | compact | size
-                assign picker_type = 'button'
-                if swatch_count > 0
-                  assign picker_type = 'swatch'
-                endif
-              -%}
-              <fieldset class="js product-form__input product-form__input--pill">
-                <legend class="form__label">{{ option.name }}</legend>
-                {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
-              </fieldset>
-            {%- endfor -%}
+        {% comment %}
+          {%- unless product.has_only_default_variant -%}
+            <variant-selects
+              id="variant-selects-{{ section.id }}"
+              data-section="{{ section.id }}"
+            >
+              {%- for option in product.options_with_values -%}
+                {%- liquid
+                  assign swatch_count = option.values | map: 'swatch' | compact | size
+                  assign picker_type = 'button'
+                  if swatch_count > 0
+                    assign picker_type = 'swatch'
+                  endif
+                -%}
+                <fieldset class="js product-form__input product-form__input--pill">
+                  <legend class="form__label">{{ option.name }}</legend>
+                  {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
+                </fieldset>
+              {%- endfor -%}
 
-            <script type="application/json" data-selected-variant>
-              {{ product.selected_or_first_available_variant | json }}
-            </script>
-          </variant-selects>
-        {%- endunless -%}
+              <script type="application/json" data-selected-variant>
+                {{ product.selected_or_first_available_variant | json }}
+              </script>
+            </variant-selects>
+          {%- endunless -%}
+        {% endcomment %}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'variant_picker' -%}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {% render 'icon-with-text', block: block %}
+          {%- endcase -%}
+        {%- endfor -%}
+
         <div class="product-info-fold-right-container mobile-usp-right-container">
           <div class="product-info-fold-right-parent">
             {% for usp in product.metafields.content.product_usp.value %}
@@ -800,7 +810,52 @@
 {
   "name": "Product Info Fold",
   "settings": [],
-  "blocks": [],
+  "blocks": [
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "id": "swatch_shape",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.label",
+          "type": "select",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.info",
+          "options": [
+            {
+              "value": "circle",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__1.label"
+            },
+            {
+              "value": "square",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__2.label"
+            },
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
+            }
+          ],
+          "default": "circle"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Product Info Fold"
