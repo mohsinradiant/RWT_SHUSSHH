@@ -106,44 +106,6 @@
         display: none;
       }
     </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const variantDivs = document.querySelectorAll('.variant-div');
-
-        variantDivs.forEach((div) => {
-          const color = div.getAttribute('data-color');
-          if (color) {
-            const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-            div.style.backgroundColor = formattedColor;
-            div.style.backgroundColor = div.style.backgroundColor || '#ccc';
-          }
-
-          div.addEventListener('click', () => {
-            const inputId = div.getAttribute('data-input-id');
-            const radioInput = document.getElementById(inputId);
-
-            // Remove 'selected' class from all divs
-            document.querySelectorAll('.variant-div').forEach((item) => {
-              item.classList.remove('selected');
-            });
-
-            if (radioInput) {
-              // Click the radio button
-              radioInput.click();
-
-              // Add 'selected' class to the clicked div
-              div.classList.add('selected');
-
-              // Update the color name dynamically
-              const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-              if (colorNameElement) {
-                colorNameElement.textContent = color;
-              }
-            }
-          });
-        });
-      });
-    </script>
     {%- for color in color_mapping -%}
       {%- assign key_value = color | split: ':' -%}
       {%- assign color_key = key_value[0] -%}
