@@ -82,7 +82,8 @@
     gap: 0.5%;
   }
 
-  .carousel-item {
+  .carousel-item,
+  .carousel-track .card-wrapper {
     min-width: 33%;
     max-width: 33%;
   }
@@ -146,10 +147,12 @@
     right: 30px;
   }
   @media (max-width: 850px) {
-    .carousel-item {
+    .carousel-item,
+    .carousel-track .card-wrapper {
       width: 230px;
     }
-    .carousel-container {
+    .carousel-container,
+    .carousel-track .card-wrapper {
       justify-content: start;
     }
   }
