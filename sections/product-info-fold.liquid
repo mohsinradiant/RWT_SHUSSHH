@@ -146,7 +146,7 @@
             {%- endif -%}
           {% endcomment %}
         </div>
-
+        {%- assign discount = product.compare_at_price | minus: product.price -%}
         {% if discount > 0 and discount != null %}
           <p class="price-dropped-product-card price">
             ↓ price dropped by
