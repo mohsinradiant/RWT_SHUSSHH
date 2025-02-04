@@ -58,11 +58,7 @@
           </p>
         {% endcomment %}
         {% comment %} Product Variant {% endcomment %}
-        {% render 'product-variant-picker',
-          product: product,
-          block: block,
-          product_form_id: product_form_id
-        %}
+        {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
         <div class="product-info-fold-right-container mobile-usp-right-container">
           <div class="product-info-fold-right-parent">
             {% for usp in product.metafields.content.product_usp.value %}
@@ -778,46 +774,52 @@
 {% schema %}
 {
   "name": "Product Info Fold",
-  "settings": [
+  "blocks": [
     {
-      "type": "select",
-      "id": "picker_type",
-      "options": [
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
         {
-          "value": "dropdown",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
         },
         {
-          "value": "button",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+          "id": "swatch_shape",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.label",
+          "type": "select",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.info",
+          "options": [
+            {
+              "value": "circle",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__1.label"
+            },
+            {
+              "value": "square",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__2.label"
+            },
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
+            }
+          ],
+          "default": "circle"
         }
-      ],
-      "default": "button",
-      "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
-    },
-    {
-      "id": "swatch_shape",
-      "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.label",
-      "type": "select",
-      "info": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.info",
-      "options": [
-        {
-          "value": "circle",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__1.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__2.label"
-        },
-        {
-          "value": "none",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
-        }
-      ],
-      "default": "circle"
+      ]
     }
   ],
-  "blocks": [],
   "presets": [
     {
       "name": "Product Info Fold"
