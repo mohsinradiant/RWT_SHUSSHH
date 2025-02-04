@@ -388,6 +388,12 @@
       const answer = item.querySelector('.product-content-fold-answer');
       const icon = item.querySelector('.product-content-fold-toggle-icon');
 
+      // Initialize answer heights
+      answer.style.height = '0';
+      answer.style.overflow = 'hidden'; // Ensures smooth transitions if needed
+      answer.style.padding = '0';
+      icon.textContent = '+'; // Set the default icon state
+
       question.addEventListener('click', function () {
         // Close all other answers before opening the current one
         faqItems.forEach((otherItem) => {
@@ -401,7 +407,7 @@
         });
 
         // Check if the current item is already expanded
-        const isExpanded = answer.style.height !== '0px';
+        const isExpanded = answer.style.height !== '0px' && answer.style.height !== '';
 
         // Toggle the current answer
         if (isExpanded) {
@@ -418,6 +424,7 @@
     });
   });
 </script>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track-custom');

@@ -10,7 +10,7 @@
 {
   "current": {
     "logo": "shopify://shop_images/image_6_1.png",
-    "logo_width": 160,
+    "logo_width": 120,
     "type_header_font": "assistant_n7",
     "heading_scale": 100,
     "type_body_font": "inter_n4",
@@ -212,7 +212,7 @@
       },
       "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb": {
         "settings": {
-          "background": "#ff5757",
+          "background": "#d92b2b",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",

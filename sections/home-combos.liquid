@@ -33,6 +33,9 @@
 </div>
 
 <style>
+  .home-combo-section .card__content {
+    margin-left: -10px;
+  }
   .home-combo-section-container {
     padding: 0 0 50px;
     display: flex;
@@ -173,7 +176,8 @@
     font-size: 1.5rem;
   }
   .carousel-track .full-unstyled-link {
-    font-size: 2rem;
+    font-size: 1.95rem;
+    text-align: center;
   }
   .carousel-track .price__container {
     display: flex;
@@ -188,6 +192,11 @@
   }
   .carousel-track .price-dropped-product-card {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    flex-wrap: wrap;
   }
   @media (max-width: 1200px) {
     .home-combos-slider-button--next {
@@ -198,6 +207,12 @@
     }
   }
   @media (max-width: 500px) {
+    .carousel-track .card-wrapper .quick-add {
+      visibility: visible;
+      height: auto;
+      scale: 1;
+      opacity: 1;
+    }
     .carousel-track .card-wrapper {
       min-width: 195px;
     }
@@ -207,10 +222,6 @@
     }
     .carousel-track span {
       font-size: 1.6rem;
-    }
-    .carousel-track .price__container {
-      align-items: start;
-      justify-content: start;
     }
     .home-combos-slider-button--next {
       right: 30px;

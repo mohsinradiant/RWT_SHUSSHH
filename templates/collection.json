@@ -30,15 +30,15 @@
           "settings": {
             "image": "shopify://shop_images/1_dd5df897-4463-455d-9505-b29ffb9e1ee7.png",
             "text": "Massagers",
-            "url": "shopify://collections/best-sellers"
+            "url": "shopify://collections/massagers"
           }
         },
         "product_category_EWxNgJ": {
           "type": "product_category",
           "settings": {
             "image": "shopify://shop_images/2_11a22d71-e1c9-4501-bee2-79565ea27f46.png",
-            "text": "Vibrators",
-            "url": "shopify://collections/collection"
+            "text": "All",
+            "url": "shopify://collections/all"
           }
         },
         "product_category_LLbff7": {
@@ -46,7 +46,7 @@
           "settings": {
             "image": "shopify://shop_images/3_71ebc1f2-2abf-4517-8a66-2dda8db0e392.png",
             "text": "Bundles",
-            "url": "shopify://collections/free-lube"
+            "url": "shopify://collections/bundles"
           }
         },
         "product_category_zdtXfW": {
@@ -54,11 +54,12 @@
           "settings": {
             "image": "shopify://shop_images/4_39f990cb-99be-4fc7-97c7-3e90e1fb27a4.png",
             "text": "Lubes & Oils",
-            "url": "shopify://collections/frontpage"
+            "url": "shopify://collections/lubes"
           }
         },
         "product_category_twKGnB": {
           "type": "product_category",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/5_4deab1c7-0e0f-4235-914b-765770139836.png",
             "text": "Deals",
@@ -67,6 +68,7 @@
         },
         "product_category_7EUBfz": {
           "type": "product_category",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/6_470f0c3f-5b16-44e2-a051-89eb7b7b8e58.png",
             "text": "Gifting",

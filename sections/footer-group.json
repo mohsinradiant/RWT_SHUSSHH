@@ -29,6 +29,7 @@
         },
         "link_list_7xzQ7N": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Products",
             "menu": "products"

@@ -19,12 +19,12 @@
         "slide_HJCMH7": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Group_255.jpg",
-            "mobile_image": "shopify://shop_images/Group_270.jpg",
-            "heading": "Elevate Your Passion, Privately",
+            "image": "shopify://shop_images/Wen_banners.zip_-_1_199602e8-cdd0-447f-8b9b-f77de99f81af.png",
+            "mobile_image": "shopify://shop_images/phone_banners.zip_-_2_4c3441b1-7ac0-462e-ae4d-21e7060164db.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
-            "button_label": "SHOP NOW",
+            "subheading": "",
+            "button_label": "",
             "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
@@ -38,12 +38,12 @@
         "slide_DUHbHa": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Group_255.jpg",
-            "mobile_image": "shopify://shop_images/Group_270.jpg",
-            "heading": "Elevate Your Passion, Privately",
+            "image": "shopify://shop_images/Web_new_banners_4_91689994-10c9-42ed-bace-5f30d677ca11.png",
+            "mobile_image": "shopify://shop_images/phonecropped_4_1512ebb8-6cc8-4450-afb8-da57213641f9.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
-            "button_label": "SHOP NOW",
+            "subheading": "",
+            "button_label": "",
             "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
@@ -57,12 +57,31 @@
         "slide_F4dbxc": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Group_255.jpg",
-            "mobile_image": "shopify://shop_images/Group_270.jpg",
-            "heading": "Elevate Your Passion, Privately",
+            "image": "shopify://shop_images/Wen_banners.zip_-_3_4f019980-4e81-40c7-9136-72e27f496c5b.png",
+            "mobile_image": "shopify://shop_images/phone_banners.zip_-_1_8a3e76f1-5ea0-4458-875d-e8e90ec24c28.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Premium adult toys crafted to meet your needs, delivered securely with absolute confidentiality",
-            "button_label": "SHOP NOW",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_aKAQ9M": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners_3_7d19664b-a894-4d89-8fcf-a5e0ae2e6f10.png",
+            "mobile_image": "shopify://shop_images/23_f2d7889a-c8e2-4e49-93fb-bdaca9ebc0ea.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
             "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
@@ -77,7 +96,8 @@
       "block_order": [
         "slide_HJCMH7",
         "slide_DUHbHa",
-        "slide_F4dbxc"
+        "slide_F4dbxc",
+        "slide_aKAQ9M"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -174,6 +194,7 @@
         "video_product_EHRaap",
         "video_product_4EaYia"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
@@ -184,6 +205,78 @@
         "image": "shopify://shop_images/Group_257_1.jpg",
         "mobile_image": "shopify://shop_images/Group_274.jpg",
         "button_text": "CHECK PACKAGING"
+      }
+    },
+    "featured_product_3C3jVK": {
+      "type": "featured-product",
+      "blocks": {
+        "text_xHeaWP": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_xTxdnz": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_tMJGme": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_9AMfUx": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_fpLmah": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_hLfBVM": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_HJGeXM": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_xHeaWP",
+        "title_xTxdnz",
+        "price_tMJGme",
+        "variant_picker_9AMfUx",
+        "quantity_selector_fpLmah",
+        "buy_buttons_hLfBVM",
+        "share_HJGeXM"
+      ],
+      "settings": {
+        "product": "fap-the-ultimate-male-stroker",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "home_quiz_cta_yVMz3E": {
@@ -294,6 +387,7 @@
         "testimonial_A8XmAH",
         "testimonial_3gNtj6"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "See What You Will Get"
       }
@@ -313,6 +407,7 @@
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
     "home_discreet_packaging_bKNnKt",
+    "featured_product_3C3jVK",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
     "home_categories_section_M7r4cE",
