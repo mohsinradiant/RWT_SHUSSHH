@@ -155,53 +155,6 @@
               </div>
           {%- endcase -%}
         {%- endfor -%}
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const variantDivs = document.querySelectorAll('.variant-div');
-
-            variantDivs.forEach((div) => {
-              const color = div.getAttribute('data-color');
-              if (color) {
-                // Set inline background color for unmatched colors
-                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                div.style.backgroundColor = formattedColor;
-
-                // Set a fallback if the color isn't recognized
-                div.style.backgroundColor = div.style.backgroundColor || '#ccc';
-              }
-
-              div.addEventListener('click', () => {
-                const inputId = div.getAttribute('data-input-id');
-                const radioInput = document.getElementById(inputId);
-
-                // Unselect other variants
-                document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected');
-                });
-
-                // Select the clicked variant
-                if (radioInput) {
-                  radioInput.checked = true;
-                  div.classList.add('selected');
-
-                  // 1. Update the color name
-                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-                  if (colorNameElement) {
-                    colorNameElement.textContent = color; // Update color name
-                  }
-
-                  // 2. Update the product image
-                  const selectedVariantImage = radioInput.getAttribute('data-image-url'); // Assuming image URL is stored as a data attribute
-                  const productImageElement = document.querySelector('.product-image'); // Update selector for the product image
-                  if (productImageElement && selectedVariantImage) {
-                    productImageElement.src = selectedVariantImage;
-                    productImageElement.alt = `${color} variant image`; // Optionally update the alt text
-                  }
-                }
-              });
-            });
-          });
-        </script>
 
         {%- render 'buy-buttons',
           product: product,
