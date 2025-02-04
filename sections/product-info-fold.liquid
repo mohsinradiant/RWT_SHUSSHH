@@ -229,7 +229,7 @@
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
         <img
-          src="{{ product.selected_variant.featured_image | img_url: 'medium' }}"
+          src="{{ product.selected_or_first_available_variant.image | image_url }}"
           alt="{{ product.title }}"
         >
         {% comment %} <img src="{{ product.metafields.content.product_png | image_url }}" alt="{{ product.title }}"> {% endcomment %}
