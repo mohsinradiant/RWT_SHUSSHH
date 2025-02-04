@@ -59,6 +59,7 @@
     },
     "product_infographics_fold_7ecJwW": {
       "type": "product-infographics-fold",
+      "disabled": true,
       "settings": {
         "section_heading": "Bundles"
       }
