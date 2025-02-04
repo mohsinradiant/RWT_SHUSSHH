@@ -77,34 +77,24 @@
       additional_props: input_dataset
     %}
   {%- elsif picker_type == 'button' -%}
-    {% assign color_mapping = 'black:#000,white:#fff,red:#ff0000,blue:#0000ff,green:#008000' | split: ',' %}
-
-    {% for color in color_mapping %}
-      {% assign key_value = color | split: ':' %}
-      {% assign color_key = key_value[0] %}
-      {% assign color_value = key_value[1] %}
-
-      <style>
-        input[value="{{ color_key }}"] {
-          background-color: {{ color_value }};
-        }
-      </style>
-    {% endfor %}
-
     <input
       type="radio"
-      id="{{ value | handleize }}"
-      name="product-options"
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
       value="{{ value | escape }}"
+      form="{{ product_form_id }}"
       {% if value.selected %}
         checked
       {% endif %}
-      style="width: 30px; height: 30px; border-radius: 50%;"
+      {% if option_disabled %}
+        class="disabled"
+      {% endif %}
+      {{ input_dataset }}
     >
-    <label for="{{ value | handleize }}">
-      {{ value | escape }}
+    <label for="{{ input_id }}">
+      {{ value -}}
+      {{ label_unavailable }}
     </label>
-
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"
