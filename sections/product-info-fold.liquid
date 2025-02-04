@@ -202,12 +202,14 @@
           section_id: section.id,
           show_pickup_availability: true
         -%}
-        {% if product.metafields.content.banner_1 %}
-          <img
-            class="product-info-fold-claims-container-first-image"
-            src="{{ product.metafields.content.banner_1 | image_url }}"
-          >
-        {% endif %}
+        {% comment %}
+          {% if product.metafields.content.banner_1 %}
+            <img
+              class="product-info-fold-claims-container-first-image"
+              src="{{ product.metafields.content.banner_1 | image_url }}"
+            >
+          {% endif %}
+        {% endcomment %}
         <div class="product-info-fold-claims-container">
           <div>
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/india.png?v=1738690950">
