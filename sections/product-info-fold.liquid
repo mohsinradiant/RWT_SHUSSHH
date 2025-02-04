@@ -166,8 +166,8 @@
               const activeInput = document.querySelector(`input[value="${activeVariantId}"]`);
 
               if (activeInput) {
-                // Mark the input as checked
-                activeInput.checked = true;
+                // Click the radio button to ensure it is selected
+                activeInput.click();
 
                 // Update the featured image dynamically
                 const featuredImage = document.querySelector('img[data-featured-image]');
@@ -177,15 +177,20 @@
                     featuredImage.src = mediaUrl;
                   }
                 }
-
-                // Mark the associated div as selected
-                const activeDiv = document.querySelector(`.variant-div[data-input-id="${activeInput.id}"]`);
-                if (activeDiv) {
-                  document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
-                  activeDiv.classList.add('selected');
-                }
               }
             }
+
+            // Add click listeners to update the image when a variant is selected
+            const variantInputs = document.querySelectorAll('input[name="variant"]');
+            variantInputs.forEach((input) => {
+              input.addEventListener('change', () => {
+                const mediaUrl = input.getAttribute('data-media-url');
+                const featuredImage = document.querySelector('img[data-featured-image]');
+                if (featuredImage && mediaUrl) {
+                  featuredImage.src = mediaUrl;
+                }
+              });
+            });
           });
         </script>
 
