@@ -275,7 +275,7 @@ slideshow-component .slider-counter__link--dots .dot {
 
 .slideshow_media_mobile_image {
     display: none !important;
-    aspect-ratio: 686 / 600 !important;
+    aspect-ratio: 686 / 960 !important;
     height: auto !important;
 }
 
