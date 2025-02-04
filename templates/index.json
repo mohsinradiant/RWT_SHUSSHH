@@ -194,6 +194,7 @@
         "video_product_EHRaap",
         "video_product_4EaYia"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
