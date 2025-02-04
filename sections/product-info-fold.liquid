@@ -88,10 +88,31 @@
           {%- case block.type -%}
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-              {% render 'icon-with-text', block: block %}
           {%- endcase -%}
         {%- endfor -%}
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const variantDivs = document.querySelectorAll('.variant-div');
 
+            variantDivs.forEach((div) => {
+              div.addEventListener('click', () => {
+                const inputId = div.getAttribute('data-input-id');
+                const radioInput = document.getElementById(inputId);
+
+                // Deselect other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected');
+                });
+
+                // Select the clicked variant
+                if (radioInput) {
+                  radioInput.checked = true;
+                  div.classList.add('selected');
+                }
+              });
+            });
+          });
+        </script>
         <div class="product-info-fold-right-container mobile-usp-right-container">
           <div class="product-info-fold-right-parent">
             {% for usp in product.metafields.content.product_usp.value %}
