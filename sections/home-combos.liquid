@@ -2,12 +2,10 @@
   <p class="section-subheading">{{ section.settings.section_subheading }}</p>
   <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="page-width home-combo-section">
-    {% comment %}
-      <img
-        class="home-combos-slider-button--prev"
-        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
-      >
-    {% endcomment %}
+    <img
+      class="home-combos-slider-button--prev"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
     <div class="carousel-track">
       {% for product in section.settings.collection.products %}
         {% render 'card-product',
@@ -23,13 +21,11 @@
       {% endfor %}
     </div>
 
-    {% comment %}
-      <img
-        class="home-combos-slider-button--next"
-        style="transform: rotate(180deg);"
-        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
-      >
-    {% endcomment %}
+    <img
+      class="home-combos-slider-button--next"
+      style="transform: rotate(180deg);"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
   </div>
   {% if section.settings.button_link %}
     <a class="home-all-combos-cta-button" href="{{section.settings.button_link}}">All Combos</a>
@@ -128,10 +124,11 @@
     position: absolute;
     background: #3f2d4b;
     width: 40px;
-    z-index: 2;
+    z-index: 9;
     right: -40px;
     top: 50%;
     bottom: 50%;
+    cursor: pointer;
     padding: 10px;
     border-radius: 50%;
   }
