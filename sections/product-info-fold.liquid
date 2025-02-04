@@ -160,29 +160,36 @@
             const variantDivs = document.querySelectorAll('.variant-div');
 
             variantDivs.forEach((div) => {
+              // Set the background color of the div based on data-color
+              const color = div.getAttribute('data-color');
+              if (color) {
+                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
+                div.style.backgroundColor = formattedColor || '#ccc';
+              }
+
               div.addEventListener('click', () => {
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
 
+                // Deselect all other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected');
+                });
+
                 if (radioInput) {
-                  // Click the radio input programmatically to ensure all related events fire
+                  // Click the radio button programmatically
                   radioInput.click();
 
-                  // Ensure only the clicked variant is marked as selected
-                  document.querySelectorAll('.variant-div').forEach((item) => {
-                    item.classList.remove('selected');
-                  });
+                  // Highlight the clicked variant
+                  div.classList.add('selected');
 
-                  div.classList.add('selected'); // Highlight the clicked variant
+                  // Update the color name dynamically
+                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                  if (colorNameElement) {
+                    colorNameElement.textContent = color;
+                  }
                 } else {
                   console.warn(`Radio input with ID "${inputId}" not found.`);
-                }
-
-                // Optional: Update the color name dynamically
-                const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-                if (colorNameElement) {
-                  const color = div.getAttribute('data-color');
-                  colorNameElement.textContent = color; // Update the displayed color name
                 }
               });
             });
