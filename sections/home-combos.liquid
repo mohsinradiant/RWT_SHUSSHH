@@ -223,15 +223,19 @@
     const prevButton = document.querySelector('.home-combos-slider-button--prev');
     const nextButton = document.querySelector('.home-combos-slider-button--next');
 
-    const scrollAmount = track.clientWidth / 3; // Adjust based on items shown
+    if (track && prevButton && nextButton) {
+      const scrollAmount = track.clientWidth / 3; // Adjust this value as needed
 
-    prevButton.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
+      prevButton.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
 
-    nextButton.addEventListener('click', () => {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
+      nextButton.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    } else {
+      console.error('Carousel track or buttons not found');
+    }
   });
 </script>
 
