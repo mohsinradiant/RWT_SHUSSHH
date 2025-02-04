@@ -303,6 +303,12 @@ slideshow-component .slider-counter__link--dots .dot {
     text-transform: uppercase;
 }
 
+.carousel-track .quick-add__submit {
+    width: 90%;
+    padding: 0;
+    margin-left: -20px;
+}
+
 .banner__buttons a:hover,
 .collection__view-all a:not(.link):hover,
 .home-quiz-cta-button:hover,
