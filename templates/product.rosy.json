@@ -17,6 +17,18 @@
     },
     "product_info_fold_PK4khL": {
       "type": "product-info-fold",
+      "blocks": {
+        "variant_picker_UAKitY": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "variant_picker_UAKitY"
+      ],
       "settings": {}
     },
     "1738589613f985f8d8": {
