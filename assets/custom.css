@@ -740,7 +740,9 @@ sticky-header {
     margin: 13px 0 0;
 }
 
-
+.carousel-track .card-wrapper .card__information{
+    width: 310px;
+}
 @media(max-width:850px) {
     .footer-block__newsletter p {
         width: 100% !important;
