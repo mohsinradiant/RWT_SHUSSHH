@@ -207,6 +207,78 @@
         "button_text": "CHECK PACKAGING"
       }
     },
+    "featured_product_3C3jVK": {
+      "type": "featured-product",
+      "blocks": {
+        "text_xHeaWP": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_xTxdnz": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_tMJGme": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_9AMfUx": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_fpLmah": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_hLfBVM": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_HJGeXM": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_xHeaWP",
+        "title_xTxdnz",
+        "price_tMJGme",
+        "variant_picker_9AMfUx",
+        "quantity_selector_fpLmah",
+        "buy_buttons_hLfBVM",
+        "share_HJGeXM"
+      ],
+      "settings": {
+        "product": "fap-the-ultimate-male-stroker",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "home_quiz_cta_yVMz3E": {
       "type": "home-quiz-cta",
       "settings": {
@@ -315,6 +387,7 @@
         "testimonial_A8XmAH",
         "testimonial_3gNtj6"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "See What You Will Get"
       }
@@ -334,6 +407,7 @@
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
     "home_discreet_packaging_bKNnKt",
+    "featured_product_3C3jVK",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
     "home_categories_section_M7r4cE",
