@@ -221,18 +221,20 @@
       </div>
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
-        <img
-          src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
-          alt="{{ product.title }}"
-        >
-        {% comment %} {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%} {% endcomment %}
-        {%- assign media_position = 1 -%}
+        {% comment %}
+          <img
+            src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+            alt="{{ product.title }}"
+          >
+        {% endcomment %}
+        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
         <div
           id="Slide-{{ section.id }}-{{ featured_media.id }}"
           class="product__media-item grid__item slider__slide is-active{% if single_media_visible %} product__media-item--single{% endif %}{% if featured_media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           data-media-id="{{ section.id }}-{{ featured_media.id }}"
         >
           {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+          {%- assign media_position = 1 -%}
           {% render 'product-thumbnail',
             media: featured_media,
             media_count: media_count,
