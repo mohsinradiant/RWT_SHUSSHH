@@ -31,7 +31,9 @@
       >
     {% endcomment %}
   </div>
-  <a class="home-all-combos-cta-button" href="{{section.settings.button_link}}">All Combos</a>
+  {% if section.settings.button_link %}
+    <a class="home-all-combos-cta-button" href="{{section.settings.button_link}}">All Combos</a>
+  {% endif %}
 </div>
 
 <style>
