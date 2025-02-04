@@ -177,6 +177,22 @@
           section_id: section.id,
           show_pickup_availability: true
         -%}
+        <div class="product-info-fold-claims-container">
+          {% if product.metafields.content.banner_2 %}
+            <img
+              class="product-info-fold-claims-discreet-image"
+              src="{{ product.metafields.content.banner_2 | image_url }}"
+            >
+          {% endif %}
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-discreet-shipping.png?v=1737969814">
+            <p>Free discreet shipping</p>
+          </div>
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-warranty.png?v=1737969814">
+            <p>100 Days Warranty</p>
+          </div>
+        </div>
       </div>
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
