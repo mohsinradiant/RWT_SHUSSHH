@@ -960,7 +960,9 @@ sticky-header {
     }
 }
 
-@media(max-width:600px) {
+@media(max-width:600px) {.price-dropped-product-card {
+    font-size: 1.2rem !important;
+}
     .newsletter-form__field-wrapper {
         max-width: 60vw !important;
     }
