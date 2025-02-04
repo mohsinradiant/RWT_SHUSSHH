@@ -217,25 +217,23 @@
   }
 </style>
 
-{% comment %}
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const track = document.querySelector('.carousel-track');
-      const prevButton = document.querySelector('.home-combos-slider-button--prev');
-      const nextButton = document.querySelector('.home-combos-slider-button--next');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.home-combos-slider-button--prev');
+    const nextButton = document.querySelector('.home-combos-slider-button--next');
 
-      const scrollAmount = track.clientWidth / 3; // Adjust based on items shown
+    const scrollAmount = track.clientWidth / 3; // Adjust based on items shown
 
-      prevButton.addEventListener('click', () => {
-        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      });
-
-      nextButton.addEventListener('click', () => {
-        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      });
+    prevButton.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
-  </script>
-{% endcomment %}
+
+    nextButton.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  });
+</script>
 
 {% schema %}
 {
