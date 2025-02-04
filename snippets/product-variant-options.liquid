@@ -89,8 +89,8 @@
       {%- capture color_styles -%}
           {{ color_styles }}
           [data-color="{{ color_key }}"] {
-            background-color: {{ color_value }};
-            color: {{ color_value }};
+            background-color: {{ color_value }} !important;
+            color: {{ color_value }} !important;
           }
         {%- endcapture -%}
     {%- endfor -%}
