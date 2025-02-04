@@ -150,7 +150,7 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'variant_picker' -%}
-              <div class="product-info-fold-variant-parent-container"="width: 100%; border-bottom:solid 1px #3b2b4a50;">
+              <div class="product-info-fold-variant-parent-container">
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               </div>
           {%- endcase -%}
@@ -622,7 +622,7 @@
     box-shadow: none;
     background-color: #f9f0ff;
   }
-  .product-info-fold-variant-parent-container{
+  .product-info-fold-variant-parent-container {
     width: 100%;
   }
   @media (max-width: 850px) {
@@ -684,7 +684,7 @@
       margin-bottom: -83px;
       margin-top: -60px;
     }
-    .product-info-fold-price-and-rating-container {
+    .product-info-fold-variant-parent-container {
       border-bottom: solid 1px #3b2b4a50;
       padding-bottom: 14px;
     }
