@@ -63,6 +63,15 @@
         "section_heading": "Bundles"
       }
     },
+    "home_combos_TrKwY9": {
+      "type": "home-combos",
+      "settings": {
+        "collection": "bachelorette-gifting",
+        "section_subheading": "Money Saver Combos",
+        "section_heading": "More Pleasure, More Savings",
+        "button_link": ""
+      }
+    },
     "product_bullets_8bLf4H": {
       "type": "product-bullets",
       "settings": {}
@@ -224,6 +233,7 @@
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
     "product_infographics_fold_7ecJwW",
+    "home_combos_TrKwY9",
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
     "product_shoppable_videos_7XLkhn",
