@@ -160,34 +160,26 @@
             const variantDivs = document.querySelectorAll('.variant-div');
 
             variantDivs.forEach((div) => {
-              const color = div.getAttribute('data-color');
-              if (color) {
-                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                div.style.backgroundColor = formattedColor;
-                div.style.backgroundColor = div.style.backgroundColor || '#ccc';
-              }
-
               div.addEventListener('click', () => {
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
 
-                // Remove 'selected' class from all divs
+                // Ensure all variants are unselected
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected');
                 });
 
+                // Select the clicked variant
                 if (radioInput) {
-                  // Click the radio button
-                  radioInput.click();
+                  radioInput.checked = true; // Simulate selecting the radio button
+                  div.classList.add('selected'); // Add the selected class
+                }
 
-                  // Add 'selected' class to the clicked div
-                  div.classList.add('selected');
-
-                  // Update the color name dynamically
-                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-                  if (colorNameElement) {
-                    colorNameElement.textContent = color;
-                  }
+                // Optional: Update the color name or other UI elements here
+                const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                if (colorNameElement) {
+                  const color = div.getAttribute('data-color');
+                  colorNameElement.textContent = color; // Update the displayed color name
                 }
               });
             });
