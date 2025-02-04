@@ -77,7 +77,9 @@
       additional_props: input_dataset
     %}
   {%- elsif picker_type == 'button' -%}
-    {%- assign color_mapping = 'lime yellow:#000,white:#fff,red:#ff0000,blue:#0000ff,green:#008000' | split: ',' -%}
+    {%- assign color_mapping = 'baby pink:#ffc0cb,lime yellow:#dfff00,white:#fff,red:#ff0000,blue:#0000ff,green:#008000'
+      | split: ','
+    -%}
     {%- assign color_styles = '' -%}
 
     {%- for color in color_mapping -%}
