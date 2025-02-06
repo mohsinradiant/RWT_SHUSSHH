@@ -216,9 +216,10 @@
         {%- endfor -%}
         <script>
           function initializeVariantDivs() {
-            const variantDivs = document.querySelectorAll('.variant-div');
+            const variantDivs = document.querySelectorAll('.variant-div:not(.initialized)');
 
             variantDivs.forEach((div) => {
+              div.classList.add('initialized'); // Mark the element as initialized
               const color = div.getAttribute('data-color');
               if (color) {
                 const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
@@ -260,8 +261,12 @@
             // Observe changes in the product container for Shopify AJAX updates
             const productContainer = document.querySelector('.product-form');
             if (productContainer) {
-              const observer = new MutationObserver(() => {
-                initializeVariantDivs();
+              const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                  if (mutation.addedNodes.length) {
+                    initializeVariantDivs();
+                  }
+                });
               });
 
               observer.observe(productContainer, { childList: true, subtree: true });
