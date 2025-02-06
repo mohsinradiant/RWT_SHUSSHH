@@ -85,7 +85,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "{{ product.metafields.content.combos_collection.value }}",
-        "products_to_show": 25,
+        "products_to_show": 3,
         "columns_desktop": 3,
         "full_width": false,
         "show_view_all": true,
