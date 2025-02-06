@@ -234,14 +234,8 @@
                 });
 
                 if (radioInput) {
-                  // Uncheck all radio inputs to allow re-selecting the same variant
-                  document.querySelectorAll('.variant-div input[type="radio"]').forEach((input) => {
-                    input.checked = false;
-                  });
-
-                  // Check the current radio input and trigger a change event
-                  radioInput.checked = true;
-                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+                  // Simulate a click on the radio input
+                  radioInput.click();
 
                   // Add 'selected' class to the clicked variant
                   div.classList.add('selected');
