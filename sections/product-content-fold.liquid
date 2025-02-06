@@ -80,17 +80,19 @@
               style="padding: 25px 0 10px; height: fit-content;"
               class="product-content-fold-answer product-content-fold-answer-image-container-parent"
             >
-              {% for image in product.metafields.content.whats_in_the_box.value %}
-                <div class="product-content-fold-answer-image-container">
-                  <img src="{{ image | image_url }}">
-                </div>
-              {% endfor %}
+              {% comment %}
+                {% for image in product.metafields.content.whats_in_the_box.value %}
+                  <div class="product-content-fold-answer-image-container">
+                    <img src="{{ image | image_url }}">
+                  </div>
+                {% endfor %}
+              {% endcomment %}
 
               {% for item in product.metafields.content.what_s_in_the_box_2.value %}
                 <div class="product-content-fold-answer-image-container">
                   <img src="{{ item.image.value | image_url }}">
+                  <p>{{ item.text }}</p>
                 </div>
-                <p>{{ item.text }}</p>
               {% endfor %}
             </div>
           </div>
@@ -279,17 +281,17 @@
     height: auto;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    padding: 9px;
     justify-content: center;
-    background-color: white;
     align-items: center;
-    border-radius: 10px;
   }
   .product-content-fold-container .product-content-fold-answer img {
     aspect-ratio: unset;
     height: 100% !important;
     width: fit-content !important;
     border-radius: 0;
+    padding: 9px;
+    background-color: white;
+    border-radius: 10px;
   }
   .product-content-fold-answer-image-container-parent {
     display: flex;
