@@ -19,10 +19,16 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     document.body.addEventListener("click", function (event) {
-      if (event.target && event.target.closest("[name='add']")) {
-        var productTitle = document.querySelector(".product-title")?.innerText || "Unknown Product";
-        var productId = document.querySelector("[name='id']")?.value || "Unknown ID";
-        var productPrice = document.querySelector(".price")?.innerText.replace(/[^\d.]/g, "") || "0";
+      let addToCartBtn = event.target.closest("form[action*='/cart/add']");
+      if (addToCartBtn) {
+        let form = addToCartBtn.closest("form");
+        let productTitle = document.querySelector(".product-title")?.innerText.trim() || 
+                           document.querySelector("h1")?.innerText.trim() || 
+                           "Unknown Product";
+
+        let productId = form.querySelector("[name='id']")?.value || "Unknown ID";
+        let productPrice = form.querySelector(".price")?.innerText.replace(/[^\d.]/g, "") || "0";
+        let productQuantity = form.querySelector("[name='quantity']")?.value || "1";
 
         window.dataLayer.push({
           'event': 'add_to_cart',
@@ -34,60 +40,30 @@
               'item_name': productTitle,
               'item_id': productId,
               'price': productPrice,
-              'quantity': 1
+              'quantity': productQuantity
+            }
+          ]
+        });
+
+        console.log("Add to Cart Event Sent:", {
+          'event': 'add_to_cart',
+          'event_category': 'Ecommerce',
+          'currency': '{{ shop.currency }}',
+          'value': productPrice,
+          'items': [
+            {
+              'item_name': productTitle,
+              'item_id': productId,
+              'price': productPrice,
+              'quantity': productQuantity
             }
           ]
         });
       }
     });
   });
-
-  {% if checkout and checkout.line_items.size > 0 %}
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'begin_checkout',
-      'event_category': 'Ecommerce',
-      'currency': '{{ shop.currency }}',
-      'value': '{{ checkout.total_price | money_without_currency }}',
-      'transaction_id': '{{ checkout.order_id }}',
-      'items': [
-        {% for item in checkout.line_items %}
-          {
-            'item_name': '{{ item.product.title | escape }}',
-            'item_id': '{{ item.product.id }}',
-            'price': '{{ item.final_line_price | money_without_currency }}',
-            'quantity': '{{ item.quantity }}'
-          },
-        {% endfor %}
-      ]
-    });
-  </script>
-  {% endif %}
-
-  {% if request.path contains '/thank_you' %}
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'purchase',
-      'event_category': 'Ecommerce',
-      'currency': '{{ shop.currency }}',
-      'value': '{{ checkout.total_price | money_without_currency }}',
-      'transaction_id': '{{ checkout.order_id }}',
-      'items': [
-        {% for item in checkout.line_items %}
-          {
-            'item_name': '{{ item.product.title | escape }}',
-            'item_id': '{{ item.product.id }}',
-            'price': '{{ item.final_line_price | money_without_currency }}',
-            'quantity': '{{ item.quantity }}'
-          },
-        {% endfor %}
-      ]
-    });
-  </script>
-  {% endif %}
 </script>
+
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
