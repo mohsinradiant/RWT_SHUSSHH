@@ -216,54 +216,59 @@
         {%- endfor -%}
         <script>
           function initializeVariantDivs() {
+            console.log('Initializing variant divs...');
+
+            // Remove 'initialized' class to ensure the listener gets reattached on every update
             document.querySelectorAll('.variant-div').forEach((div) => {
-              if (!div.classList.contains('initialized')) {
-                div.classList.add('initialized'); // Mark this element as initialized
-                const color = div.getAttribute('data-color');
-                if (color) {
-                  const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                  div.style.backgroundColor = formattedColor || '#ccc';
-                }
+              div.classList.remove('initialized'); // Reset initialization for each div
+            });
 
-                div.addEventListener('click', () => {
-                  const inputId = div.getAttribute('data-input-id');
-                  const radioInput = document.getElementById(inputId);
-
-                  console.log(`Div clicked: ${color}`);
-                  console.log(`Input ID: ${inputId}`);
-
-                  // Deselect all other variants
-                  document.querySelectorAll('.variant-div').forEach((item) => {
-                    item.classList.remove('selected');
-                  });
-
-                  if (radioInput) {
-                    console.log('Simulating click on radio input');
-
-                    // Force check the radio input and trigger a change event
-                    radioInput.checked = true;
-                    radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-
-                    // Add 'selected' class to the clicked variant
-                    div.classList.add('selected');
-                    console.log('Variant selected and class "selected" added');
-
-                    // Update the color name dynamically
-                    const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-                    if (colorNameElement) {
-                      colorNameElement.textContent = color;
-                      console.log(`Color name updated to: ${color}`);
-                    }
-                  } else {
-                    console.warn(`Radio input with ID "${inputId}" not found.`);
-                  }
-                });
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.classList.add('initialized'); // Mark this element as initialized
+              const color = div.getAttribute('data-color');
+              if (color) {
+                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
+                div.style.backgroundColor = formattedColor || '#ccc';
               }
+
+              div.addEventListener('click', () => {
+                const inputId = div.getAttribute('data-input-id');
+                const radioInput = document.getElementById(inputId);
+
+                console.log(`Div clicked: ${color}`);
+                console.log(`Input ID: ${inputId}`);
+
+                // Deselect all other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected');
+                });
+
+                if (radioInput) {
+                  console.log('Simulating click on radio input');
+
+                  // Force check the radio input and trigger a change event
+                  radioInput.checked = true;
+                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+                  // Add 'selected' class to the clicked variant
+                  div.classList.add('selected');
+                  console.log('Variant selected and class "selected" added');
+
+                  // Update the color name dynamically
+                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                  if (colorNameElement) {
+                    colorNameElement.textContent = color;
+                    console.log(`Color name updated to: ${color}`);
+                  }
+                } else {
+                  console.warn(`Radio input with ID "${inputId}" not found.`);
+                }
+              });
             });
           }
 
           document.addEventListener('DOMContentLoaded', () => {
-            console.log('Initializing variant divs...');
+            console.log('Initializing variant divs on DOMContentLoaded...');
             initializeVariantDivs();
 
             // Observe changes in the product container for Shopify AJAX updates
@@ -272,8 +277,10 @@
               const observer = new MutationObserver((mutations) => {
                 // Check for added or removed nodes and reinitialize only new elements
                 mutations.forEach((mutation) => {
-                  console.log('Product container updated. Reinitializing variant divs...');
-                  initializeVariantDivs();
+                  if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    console.log('Product container updated. Reinitializing variant divs...');
+                    initializeVariantDivs();
+                  }
                 });
               });
 
