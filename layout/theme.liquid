@@ -16,23 +16,65 @@
     <meta name="theme-color" content="">
     <script>
   window.dataLayer = window.dataLayer || [];
+  
+  {% if template == 'cart' %}
   window.dataLayer.push({
-    'event': 'page_view',
-    'ecommerce': {
-      'currency': '{{ shop.currency }}',
-      'value': '{{ cart.total_price | money_without_currency }}',
-      'items': [
-        {% for item in cart.items %}
-          {
-            'item_name': '{{ item.product.title | escape }}',
-            'item_id': '{{ item.product.id }}',
-            'price': '{{ item.final_line_price | money_without_currency }}',
-            'quantity': '{{ item.quantity }}'
-          },
-        {% endfor %}
-      ]
-    }
+    'event': 'add_to_cart',
+    'event_category': 'Ecommerce',
+    'currency': '{{ shop.currency }}',
+    'value': '{{ cart.total_price | money_without_currency }}',
+    'items': [
+      {% for item in cart.items %}
+        {
+          'item_name': '{{ item.product.title | escape }}',
+          'item_id': '{{ item.product.id }}',
+          'price': '{{ item.final_line_price | money_without_currency }}',
+          'quantity': '{{ item.quantity }}'
+        },
+      {% endfor %}
+    ]
   });
+  {% endif %}
+
+  {% if template == 'checkout' %}
+  window.dataLayer.push({
+    'event': 'begin_checkout',
+    'event_category': 'Ecommerce',
+    'currency': '{{ shop.currency }}',
+    'value': '{{ checkout.total_price | money_without_currency }}',
+    'transaction_id': '{{ checkout.order_id }}',
+    'items': [
+      {% for item in checkout.line_items %}
+        {
+          'item_name': '{{ item.product.title | escape }}',
+          'item_id': '{{ item.product.id }}',
+          'price': '{{ item.final_line_price | money_without_currency }}',
+          'quantity': '{{ item.quantity }}'
+        },
+      {% endfor %}
+    ]
+  });
+  {% endif %}
+
+  {% if template == 'thank_you' %}
+  window.dataLayer.push({
+    'event': 'purchase',
+    'event_category': 'Ecommerce',
+    'currency': '{{ shop.currency }}',
+    'value': '{{ checkout.total_price | money_without_currency }}',
+    'transaction_id': '{{ order.order_number }}',
+    'items': [
+      {% for item in order.line_items %}
+        {
+          'item_name': '{{ item.product.title | escape }}',
+          'item_id': '{{ item.product.id }}',
+          'price': '{{ item.final_line_price | money_without_currency }}',
+          'quantity': '{{ item.quantity }}'
+        },
+      {% endfor %}
+    ]
+  });
+  {% endif %}
 </script>
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
