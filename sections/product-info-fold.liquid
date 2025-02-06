@@ -216,7 +216,6 @@
         {%- endfor -%}
         <script>
           function initializeVariantDivs() {
-            // Ensure event listeners are added only to elements without the 'initialized' class
             document.querySelectorAll('.variant-div:not(.initialized)').forEach((div) => {
               div.classList.add('initialized'); // Mark this element as initialized
               const color = div.getAttribute('data-color');
@@ -235,7 +234,12 @@
                 });
 
                 if (radioInput) {
-                  // Check the radio input and trigger a change event
+                  // Uncheck all radio inputs to allow re-selecting the same variant
+                  document.querySelectorAll('.variant-div input[type="radio"]').forEach((input) => {
+                    input.checked = false;
+                  });
+
+                  // Check the current radio input and trigger a change event
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
