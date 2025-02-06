@@ -5,10 +5,37 @@
   data-product-id="{{ product.id }}"
   data-update-url="true"
   data-url="{{ product.url }}"
-  {% if section.settings.image_zoom == 'hover' %}
-    data-zoom-on-hover
-  {% endif %}
 >
+  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+  {% unless product.has_only_default_variant %}
+    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+    {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+    {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+  {% endunless %}
+  {%- if product.quantity_price_breaks_configured? -%}
+    {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
@@ -16,9 +43,33 @@
     <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
+  {% if section.settings.image_zoom == 'hover' %}
+    <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
   {%- if request.design_mode -%}
     <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
+
+  {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+  {%- if first_3d_model -%}
+    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+    <link
+      id="ModelViewerStyle"
+      rel="stylesheet"
+      href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
+      media="print"
+      onload="this.media='all'"
+    >
+    <link
+      id="ModelViewerOverride"
+      rel="stylesheet"
+      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+      media="print"
+      onload="this.media='all'"
+    >
+  {%- endif -%}
+
+  {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
   {%- assign product_form_id = 'product-form-' | append: section.id -%}
   <div class="product-info-fold-container">
@@ -164,10 +215,16 @@
           {%- endcase -%}
         {%- endfor -%}
         <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const variantDivs = document.querySelectorAll('.variant-div');
+          function initializeVariantDivs() {
+            console.log('Initializing variant divs...');
 
-            variantDivs.forEach((div) => {
+            // Remove 'initialized' class to ensure the listener gets reattached on every update
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.classList.remove('initialized'); // Reset initialization for each div
+            });
+
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.classList.add('initialized'); // Mark this element as initialized
               const color = div.getAttribute('data-color');
               if (color) {
                 const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
@@ -178,29 +235,57 @@
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
 
+                console.log(`Div clicked: ${color}`);
+                console.log(`Input ID: ${inputId}`);
+
                 // Deselect all other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected');
                 });
 
                 if (radioInput) {
-                  // Check the radio input and trigger a change event
+                  console.log('Simulating click on radio input');
+
+                  // Force check the radio input and trigger a change event
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
                   // Add 'selected' class to the clicked variant
                   div.classList.add('selected');
+                  console.log('Variant selected and class "selected" added');
 
                   // Update the color name dynamically
                   const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
                   if (colorNameElement) {
                     colorNameElement.textContent = color;
+                    console.log(`Color name updated to: ${color}`);
                   }
                 } else {
                   console.warn(`Radio input with ID "${inputId}" not found.`);
                 }
               });
             });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing variant divs on DOMContentLoaded...');
+            initializeVariantDivs();
+
+            // Observe changes in the product container for Shopify AJAX updates
+            const productContainer = document.querySelector('.product-form');
+            if (productContainer) {
+              const observer = new MutationObserver((mutations) => {
+                // Check for added or removed nodes and reinitialize only new elements
+                mutations.forEach((mutation) => {
+                  if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    console.log('Product container updated. Reinitializing variant divs...');
+                    initializeVariantDivs();
+                  }
+                });
+              });
+
+              observer.observe(productContainer, { childList: true, subtree: true });
+            }
           });
         </script>
 
@@ -210,14 +295,30 @@
           section_id: section.id,
           show_pickup_availability: true
         -%}
-        {% comment %}
-          {% if product.metafields.content.banner_1 %}
+        {% if product.metafields.content.banner_1 %}
+          <div class="product-info-fold-claims-container-first-image-container">
             <img
               class="product-info-fold-claims-container-first-image"
               src="{{ product.metafields.content.banner_1 | image_url }}"
             >
-          {% endif %}
-        {% endcomment %}
+            <div class="countdown-container">
+              <div class="countdown">
+                <div class="time-segment hours">
+                  <span class="value" id="hours">00</span>
+                  <span class="label">Hours</span>
+                </div>
+                <div class="time-segment minutes">
+                  <span class="value" id="minutes">00</span>
+                  <span class="label">Minutes</span>
+                </div>
+                <div class="time-segment seconds">
+                  <span class="value" id="seconds">00</span>
+                  <span class="label">Seconds</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
         <div class="product-info-fold-claims-container">
           <div>
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/india.png?v=1738690950">
@@ -239,10 +340,13 @@
       </div>
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
-        <img
-          src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
-          alt="{{ product.title }}"
-        >
+        {% comment %}
+          <img
+            src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+            alt="{{ product.title }}"
+          >
+        {% endcomment %}
+        {% render 'product-media-gallery-2', variant_images: variant_images %}
         {% if product.metafields.content.product_png_hotspots.value %}
           {% for hotspot in product.metafields.content.product_png_hotspots.value %}
             <div
@@ -280,6 +384,53 @@
   </div>
 </product-info>
 <style>
+  .product-info-fold-claims-container-first-image-container {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .countdown-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .countdown {
+    scale: 0.5;
+    display: flex;
+    gap: 5px;
+  }
+
+  .time-segment {
+    display: flex;
+    font-family: 'Inter';
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .time-segment .value {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 4rem;
+    color: #000;
+  }
+
+  .time-segment .label {
+    font-size: 1rem;
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #000;
+  }
   .product-info-fold-left-container .price-dropped-product-card {
     font-size: 1.5rem !important;
     color: #5d00b9 !important;
@@ -307,8 +458,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    background-color: #faf3ff;
-    padding: 80px 0;
+    padding: 80px 0 0;
     overflow: hidden;
   }
   .product-info-fold-left-container {
@@ -344,7 +494,6 @@
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 10px;
-    height: 520px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -353,6 +502,42 @@
     align-items: center;
     width: auto;
     position: relative;
+  }
+  .product-info-fold-middle-container a {
+    display: none;
+  }
+  .product-info-fold-middle-container ul {
+    overflow: visible !important;
+  }
+  .product-info-fold-middle-container li {
+    width: fit-content;
+    height: fit-content;
+    max-width: unset;
+  }
+  .product-info-fold-middle-container .product-media-container {
+    width: fit-content;
+    height: fit-content;
+    max-width: unset;
+    border: none;
+  }
+  .product-info-fold-middle-container modal-opener {
+    width: fit-content;
+    height: fit-content;
+  }
+  .product-info-fold-middle-container .product-media-container span {
+    display: none;
+  }
+  .product-info-fold-middle-container .product-media-container .media {
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible !important;
+  }
+  .product-info-fold-middle-container .product-media-container .media img {
+    width: fit-content;
+    height: 420px;
+    position: unset;
+    max-width: unset;
   }
   .product-info-fold-right-container {
     display: -webkit-box;
@@ -403,6 +588,7 @@
     font-size: 1.5rem;
     letter-spacing: 0;
     line-height: 2rem;
+    margin-bottom: 6px;
   }
   .product-info-fold-variant-color-name span {
     font-weight: 700;
@@ -456,7 +642,7 @@
   }
   .product-info-fold-left-container .product-form__submit {
     color: #fff;
-    background: #3f2d4b;
+    background: linear-gradient(90deg, rgba(103, 0, 192, 1), rgba(1, 0, 1, 1) 100%);
     text-transform: uppercase;
     padding: 25px 65px;
     font-size: 1.3rem;
@@ -543,10 +729,10 @@
     }
   }
   .product-info-fold-middle-container img {
-    height: 90%;
-    width: auto;
-    position: relative;
-    display: block;
+    height: 360px !important;
+    width: auto !important;
+    position: relative !important;
+    display: block !important;
     -webkit-animation: floatUpDown 3s ease-in-out infinite;
     animation: floatUpDown 3s ease-in-out infinite;
   }
@@ -609,6 +795,7 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    z-index: 3;
   }
   .hotspot-toggle {
     width: 37px;
@@ -697,7 +884,7 @@
       flex-direction: column;
     }
     .product-info-fold-container {
-      padding: 80px 0 50px;
+      padding: 80px 0 0;
     }
     .product-info-fold-left-container {
       -webkit-box-ordinal-group: 3;
@@ -742,8 +929,8 @@
       display: flex;
     }
     .product-info-fold-middle-container {
-      margin-bottom: -23px;
-      margin-top: -50px;
+      margin-bottom: -3px;
+      margin-top: -20px;
     }
     .product-info-fold-variant-parent-container {
       border-bottom: solid 1px #3b2b4a50;
@@ -752,9 +939,12 @@
     .product-info-fold-claims-container {
       padding-top: 14px;
     }
-    .product-info-fold-claims-container-first-image {
+    .product-info-fold-claims-container-first-image-container {
       border-top: solid 1px #3b2b4a50;
       padding-top: 11px;
+    }
+    .countdown-container {
+      margin-top: 11px;
     }
     .product-info-fold-left-description {
       margin: 5px 0 0 0;
@@ -874,6 +1064,24 @@
       }
     });
   });
+</script>
+
+{% comment %} countdown {% endcomment %}
+<script>
+  function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    const diff = midnight - now;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
 </script>
 {% schema %}
 {

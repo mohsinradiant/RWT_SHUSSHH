@@ -138,9 +138,6 @@ slideshow-component .slider-counter__link--dots .dot {
     letter-spacing: -1px;
 }
 
-.collection {
-    background-color: #FAF3FF
-}
 
 .deal-of-the-day-container {
     width: 100%;
@@ -742,7 +739,7 @@ sticky-header {
     justify-content: start;
     align-items: center;
     padding: 0;
-    margin: 13px 0 0;
+    margin: 0 0 0;
 }
 
 .carousel-track .card-wrapper .card__information {
