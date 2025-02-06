@@ -228,22 +228,29 @@
                 const inputId = div.getAttribute('data-input-id');
                 const radioInput = document.getElementById(inputId);
 
+                console.log(`Div clicked: ${color}`);
+                console.log(`Input ID: ${inputId}`);
+
                 // Deselect all other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected');
                 });
 
                 if (radioInput) {
+                  console.log('Simulating click on radio input');
+
                   // Simulate a click on the radio input
                   radioInput.click();
 
                   // Add 'selected' class to the clicked variant
                   div.classList.add('selected');
+                  console.log('Variant selected and class "selected" added');
 
                   // Update the color name dynamically
                   const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
                   if (colorNameElement) {
                     colorNameElement.textContent = color;
+                    console.log(`Color name updated to: ${color}`);
                   }
                 } else {
                   console.warn(`Radio input with ID "${inputId}" not found.`);
@@ -253,6 +260,7 @@
           }
 
           document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing variant divs...');
             initializeVariantDivs();
 
             // Observe changes in the product container for Shopify AJAX updates
@@ -262,6 +270,7 @@
                 // Check for added or removed nodes and reinitialize only new elements
                 mutations.forEach((mutation) => {
                   if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    console.log('Product container updated. Reinitializing variant divs...');
                     initializeVariantDivs();
                   }
                 });
