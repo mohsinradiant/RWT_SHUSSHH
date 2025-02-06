@@ -261,12 +261,13 @@
           show_pickup_availability: true
         -%}
           {% if product.metafields.content.banner_1 %}
-            <img
-              class="product-info-fold-claims-container-first-image"
-              src="{{ product.metafields.content.banner_1 | image_url }}"
-            >
-            <div class="countdown-container">
-              <div class="countdown">
+            <div class="product-info-fold-claims-container-first-image-container">
+              <img
+                class="product-info-fold-claims-container-first-image"
+                src="{{ product.metafields.content.banner_1 | image_url }}"
+              >
+              <div class="countdown-container">
+                <div class="countdown">
                 <div class="time-segment hours">
                   <span class="value" id="hours">00</span>
                   <span class="label">Hours</span>
@@ -279,8 +280,9 @@
                   <span class="value" id="seconds">00</span>
                   <span class="label">Seconds</span>
                 </div>
+                </div>
               </div>
-              </div>
+            </div>
           {% endif %}
         <div class="product-info-fold-claims-container">
           <div>
