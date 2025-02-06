@@ -444,6 +444,7 @@
     const itemCount = items.length;
 
     let currentIndex = 0;
+    let startX = null;
 
     const updateCarousel = () => {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -470,14 +471,13 @@
     });
 
     // Swipe functionality
-    let startX;
     track.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
     });
 
-    track.addEventListener('touchmove', (e) => {
-      if (!startX) return;
-      const endX = e.touches[0].clientX;
+    track.addEventListener('touchend', (e) => {
+      if (startX === null) return;
+      const endX = e.changedTouches[0].clientX;
       const diff = startX - endX;
 
       if (diff > 50) {
@@ -486,12 +486,13 @@
         prevBtn.click();
       }
 
-      startX = null;
+      startX = null; // Reset after swipe ends
     });
 
     updateCarousel();
   });
 </script>
+
 {% schema %}
 {
   "name": "Product Content Fold",
