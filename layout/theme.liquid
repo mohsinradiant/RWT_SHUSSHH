@@ -14,57 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
-    <script>
-  window.dataLayer = window.dataLayer || [];
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.body.addEventListener("click", function (event) {
-      let addToCartBtn = event.target.closest("form[action*='/cart/add']");
-      if (addToCartBtn) {
-        let form = addToCartBtn.closest("form");
-        let productTitle = document.querySelector(".product-title")?.innerText.trim() || 
-                           document.querySelector("h1")?.innerText.trim() || 
-                           "Unknown Product";
-
-        let productId = form.querySelector("[name='id']")?.value || "Unknown ID";
-        let productPrice = form.querySelector(".price")?.innerText.replace(/[^\d.]/g, "") || "0";
-        let productQuantity = form.querySelector("[name='quantity']")?.value || "1";
-
-        window.dataLayer.push({
-          'event': 'add_to_cart',
-          'event_category': 'Ecommerce',
-          'currency': '{{ shop.currency }}',
-          'value': productPrice,
-          'items': [
-            {
-              'item_name': productTitle,
-              'item_id': productId,
-              'price': productPrice,
-              'quantity': productQuantity
-            }
-          ]
-        });
-
-        console.log("Add to Cart Event Sent:", {
-          'event': 'add_to_cart',
-          'event_category': 'Ecommerce',
-          'currency': '{{ shop.currency }}',
-          'value': productPrice,
-          'items': [
-            {
-              'item_name': productTitle,
-              'item_id': productId,
-              'price': productPrice,
-              'quantity': productQuantity
-            }
-          ]
-        });
-      }
-    });
-  });
-</script>
-
-    <!-- Google Tag Manager -->
+        <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
