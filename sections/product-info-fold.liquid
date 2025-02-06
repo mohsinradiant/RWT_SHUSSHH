@@ -306,13 +306,13 @@
       </div>
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
-        <img
-          src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
-          alt="{{ product.title }}"
-        >
-        <div class="grid__item product__media-wrapper">
-          {% render 'product-media-gallery-2', variant_images: variant_images %}
-        </div>
+        {% comment %}
+          <img
+            src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+            alt="{{ product.title }}"
+          >
+        {% endcomment %}
+        {% render 'product-media-gallery-2', variant_images: variant_images %}
         {% if product.metafields.content.product_png_hotspots.value %}
           {% for hotspot in product.metafields.content.product_png_hotspots.value %}
             <div
