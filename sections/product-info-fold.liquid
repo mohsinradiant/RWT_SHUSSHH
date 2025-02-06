@@ -215,7 +215,7 @@
           {%- endcase -%}
         {%- endfor -%}
         <script>
-          document.addEventListener('DOMContentLoaded', () => {
+          function initializeVariantDivs() {
             const variantDivs = document.querySelectorAll('.variant-div');
 
             variantDivs.forEach((div) => {
@@ -252,6 +252,20 @@
                 }
               });
             });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            initializeVariantDivs();
+
+            // Observe changes in the product container for Shopify AJAX updates
+            const productContainer = document.querySelector('.product-form');
+            if (productContainer) {
+              const observer = new MutationObserver(() => {
+                initializeVariantDivs();
+              });
+
+              observer.observe(productContainer, { childList: true, subtree: true });
+            }
           });
         </script>
 
