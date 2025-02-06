@@ -216,10 +216,9 @@
         {%- endfor -%}
         <script>
           function initializeVariantDivs() {
-            const variantDivs = document.querySelectorAll('.variant-div:not(.initialized)');
-
-            variantDivs.forEach((div) => {
-              div.classList.add('initialized'); // Mark the element as initialized
+            // Ensure event listeners are added only to elements without the 'initialized' class
+            document.querySelectorAll('.variant-div:not(.initialized)').forEach((div) => {
+              div.classList.add('initialized'); // Mark this element as initialized
               const color = div.getAttribute('data-color');
               if (color) {
                 const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
@@ -262,8 +261,9 @@
             const productContainer = document.querySelector('.product-form');
             if (productContainer) {
               const observer = new MutationObserver((mutations) => {
+                // Check for added or removed nodes and reinitialize only new elements
                 mutations.forEach((mutation) => {
-                  if (mutation.addedNodes.length) {
+                  if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
                     initializeVariantDivs();
                   }
                 });
