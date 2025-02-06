@@ -14,6 +14,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'page_view',
+    'ecommerce': {
+      'currency': '{{ shop.currency }}',
+      'value': '{{ cart.total_price | money_without_currency }}',
+      'items': [
+        {% for item in cart.items %}
+          {
+            'item_name': '{{ item.product.title | escape }}',
+            'item_id': '{{ item.product.id }}',
+            'price': '{{ item.final_line_price | money_without_currency }}',
+            'quantity': '{{ item.quantity }}'
+          },
+        {% endfor %}
+      ]
+    }
+  });
+</script>
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
