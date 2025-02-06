@@ -272,10 +272,8 @@
               const observer = new MutationObserver((mutations) => {
                 // Check for added or removed nodes and reinitialize only new elements
                 mutations.forEach((mutation) => {
-                  if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                    console.log('Product container updated. Reinitializing variant divs...');
-                    initializeVariantDivs();
-                  }
+                  console.log('Product container updated. Reinitializing variant divs...');
+                  initializeVariantDivs();
                 });
               });
 
