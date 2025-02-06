@@ -241,6 +241,7 @@
                 // Deselect all other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected');
+                  initializeVariantDivs();
                 });
 
                 if (radioInput) {
