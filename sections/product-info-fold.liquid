@@ -5,6 +5,7 @@
   data-product-id="{{ product.id }}"
   data-update-url="true"
   data-url="{{ product.url }}"
+>
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
@@ -260,14 +261,14 @@
           section_id: section.id,
           show_pickup_availability: true
         -%}
-          {% if product.metafields.content.banner_1 %}
-            <div class="product-info-fold-claims-container-first-image-container">
-              <img
-                class="product-info-fold-claims-container-first-image"
-                src="{{ product.metafields.content.banner_1 | image_url }}"
-              >
-              <div class="countdown-container">
-                <div class="countdown">
+        {% if product.metafields.content.banner_1 %}
+          <div class="product-info-fold-claims-container-first-image-container">
+            <img
+              class="product-info-fold-claims-container-first-image"
+              src="{{ product.metafields.content.banner_1 | image_url }}"
+            >
+            <div class="countdown-container">
+              <div class="countdown">
                 <div class="time-segment hours">
                   <span class="value" id="hours">00</span>
                   <span class="label">Hours</span>
@@ -280,10 +281,10 @@
                   <span class="value" id="seconds">00</span>
                   <span class="label">Seconds</span>
                 </div>
-                </div>
               </div>
             </div>
-          {% endif %}
+          </div>
+        {% endif %}
         <div class="product-info-fold-claims-container">
           <div>
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/india.png?v=1738690950">
@@ -346,7 +347,7 @@
   </div>
 </product-info>
 <style>
-  .product-info-fold-claims-container-first-image-container{
+  .product-info-fold-claims-container-first-image-container {
     position: relative;
     display: flex;
     margin-bottom: 20px;
@@ -359,38 +360,40 @@
     right: 0;
     bottom: 0;
     justify-content: center;
-    align-items: center;}
+    align-items: center;
+  }
 
-.countdown {
-  scale: .5;
-  display: flex;
-  gap: 5px;
-}
+  .countdown {
+    scale: 0.5;
+    display: flex;
+    gap: 5px;
+  }
 
-.time-segment {
-  display: flex;
-  font-family: 'Inter';
+  .time-segment {
+    display: flex;
+    font-family: 'Inter';
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: #fff;
-    padding: 15px 10px;    border-radius: 8px;
+    padding: 15px 10px;
+    border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.time-segment .value {
-  font-size: 4rem;
-  font-weight: 900;
-  line-height: 4rem;
-  color: #000;
   }
 
-.time-segment .label {
-  font-size: 1rem;
-  margin-top: 5px;
-  text-transform: uppercase;
-  color: #000;
-}
+  .time-segment .value {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 4rem;
+    color: #000;
+  }
+
+  .time-segment .label {
+    font-size: 1rem;
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #000;
+  }
   .product-info-fold-left-container .price-dropped-product-card {
     font-size: 1.5rem !important;
     color: #5d00b9 !important;
@@ -513,7 +516,7 @@
     font-size: 1.5rem;
     letter-spacing: 0;
     line-height: 2rem;
-    margin-bottom:6px;
+    margin-bottom: 6px;
   }
   .product-info-fold-variant-color-name span {
     font-weight: 700;
@@ -863,10 +866,11 @@
     .product-info-fold-claims-container {
       padding-top: 14px;
     }
-    .product-info-fold-claims-container-first-image-container{
+    .product-info-fold-claims-container-first-image-container {
       border-top: solid 1px #3b2b4a50;
       padding-top: 11px;
-    }.countdown-container{
+    }
+    .countdown-container {
       margin-top: 11px;
     }
     .product-info-fold-left-description {
@@ -990,22 +994,22 @@
 </script>
 
 {% comment %} countdown {% endcomment %}
- <script>
-function updateCountdown() {
-  const now = new Date();
-  const midnight = new Date();
-  midnight.setHours(24, 0, 0, 0);
-  const diff = midnight - now;
-  const hours = Math.floor(diff / (1000 * 60 * 60));
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
- </script>
+<script>
+  function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    const diff = midnight - now;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
 {% schema %}
 {
   "name": "Product Info Fold",
