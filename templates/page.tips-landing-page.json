@@ -44,6 +44,13 @@
         "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
       }
     },
+    "landing_page_banner_xTJdwU": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Market_Comparison.jpg",
+        "mobile_image": "shopify://shop_images/Market_Comparison.jpg"
+      }
+    },
     "landing_page_banner_UiCNer": {
       "type": "landing-page-banner",
       "settings": {
@@ -58,6 +65,7 @@
     "lp_featured_product_KqFV3T",
     "landing_page_banner_qAMezU",
     "landing_page_banner_NeQBhK",
+    "landing_page_banner_xTJdwU",
     "landing_page_banner_UiCNer"
   ]
 }
