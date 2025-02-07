@@ -27,14 +27,37 @@
     "lp_featured_product_KqFV3T": {
       "type": "lp-featured_product",
       "settings": {
-        "product": "shusshh-tips",
-        "product_name_png": "shopify://shop_images/Tips_Lp_2.png"
+        "product": "shusshh-tips"
+      }
+    },
+    "landing_page_banner_qAMezU": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
+        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+      }
+    },
+    "landing_page_banner_NeQBhK": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
+        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+      }
+    },
+    "landing_page_banner_UiCNer": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
+        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
       }
     }
   },
   "order": [
     "main",
     "landing_page_banner_jPacJg",
-    "lp_featured_product_KqFV3T"
+    "lp_featured_product_KqFV3T",
+    "landing_page_banner_qAMezU",
+    "landing_page_banner_NeQBhK",
+    "landing_page_banner_UiCNer"
   ]
 }
