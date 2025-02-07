@@ -1,17 +1,94 @@
 <div class="page-width lp-featured_product-container">
   <div class="lp-featured_product-left-container">
     {% assign product = section.settings.product %}
-    Product:{{ section.settings.product }}
-    {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-    <div class="product product--medium product--left product--thumbnail_slider product--mobile-show grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+    <div class="product-carousel">
+      <div class="main-carousel">
+        {% for image in product.images %}
+          <div class="main-carousel-item">
+            <img src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="thumbnail-carousel">
+        {% for image in product.images %}
+          <div class="thumbnail-carousel-item">
+            <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
   <div class="lp-featured_product-right-container"></div>
 </div>
+<style>
+  .product-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .main-carousel {
+    width: 80%;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .main-carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .thumbnail-carousel {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .thumbnail-carousel-item {
+    flex-shrink: 0;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+
+  .thumbnail-carousel-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .thumbnail-carousel-item.active {
+    border-color: #007aff;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mainCarouselItems = document.querySelectorAll('.main-carousel-item');
+    const thumbnailItems = document.querySelectorAll('.thumbnail-carousel-item');
+
+    function setActiveSlide(index) {
+      mainCarouselItems.forEach((item, i) => {
+        item.style.display = i === index ? 'block' : 'none';
+      });
+
+      thumbnailItems.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+    }
+
+    // Set the initial active slide
+    setActiveSlide(0);
+
+    // Add click event to thumbnails
+    thumbnailItems.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        setActiveSlide(index);
+      });
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "LP Featured Product",
