@@ -1,21 +1,33 @@
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
 <div class="page-width lp-featured_product-container">
   <div class="lp-featured_product-left-container">
     {% assign product = section.settings.product %}
     <div class="product-carousel">
-      <div class="main-carousel">
-        {% for image in product.images %}
-          <div class="main-carousel-item">
-            <img src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
-          </div>
-        {% endfor %}
+      <!-- Main Image Carousel -->
+      <div class="swiper main-carousel">
+        <div class="swiper-wrapper">
+          {% for image in product.images %}
+            <div class="swiper-slide">
+              <img src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
+            </div>
+          {% endfor %}
+        </div>
       </div>
 
-      <div class="thumbnail-carousel">
-        {% for image in product.images %}
-          <div class="thumbnail-carousel-item">
-            <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
-          </div>
-        {% endfor %}
+      <!-- Thumbnail Carousel -->
+      <div class="swiper thumbnail-carousel">
+        <div class="swiper-wrapper">
+          {% for image in product.images %}
+            <div class="swiper-slide">
+              <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -26,67 +38,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   .main-carousel {
     width: 80%;
-    margin-bottom: 1rem;
-    position: relative;
   }
 
-  .main-carousel-item img {
+  .main-carousel img {
     width: 100%;
     border-radius: 10px;
   }
 
   .thumbnail-carousel {
+    width: 80%;
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
   }
 
-  .thumbnail-carousel-item {
-    flex-shrink: 0;
+  .thumbnail-carousel .swiper-slide {
+    width: auto !important;
     cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 5px;
     transition: border-color 0.3s;
   }
 
-  .thumbnail-carousel-item img {
-    width: 100px;
-    height: 100px;
+  .thumbnail-carousel img {
+    width: 80px;
+    height: 80px;
     object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 5px;
   }
 
-  .thumbnail-carousel-item.active {
+  .thumbnail-carousel .swiper-slide-active img {
     border-color: #007aff;
   }
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const mainCarouselItems = document.querySelectorAll('.main-carousel-item');
-    const thumbnailItems = document.querySelectorAll('.thumbnail-carousel-item');
-
-    function setActiveSlide(index) {
-      mainCarouselItems.forEach((item, i) => {
-        item.style.display = i === index ? 'block' : 'none';
-      });
-
-      thumbnailItems.forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
-      });
-    }
-
-    // Set the initial active slide
-    setActiveSlide(0);
-
-    // Add click event to thumbnails
-    thumbnailItems.forEach((thumbnail, index) => {
-      thumbnail.addEventListener('click', () => {
-        setActiveSlide(index);
-      });
+    const mainCarousel = new Swiper('.main-carousel', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: null, // Placeholder for thumbnail sync
+      },s
     });
+
+    const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true,
+    });
+
+    // Sync main and thumbnail carousels
+    mainCarousel.params.thumbs.swiper = thumbnailCarousel;
+    mainCarousel.init();
   });
 </script>
 {% schema %}
