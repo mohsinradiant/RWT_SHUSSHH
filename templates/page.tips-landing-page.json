@@ -11,13 +11,22 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "landing_page_banner_jPacJg": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
+        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "landing_page_banner_jPacJg"
   ]
 }
