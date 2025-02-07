@@ -17,6 +17,9 @@
             </div>
           {% endfor %}
         </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
 
       <!-- Thumbnail Carousel -->
@@ -35,6 +38,33 @@
 </div>
 
 <style>
+  /* Navigation Buttons */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #007aff;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    transform: scale(1.1);
+    background: #007aff;
+    color: #fff;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 1.2rem;
+  }
+
   .product-carousel {
     display: flex;
     flex-direction: column;
@@ -94,6 +124,10 @@
       },
       slidesPerView: 1,
       spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next', // Bind next button
+        prevEl: '.swiper-button-prev', // Bind previous button
+      },
       thumbs: {
         swiper: thumbnailCarousel, // Link the thumbnail carousel
       },
