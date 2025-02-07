@@ -3,6 +3,20 @@
   <img class="lp-mobile-banner" src="{{section.settings.mobile_image |  image_url }}">
 </div>
 
+<style>
+  .lp-banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .lp-desktop-banner,
+  .lp-mobile-banner {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
 {% schema %}
 {
   "name": "LP Banner",
