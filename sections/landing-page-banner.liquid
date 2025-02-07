@@ -8,12 +8,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+  }
+  .lp-desktop-banner {
+    display: flex;
+  }
+  .lp-mobile-banner {
+    display: none;
   }
   .lp-desktop-banner,
   .lp-mobile-banner {
-    display: flex;
     width: 100%;
     height: auto;
+  }
+  @media (max-width: 750px) {
+    .lp-desktop-banner {
+      display: none;
+    }
+    .lp-mobile-banner {
+      display: flex;
+    }
   }
 </style>
 
