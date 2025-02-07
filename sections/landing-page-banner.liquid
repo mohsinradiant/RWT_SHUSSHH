@@ -1,0 +1,27 @@
+<div class="lp-banner-container">
+  <img class="lp-desktop-banner" src="{{section.settings.desktop_image |  image_url }}">
+  <img class="lp-mobile-banner" src="{{section.settings.mobile_image |  image_url }}">
+</div>
+
+{% schema %}
+{
+  "name": "LP Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Banner"
+    }
+  ]
+}
+{% endschema %}
