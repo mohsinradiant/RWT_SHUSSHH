@@ -81,9 +81,8 @@
     const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
       slidesPerView: 'auto',
       spaceBetween: 10,
-      watchSlidesVisibility: true,
       watchSlidesProgress: true,
-      slideToClickedSlide: true,
+      slideToClickedSlide: true, // Allows clicking thumbnails to navigate the main carousel
     });
 
     // Initialize the main carousel
@@ -96,8 +95,38 @@
       slidesPerView: 1,
       spaceBetween: 10,
       thumbs: {
-        swiper: thumbnailCarousel,
+        swiper: thumbnailCarousel, // Link the thumbnail carousel
       },
+      on: {
+        slideChange: function () {
+          // Ensure the thumbnail carousel slides to make the active thumbnail visible
+          const activeIndex = this.realIndex;
+          thumbnailCarousel.slideTo(activeIndex);
+        },
+      },
+    });
+
+    // Ensure the active thumbnail gets proper styles
+    mainCarousel.on('slideChange', function () {
+      const activeIndex = mainCarousel.realIndex;
+
+      // Update the active border for thumbnails
+      document.querySelectorAll('.thumbnail-carousel .swiper-slide').forEach((slide, index) => {
+        const img = slide.querySelector('img');
+        if (index === activeIndex) {
+          img.style.borderColor = '#007aff'; // Active border color
+        } else {
+          img.style.borderColor = 'transparent'; // Default border color
+        }
+      });
+    });
+
+    // Sync thumbnails on click
+    thumbnailCarousel.on('click', function () {
+      const clickedIndex = thumbnailCarousel.clickedIndex;
+      if (clickedIndex !== undefined) {
+        mainCarousel.slideToLoop(clickedIndex);
+      }
     });
   });
 </script>
