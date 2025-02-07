@@ -33,22 +33,22 @@
     "landing_page_banner_qAMezU": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
-        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+        "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
+        "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
       }
     },
     "landing_page_banner_NeQBhK": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
-        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+        "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
+        "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
       }
     },
     "landing_page_banner_UiCNer": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
-        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+        "desktop_image": "shopify://shop_images/Extras.jpg",
+        "mobile_image": "shopify://shop_images/Extras.jpg"
       }
     }
   },
