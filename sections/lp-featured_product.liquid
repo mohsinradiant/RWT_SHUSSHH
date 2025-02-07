@@ -1,12 +1,9 @@
-<!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-
-<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 <div class="page-width lp-featured_product-container">
+  {% assign product = section.settings.product %}
   <div class="lp-featured_product-left-container">
-    {% assign product = section.settings.product %}
     <div class="product-carousel">
       <!-- Main Image Carousel -->
       <div class="swiper main-carousel">
@@ -34,7 +31,9 @@
       </div>
     </div>
   </div>
-  <div class="lp-featured_product-right-container"></div>
+  <div class="lp-featured_product-right-container">
+    <img src="{{ section.settings.product_name_png | image_url  }}">
+  </div>
 </div>
 
 <style>
@@ -181,6 +180,11 @@
       "type": "product",
       "id": "product",
       "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_name_png",
+      "label": "Product Name PNG"
     }
   ],
   "presets": [
