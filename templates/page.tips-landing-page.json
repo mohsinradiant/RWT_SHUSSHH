@@ -23,10 +23,17 @@
         "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
         "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
       }
+    },
+    "lp_featured_product_KqFV3T": {
+      "type": "lp-featured_product",
+      "settings": {
+        "product": "shusshh-tips"
+      }
     }
   },
   "order": [
     "main",
-    "landing_page_banner_jPacJg"
+    "landing_page_banner_jPacJg",
+    "lp_featured_product_KqFV3T"
   ]
 }
