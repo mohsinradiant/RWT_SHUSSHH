@@ -1,7 +1,7 @@
 <div class="page-width lp-featured_product-container">
   <div class="lp-featured_product-left-container">
-    {% assign product = section.settings.product.value %}
-    Product:{{ section.settings.product.value }}
+    {% assign product = section.settings.product %}
+    Product:{{ section.settings.product }}
     {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
     <div class="product product--medium product--left product--thumbnail_slider product--mobile-show grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
