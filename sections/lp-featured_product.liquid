@@ -33,6 +33,7 @@
   </div>
   <div class="lp-featured_product-right-container"></div>
 </div>
+
 <style>
   .product-carousel {
     display: flex;
@@ -73,8 +74,19 @@
     border-color: #007aff;
   }
 </style>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the thumbnail carousel
+    const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true,
+    });
+
+    // Initialize the main carousel
     const mainCarousel = new Swiper('.main-carousel', {
       loop: true,
       autoplay: {
@@ -83,25 +95,10 @@
       },
       slidesPerView: 1,
       spaceBetween: 10,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
       thumbs: {
-        swiper: null, // Placeholder for thumbnail sync
-      },s
+        swiper: thumbnailCarousel,
+      },
     });
-
-    const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
-      slidesPerView: 'auto',
-      spaceBetween: 10,
-      watchSlidesProgress: true,
-      slideToClickedSlide: true,
-    });
-
-    // Sync main and thumbnail carousels
-    mainCarousel.params.thumbs.swiper = thumbnailCarousel;
-    mainCarousel.init();
   });
 </script>
 {% schema %}
