@@ -32,12 +32,20 @@
     </div>
   </div>
   <div class="lp-featured_product-right-container">
-    <img src="{{ section.settings.product_name_png | image_url  }}">
-    <img src="{{ section.settings.product_usp_png | image_url  }}">
+    <img class="lp-featured_product_name_png" src="{{ section.settings.product_name_png | image_url  }}">
+    <img class="lp-featured_product_usp_png" src="{{ section.settings.product_usp_png | image_url  }}">
   </div>
 </div>
 
 <style>
+  .lp-featured_product_name_png {
+    width: 50%;
+    height: auto;
+  }
+  .lp-featured_product_usp_png {
+    width: 100%;
+    height: auto;
+  }
   #MainContent {
     background-color: #000;
   }
