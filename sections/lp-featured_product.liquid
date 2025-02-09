@@ -58,7 +58,6 @@
     <div class="lp-dropdowns-container">
       {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
       {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
-      {% if product.metafields.content.frequently_asked_questions %}
         <div class="collapsible-content-wrapper-narrow">
           <div class="grid__item">
             {%- for dropdown in section.blocks -%}
@@ -89,7 +88,6 @@
             {% endfor %}
           </div>
         </div>
-      {% endif %}
     </div>
   </div>
 </div>
