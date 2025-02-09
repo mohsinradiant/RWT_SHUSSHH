@@ -79,7 +79,9 @@
                       role="region"
                       aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
                     >
-                      <img src="{{ dropdown.settings.image | image_url }}">
+                      {% if dropdown.settings.image %}
+                        <img src="{{ dropdown.settings.image | image_url }}">
+                      {% endif %}
                       {{ dropdown.settings.description }}
                     </div>
                   </details>
