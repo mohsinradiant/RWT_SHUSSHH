@@ -217,6 +217,7 @@
     },
     "landing_page_banner_dEmk7P": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
@@ -224,6 +225,7 @@
     },
     "landing_page_banner_HfxDGk": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
