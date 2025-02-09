@@ -1,0 +1,105 @@
+<div class="home-no-padding-banner">
+  <img class="no-padding_desktop_image" src="{{section.settings.image | img_url: 'master'}}" alt="no-padding Packaging">
+  <img
+    class="no-padding_mobile_image"
+    src="{{section.settings.mobile_image | img_url: 'master'}}"
+    alt="no-padding Packaging"
+  >
+  <button>{{ section.settings.button_text }}</button>
+</div>
+
+<style>
+  /* @keyframes glowing {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 184, 0, 1), 0 0 40px rgba(255, 184, 0, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+    }
+  } */
+
+  .home-no-padding-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+    /* border-radius: 30px; */
+    background-color: #250044;
+    margin: 0;
+    /* animation: glowing 2s infinite alternate ease-in-out; */
+  }
+
+  .home-no-padding-banner img {
+    width: 95%;
+    height: auto;
+  }
+  .home-no-padding-banner button {
+    position: absolute;
+    bottom: 46%;
+    font-size: 1.2rem;
+    padding: 1.3rem 3rem;
+    background-color: #ffb800;
+    color: #333333;
+    border-radius: 500px;
+    border: 0;
+    left: 3.5%;
+  }
+  .no-padding_desktop_image {
+    display: flex;
+  }
+  .no-padding_mobile_image {
+    display: none;
+  }
+  @media (max-width: 850px) {
+    .no-padding_desktop_image {
+      display: none;
+    }
+    .no-padding_mobile_image {
+      display: flex;
+    }
+    .home-no-padding-banner button {
+      bottom: 20px;
+    }
+  }
+  @media (max-width: 750px) {
+    .home-no-padding-banner button {
+      left: unset;
+      right: unset;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "No Padding Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CHECK PACKAGING"
+    }
+  ],
+  "presets": [
+    {
+      "name": "No Padding Banner"
+    }
+  ]
+}
+{% endschema %}
