@@ -92,82 +92,87 @@
 </div>
 
 <style>
-  .lp-dropdowns-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: start;
-    align-items: start;
+  @font-face {
+    font-family: 'Tanker';
+    src: url('{{ "tanker-regular.otf" | asset_url }}') format('opentype');
   }
-  .lp-dropdowns-container .collapsible-content-wrapper-narrow {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    max-width: unset;
-  }
-  .collapsible-content-wrapper-narrow .section-heading {
-    margin-top: 0 !important;
-  }
-  .see-more-btn {
-    margin: 25px auto 0;
-    padding: 13px 35px;
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: 'kanit', sans-serif;
-    background-color: #3f2d4b;
-    color: #fff;
-    border: none;
-    border-radius: 500px;
-    cursor: pointer;
-    display: block;
-    text-transform: uppercase;
-  }
-  .collapsible-content-wrapper-narrow .grid__item {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .collapsible-content-wrapper-narrow .accordion details {
-    border: #00000030 solid 1px;
-    padding: 20px 15px;
-    border-radius: 10px;
-  }
-  .collapsible-content-wrapper-narrow .accordion {
-    border: none;
-  }
-  .accordion details[open] > summary img {
-    transform: rotate(180deg);
-  }
-  .collapsible-content-wrapper-narrow .accordion details img {
-    position: absolute;
-    height: 22px;
-    right: 0;
-    top: calc(50% - 11px);
-  }
-  .accordion {
-    margin-top: 0 !important;
-  }
-  .accordion summary {
-    padding: 0 !important;
-  }
-  .accordion__content {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .collapsible-content-wrapper-narrow .metafield-rich_text_field p {
-    margin-bottom: 0 !important;
-    font-size: 1.2rem;
-    line-height: 1.7rem;
-    font-weight: 400;
-    font-family: 'Inter', sans-serif;
-  }
-  .accordion__title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0;
-  }
+
+    .lp-dropdowns-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: start;
+      align-items: start;
+    }
+    .lp-dropdowns-container .collapsible-content-wrapper-narrow {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      max-width: unset;
+    }
+    .collapsible-content-wrapper-narrow .section-heading {
+      margin-top: 0 !important;
+    }
+    .see-more-btn {
+      margin: 25px auto 0;
+      padding: 13px 35px;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'kanit', sans-serif;
+      background-color: #3f2d4b;
+      color: #fff;
+      border: none;
+      border-radius: 500px;
+      cursor: pointer;
+      display: block;
+      text-transform: uppercase;
+    }
+    .collapsible-content-wrapper-narrow .grid__item {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .collapsible-content-wrapper-narrow .accordion details {
+      border: #00000030 solid 1px;
+      padding: 20px 15px;
+      border-radius: 10px;
+    }
+    .collapsible-content-wrapper-narrow .accordion {
+      border: none;
+    }
+    .accordion details[open] > summary img {
+      transform: rotate(180deg);
+    }
+    .collapsible-content-wrapper-narrow .accordion details img {
+      position: absolute;
+      height: 22px;
+      right: 0;
+      top: calc(50% - 11px);
+    }
+    .accordion {
+      margin-top: 0 !important;
+    }
+    .accordion summary {
+      padding: 0 !important;
+    }
+    .accordion__content {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .collapsible-content-wrapper-narrow .metafield-rich_text_field p {
+      margin-bottom: 0 !important;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+    }
+    .accordion__title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
 </style>
 <style>
   .lp-featured-prod_icons-container {
