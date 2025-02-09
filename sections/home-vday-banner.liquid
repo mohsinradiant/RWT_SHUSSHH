@@ -9,6 +9,18 @@
 </div>
 
 <style>
+  @keyframes glowing {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 184, 0, 1), 0 0 40px rgba(255, 184, 0, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+    }
+  }
+
   .home-no-padding-banner {
     display: flex;
     justify-content: center;
@@ -18,7 +30,9 @@
     overflow: hidden;
     margin: 50px auto;
     border-radius: 30px;
+    animation: glowing 2s infinite alternate ease-in-out;
   }
+
   .home-no-padding-banner img {
     width: 100%;
     height: auto;
