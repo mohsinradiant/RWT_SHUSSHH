@@ -106,6 +106,61 @@
         "product_usp_text_2_png": "shopify://shop_images/Elevates_senses.png"
       }
     },
+    "lp_what_in_the_box_6N9VwD": {
+      "type": "lp-what-in-the-box",
+      "blocks": {
+        "item_gJ9LWR": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Blindfold.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_GznyEq": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Dip.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_YpbQBy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Tiplip.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_JJAJqa": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Aurablank.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_NAAUgK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Manual2.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        }
+      },
+      "block_order": [
+        "item_gJ9LWR",
+        "item_GznyEq",
+        "item_YpbQBy",
+        "item_JJAJqa",
+        "item_NAAUgK"
+      ],
+      "settings": {
+        "section_heading": "WHAT'S IN THE BOX"
+      }
+    },
     "lp_what_in_the_box_qnJXXx": {
       "type": "lp-what-in-the-box",
       "blocks": {
@@ -159,61 +214,6 @@
       ],
       "settings": {
         "section_heading": "WHAT'S IN TIP'S LIPS"
-      }
-    },
-    "lp_what_in_the_box_6N9VwD": {
-      "type": "lp-what-in-the-box",
-      "blocks": {
-        "item_gJ9LWR": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_4.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_GznyEq": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_4.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_YpbQBy": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_4.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_JJAJqa": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_4.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_NAAUgK": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_4.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        }
-      },
-      "block_order": [
-        "item_gJ9LWR",
-        "item_GznyEq",
-        "item_YpbQBy",
-        "item_JJAJqa",
-        "item_NAAUgK"
-      ],
-      "settings": {
-        "section_heading": "WHAT'S IN THE BOX"
       }
     },
     "landing_page_banner_dEmk7P": {
