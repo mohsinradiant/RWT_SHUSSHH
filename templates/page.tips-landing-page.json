@@ -295,6 +295,30 @@
             "title": "Nothing compares to this",
             "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
           }
+        },
+        "grid_item_mkdHYh": {
+          "type": "grid_item",
+          "settings": {
+            "name": "Anjali",
+            "title": "Nothing compares to this",
+            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+          }
+        },
+        "grid_item_r4pd8P": {
+          "type": "grid_item",
+          "settings": {
+            "name": "Anjali",
+            "title": "Nothing compares to this",
+            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+          }
+        },
+        "grid_item_hEYMqL": {
+          "type": "grid_item",
+          "settings": {
+            "name": "Anjali",
+            "title": "Nothing compares to this",
+            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+          }
         }
       },
       "block_order": [
@@ -302,7 +326,10 @@
         "grid_item_eDae7M",
         "grid_item_JFC8HK",
         "grid_item_6bcYrc",
-        "grid_item_Aiacj3"
+        "grid_item_Aiacj3",
+        "grid_item_mkdHYh",
+        "grid_item_r4pd8P",
+        "grid_item_hEYMqL"
       ],
       "settings": {
         "background_color": "#1a0000"
