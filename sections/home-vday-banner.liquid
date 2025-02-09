@@ -8,11 +8,15 @@
   "
   class="home-no-padding-banner"
 >
-  <img class="no-padding_desktop_image" src="{{section.settings.image | img_url: 'master'}}" alt="no-padding Packaging">
+  <img
+    class="no-padding_desktop_image"
+    src="{{ section.settings.image | img_url: 'master' }}"
+    alt="No Padding Packaging"
+  >
   <img
     class="no-padding_mobile_image"
-    src="{{section.settings.mobile_image | img_url: 'master'}}"
-    alt="no-padding Packaging"
+    src="{{ section.settings.mobile_image | img_url: 'master' }}"
+    alt="No Padding Packaging"
   >
   <button>{{ section.settings.button_text }}</button>
 </div>
@@ -20,68 +24,39 @@
 <style>
   @keyframes glowing {
     0% {
-      box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+      box-shadow: 0 0 {{ section.settings.glow_intensity | default: 5 }}px rgba({{ section.settings.glow_color | color_extract: 'red' }}, {{ section.settings.glow_color | color_extract: 'green' }}, {{ section.settings.glow_color | color_extract: 'blue' }}, 0.5);
     }
     50% {
-      box-shadow: 0 0 20px rgba(255, 184, 0, 1), 0 0 40px rgba(255, 184, 0, 0.7);
+      box-shadow: 0 0 {{ section.settings.glow_intensity | default: 20 }}px rgba({{ section.settings.glow_color | color_extract: 'red' }}, {{ section.settings.glow_color | color_extract: 'green' }}, {{ section.settings.glow_color | color_extract: 'blue' }}, 1),
+                  0 0 {{ section.settings.glow_intensity | default: 40 }}px rgba({{ section.settings.glow_color | color_extract: 'red' }}, {{ section.settings.glow_color | color_extract: 'green' }}, {{ section.settings.glow_color | color_extract: 'blue' }}, 0.7);
     }
     100% {
-      box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+      box-shadow: 0 0 {{ section.settings.glow_intensity | default: 5 }}px rgba({{ section.settings.glow_color | color_extract: 'red' }}, {{ section.settings.glow_color | color_extract: 'green' }}, {{ section.settings.glow_color | color_extract: 'blue' }}, 0.5);
     }
-  }
-
-  .home-no-padding-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    padding: 50px 0;
-    margin: 0;
   }
 
   .home-no-padding-banner img {
     border-radius: 30px;
     width: 95%;
     height: auto;
-    animation: glowing 2s infinite alternate ease-in-out;
+    animation: glowing {{ section.settings.animation_speed | default: 2 }}s infinite alternate ease-in-out;
   }
+
   .home-no-padding-banner button {
     position: absolute;
     bottom: 46%;
     font-size: 1.2rem;
     padding: 1.3rem 3rem;
-    background-color: #ffb800;
-    color: #333333;
+    background-color: {{ section.settings.glow_color | default: "#ffb800" }};
+    color: #333;
     border-radius: 500px;
     border: 0;
     left: 5.5%;
   }
-  .no-padding_desktop_image {
-    display: flex;
-  }
-  .no-padding_mobile_image {
-    display: none;
-  }
+
   @media (max-width: 850px) {
-    .no-padding_desktop_image {
-      display: none;
-    }
-    .no-padding_mobile_image {
-      display: flex;
-    }
-    .home-no-padding-banner {
-      padding: 30px 0;
-    }
     .home-no-padding-banner button {
       bottom: 12%;
-    }
-  }
-  @media (max-width: 750px) {
-    .home-no-padding-banner button {
-      left: unset;
-      right: unset;
     }
   }
 </style>
@@ -108,6 +83,30 @@
       "max": 360,
       "step": 15,
       "default": 90
+    },
+    {
+      "type": "color",
+      "id": "glow_color",
+      "label": "Glow Color",
+      "default": "#ffb800"
+    },
+    {
+      "type": "range",
+      "id": "glow_intensity",
+      "label": "Glow Intensity",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Animation Speed (seconds)",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "default": 2
     },
     {
       "type": "image_picker",
