@@ -20,53 +20,53 @@
     "landing_page_banner_tPURrF": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
-        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+        "desktop_image": "shopify://shop_images/Banner.jpg",
+        "mobile_image": "shopify://shop_images/Banner.jpg"
       }
     },
     "lp_featured_product_yw8Pt7": {
       "type": "lp-featured_product",
       "blocks": {
-        "usp_rdB3Ad": {
+        "usp_RXgWAp": {
           "type": "usp",
           "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "Designed for Indians"
+            "image": "shopify://shop_images/44444.png",
+            "text": "Pure Ingredients"
           }
         },
         "usp_eh9kTM": {
           "type": "usp",
           "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "Pure Ingredients"
+            "image": "shopify://shop_images/222222.png",
+            "text": "Designed for intimacy"
+          }
+        },
+        "usp_rdB3Ad": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/222222222.png",
+            "text": "Free + Discreet Delivery"
           }
         },
         "usp_9CnC7K": {
           "type": "usp",
           "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "3-Day Express delivery"
-          }
-        },
-        "usp_RXgWAp": {
-          "type": "usp",
-          "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "Free & Discreet delivery"
+            "image": "shopify://shop_images/3333333333.png",
+            "text": "3-Day Express Shipping"
           }
         },
         "dropdown_kpEQ3c": {
           "type": "dropdown",
           "settings": {
             "title": "Whats in the box",
-            "description": "sdgewsfsdfff"
+            "description": "TIPS isn’t just chocolate—it’s foreplay in a box.Close Your Eyes & Picture This , You hand her a chocolate, she takes a bite, and within 30 minutes her mood changes.You spray the seductive perfume, and suddenly, the air feels electric.Then, you bring out the Dip, a silky blindfold, and Shab-e-Raz—a secret guide filled with moves that guarantee she won’t forget this night."
           }
         },
         "dropdown_apRaph": {
           "type": "dropdown",
           "settings": {
             "title": "How it works",
-            "description": "sdgewsfsdfff"
+            "description": "Split one chocolate with your partner and consume it 30 mins prior. Rest Shab-e-Raz(Manual) will Guide you !"
           }
         },
         "dropdown_DYM66B": {
@@ -74,36 +74,35 @@
           "settings": {
             "title": "Ingredients",
             "description": "",
-            "image": "shopify://shop_images/ingredients.png"
+            "image": "shopify://shop_images/Ingredients_1_1.png"
           }
         },
         "dropdown_PaXHqz": {
           "type": "dropdown",
           "settings": {
             "title": "delivery & returns",
-            "description": "",
-            "image": "shopify://shop_images/ingredients.png"
+            "description": "Discreet Packaging: Your order will arrive in a plain, unmarked box—no branding, no product details, just privacy. Fast Shipping: Orders are dispatched within 24 hours and typically delivered within 3-5 days (depending on location). Tracking Available: Stay updated with real-time tracking once your order is shipped. Hassle-Free Returns & Replacements100-Day Warranty – We stand by our quality! If there’s an issue, we’ll replace it for free.Easy Returns: Unopened, unused products can be returned within 7 days of delivery.Need help? Contact our support team for quick resolutions.Your satisfaction & privacy matter to us!"
           }
         }
       },
       "block_order": [
-        "usp_rdB3Ad",
-        "usp_eh9kTM",
-        "usp_9CnC7K",
         "usp_RXgWAp",
+        "usp_eh9kTM",
+        "usp_rdB3Ad",
+        "usp_9CnC7K",
         "dropdown_kpEQ3c",
         "dropdown_apRaph",
         "dropdown_DYM66B",
         "dropdown_PaXHqz"
       ],
       "settings": {
-        "product": "shusshh-tips",
-        "product_name_png": "shopify://shop_images/Tips.png",
+        "product": "tips-love-box",
+        "product_name_png": "shopify://shop_images/Untitled_design_12_e1e97ae0-bd04-43fb-9032-ca7d53c94f96.png",
         "product_usp_png": "shopify://shop_images/features_4f0e996c-a829-440d-826e-1ab5cc92b804.png",
         "text_1": "Enhances Mood & Chemistry",
-        "product_usp_text_1_png": "shopify://shop_images/Enhances_Intimacy.png",
+        "product_usp_text_1_png": "shopify://shop_images/Iconsnew-27.png",
         "text_2": "Elevates Sensory Pleasure",
-        "product_usp_text_2_png": "shopify://shop_images/Elevates_senses.png"
+        "product_usp_text_2_png": "shopify://shop_images/Iconsnew-26.png"
       }
     },
     "lp_what_in_the_box_6N9VwD": {
@@ -218,6 +217,7 @@
     },
     "landing_page_banner_dEmk7P": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
@@ -225,6 +225,7 @@
     },
     "landing_page_banner_HfxDGk": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
