@@ -267,57 +267,73 @@
         "grid_item_eDae7M": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Rohan",
+            "title": "Way better than the others",
+            "description": "“We used to experiment with other chocolate spreads, but they were always too thick or messy. This one? Just perfect. The blindfold added a whole new level of excitement, making us focus only on sensations. Definitely a step up from anything we’ve tried before.”"
           }
         },
         "grid_item_JFC8HK": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Meera",
+            "title": "Smooth, rich, and so much better",
+            "description": "“I’ve always used regular chocolate, but this felt designed for the moment. It melted perfectly, tasted amazing, and left no mess behind. The blindfold made my partner react in ways I’ve never seen before. The best night we’ve had in a long time.”"
           }
         },
         "grid_item_6bcYrc": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Kartik",
+            "title": "Next-level experience",
+            "description": "“We usually go for premium chocolates, but this one beats them all. The texture is silky, the taste is rich, and there’s no weird artificial sweetness. With the blindfold on, every touch and taste felt more intense. Never going back to regular chocolates again.”"
           }
         },
         "grid_item_Aiacj3": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Riya",
+            "title": "Didn’t think it would make a difference",
+            "description": "“I was skeptical because we’ve tried other products before, but this chocolate is made for foreplay. No stickiness, just pure, smooth indulgence. The blindfold made my partner completely surrender to the moment, and we both felt everything so much more deeply.”"
           }
         },
         "grid_item_mkdHYh": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Aditya",
+            "title": "Finally, a chocolate that works",
+            "description": "“We used to rely on the usual chocolate brands, but they always felt too thick or clumsy. This one? Absolute perfection. It melts instantly and doesn’t leave a mess. Combined with the blindfold, it made our night last way longer than usual.”"
           }
         },
         "grid_item_r4pd8P": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Neha",
+            "title": "The blindfold changes everything",
+            "description": "“I never realized how much removing sight could heighten everything else. The blindfold made each moment last longer, and the chocolate? So smooth, so rich, it’s nothing like what we’ve used before. This box is a must-have.”"
           }
         },
         "grid_item_hEYMqL": {
           "type": "grid_item",
           "settings": {
-            "name": "Anjali",
-            "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
+            "name": "Rahul",
+            "title": "Better than expected",
+            "description": "“Honestly, I thought chocolate was just chocolate, but this is different. It’s not too sweet, it’s perfectly smooth, and it makes everything feel effortless. The blindfold made me feel every little touch so much more. I don’t usually leave reviews, but this deserved it.”"
+          }
+        },
+        "grid_item_ba6HGi": {
+          "type": "grid_item",
+          "settings": {
+            "name": "Tanya",
+            "title": "Best night in a long time",
+            "description": "“We always experiment with different brands, but this chocolate beats them all. It’s light, melts instantly, and actually enhances the moment instead of making it sticky and awkward. With the blindfold on, I could just focus on every single sensation. Easily one of the best nights we’ve had in months.”"
+          }
+        },
+        "grid_item_3r9fNK": {
+          "type": "grid_item",
+          "settings": {
+            "name": "Samar",
+            "title": "Takes pleasure to another level",
+            "description": "“We tried this out of curiosity, and now I wish we had found it sooner. The chocolate is pure magic—smooth, rich, and way better than anything we’ve tried before. The blindfold slowed everything down and made it last longer than expected. This is a must-have for any couple.”"
           }
         }
       },
@@ -329,7 +345,9 @@
         "grid_item_Aiacj3",
         "grid_item_mkdHYh",
         "grid_item_r4pd8P",
-        "grid_item_hEYMqL"
+        "grid_item_hEYMqL",
+        "grid_item_ba6HGi",
+        "grid_item_3r9fNK"
       ],
       "settings": {
         "background_color": "#1a0000"
