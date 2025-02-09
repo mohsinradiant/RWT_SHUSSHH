@@ -69,7 +69,7 @@
                   <details id="Details-{{ section.id }}-{{ forloop.index }}">
                     <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
                       <h3 class="accordion__title inline-richtext h4">
-                        {{ dropdown.title }}
+                        {{ dropdown.settings.title }}
                       </h3>
                       <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_336.png?v=1738191413">
                     </summary>
@@ -79,7 +79,7 @@
                       role="region"
                       aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
                     >
-                      {{ dropdown.description }}
+                      {{ dropdown.settings.description }}
                     </div>
                   </details>
                 </div>
