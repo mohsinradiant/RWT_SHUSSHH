@@ -59,16 +59,14 @@
           "type": "dropdown",
           "settings": {
             "title": "Whats in the box",
-            "description": "sdgewsfsdfff",
-            "image": "shopify://shop_images/ingredients.png"
+            "description": "sdgewsfsdfff"
           }
         },
         "dropdown_apRaph": {
           "type": "dropdown",
           "settings": {
             "title": "How it works",
-            "description": "sdgewsfsdfff",
-            "image": "shopify://shop_images/ingredients.png"
+            "description": "sdgewsfsdfff"
           }
         },
         "dropdown_DYM66B": {
