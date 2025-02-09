@@ -45,7 +45,7 @@
     {%- assign product_form_id = 'product-form-' | append: section.id -%}
     {% render 'buy-buttons-lp', product: product, product_form_id: product_form_id, section_id: section.id %}
     <div class="lp-featured-prod_icons-container">
-      {% for block in section.blocks %}
+      {% for block in section.blocks.usp %}
         <div class="lp-featured-prod_icons-parent">
           <img src="{{block.settings.image | image_url }}">
           <p>{{ block.settings.text }}</p>
