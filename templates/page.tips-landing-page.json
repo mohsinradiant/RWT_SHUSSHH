@@ -239,8 +239,37 @@
     },
     "lp_videos_qMi7pq": {
       "type": "lp-videos",
+      "blocks": {
+        "video_qF9Bzy": {
+          "type": "Video",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "video_qF9Bzy"
+      ],
+      "disabled": true,
       "settings": {
         "section_heading": "IT'S MAKING THEM WILD"
+      }
+    },
+    "lp_testimonial_grid_8BKrhT": {
+      "type": "lp-testimonial-grid",
+      "blocks": {
+        "grid_item_wyHb9c": {
+          "type": "grid_item",
+          "settings": {
+            "title": "Nothing compares to this",
+            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”",
+            "image": "shopify://shop_images/Market_Comparison.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_wyHb9c"
+      ],
+      "settings": {
+        "background_color": "#1a0000"
       }
     },
     "landing_page_banner_dmVVpD": {
@@ -261,6 +290,7 @@
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
+    "lp_testimonial_grid_8BKrhT",
     "landing_page_banner_dmVVpD"
   ]
 }
