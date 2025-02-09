@@ -58,7 +58,7 @@
       {% if product.metafields.content.frequently_asked_questions %}
         <div class="collapsible-content-wrapper-narrow">
           <div class="grid__item">
-            {%- for dropdown in section.blocks -%}
+            {%- for dropdown in section.blocks.dropdown -%}
               <div
                 class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
               >
