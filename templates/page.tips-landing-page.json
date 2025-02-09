@@ -112,8 +112,8 @@
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/blindfold_2_1.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "heading": "Blindfold",
+            "subheading": ""
           }
         },
         "item_GznyEq": {
@@ -121,31 +121,31 @@
           "settings": {
             "image": "shopify://shop_images/dip_24a3a573-b6f4-47d9-8e26-30cf849f138b.png",
             "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "subheading": ""
           }
         },
         "item_YpbQBy": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/tiplip_197f8b1a-a9db-49ad-b71a-caa24ca5d6ea.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "heading": "Tip's Lip",
+            "subheading": ""
           }
         },
         "item_JJAJqa": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/aura.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "heading": "Aura Perfume",
+            "subheading": ""
           }
         },
         "item_NAAUgK": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "heading": "Shab-E-Raaz Playbook",
+            "subheading": ""
           }
         }
       },
