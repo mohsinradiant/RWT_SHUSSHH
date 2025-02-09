@@ -1,0 +1,84 @@
+<div class="home-no-padding-banner">
+  <img class="no-padding_desktop_image" src="{{section.settings.image | img_url: 'master'}}" alt="no-padding Packaging">
+  <img
+    class="no-padding_mobile_image"
+    src="{{section.settings.mobile_image | img_url: 'master'}}"
+    alt="no-padding Packaging"
+  >
+  <button>{{ section.settings.button_text }}</button>
+</div>
+
+<style>
+  .home-no-padding-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 50px 0 0;
+  }
+  .home-no-padding-banner img {
+    width: 120%;
+    height: auto;
+  }
+  .home-no-padding-banner button {
+    position: absolute;
+    bottom: 30px;
+    font-size: 1.2rem;
+    padding: 1.3rem 3rem;
+    background-color: #ffb800;
+    color: #333333;
+    border-radius: 500px;
+    border: 0;
+  }
+  .no-padding_desktop_image {
+    display: flex;
+  }
+  .no-padding_mobile_image {
+    display: none;
+  }
+  @media (max-width: 850px) {
+    .no-padding_desktop_image {
+      display: none;
+    }
+    .no-padding_mobile_image {
+      display: flex;
+    }
+    .home-no-padding-banner img {
+      width: 100%;
+    }
+    .home-no-padding-banner button {
+      bottom: 20px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "No Padding Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CHECK PACKAGING"
+    }
+  ],
+  "presets": [
+    {
+      "name": "No Padding Banner"
+    }
+  ]
+}
+{% endschema %}
