@@ -28,7 +28,8 @@
       "type": "lp-featured_product",
       "settings": {
         "product": "shusshh-tips",
-        "product_name_png": "shopify://shop_images/Tips.png"
+        "product_name_png": "shopify://shop_images/Tips.png",
+        "product_usp_png": "shopify://shop_images/features.png"
       }
     },
     "landing_page_banner_dEmk7P": {
