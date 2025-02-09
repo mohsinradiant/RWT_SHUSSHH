@@ -20,8 +20,8 @@
     "landing_page_banner_tPURrF": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Banner.jpg",
-        "mobile_image": "shopify://shop_images/Banner.jpg"
+        "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
+        "mobile_image": "shopify://shop_images/web_vday_sticker.jpg"
       }
     },
     "lp_featured_product_yw8Pt7": {
@@ -111,41 +111,41 @@
         "item_gJ9LWR": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Blindfold.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "image": "shopify://shop_images/blindfold_2_1.png",
+            "heading": "Blindfold",
+            "subheading": ""
           }
         },
         "item_GznyEq": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Dip.png",
+            "image": "shopify://shop_images/dip_24a3a573-b6f4-47d9-8e26-30cf849f138b.png",
             "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "subheading": ""
           }
         },
         "item_YpbQBy": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Tiplip.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "image": "shopify://shop_images/tiplip_197f8b1a-a9db-49ad-b71a-caa24ca5d6ea.png",
+            "heading": "Tip's Lip",
+            "subheading": ""
           }
         },
         "item_JJAJqa": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Aurablank.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "image": "shopify://shop_images/aura.png",
+            "heading": "Aura Perfume",
+            "subheading": ""
           }
         },
         "item_NAAUgK": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Manual2.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
+            "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
+            "heading": "Shab-E-Raaz Playbook",
+            "subheading": ""
           }
         }
       },
@@ -211,8 +211,16 @@
         "item_y3gi6i",
         "item_bDYGey"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "WHAT'S IN TIP'S LIPS"
+      }
+    },
+    "landing_page_banner_9T9rFj": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Ingredientsblack.png",
+        "mobile_image": "shopify://shop_images/Ingredientsblack.png"
       }
     },
     "landing_page_banner_dEmk7P": {
@@ -234,8 +242,8 @@
     "landing_page_banner_ew6gr8": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Market_Comparison.jpg",
-        "mobile_image": "shopify://shop_images/Market_Comparison.jpg"
+        "desktop_image": "shopify://shop_images/marketcomparison2500_1.png",
+        "mobile_image": "shopify://shop_images/marketcomparison2500_1.png"
       }
     },
     "lp_videos_qMi7pq": {
@@ -357,8 +365,8 @@
     "landing_page_banner_dmVVpD": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Extras.jpg",
-        "mobile_image": "shopify://shop_images/Extras.jpg"
+        "desktop_image": "shopify://shop_images/chocolate_that_works_image.png",
+        "mobile_image": "shopify://shop_images/chocolate_that_works_image.png"
       }
     }
   },
@@ -368,6 +376,7 @@
     "lp_featured_product_yw8Pt7",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
+    "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
