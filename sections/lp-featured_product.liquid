@@ -33,6 +33,7 @@
   </div>
   <div class="lp-featured_product-right-container">
     <img src="{{ section.settings.product_name_png | image_url  }}">
+    <img src="{{ section.settings.product_usp_png | image_url  }}">
   </div>
 </div>
 
@@ -190,6 +191,11 @@
       "type": "image_picker",
       "id": "product_name_png",
       "label": "Product Name PNG"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_usp_png",
+      "label": "Product USP PNG"
     }
   ],
   "presets": [
