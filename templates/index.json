@@ -116,6 +116,13 @@
         "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
       }
     },
+    "home_vday_banner_gXk89j": {
+      "type": "home-vday-banner",
+      "settings": {
+        "image": "shopify://shop_images/Homepage_tips_banner.png",
+        "button_text": "SHOP NOW"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -403,6 +410,7 @@
     "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
     "content_slider_strip_qpKFNJ",
+    "home_vday_banner_gXk89j",
     "featured_collection",
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
