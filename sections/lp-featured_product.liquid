@@ -1,0 +1,517 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<div class="page-width lp-featured_product-container">
+  {% assign product = section.settings.product %}
+  <div class="lp-featured_product-left-container">
+    <div class="product-carousel">
+      <!-- Main Image Carousel -->
+      <div class="swiper main-carousel">
+        <div class="swiper-wrapper">
+          {% for image in product.images %}
+            <div class="swiper-slide">
+              <img src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}">
+            </div>
+          {% endfor %}
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <!-- Thumbnail Carousel -->
+      <div class="swiper thumbnail-carousel">
+        <div class="swiper-wrapper">
+          {% for image in product.images %}
+            <div class="swiper-slide">
+              <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lp-featured_product-right-container">
+    <img class="lp-featured_product_name_png" src="{{ section.settings.product_name_png | image_url }}">
+    <img class="lp-featured_product_usp_png" src="{{ section.settings.product_usp_png | image_url }}">
+    <div class="lp-featured_product_usp_text-container">
+      <img class="lp-featured_product_usp_text_png" src="{{ section.settings.product_usp_text_1_png | image_url }}">
+      <p class="lp-featured_product_usp_text">{{ section.settings.text_1 }}</p>
+    </div>
+    <div class="lp-featured_product_usp_text-container">
+      <img class="lp-featured_product_usp_text_png" src="{{ section.settings.product_usp_text_2_png | image_url }}">
+      <p class="lp-featured_product_usp_text">{{ section.settings.text_2 }}</p>
+    </div>
+    {%- assign product_form_id = 'product-form-' | append: section.id -%}
+    {% render 'buy-buttons-lp', product: product, product_form_id: product_form_id, section_id: section.id %}
+    <div class="lp-featured-prod_icons-container">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'usp' -%}
+            <div class="lp-featured-prod_icons-parent">
+              <img src="{{block.settings.image | image_url }}">
+              <p>{{ block.settings.text }}</p>
+            </div>
+        {%- endcase -%}
+      {% endfor %}
+    </div>
+    <div class="lp-dropdowns-container">
+      {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+      {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+      <div class="collapsible-content-wrapper-narrow">
+        <div class="grid__item">
+          {%- for dropdown in section.blocks -%}
+            {%- case dropdown.type -%}
+              {%- when 'dropdown' -%}
+                <div
+                  class="accordion content-container "
+                >
+                  <details id="Details-{{ section.id }}-{{ forloop.index }}">
+                    <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
+                      <h3 class="accordion__title inline-richtext h4">
+                        {{ dropdown.settings.title }}
+                      </h3>
+                      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Vector_1.png?v=1739091764">
+                    </summary>
+                    <div
+                      class="accordion__content rte"
+                      id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
+                      role="region"
+                      aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
+                    >
+                      {% if dropdown.settings.image %}
+                        <img src="{{ dropdown.settings.image | image_url }}" alt="Content Image">
+                      {% endif %}
+                      {{ dropdown.settings.description }}
+                    </div>
+                  </details>
+                </div>
+            {%- endcase -%}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @font-face {
+    font-family: 'Tanker';
+    src: url('{{ "tanker-regular.otf" | asset_url }}') format('opentype');
+  }
+
+    .lp-dropdowns-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: start;
+      align-items: start;
+    }
+    .lp-dropdowns-container .collapsible-content-wrapper-narrow {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      max-width: unset;
+    }
+    .collapsible-content-wrapper-narrow .section-heading {
+      margin-top: 0 !important;
+    }
+    .see-more-btn {
+      margin: 25px auto 0;
+      padding: 13px 35px;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'kanit', sans-serif;
+      background-color: #3f2d4b;
+      color: #fff;
+      border: none;
+      border-radius: 500px;
+      cursor: pointer;
+      display: block;
+      text-transform: uppercase;
+    }
+    .collapsible-content-wrapper-narrow .grid__item {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .collapsible-content-wrapper-narrow .accordion details {
+      border: #00000030 solid 1px;
+      padding: 5px 15px;
+      border-radius: 10px;
+    }
+    .collapsible-content-wrapper-narrow .accordion {
+      border: none;
+    }
+    .accordion details[open] > summary img {
+      transform: rotate(180deg);
+    }
+    .collapsible-content-wrapper-narrow .accordion details img {
+      position: absolute;
+      height: 14px;
+      right: 0;
+      top: calc(50% - 11px);
+    }
+    .lp-dropdowns-container .accordion__content img{
+      width: 100% !important;
+      height: auto !important;
+      position: unset !important;
+      margin: 20px 0 !important;
+    }
+    .accordion {
+      margin-top: 0 !important;
+    }
+    .accordion summary {
+      padding: 0 !important;
+    }
+    .accordion__content {
+      color: #fff;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .collapsible-content-wrapper-narrow .metafield-rich_text_field p {
+      margin-bottom: 0 !important;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+    }
+    .accordion__title {
+      font-family: 'Tanker';
+    color: #fff;
+    font-size: 2.7rem;
+    font-weight: 200;
+    }
+</style>
+<style>
+  .lp-featured-prod_icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    overflow: auto;
+    width: 100%;
+  }
+  .lp-featured-prod_icons-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24%;
+  }
+  .lp-featured-prod_icons-parent img {
+    width: 50%;
+    height: auto;
+  }
+  .lp-featured-prod_icons-parent p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #ff0000;
+    text-align: center;
+    line-height: 1.8rem;
+  }
+  .lp-featured_product-right-container button {
+    background: linear-gradient(90deg, #ff0000, #510000) !important;
+    color: #fff;
+    font-weight: 900;
+    font-family: 'Inter';
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .lp-featured_product_usp_text-container {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+  }
+  .lp-featured_product_usp_text_png {
+    width: 30px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  .lp-featured_product_usp_text {
+    color: #ff0000;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+  .lp-featured_product_name_png {
+    width: 50%;
+    margin-bottom: 20px;
+    height: auto;
+  }
+  .lp-featured_product_usp_png {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  #MainContent {
+    background-color: #000;
+  }
+  /* Navigation Buttons */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex !important;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    transform: scale(1.2);
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+  .product-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .main-carousel {
+    width: 100%;
+  }
+
+  .main-carousel img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .thumbnail-carousel {
+    width: 70%;
+    display: flex;
+    margin-top: -70px;
+  }
+
+  .thumbnail-carousel .swiper-slide {
+    width: auto !important;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+
+  .thumbnail-carousel img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 20px;
+  }
+
+  .thumbnail-carousel .swiper-slide-active img {
+    border-color: #fff;
+  }
+
+  .lp-featured_product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .lp-featured_product-left-container {
+    width: 53%;
+    position: sticky;
+    top: 0;
+  }
+  .lp-featured_product-right-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 750px) {
+    .lp-featured_product-container {
+      flex-direction: column;
+    }
+    .lp-featured_product-left-container {
+      width: 100%;
+      position: unset;
+      margin-bottom: 45px;
+    }
+    .lp-featured_product-right-container {
+      width: 100%;
+    }
+    .thumbnail-carousel img {
+      width: 80px;
+      height: 80px;
+    }
+    .section-heading {
+      font-size: 3rem !important;
+    }
+    .lp-testimonial-grid-container {
+      display: flex;
+      overflow-x: auto;
+    }
+    .lp-testimonial-grid-item {
+      min-width: 260px;
+    }
+    .lp-testimonial-section {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the thumbnail carousel
+    const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
+      slidesPerView: 'auto',
+      spaceBetween: 10,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true, // Allows clicking thumbnails to navigate the main carousel
+    });
+
+    // Initialize the main carousel
+    const mainCarousel = new Swiper('.main-carousel', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next', // Bind next button
+        prevEl: '.swiper-button-prev', // Bind previous button
+      },
+      thumbs: {
+        swiper: thumbnailCarousel, // Link the thumbnail carousel
+      },
+      on: {
+        slideChange: function () {
+          // Ensure the thumbnail carousel slides to make the active thumbnail visible
+          const activeIndex = this.realIndex;
+          thumbnailCarousel.slideTo(activeIndex);
+        },
+      },
+    });
+
+    // Ensure the active thumbnail gets proper styles
+    mainCarousel.on('slideChange', function () {
+      const activeIndex = mainCarousel.realIndex;
+
+      // Update the active border for thumbnails
+      document.querySelectorAll('.thumbnail-carousel .swiper-slide').forEach((slide, index) => {
+        const img = slide.querySelector('img');
+        if (index === activeIndex) {
+          img.style.borderColor = '#fff'; // Active border color
+        } else {
+          img.style.borderColor = 'transparent'; // Default border color
+        }
+      });
+    });
+
+    // Sync thumbnails on click
+    thumbnailCarousel.on('click', function () {
+      const clickedIndex = thumbnailCarousel.clickedIndex;
+      if (clickedIndex !== undefined) {
+        mainCarousel.slideToLoop(clickedIndex);
+      }
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "LP Featured Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_name_png",
+      "label": "Product Name PNG"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_usp_png",
+      "label": "Product USP PNG"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_usp_text_1_png",
+      "label": "Product Name PNG"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_usp_text_2_png",
+      "label": "Product USP PNG"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "Dropdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Featured Product"
+    }
+  ]
+}
+{% endschema %}
