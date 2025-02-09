@@ -80,9 +80,7 @@
                       aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
                     >
                       {% if dropdown.settings.image %}
-                        <img src="{{ dropdown.settings.image.value | image_url }}">
-                      {% else %}
-                        <p>No image provided</p>
+                        <img src="{{ dropdown.settings.image | image_url }}">
                       {% endif %}
 
                       {{ dropdown.settings.description }}
