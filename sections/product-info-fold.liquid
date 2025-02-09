@@ -371,6 +371,30 @@
             {% endfor %}
           {% endif %}
         </div>
+      {% else %}
+      <div class="product-content-fold-container-parent-carousel">
+        <div class="carousel-wrapper-custom">
+          <button class="carousel-btn-custom left-btn-custom">
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+          </button>
+          <div class="carousel-track-custom">
+            {% for image in product.metafields.content.info_images.value %}
+              <img class="carousel-item-custom" src="{{image | image_url}}">
+            {% endfor %}
+          </div>
+          <button class="carousel-btn-custom right-btn-custom">
+            <img
+              style="transform: rotate(180deg);"
+              src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+            >
+          </button>
+        </div>
+        <div class="carousel-indicators-custom">
+          {% for image in product.metafields.content.info_images.value %}
+            <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
+          {% endfor %}
+        </div>
+      </div>
       {% endif %}
       <div class="product-info-fold-right-container desktop-usp-right-container">
         <div class="product-info-fold-right-parent">
