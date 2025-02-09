@@ -161,6 +161,61 @@
         "section_heading": "WHAT'S IN THE BOX"
       }
     },
+    "lp_what_in_the_box_6N9VwD": {
+      "type": "lp-what-in-the-box",
+      "blocks": {
+        "item_gJ9LWR": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_4.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_GznyEq": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_4.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_YpbQBy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_4.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_JJAJqa": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_4.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_NAAUgK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_4.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        }
+      },
+      "block_order": [
+        "item_gJ9LWR",
+        "item_GznyEq",
+        "item_YpbQBy",
+        "item_JJAJqa",
+        "item_NAAUgK"
+      ],
+      "settings": {
+        "section_heading": "WHAT'S IN TIP'S LIPS"
+      }
+    },
     "landing_page_banner_dEmk7P": {
       "type": "landing-page-banner",
       "settings": {
@@ -195,6 +250,7 @@
     "landing_page_banner_tPURrF",
     "lp_featured_product_yw8Pt7",
     "lp_what_in_the_box_qnJXXx",
+    "lp_what_in_the_box_6N9VwD",
     "landing_page_banner_dEmk7P",
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
