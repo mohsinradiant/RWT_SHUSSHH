@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -54,13 +54,21 @@
             "image": "shopify://shop_images/Elevates_senses.png",
             "text": "Free & Discreet delivery"
           }
+        },
+        "dropdown_kpEQ3c": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Whats in the box",
+            "description": ""
+          }
         }
       },
       "block_order": [
         "usp_rdB3Ad",
         "usp_eh9kTM",
         "usp_9CnC7K",
-        "usp_RXgWAp"
+        "usp_RXgWAp",
+        "dropdown_kpEQ3c"
       ],
       "settings": {
         "product": "shusshh-tips",
