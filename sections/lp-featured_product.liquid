@@ -32,8 +32,16 @@
     </div>
   </div>
   <div class="lp-featured_product-right-container">
-    <img class="lp-featured_product_name_png" src="{{ section.settings.product_name_png | image_url  }}">
-    <img class="lp-featured_product_usp_png" src="{{ section.settings.product_usp_png | image_url  }}">
+    <img class="lp-featured_product_name_png" src="{{ section.settings.product_name_png | image_url }}">
+    <img class="lp-featured_product_usp_png" src="{{ section.settings.product_usp_png | image_url }}">
+    <div class="lp-featured_product_usp_text-container">
+      <img class="lp-featured_product_usp_text_png" src="{{ section.settings.product_usp_text_1_png | image_url }}">
+      <p class="lp-featured_product_usp_text">{{ section.settings.text_1 }}</p>
+    </div>
+    <div class="lp-featured_product_usp_text-container">
+      <img class="lp-featured_product_usp_text_png" src="{{ section.settings.product_usp_text_2_png | image_url }}">
+      <p class="lp-featured_product_usp_text">{{ section.settings.text_2 }}</p>
+    </div>
   </div>
 </div>
 
