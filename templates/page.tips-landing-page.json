@@ -21,7 +21,7 @@
       "type": "landing-page-banner",
       "settings": {
         "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
-        "mobile_image": "shopify://shop_images/vday_sticker_phone_030af377-b567-43de-b27d-35c3ee09de37.jpg"
+        "mobile_image": "shopify://shop_images/web_vday_sticker.jpg"
       }
     },
     "lp_featured_product_yw8Pt7": {
@@ -111,7 +111,7 @@
         "item_gJ9LWR": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/blindfold_c243f1cf-dd46-4e16-bde8-1d55c26bf95a.png",
+            "image": "shopify://shop_images/blindfold_2_1.png",
             "heading": "Play Dip",
             "subheading": "Add a little bit of body text"
           }
