@@ -59,7 +59,8 @@
           "type": "dropdown",
           "settings": {
             "title": "Whats in the box",
-            "description": "sdgewsfsdfff"
+            "description": "sdgewsfsdfff",
+            "image": "shopify://shop_images/ingredients.png"
           }
         }
       },
