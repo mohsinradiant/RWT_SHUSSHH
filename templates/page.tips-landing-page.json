@@ -20,8 +20,8 @@
     "landing_page_banner_tPURrF": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
-        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
+        "desktop_image": "shopify://shop_images/Banner.jpg",
+        "mobile_image": "shopify://shop_images/Banner.jpg"
       }
     },
     "lp_featured_product_yw8Pt7": {
