@@ -120,6 +120,7 @@
       "type": "home-vday-banner",
       "settings": {
         "image": "shopify://shop_images/Homepage_tips_banner.png",
+        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
         "button_text": "SHOP NOW"
       }
     },
