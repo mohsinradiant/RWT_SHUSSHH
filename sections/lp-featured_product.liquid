@@ -79,6 +79,7 @@
                       role="region"
                       aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
                     >
+                      {{ dropdown.settings.image | image_url }}
                       {{ dropdown.settings.description }}
                     </div>
                   </details>
