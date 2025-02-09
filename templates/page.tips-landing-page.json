@@ -62,6 +62,30 @@
             "description": "sdgewsfsdfff",
             "image": "shopify://shop_images/ingredients.png"
           }
+        },
+        "dropdown_apRaph": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Whats in the box",
+            "description": "sdgewsfsdfff",
+            "image": "shopify://shop_images/ingredients.png"
+          }
+        },
+        "dropdown_DYM66B": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Whats in the box",
+            "description": "sdgewsfsdfff",
+            "image": "shopify://shop_images/ingredients.png"
+          }
+        },
+        "dropdown_PaXHqz": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Whats in the box",
+            "description": "sdgewsfsdfff",
+            "image": "shopify://shop_images/ingredients.png"
+          }
         }
       },
       "block_order": [
@@ -69,7 +93,10 @@
         "usp_eh9kTM",
         "usp_9CnC7K",
         "usp_RXgWAp",
-        "dropdown_kpEQ3c"
+        "dropdown_kpEQ3c",
+        "dropdown_apRaph",
+        "dropdown_DYM66B",
+        "dropdown_PaXHqz"
       ],
       "settings": {
         "product": "shusshh-tips",
