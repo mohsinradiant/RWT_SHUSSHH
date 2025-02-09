@@ -46,6 +46,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
+    grid-auto-rows: 1fr; /* Ensures all rows have consistent height */
   }
 
   .lp-testimonial-grid-item {
@@ -54,6 +55,9 @@
     padding: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: fit-content;
+    display: flex; /* Add flexbox */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute content evenly */
   }
 
   .lp-testimonial-image-container {
@@ -78,6 +82,7 @@
     font-size: 0.9em;
     line-height: 1.4;
     margin: 0;
+    align-self: end; /* Push the description down */
   }
 </style>
 {% schema %}
