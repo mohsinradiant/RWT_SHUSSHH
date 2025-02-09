@@ -26,6 +26,42 @@
     },
     "lp_featured_product_yw8Pt7": {
       "type": "lp-featured_product",
+      "blocks": {
+        "usp_rdB3Ad": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/Elevates_senses.png",
+            "text": "Designed for Indians"
+          }
+        },
+        "usp_eh9kTM": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/Elevates_senses.png",
+            "text": "Pure Ingredients"
+          }
+        },
+        "usp_9CnC7K": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/Elevates_senses.png",
+            "text": "3-Day Express delivery"
+          }
+        },
+        "usp_RXgWAp": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/Elevates_senses.png",
+            "text": "Free & Discreet delivery"
+          }
+        }
+      },
+      "block_order": [
+        "usp_rdB3Ad",
+        "usp_eh9kTM",
+        "usp_9CnC7K",
+        "usp_RXgWAp"
+      ],
       "settings": {
         "product": "shusshh-tips",
         "product_name_png": "shopify://shop_images/Tips.png",
