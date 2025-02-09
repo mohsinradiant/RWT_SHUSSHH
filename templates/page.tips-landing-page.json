@@ -11,61 +11,13 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "landing_page_banner_jPacJg": {
-      "type": "landing-page-banner",
-      "settings": {
-        "desktop_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png",
-        "mobile_image": "shopify://shop_images/Banner_015a1c30-6f9f-4f45-a9bb-b3de7bbd4225.png"
-      }
-    },
-    "lp_featured_product_KqFV3T": {
-      "type": "lp-featured_product",
-      "settings": {
-        "product": "shusshh-tips"
-      }
-    },
-    "landing_page_banner_qAMezU": {
-      "type": "landing-page-banner",
-      "settings": {
-        "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
-        "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
-      }
-    },
-    "landing_page_banner_NeQBhK": {
-      "type": "landing-page-banner",
-      "settings": {
-        "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
-        "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
-      }
-    },
-    "landing_page_banner_xTJdwU": {
-      "type": "landing-page-banner",
-      "settings": {
-        "desktop_image": "shopify://shop_images/Market_Comparison.jpg",
-        "mobile_image": "shopify://shop_images/Market_Comparison.jpg"
-      }
-    },
-    "landing_page_banner_UiCNer": {
-      "type": "landing-page-banner",
-      "settings": {
-        "desktop_image": "shopify://shop_images/Extras.jpg",
-        "mobile_image": "shopify://shop_images/Extras.jpg"
-      }
     }
   },
   "order": [
-    "main",
-    "landing_page_banner_jPacJg",
-    "lp_featured_product_KqFV3T",
-    "landing_page_banner_qAMezU",
-    "landing_page_banner_NeQBhK",
-    "landing_page_banner_xTJdwU",
-    "landing_page_banner_UiCNer"
+    "main"
   ]
 }
