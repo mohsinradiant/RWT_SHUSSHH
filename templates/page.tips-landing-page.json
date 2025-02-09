@@ -27,32 +27,32 @@
     "lp_featured_product_yw8Pt7": {
       "type": "lp-featured_product",
       "blocks": {
-        "usp_rdB3Ad": {
+        "usp_RXgWAp": {
           "type": "usp",
           "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "Designed for Indians"
+            "image": "shopify://shop_images/44444.png",
+            "text": "Pure Ingredients"
           }
         },
         "usp_eh9kTM": {
           "type": "usp",
           "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "Pure Ingredients"
+            "image": "shopify://shop_images/222222.png",
+            "text": "Designed for intimacy"
+          }
+        },
+        "usp_rdB3Ad": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/222222222.png",
+            "text": "Free + Discreet Delivery"
           }
         },
         "usp_9CnC7K": {
           "type": "usp",
           "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "3-Day Express delivery"
-          }
-        },
-        "usp_RXgWAp": {
-          "type": "usp",
-          "settings": {
-            "image": "shopify://shop_images/Elevates_senses.png",
-            "text": "Free & Discreet delivery"
+            "image": "shopify://shop_images/3333333333.png",
+            "text": "3-Day Express Shipping"
           }
         },
         "dropdown_kpEQ3c": {
@@ -74,7 +74,7 @@
           "settings": {
             "title": "Ingredients",
             "description": "",
-            "image": "shopify://shop_images/ingredients.png"
+            "image": "shopify://shop_images/Ingredients_1_1.png"
           }
         },
         "dropdown_PaXHqz": {
@@ -82,15 +82,15 @@
           "settings": {
             "title": "delivery & returns",
             "description": "",
-            "image": "shopify://shop_images/ingredients.png"
+            "image": "shopify://shop_images/Icons_row_2.png"
           }
         }
       },
       "block_order": [
-        "usp_rdB3Ad",
-        "usp_eh9kTM",
-        "usp_9CnC7K",
         "usp_RXgWAp",
+        "usp_eh9kTM",
+        "usp_rdB3Ad",
+        "usp_9CnC7K",
         "dropdown_kpEQ3c",
         "dropdown_apRaph",
         "dropdown_DYM66B",
@@ -101,9 +101,9 @@
         "product_name_png": "shopify://shop_images/Tips.png",
         "product_usp_png": "shopify://shop_images/features_4f0e996c-a829-440d-826e-1ab5cc92b804.png",
         "text_1": "Enhances Mood & Chemistry",
-        "product_usp_text_1_png": "shopify://shop_images/Enhances_Intimacy.png",
+        "product_usp_text_1_png": "shopify://shop_images/Iconsnew-27.png",
         "text_2": "Elevates Sensory Pleasure",
-        "product_usp_text_2_png": "shopify://shop_images/Elevates_senses.png"
+        "product_usp_text_2_png": "shopify://shop_images/Iconsnew-26.png"
       }
     },
     "lp_what_in_the_box_6N9VwD": {
