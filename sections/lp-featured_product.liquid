@@ -47,7 +47,7 @@
     <div class="lp-featured-prod_icons-container">
       <div class="lp-featured-prod_icons-parent">
         {% for block in section.blocks %}
-          <img src="{{block.settings.image}}">
+          <img src="{{block.settings.image | image_url }}">
           <p>{{ block.settings.text }}</p>
         {% endfor %}
       </div>
