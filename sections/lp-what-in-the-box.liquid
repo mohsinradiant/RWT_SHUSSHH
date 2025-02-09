@@ -1,3 +1,47 @@
+{% schema %}
+{
+  "name": "LP What's in the Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "WHAT'S IN THE BOX"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Item Heading"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Add a little bit of body text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP What's in the Box"
+    }
+  ]
+}
+{% endschema %}
+
 <section class="swiper-carousel-section">
   <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="swiper-container">
@@ -105,47 +149,3 @@
     });
   });
 </script>
-
-{% schema %}
-{
-  "name": "LP What's in the Box",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_heading",
-      "label": "Section Heading",
-      "default": "WHAT'S IN THE BOX"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "item",
-      "name": "Carousel Item",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Item Heading"
-        },
-        {
-          "type": "text",
-          "id": "subheading",
-          "label": "Subheading",
-          "default": "Add a little bit of body text"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "LP What's in the Box"
-    }
-  ]
-}
-{% endschema %}
