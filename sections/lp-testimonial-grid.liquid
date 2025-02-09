@@ -12,7 +12,10 @@
           </div>
         {% endif %}
         <h1 class="testimonial-name">{{ block.settings.name }}</h1>
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_351.png?v=1739098256">
+        <img
+          class="testimonial-stars-image"
+          src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_351.png?v=1739098256"
+        >
         <h3 class="lp-testimonial-title">{{ block.settings.title }}</h3>
         <p class="lp-testimonial-description">{{ block.settings.description }}</p>
       </div>
@@ -21,6 +24,14 @@
 </div>
 
 <style>
+  .testimonial-name {
+    font-weight: 500;
+    font-size: 2.6rem;
+  }
+  .testimonial-stars-image {
+    width: 60%;
+    height: auto;
+  }
   .lp-testimonial-section {
     padding: 20px;
     background: linear-gradient(to right, #000000, #2e0202);
