@@ -29,7 +29,11 @@
       "settings": {
         "product": "shusshh-tips",
         "product_name_png": "shopify://shop_images/Tips.png",
-        "product_usp_png": "shopify://shop_images/features_4f0e996c-a829-440d-826e-1ab5cc92b804.png"
+        "product_usp_png": "shopify://shop_images/features_4f0e996c-a829-440d-826e-1ab5cc92b804.png",
+        "text_1": "Enhances Mood & Chemistry",
+        "product_usp_text_1_png": "shopify://shop_images/Enhances_Intimacy.png",
+        "text_2": "Elevates Sensory Pleasure",
+        "product_usp_text_2_png": "shopify://shop_images/Elevates_senses.png"
       }
     },
     "landing_page_banner_dEmk7P": {
