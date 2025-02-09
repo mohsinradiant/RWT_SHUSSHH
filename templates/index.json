@@ -215,6 +215,14 @@
         "button_text": "CHECK PACKAGING"
       }
     },
+    "home_vday_banner_NBD7WK": {
+      "type": "home-vday-banner",
+      "settings": {
+        "image": "shopify://shop_images/Fap.jpg",
+        "mobile_image": "shopify://shop_images/Fap_phone.jpg",
+        "button_text": "EXPLORE"
+      }
+    },
     "featured_product_3C3jVK": {
       "type": "featured-product",
       "blocks": {
@@ -272,6 +280,7 @@
         "buy_buttons_hLfBVM",
         "share_HJGeXM"
       ],
+      "disabled": true,
       "settings": {
         "product": "fap-the-ultimate-male-stroker",
         "color_scheme": "scheme-1",
@@ -416,6 +425,7 @@
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
     "home_discreet_packaging_bKNnKt",
+    "home_vday_banner_NBD7WK",
     "featured_product_3C3jVK",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
