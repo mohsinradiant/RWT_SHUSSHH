@@ -18,7 +18,7 @@
     src="{{ section.settings.mobile_image | img_url: 'master' }}"
     alt="No Padding Packaging"
   >
-  <a>{{ section.settings.button_text }}</a>
+  <a href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
 </div>
 
 <style>
@@ -154,6 +154,11 @@
       "id": "button_text",
       "label": "Button Text",
       "default": "CHECK PACKAGING"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
     }
   ],
   "presets": [
