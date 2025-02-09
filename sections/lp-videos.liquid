@@ -10,7 +10,7 @@
           <div class="play-pause-icon pause-icon" id="pause-icon-{{ forloop.index }}">
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_334.png?v=1738186521" alt="Pause">
           </div>
-          <img src="{{ block.settigns.placeholder | img_url: 'medium' }}" class="lp-videos-video-image">
+          <img src="{{ block.settigns.thumbnail | img_url: 'medium' }}" class="lp-videos-video-image">
           <div class="lp-videos-lp-videos-video-container" style="display: none;">
             {{ block.settigns.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: false }}
           </div>
@@ -176,6 +176,24 @@
       "id": "section_heading",
       "label": "Section Heading",
       "default": "Discover What’s Making Everyone Go Wild!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
     }
   ],
   "presets": [
