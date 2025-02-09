@@ -81,7 +81,10 @@
                     >
                       {% if dropdown.settings.image %}
                         <img src="{{ dropdown.settings.image.value | image_url }}">
+                      {% else %}
+                        <p>No image provided</p>
                       {% endif %}
+
                       {{ dropdown.settings.description }}
                     </div>
                   </details>
