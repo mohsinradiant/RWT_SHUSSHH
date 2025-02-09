@@ -14,8 +14,12 @@
         </div>
       {% endfor %}
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_350_1.png?v=1739094560" alt="Prev">
+    </div>
+    <div class="swiper-button-next">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_350.png?v=1739094561" alt="Next">
+    </div>
   </div>
 </section>
 
@@ -31,15 +35,24 @@
     margin: auto;
     overflow: hidden;
   }
+  .swiper-slide {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
   .carousel-item img {
     width: 150px;
     height: auto;
     display: block;
     margin: 0 auto 10px;
   }
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: white;
+  .swiper-button-prev img,
+  .swiper-button-next img {
+    width: 40px;
+    height: auto;
   }
 </style>
 
@@ -51,9 +64,21 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+        },
+        768: {
+          slidesPerView: 1,
+        },
+      },
     });
   });
 </script>
+
 {% schema %}
 {
   "name": "LP What's in the Box",
