@@ -18,7 +18,7 @@
     src="{{ section.settings.mobile_image | img_url: 'master' }}"
     alt="No Padding Packaging"
   >
-  <button>{{ section.settings.button_text }}</button>
+  <a>{{ section.settings.button_text }}</a>
 </div>
 
 <style>
@@ -52,7 +52,7 @@
     height: auto;
     animation: glowing 2s infinite alternate ease-in-out;
   }
-  .home-no-padding-banner button {
+  .home-no-padding-banner a {
     position: absolute;
     bottom: 15%;
     font-size: 1.6rem !important;
@@ -80,12 +80,12 @@
     .home-no-padding-banner {
       padding: 30px 0;
     }
-    .home-no-padding-banner button {
+    .home-no-padding-banner a {
       bottom: 9%;
     }
   }
   @media (max-width: 750px) {
-    .home-no-padding-banner button {
+    .home-no-padding-banner a {
       left: unset;
       right: unset;
     }
