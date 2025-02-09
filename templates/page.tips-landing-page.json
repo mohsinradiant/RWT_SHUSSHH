@@ -260,8 +260,7 @@
           "type": "grid_item",
           "settings": {
             "title": "Nothing compares to this",
-            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”",
-            "image": "shopify://shop_images/Market_Comparison.jpg"
+            "description": "“We’ve tried chocolates from other brands, but nothing melts this smoothly. No stickiness, no weird aftertaste, just pure indulgence. The blindfold made everything even more intense, and for the first time, we took our time without any distractions.”"
           }
         }
       },
