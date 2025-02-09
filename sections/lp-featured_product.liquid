@@ -43,7 +43,7 @@
       <p class="lp-featured_product_usp_text">{{ section.settings.text_2 }}</p>
     </div>
     {%- assign product_form_id = 'product-form-' | append: section.id -%}
-    {% render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id %}
+    {% render 'buy-buttons-lp', product: product, product_form_id: product_form_id, section_id: section.id %}
   </div>
 </div>
 
