@@ -338,38 +338,64 @@
           </div>
         </div>
       </div>
-      <div class="product-info-fold-middle-container">
-        <div class="hotspot-backdrop"></div>
-        {% comment %}
-          <img
-            src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
-            alt="{{ product.title }}"
-          >
-        {% endcomment %}
-        {% render 'product-media-gallery-2', variant_images: variant_images %}
-        {% if product.metafields.content.product_png_hotspots.value %}
-          {% for hotspot in product.metafields.content.product_png_hotspots.value %}
-            <div
-              class="hotspot"
-              style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+      {% if product.metafields.content.floating_media == true %}
+        <div class="product-info-fold-middle-container">
+          <div class="hotspot-backdrop"></div>
+          {% comment %}
+            <img
+              src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+              alt="{{ product.title }}"
             >
-              <span class="hotspot-toggle"> + </span>
+          {% endcomment %}
+          {% render 'product-media-gallery-2', variant_images: variant_images %}
+          {% if product.metafields.content.product_png_hotspots.value %}
+            {% for hotspot in product.metafields.content.product_png_hotspots.value %}
               <div
-                {% if hotspot.text_in_left == true %}
-                  style="
-                    left: unset;
-                    right: -5px;
-                    padding: 10px 52px 10px 20px;
-                  "
-                {% endif -%}
-                class="hotspot-detail"
+                class="hotspot"
+                style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
               >
-                {{ hotspot.text }}
+                <span class="hotspot-toggle"> + </span>
+                <div
+                  {% if hotspot.text_in_left == true %}
+                    style="
+                      left: unset;
+                      right: -5px;
+                      padding: 10px 52px 10px 20px;
+                    "
+                  {% endif -%}
+                  class="hotspot-detail"
+                >
+                  {{ hotspot.text }}
+                </div>
               </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% else %}
+        <div class="product-content-fold-container-parent-carousel">
+          <div class="carousel-wrapper-custom">
+            <button class="carousel-btn-custom left-btn-custom">
+              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+            </button>
+            <div class="carousel-track-custom">
+              {% for image in product.metafields.content.info_images.value %}
+                <img class="carousel-item-custom" src="{{image | image_url}}">
+              {% endfor %}
             </div>
-          {% endfor %}
-        {% endif %}
-      </div>
+            <button class="carousel-btn-custom right-btn-custom">
+              <img
+                style="transform: rotate(180deg);"
+                src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+              >
+            </button>
+          </div>
+          <div class="carousel-indicators-custom">
+            {% for image in product.metafields.content.info_images.value %}
+              <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
       <div class="product-info-fold-right-container desktop-usp-right-container">
         <div class="product-info-fold-right-parent">
           {% for usp in product.metafields.content.product_usp.value %}
@@ -384,6 +410,13 @@
   </div>
 </product-info>
 <style>
+  .product-info-fold-container .product-content-fold-container-parent-carousel {
+    width: 40%;
+    margin-right: -150px;
+  }
+  .carousel-btn-custom img {
+    width: 100%;
+  }
   .product-info-fold-claims-container-first-image-container {
     position: relative;
     display: flex;
@@ -884,7 +917,7 @@
       flex-direction: column;
     }
     .product-info-fold-container {
-      padding: 80px 0 0;
+      padding: 20px 0 0;
     }
     .product-info-fold-left-container {
       -webkit-box-ordinal-group: 3;
@@ -919,6 +952,10 @@
     display: none;
   }
   @media (max-width: 756px) {
+    .product-info-fold-container .product-content-fold-container-parent-carousel {
+      margin: 0;
+      width: 93vw;
+    }
     .product-info-fold-left-container .price-dropped-product-card {
       font-size: 1.5rem !important;
     }
@@ -932,6 +969,7 @@
       margin-bottom: -3px;
       margin-top: -20px;
     }
+
     .product-info-fold-variant-parent-container {
       border-bottom: solid 1px #3b2b4a50;
       padding-bottom: 14px;

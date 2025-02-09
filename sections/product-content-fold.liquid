@@ -24,29 +24,64 @@
         </div>
       </div>
     {% elsif product.metafields.content.info_images.value %}
-      <div class="product-content-fold-container-parent-carousel">
-        <div class="carousel-wrapper-custom">
-          <button class="carousel-btn-custom left-btn-custom">
-            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-          </button>
-          <div class="carousel-track-custom">
+      {% if product.metafields.content.floating_media == true %}
+        <div class="product-content-fold-container-parent-carousel">
+          <div class="carousel-wrapper-custom">
+            <button class="carousel-btn-custom left-btn-custom">
+              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+            </button>
+            <div class="carousel-track-custom">
+              {% for image in product.metafields.content.info_images.value %}
+                <img class="carousel-item-custom" src="{{image | image_url}}">
+              {% endfor %}
+            </div>
+            <button class="carousel-btn-custom right-btn-custom">
+              <img
+                style="transform: rotate(180deg);"
+                src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+              >
+            </button>
+          </div>
+          <div class="carousel-indicators-custom">
             {% for image in product.metafields.content.info_images.value %}
-              <img class="carousel-item-custom" src="{{image | image_url}}">
+              <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
             {% endfor %}
           </div>
-          <button class="carousel-btn-custom right-btn-custom">
+        </div>
+      {% else %}
+        <div class="product-info-fold-middle-container">
+          <div class="hotspot-backdrop"></div>
+          {% comment %}
             <img
-              style="transform: rotate(180deg);"
-              src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+              src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+              alt="{{ product.title }}"
             >
-          </button>
+          {% endcomment %}
+          {% render 'product-media-gallery-2', variant_images: variant_images %}
+          {% if product.metafields.content.product_png_hotspots.value %}
+            {% for hotspot in product.metafields.content.product_png_hotspots.value %}
+              <div
+                class="hotspot"
+                style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+              >
+                <span class="hotspot-toggle"> + </span>
+                <div
+                  {% if hotspot.text_in_left == true %}
+                    style="
+                      left: unset;
+                      right: -5px;
+                      padding: 10px 52px 10px 20px;
+                    "
+                  {% endif -%}
+                  class="hotspot-detail"
+                >
+                  {{ hotspot.text }}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
-        <div class="carousel-indicators-custom">
-          {% for image in product.metafields.content.info_images.value %}
-            <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
-          {% endfor %}
-        </div>
-      </div>
+      {% endif %}
     {% endif %}
     {% if product.metafields.content.content_fold_text or product.metafields.content.whats_in_the_box %}
       <div class="product-content-fold-right">
@@ -384,6 +419,10 @@
     }
     .product-content-fold-answer-image-container {
       width: 21%;
+    }
+    .product-content-fold-container .product-info-fold-middle-container {
+      margin-bottom: -33px;
+      margin-top: 40px;
     }
   }
 </style>

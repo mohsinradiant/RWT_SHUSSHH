@@ -382,7 +382,7 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .footer {
-    background: linear-gradient(125deg, #F5DCFF, #FFEDA5);
+    background: #faf3fb !important;
 }
 
 .shopify-section-group-footer-group {
