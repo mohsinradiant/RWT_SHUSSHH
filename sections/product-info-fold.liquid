@@ -338,6 +338,7 @@
           </div>
         </div>
       </div>
+      {% if media.preview_image %}
       <div class="product-info-fold-middle-container">
         <div class="hotspot-backdrop"></div>
         {% comment %}
@@ -370,6 +371,7 @@
           {% endfor %}
         {% endif %}
       </div>
+      {% endif %}
       <div class="product-info-fold-right-container desktop-usp-right-container">
         <div class="product-info-fold-right-parent">
           {% for usp in product.metafields.content.product_usp.value %}
