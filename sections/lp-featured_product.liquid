@@ -64,7 +64,7 @@
             {%- case dropdown.type -%}
               {%- when 'dropdown' -%}
                 <div
-                  class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
+                  class="accordion content-container "
                 >
                   <details id="Details-{{ section.id }}-{{ forloop.index }}">
                     <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
@@ -94,9 +94,6 @@
 <style>
   .collapsible-content-wrapper-narrow .section-heading {
     margin-top: 0 !important;
-  }
-  .hidden-faq {
-    display: none;
   }
   .see-more-btn {
     margin: 25px auto 0;
