@@ -58,36 +58,35 @@
     <div class="lp-dropdowns-container">
       {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
       {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
-        <div class="collapsible-content-wrapper-narrow">
-          <div class="grid__item">
-            {%- for dropdown in section.blocks -%}
-              {%- case dropdown.type -%}
-                {%- when 'dropdown' -%}
-                  <div
-                    class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
-                  >
-                    <details id="Details-{{ section.id }}-{{ forloop.index }}">
-                      <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
-                        <h3 class="accordion__title inline-richtext h4">
-                          {{ dropdown.title }}
-                        </h3>
-                        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_336.png?v=1738191413">
-                      </summary>
-                      <div
-                        class="accordion__content rte"
-                        id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
-                        role="region"
-                        aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
-                      >
-                        {{ dropdown.image | image_url }}
-                        {{ dropdown.description }}
-                      </div>
-                    </details>
-                  </div>
-              {%- endcase -%}
-            {% endfor %}
-          </div>
+      <div class="collapsible-content-wrapper-narrow">
+        <div class="grid__item">
+          {%- for dropdown in section.blocks -%}
+            {%- case dropdown.type -%}
+              {%- when 'dropdown' -%}
+                <div
+                  class="accordion content-container {% if forloop.index > 3 %}hidden-faq{% endif %}"
+                >
+                  <details id="Details-{{ section.id }}-{{ forloop.index }}">
+                    <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
+                      <h3 class="accordion__title inline-richtext h4">
+                        {{ dropdown.title }}
+                      </h3>
+                      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_336.png?v=1738191413">
+                    </summary>
+                    <div
+                      class="accordion__content rte"
+                      id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
+                      role="region"
+                      aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
+                    >
+                      {{ dropdown.description }}
+                    </div>
+                  </details>
+                </div>
+            {%- endcase -%}
+          {% endfor %}
         </div>
+      </div>
     </div>
   </div>
 </div>
