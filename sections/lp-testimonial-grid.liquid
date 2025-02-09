@@ -1,26 +1,119 @@
+{% comment %}
+  <div class="lp-testimonial-section">
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+    <div class="lp-testimonial-grid-container">
+      {% for block in section.blocks %}
+        <div class="lp-testimonial-grid-item">
+          {% if block.settings.image %}
+            <div class="lp-testimonial-image-container">
+              <img
+                class="lp-testimonial-image"
+                src="{{ block.settings.image | image_url }}"
+                alt="{{ block.settings.title }}"
+              >
+            </div>
+          {% endif %}
+          <h1 class="testimonial-name">{{ block.settings.name }}</h1>
+          <img
+            class="testimonial-stars-image"
+            src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_351.png?v=1739098256"
+          >
+          <h3 class="lp-testimonial-title">{{ block.settings.title }}</h3>
+          <p class="lp-testimonial-description">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    .lp-testimonial-section .section-heading {
+      color: #ff0000;
+      font-size: 5rem;
+    }
+    .testimonial-name {
+      font-weight: 500;
+      font-size: 2.6rem;
+    }
+    .testimonial-stars-image {
+      width: 60%;
+      height: auto;
+      margin-top: 5px;
+    }
+    .lp-testimonial-section {
+      padding: 20px;
+      background: linear-gradient(to right, #000000, #2e0202);
+    }
+
+    .lp-testimonial-grid-container {
+      column-count: 4;
+      column-gap: 16px;
+    }
+
+    .lp-testimonial-grid-item {
+      display: inline-block;
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      padding: 16px;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .lp-testimonial-image-container {
+      margin-bottom: 10px;
+    }
+
+    .lp-testimonial-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .lp-testimonial-title {
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-bottom: 0;
+      color: #333;
+    }
+
+    .lp-testimonial-description {
+      color: #666;
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin: 0;
+      align-self: end;
+    }
+  </style>
+{% endcomment %}
 <div class="lp-testimonial-section">
   <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
-  <div class="lp-testimonial-grid-container">
-    {% for block in section.blocks %}
-      <div class="lp-testimonial-grid-item">
-        {% if block.settings.image %}
-          <div class="lp-testimonial-image-container">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="lp-testimonial-grid-item">
+            {% if block.settings.image %}
+              <div class="lp-testimonial-image-container">
+                <img
+                  class="lp-testimonial-image"
+                  src="{{ block.settings.image | image_url }}"
+                  alt="{{ block.settings.title }}"
+                >
+              </div>
+            {% endif %}
+            <h1 class="testimonial-name">{{ block.settings.name }}</h1>
             <img
-              class="lp-testimonial-image"
-              src="{{ block.settings.image | image_url }}"
-              alt="{{ block.settings.title }}"
+              class="testimonial-stars-image"
+              src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_351.png?v=1739098256"
             >
+            <h3 class="lp-testimonial-title">{{ block.settings.title }}</h3>
+            <p class="lp-testimonial-description">{{ block.settings.description }}</p>
           </div>
-        {% endif %}
-        <h1 class="testimonial-name">{{ block.settings.name }}</h1>
-        <img
-          class="testimonial-stars-image"
-          src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_351.png?v=1739098256"
-        >
-        <h3 class="lp-testimonial-title">{{ block.settings.title }}</h3>
-        <p class="lp-testimonial-description">{{ block.settings.description }}</p>
-      </div>
-    {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 </div>
 
@@ -28,6 +121,7 @@
   .lp-testimonial-section .section-heading {
     color: #ff0000;
     font-size: 5rem;
+    text-align: center;
   }
   .testimonial-name {
     font-weight: 500;
@@ -41,48 +135,56 @@
   .lp-testimonial-section {
     padding: 20px;
     background: linear-gradient(to right, #000000, #2e0202);
+    text-align: center;
   }
-
-  .lp-testimonial-grid-container {
-    column-count: 4; /* Adjust the number of columns */
-    column-gap: 16px;
+  .swiper-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
   }
-
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .lp-testimonial-grid-item {
-    display: inline-block;
     background: #fff;
     border-radius: 8px;
-    margin-bottom: 16px;
     padding: 16px;
-    width: 100%; /* Ensure items fill their container width */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
   }
-
-  .lp-testimonial-image-container {
-    margin-bottom: 10px;
-  }
-
-  .lp-testimonial-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .lp-testimonial-title {
-    font-size: 1.2em;
-    margin-top: 10px;
-    margin-bottom: 0;
-    color: #333;
-  }
-
-  .lp-testimonial-description {
-    color: #666;
-    font-size: 0.9em;
-    line-height: 1.4;
-    margin: 0;
-    align-self: end; /* Push the description down */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fff;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      breakpoints: {
+        1024: {
+          slidesPerView: 2.2,
+        },
+        768: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  });
+</script>
+
 {% schema %}
 {
   "name": "LP Testimonials",
@@ -124,7 +226,7 @@
   ],
   "presets": [
     {
-      "name": "LP Testimonial Grid Section"
+      "name": "LP Testimonial Slider"
     }
   ]
 }
