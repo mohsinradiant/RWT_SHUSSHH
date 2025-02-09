@@ -1,0 +1,102 @@
+<div class="lp-testimonial-section" style="background-color: {{ section.settings.background_color }};">
+  <div class="lp-testimonial-grid-container">
+    {% for block in section.blocks %}
+      <div class="lp-testimonial-grid-item">
+        {% if block.settings.image %}
+          <div class="lp-testimonial-image-container">
+            <img
+              class="lp-testimonial-image"
+              src="{{ block.settings.image | file_url }}"
+              alt="{{ block.settings.title }}"
+            >
+          </div>
+        {% endif %}
+        <h3 class="lp-testimonial-title">{{ block.settings.title }}</h3>
+        <p class="lp-testimonial-description">{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .lp-testimonial-section {
+    padding: 20px;
+  }
+
+  .lp-testimonial-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .lp-testimonial-grid-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .lp-testimonial-image-container {
+    margin-bottom: 10px;
+  }
+
+  .lp-testimonial-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .lp-testimonial-title {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .lp-testimonial-description {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+</style>
+{% schema %}
+{
+  "name": "LP Testimonials",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#1a0000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid_item",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Testimonial Grid Section"
+    }
+  ]
+}
+{% endschema %}
