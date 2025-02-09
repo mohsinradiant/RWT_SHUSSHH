@@ -122,6 +122,9 @@
         "gradient_color_1": "#010002",
         "gradient_color_2": "#5d00b9",
         "gradient_angle": 90,
+        "glow_color": "#ffb800",
+        "glow_intensity": 20,
+        "animation_speed": 2,
         "image": "shopify://shop_images/Homepage_tips_banner_2.png",
         "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
         "button_text": "EXPLORE"
@@ -224,6 +227,9 @@
         "gradient_color_1": "",
         "gradient_color_2": "",
         "gradient_angle": 90,
+        "glow_color": "#ba1093",
+        "glow_intensity": 20,
+        "animation_speed": 2,
         "image": "shopify://shop_images/Fap.jpg",
         "mobile_image": "shopify://shop_images/Fap_phone.jpg",
         "button_text": "EXPLORE"
