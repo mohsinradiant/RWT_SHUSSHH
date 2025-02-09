@@ -216,6 +216,13 @@
         "section_heading": "WHAT'S IN TIP'S LIPS"
       }
     },
+    "landing_page_banner_9T9rFj": {
+      "type": "landing-page-banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Ingredients_2.png",
+        "mobile_image": "shopify://shop_images/Ingredients_2.png"
+      }
+    },
     "landing_page_banner_dEmk7P": {
       "type": "landing-page-banner",
       "disabled": true,
@@ -358,8 +365,8 @@
     "landing_page_banner_dmVVpD": {
       "type": "landing-page-banner",
       "settings": {
-        "desktop_image": "shopify://shop_images/Extras.jpg",
-        "mobile_image": "shopify://shop_images/Extras.jpg"
+        "desktop_image": "shopify://shop_images/chocolate_that_works_image.png",
+        "mobile_image": "shopify://shop_images/chocolate_that_works_image.png"
       }
     }
   },
@@ -369,6 +376,7 @@
     "lp_featured_product_yw8Pt7",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
+    "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
