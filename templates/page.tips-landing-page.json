@@ -237,6 +237,12 @@
         "mobile_image": "shopify://shop_images/Market_Comparison.jpg"
       }
     },
+    "lp_videos_qMi7pq": {
+      "type": "lp-videos",
+      "settings": {
+        "section_heading": "IT'S MAKING THEM WILD"
+      }
+    },
     "landing_page_banner_dmVVpD": {
       "type": "landing-page-banner",
       "settings": {
@@ -254,6 +260,7 @@
     "landing_page_banner_dEmk7P",
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
+    "lp_videos_qMi7pq",
     "landing_page_banner_dmVVpD"
   ]
 }
