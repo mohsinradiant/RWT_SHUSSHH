@@ -338,39 +338,39 @@
           </div>
         </div>
       </div>
-      {% if media.preview_image %}
-      <div class="product-info-fold-middle-container">
-        <div class="hotspot-backdrop"></div>
-        {% comment %}
-          <img
-            src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
-            alt="{{ product.title }}"
-          >
-        {% endcomment %}
-        {% render 'product-media-gallery-2', variant_images: variant_images %}
-        {% if product.metafields.content.product_png_hotspots.value %}
-          {% for hotspot in product.metafields.content.product_png_hotspots.value %}
-            <div
-              class="hotspot"
-              style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+      {% if product.featured_media %}
+        <div class="product-info-fold-middle-container">
+          <div class="hotspot-backdrop"></div>
+          {% comment %}
+            <img
+              src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+              alt="{{ product.title }}"
             >
-              <span class="hotspot-toggle"> + </span>
+          {% endcomment %}
+          {% render 'product-media-gallery-2', variant_images: variant_images %}
+          {% if product.metafields.content.product_png_hotspots.value %}
+            {% for hotspot in product.metafields.content.product_png_hotspots.value %}
               <div
-                {% if hotspot.text_in_left == true %}
-                  style="
-                    left: unset;
-                    right: -5px;
-                    padding: 10px 52px 10px 20px;
-                  "
-                {% endif -%}
-                class="hotspot-detail"
+                class="hotspot"
+                style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
               >
-                {{ hotspot.text }}
+                <span class="hotspot-toggle"> + </span>
+                <div
+                  {% if hotspot.text_in_left == true %}
+                    style="
+                      left: unset;
+                      right: -5px;
+                      padding: 10px 52px 10px 20px;
+                    "
+                  {% endif -%}
+                  class="hotspot-detail"
+                >
+                  {{ hotspot.text }}
+                </div>
               </div>
-            </div>
-          {% endfor %}
-        {% endif %}
-      </div>
+            {% endfor %}
+          {% endif %}
+        </div>
       {% endif %}
       <div class="product-info-fold-right-container desktop-usp-right-container">
         <div class="product-info-fold-right-parent">
