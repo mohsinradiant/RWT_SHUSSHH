@@ -73,16 +73,15 @@
                       </h3>
                       <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Vector_1.png?v=1739091764">
                     </summary>
+                    {% if dropdown.settings.image %}
+                      <img src="{{ dropdown.settings.image | image_url }}">
+                    {% endif %}
                     <div
                       class="accordion__content rte"
                       id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
                       role="region"
                       aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
                     >
-                      {% if dropdown.settings.image %}
-                        <img src="https://cdn.shopify.com{{ dropdown.settings.image | image_url }}">
-                      {% endif %}
-
                       {{ dropdown.settings.description }}
                     </div>
                   </details>
