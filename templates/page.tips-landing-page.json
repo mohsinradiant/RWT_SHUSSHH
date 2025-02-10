@@ -105,6 +105,12 @@
         "product_usp_text_2_png": "shopify://shop_images/Iconsnew-26.png"
       }
     },
+    "content_slider_strip_dFxGXg": {
+      "type": "content-slider-strip",
+      "settings": {
+        "text": "This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart"
+      }
+    },
     "lp_what_in_the_box_6N9VwD": {
       "type": "lp-what-in-the-box",
       "blocks": {
@@ -374,6 +380,7 @@
     "main",
     "landing_page_banner_tPURrF",
     "lp_featured_product_yw8Pt7",
+    "content_slider_strip_dFxGXg",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_9T9rFj",
