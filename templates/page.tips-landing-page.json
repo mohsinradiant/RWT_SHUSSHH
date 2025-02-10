@@ -19,6 +19,8 @@
     },
     "landing_page_banner_tPURrF": {
       "type": "landing-page-banner",
+      "disabled": true,
+      "custom_css": [],
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
@@ -121,7 +123,7 @@
           "settings": {
             "image": "shopify://shop_images/blindfold_2_1.png",
             "heading": "Blindfold",
-            "subheading": ""
+            "subheading": "Surrender to the unknown, feel everything. 😏"
           }
         },
         "item_GznyEq": {
@@ -129,7 +131,7 @@
           "settings": {
             "image": "shopify://shop_images/dip_24a3a573-b6f4-47d9-8e26-30cf849f138b.png",
             "heading": "Play Dip",
-            "subheading": ""
+            "subheading": "Drizzle, lick, repeat—taste the temptation. 🍫🔥"
           }
         },
         "item_YpbQBy": {
@@ -137,7 +139,7 @@
           "settings": {
             "image": "shopify://shop_images/tiplip_197f8b1a-a9db-49ad-b71a-caa24ca5d6ea.png",
             "heading": "Tip's Lip",
-            "subheading": ""
+            "subheading": "A bite-sized boost for better, longer bliss. 🍫✨"
           }
         },
         "item_JJAJqa": {
@@ -145,7 +147,7 @@
           "settings": {
             "image": "shopify://shop_images/aura.png",
             "heading": "Aura Perfume",
-            "subheading": ""
+            "subheading": "One spritz, and they’re under your spell. ✨🔥"
           }
         },
         "item_NAAUgK": {
@@ -153,7 +155,7 @@
           "settings": {
             "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
             "heading": "Shab-E-Raaz Playbook",
-            "subheading": ""
+            "subheading": "The ultimate guide to a night of unforgettable love. 💖🌙"
           }
         }
       },
@@ -164,6 +166,7 @@
         "item_JJAJqa",
         "item_NAAUgK"
       ],
+      "custom_css": [],
       "settings": {
         "section_heading": "WHAT'S IN THE BOX"
       }
@@ -373,14 +376,6 @@
       "settings": {
         "section_heading": "The Couples who tested it said some really good things"
       }
-    },
-    "landing_page_banner_dmVVpD": {
-      "type": "landing-page-banner",
-      "settings": {
-        "section_heading": "A CHOCOLATE THAT ACTUALLY WORKS",
-        "desktop_image": "shopify://shop_images/Extras_3.png",
-        "mobile_image": "shopify://shop_images/Extras.png"
-      }
     }
   },
   "order": [
@@ -395,7 +390,6 @@
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
-    "lp_testimonial_grid_8BKrhT",
-    "landing_page_banner_dmVVpD"
+    "lp_testimonial_grid_8BKrhT"
   ]
 }
