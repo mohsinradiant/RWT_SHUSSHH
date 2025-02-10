@@ -162,14 +162,6 @@
         "padding_bottom": 52
       }
     },
-    "home_deal_of_the_day_NJGxyT": {
-      "type": "home-deal-of-the-day",
-      "settings": {
-        "product_1": "rosy",
-        "product_2": "ecstasy-personal",
-        "product_3": "lush-women-massager"
-      }
-    },
     "1739215445ada50f90": {
       "type": "apps",
       "blocks": {
@@ -185,6 +177,14 @@
       ],
       "settings": {
         "include_margins": true
+      }
+    },
+    "home_deal_of_the_day_NJGxyT": {
+      "type": "home-deal-of-the-day",
+      "settings": {
+        "product_1": "rosy",
+        "product_2": "ecstasy-personal",
+        "product_3": "lush-women-massager"
       }
     },
     "shoppable_videos_FFPLxM": {
@@ -341,6 +341,7 @@
     },
     "home_combos_8LUwCe": {
       "type": "home-combos",
+      "disabled": true,
       "settings": {
         "collection": "bachelorette-gifting",
         "section_subheading": "Money Saver Combos",
@@ -456,8 +457,8 @@
     "content_slider_strip_qpKFNJ",
     "home_vday_banner_gXk89j",
     "featured_collection",
-    "home_deal_of_the_day_NJGxyT",
     "1739215445ada50f90",
+    "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
     "home_discreet_packaging_bKNnKt",
     "home_vday_banner_NBD7WK",
