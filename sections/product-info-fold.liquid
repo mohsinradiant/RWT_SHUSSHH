@@ -416,13 +416,6 @@
       -webkit-animation: floatUpDown 3s ease-in-out infinite;
       animation: floatUpDown 3s ease-in-out infinite;
     }
-    @media (max-width: 850px) {
-      .product-content-fold-container {
-        overflow-x: hidden;
-        padding-bottom: 43px;
-        margin-bottom: 0 !important;
-      }
-    }
   </style>
 {% endif %}
 {% if product.metafields.content.floating_media == false %}
@@ -444,6 +437,13 @@
     @media (max-width: 750px) {
       .product-content-fold-container .product-info-fold-middle-container {
         width: 93% !important;
+      }
+    }
+    @media (max-width: 850px) {
+      .product-content-fold-container {
+        overflow-x: hidden;
+        padding-bottom: 43px;
+        margin-bottom: 0 !important;
       }
     }
   </style>
