@@ -51,12 +51,6 @@
       {% else %}
         <div class="product-info-fold-middle-container">
           <div class="hotspot-backdrop"></div>
-          {% comment %}
-            <img
-              src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
-              alt="{{ product.title }}"
-            >
-          {% endcomment %}
           {% render 'product-media-gallery-2', variant_images: variant_images %}
           {% if product.metafields.content.product_png_hotspots.value %}
             {% for hotspot in product.metafields.content.product_png_hotspots.value %}
@@ -423,6 +417,7 @@
     .product-content-fold-container .product-info-fold-middle-container {
       margin-bottom: -33px;
       margin-top: 40px;
+      overflow-x: hidden;
     }
   }
 </style>
