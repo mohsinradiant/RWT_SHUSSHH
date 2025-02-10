@@ -166,7 +166,9 @@
         "item_JJAJqa",
         "item_NAAUgK"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "h3 {font-size: 30px;}"
+      ],
       "settings": {
         "section_heading": "WHAT'S IN THE BOX"
       }
