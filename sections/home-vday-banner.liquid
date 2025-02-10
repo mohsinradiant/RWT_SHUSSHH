@@ -96,38 +96,44 @@
   document.addEventListener('DOMContentLoaded', function () {
     gsap.registerPlugin(ScrollTrigger);
 
-    const ctaButton = document.querySelector('.home-no-padding-banner a');
+    // Select all CTA buttons
+    const ctaButtons = document.querySelectorAll('.home-no-padding-banner a');
 
-    // Entrance shake when the button appears in the viewport
-    gsap.from(ctaButton, {
-      opacity: 0,
-      y: 20, // Slight movement from below
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: ctaButton,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
-        onEnter: () => {
-          gsap.to(ctaButton, {
-            x: -5,
-            repeat: 3,
-            yoyo: true,
-            duration: 0.1,
-            ease: 'power1.inOut',
-          });
+    ctaButtons.forEach((button) => {
+      // Make sure the button is visible immediately
+      gsap.set(button, { opacity: 1 });
+
+      // Entrance animation with shake
+      gsap.from(button, {
+        opacity: 0,
+        y: 20, // Moves slightly up
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: button,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+          onEnter: () => {
+            gsap.to(button, {
+              x: -5,
+              repeat: 3,
+              yoyo: true,
+              duration: 0.1,
+              ease: 'power1.inOut',
+            });
+          },
         },
-      },
-    });
+      });
 
-    // Small shake effect when the button is clicked
-    ctaButton.addEventListener('click', function () {
-      gsap.to(ctaButton, {
-        x: -3,
-        repeat: 2,
-        yoyo: true,
-        duration: 0.08,
-        ease: 'power1.inOut',
+      // Click shake effect
+      button.addEventListener('click', function () {
+        gsap.to(button, {
+          x: -3,
+          repeat: 2,
+          yoyo: true,
+          duration: 0.08,
+          ease: 'power1.inOut',
+        });
       });
     });
   });
