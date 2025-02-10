@@ -100,13 +100,12 @@
     const ctaButtons = document.querySelectorAll('.home-no-padding-banner a');
 
     ctaButtons.forEach((button) => {
-      // Make sure the button is visible immediately
+      // Ensure buttons are visible immediately
       gsap.set(button, { opacity: 1 });
 
-      // Entrance animation with shake
+      // Entrance animation with horizontal shake
       gsap.from(button, {
         opacity: 0,
-        y: 20, // Moves slightly up
         duration: 0.8,
         ease: 'power2.out',
         scrollTrigger: {
@@ -115,7 +114,7 @@
           toggleActions: 'play none none reverse',
           onEnter: () => {
             gsap.to(button, {
-              x: -5,
+              x: -5, // Horizontal shake only
               repeat: 3,
               yoyo: true,
               duration: 0.1,
@@ -125,10 +124,10 @@
         },
       });
 
-      // Click shake effect
+      // Click shake effect (horizontal only)
       button.addEventListener('click', function () {
         gsap.to(button, {
-          x: -3,
+          x: -3, // Only side-to-side motion
           repeat: 2,
           yoyo: true,
           duration: 0.08,
