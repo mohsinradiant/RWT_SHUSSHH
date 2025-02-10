@@ -95,11 +95,25 @@
 </div>
 
 <style>
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #dd9942, 0 0 10px #dd9942, 0 0 15px #dd9942;
+    }
+    50% {
+      text-shadow: 0 0 10px #ffbb55, 0 0 20px #ffbb55, 0 0 30px #ffbb55;
+    }
+    100% {
+      text-shadow: 0 0 5px #dd9942, 0 0 10px #dd9942, 0 0 15px #dd9942;
+    }
+  }
+
   .lp-top-product_heading {
     text-align: center;
     color: #dd9942;
     margin: 0 auto -40px;
+    animation: glow 1.5s infinite alternate ease-in-out;
   }
+
   sticky-header {
     background: linear-gradient(90deg, #000, #000) !important;
   }
