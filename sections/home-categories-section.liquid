@@ -178,7 +178,7 @@
 
     const observerOptions = {
       root: null,
-      threshold: 0.2, // Adjusts how much of the element needs to be visible before triggering
+      threshold: 0.2, // Adjust visibility threshold
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -186,7 +186,10 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
         } else {
-          entry.target.classList.remove('animate'); // Remove animation class when out of view
+          // Delay the removal of the animation class to prevent flickering
+          setTimeout(() => {
+            entry.target.classList.remove('animate');
+          }, 1000); // Adjust timing based on animation duration
         }
       });
     }, observerOptions);
