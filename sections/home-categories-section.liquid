@@ -44,6 +44,7 @@
     object-fit: cover;
     z-index: -1;
   }
+
   .home-gender-categories-left-image {
     position: absolute;
     top: 0;
@@ -140,6 +141,80 @@
     }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Slide-in animations for left and right images
+    gsap.from('.home-gender-categories-left-image', {
+      x: '-100%', // Moves from left
+      opacity: 0,
+      rotateY: 90,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.home-gender-categories-left-image',
+        start: 'top 80%', // Starts when 80% of the element is in view
+        toggleActions: 'play none none reset', // Ensures smooth replay
+      },
+    });
+
+    gsap.from('.home-gender-categories-right-image', {
+      x: '100%', // Moves from right
+      opacity: 0,
+      rotateY: -90,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.home-gender-categories-right-image',
+        start: 'top 80%',
+        toggleActions: 'play none none reset',
+      },
+    });
+
+    // Fade-in and fade-out for .promises-main-image
+    gsap.utils.toArray('.promises-main-image').forEach((img) => {
+      gsap.fromTo(
+        img,
+        { opacity: 0, scale: 0.9 }, // Start faded and slightly smaller
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: img,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true, // Smooth fade effect
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+
+    // Fade-in and fade-out for .home-gender-categories-container a
+    gsap.utils.toArray('.home-gender-categories-container a').forEach((link) => {
+      gsap.fromTo(
+        link,
+        { opacity: 0, y: 30 }, // Start slightly below
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: link,
+            start: 'top 85%', // Starts when 85% of element is in view
+            end: 'top 30%', // Fades out when 30% is in view
+            scrub: true, // Smooth scrolling effect
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Home Categories",

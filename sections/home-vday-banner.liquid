@@ -92,7 +92,51 @@
     }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    gsap.registerPlugin(ScrollTrigger);
 
+    // Select all CTA buttons
+    const ctaButtons = document.querySelectorAll('.home-no-padding-banner a');
+
+    ctaButtons.forEach((button) => {
+      // Ensure buttons are visible immediately
+      gsap.set(button, { opacity: 1 });
+
+      // Entrance animation with horizontal shake
+      gsap.from(button, {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: button,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+          onEnter: () => {
+            gsap.to(button, {
+              x: -5, // Horizontal shake only
+              repeat: 3,
+              yoyo: true,
+              duration: 0.1,
+              ease: 'power1.inOut',
+            });
+          },
+        },
+      });
+
+      // Click shake effect (horizontal only)
+      button.addEventListener('click', function () {
+        gsap.to(button, {
+          x: -3, // Only side-to-side motion
+          repeat: 2,
+          yoyo: true,
+          duration: 0.08,
+          ease: 'power1.inOut',
+        });
+      });
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "No Padding Banner",

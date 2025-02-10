@@ -5,10 +5,12 @@
   >
   <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
   <div class="page-width home-promises-container">
-    <div class="background-images-container">
-      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_29_1.png?v=1737700505">
-      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_30_1.png?v=1737700505">
-    </div>
+    {% comment %}
+      <div class="background-images-container">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_29_1.png?v=1737700505">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/file_30_1.png?v=1737700505">
+      </div>
+    {% endcomment %}
     <img
       class="promises-main-image"
       src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/11_d0826c6d-46a3-4e57-a6a3-585a7b087a99.png?v=1738689761"
@@ -99,6 +101,31 @@
     }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('.promises-main-image').forEach((img) => {
+      gsap.fromTo(
+        img,
+        { opacity: 0, scale: 0.9 }, // Start with faded and slightly scaled down
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: img,
+            start: 'top 80%', // Starts when 80% of image is in view
+            end: 'top 20%', // Ends when 20% is in view (start fading out)
+            scrub: true, // Smooth fade effect
+            toggleActions: 'play none none reverse', // Reverse on exit
+          },
+        }
+      );
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Home Promises",
