@@ -425,6 +425,14 @@
     }
   </style>
 {% endif %}
+{% if product.metafields.content.floating_media == false %}
+  <style>
+    .product-info-fold-middle-container img {
+      width: 100% !important;
+      height: auto !important;
+    }
+  </style>
+{% endif %}
 <style>
   .product-info-fold-container .product-content-fold-container-parent-carousel {
     width: 40%;
