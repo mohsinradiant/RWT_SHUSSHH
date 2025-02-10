@@ -484,26 +484,26 @@
     const updateCarousel = (direction) => {
       const offset = -currentIndex * 100;
 
-      // Apply GSAP animation for smooth slide
+      // Animate track movement
       gsap.to(track, {
         xPercent: offset,
-        duration: 0.8,
+        duration: 0.6, // Faster transition
         ease: 'power2.out',
       });
 
-      // Add a 3D rotation effect to slides
+      // Apply 3D rotation effect
       gsap.fromTo(
         items[currentIndex],
         {
           opacity: 0.5,
-          scale: 0.9,
-          rotationY: direction === 'next' ? -30 : 30, // Rotate based on direction
+          scale: 0.95,
+          rotateY: direction === 'next' ? 50 : -50, // 3D Rotate based on direction
         },
         {
           opacity: 1,
           scale: 1,
-          rotationY: 0,
-          duration: 0.8,
+          rotateY: 0,
+          duration: 0.6, // Sync with slide animation
           ease: 'power2.out',
         }
       );
