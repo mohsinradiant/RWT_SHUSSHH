@@ -173,29 +173,30 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const leftImage = document.querySelector('.home-gender-categories-left-image');
-    const rightImage = document.querySelector('.home-gender-categories-right-image');
+    const elements = document.querySelectorAll(
+      '.home-gender-categories-left-image, .home-gender-categories-right-image'
+    );
 
     const observerOptions = {
       root: null,
-      threshold: 0.2, // Adjust visibility threshold
+      threshold: 0.5, // Ensures the animation only triggers when at least 50% is visible
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+          if (!entry.target.classList.contains('animate')) {
+            entry.target.classList.add('animate');
+          }
         } else {
-          // Delay the removal of the animation class to prevent flickering
           setTimeout(() => {
             entry.target.classList.remove('animate');
-          }, 1000); // Adjust timing based on animation duration
+          }, 500); // Slight delay to ensure smooth exit
         }
       });
     }, observerOptions);
 
-    observer.observe(leftImage);
-    observer.observe(rightImage);
+    elements.forEach((el) => observer.observe(el));
   });
 </script>
 {% schema %}
