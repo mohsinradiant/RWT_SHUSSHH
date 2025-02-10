@@ -84,7 +84,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "{{ product.metafields.content.combos_collection.value }}",
+        "collection": "bachelorette-gifting",
         "products_to_show": 3,
         "columns_desktop": 3,
         "full_width": false,
