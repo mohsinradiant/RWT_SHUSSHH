@@ -1,5 +1,5 @@
 <div class="lp-testimonial-section">
-  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  <h2 class="page-width section-heading">{{ section.settings.section_heading }}</h2>
   <div class="swiper-container">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
@@ -31,7 +31,8 @@
 </div>
 
 <style>
-  .lp-testimonial-section .section-heading {
+  .lp-testimonial-section .section-heading,
+  .lp-banner-container .section-heading {
     color: #ff0000;
     font-size: 5rem;
     text-align: center;
@@ -78,7 +79,8 @@
   .swiper-button-next {
     color: #fff;
   }
-  .lp-testimonial-section .section-heading {
+  .lp-testimonial-section .section-heading,
+  .lp-banner-container .section-heading {
     text-transform: uppercase;
   }
   @media (max-width: 750px) {

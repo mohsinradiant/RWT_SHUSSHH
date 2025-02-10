@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
+{% assign product = section.settings.product %}
+<h1 class="page-width lp-top-product_heading">{{ product.title | escape }}</h1>
 <div class="page-width lp-featured_product-container">
-  {% assign product = section.settings.product %}
   <div class="lp-featured_product-left-container">
     <div class="product-carousel">
       <!-- Main Image Carousel -->
@@ -95,6 +95,27 @@
 </div>
 
 <style>
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #dd994270, 0 0 10px #dd994270, 0 0 15px #dd994270;
+    }
+    50% {
+      text-shadow: 0 0 10px #ffbb5570, 0 0 20px #ffbb5570, 0 0 30px #ffbb5570;
+    }
+    100% {
+      text-shadow: 0 0 5px #dd994270, 0 0 10px #dd994270, 0 0 15px #dd994270;
+    }
+  }
+
+  .lp-top-product_heading {
+    display: none;
+    text-align: center;
+    color: #dd9942;
+    font-family: 'Kanit';
+    margin: 0 auto 30px;
+    animation: glow 1.5s infinite alternate ease-in-out;
+  }
+
   sticky-header {
     background: linear-gradient(90deg, #000, #000) !important;
   }
@@ -202,6 +223,11 @@
     font-weight: 500;
     letter-spacing: 0;
     text-transform: uppercase;
+  }
+  @media (max-width: 756px) {
+    .lp-top-product_heading {
+      display: block;
+    }
   }
 </style>
 <style>

@@ -20,6 +20,7 @@
     "landing_page_banner_tPURrF": {
       "type": "landing-page-banner",
       "settings": {
+        "section_heading": "",
         "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
         "mobile_image": "shopify://shop_images/2_3426104e-aefa-4da9-8eda-23b493427b92.png"
       }
@@ -103,6 +104,12 @@
         "product_usp_text_1_png": "shopify://shop_images/Iconsnew-27.png",
         "text_2": "Elevates Sensory Pleasure",
         "product_usp_text_2_png": "shopify://shop_images/Iconsnew-26.png"
+      }
+    },
+    "content_slider_strip_dFxGXg": {
+      "type": "content-slider-strip",
+      "settings": {
+        "text": "This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart"
       }
     },
     "lp_what_in_the_box_6N9VwD": {
@@ -219,6 +226,7 @@
     "landing_page_banner_9T9rFj": {
       "type": "landing-page-banner",
       "settings": {
+        "section_heading": "",
         "desktop_image": "shopify://shop_images/Ingredientsblack.png",
         "mobile_image": "shopify://shop_images/Ingredients_2_2805d338-98c4-4474-b450-6bd78d2dde02.png"
       }
@@ -227,6 +235,7 @@
       "type": "landing-page-banner",
       "disabled": true,
       "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!",
         "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
       }
@@ -235,6 +244,7 @@
       "type": "landing-page-banner",
       "disabled": true,
       "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!",
         "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
       }
@@ -242,6 +252,7 @@
     "landing_page_banner_ew6gr8": {
       "type": "landing-page-banner",
       "settings": {
+        "section_heading": "",
         "desktop_image": "shopify://shop_images/marketcomparison2500_1.png",
         "mobile_image": "shopify://shop_images/marketcomparison2500_1.png"
       }
@@ -365,6 +376,7 @@
     "landing_page_banner_dmVVpD": {
       "type": "landing-page-banner",
       "settings": {
+        "section_heading": "A CHOCOLATE THAT ACTUALLY WORKS",
         "desktop_image": "shopify://shop_images/chocolate_that_works_image.png",
         "mobile_image": "shopify://shop_images/Extras.png"
       }
@@ -374,6 +386,7 @@
     "main",
     "landing_page_banner_tPURrF",
     "lp_featured_product_yw8Pt7",
+    "content_slider_strip_dFxGXg",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_9T9rFj",
