@@ -30,7 +30,33 @@
     }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
 
+    const banner = document.getElementById('shopify-section-template--23879230095670__landing_page_banner_tPURrF');
+
+    ScrollTrigger.create({
+      trigger: banner,
+      start: 'top 80%', // Starts when 80% of the element is in view
+      onEnter: () => {
+        flickerEffect();
+      },
+    });
+
+    function flickerEffect() {
+      gsap.to(banner, {
+        opacity: () => gsap.utils.random(0.7, 1), // Random flickering between 70% and 100% brightness
+        filter: () => `brightness(${gsap.utils.random(0.8, 1.2)}) blur(${gsap.utils.random(0, 3)}px)`, // Random light glow
+        duration: gsap.utils.random(0.05, 0.2), // Fast flickers
+        repeat: 10, // Flicker about 10 times
+        onComplete: () => {
+          gsap.to(banner, { opacity: 1, filter: 'brightness(1) blur(0px)', duration: 0.5 }); // Stabilizes after flickering
+        },
+      });
+    }
+  });
+</script>
 {% schema %}
 {
   "name": "LP Banner",
