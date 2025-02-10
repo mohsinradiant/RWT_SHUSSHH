@@ -75,6 +75,7 @@ slideshow-component .slider-counter__link--dots .dot {
     width: fit-content;
     padding: 10px 55px;
     font-size: 1rem;
+    margin: 0 auto;
 }
 
 .card__heading {

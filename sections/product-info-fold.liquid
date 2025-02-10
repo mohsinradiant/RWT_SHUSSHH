@@ -409,6 +409,45 @@
     </div>
   </div>
 </product-info>
+
+{% if product.metafields.content.floating_animation == true %}
+  <style>
+    .product-info-fold-middle-container img {
+      -webkit-animation: floatUpDown 3s ease-in-out infinite;
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+  </style>
+{% endif %}
+{% if product.metafields.content.floating_media == false %}
+  <style>
+    .product-content-fold-container .product-info-fold-middle-container img,
+    .product-content-fold-container .product-info-fold-middle-container modal-opener,
+    .product-content-fold-container .product-info-fold-middle-container .product-media-container,
+    .product-content-fold-container .product-info-fold-middle-container media-gallery,
+    .product-content-fold-container .product-info-fold-middle-container ul,
+    .product-content-fold-container .product-info-fold-middle-container li,
+    .product-content-fold-container .product-info-fold-middle-container .product-media-container .media {
+      width: 100% !important;
+      height: auto !important;
+    }
+    .product-content-fold-container .product-info-fold-middle-container {
+      width: 50% !important;
+      height: auto !important;
+    }
+    @media (max-width: 750px) {
+      .product-content-fold-container .product-info-fold-middle-container {
+        width: 93% !important;
+      }
+    }
+    @media (max-width: 850px) {
+      .product-content-fold-container {
+        overflow-x: hidden;
+        padding-bottom: 43px;
+        margin-bottom: 0 !important;
+      }
+    }
+  </style>
+{% endif %}
 <style>
   .product-info-fold-container .product-content-fold-container-parent-carousel {
     width: 40%;
@@ -766,8 +805,6 @@
     width: auto !important;
     position: relative !important;
     display: block !important;
-    -webkit-animation: floatUpDown 3s ease-in-out infinite;
-    animation: floatUpDown 3s ease-in-out infinite;
   }
   .product-info-fold-right-parent {
     background: #fff;
