@@ -319,31 +319,6 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.utils.toArray('.slider__slide').forEach((slide) => {
-          gsap.fromTo(
-            slide,
-            { opacity: 0, y: 30 }, // Start slightly below with opacity 0
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: slide,
-                start: 'top 85%', // Starts when 85% of element is in view
-                end: 'top 30%', // Starts fading out when 30% is in view
-                scrub: true, // Smooth transition while scrolling
-                toggleActions: 'play none none reverse', // Reverse on exit
-              },
-            }
-          );
-        });
-      });
-    </script>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
