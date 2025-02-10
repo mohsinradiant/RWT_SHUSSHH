@@ -1,4 +1,7 @@
 <div class="lp-banner-container">
+  {% if section.settings.section_heading %}
+    <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  {% endif %}
   <img class="lp-desktop-banner" src="{{section.settings.desktop_image |  image_url }}">
   <img class="lp-mobile-banner" src="{{section.settings.mobile_image |  image_url }}">
 </div>
@@ -63,6 +66,12 @@
 {
   "name": "LP Banner",
   "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Discover What’s Making Everyone Go Wild!"
+    },
     {
       "type": "image_picker",
       "id": "desktop_image",
