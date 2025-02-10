@@ -38,7 +38,7 @@
 
     ScrollTrigger.create({
       trigger: banner,
-      start: 'top 80%', // Starts when 80% of the element is in view
+      start: 'top 80%', // Effect starts when 80% of banner is in view
       onEnter: () => {
         flickerEffect();
       },
@@ -46,12 +46,13 @@
 
     function flickerEffect() {
       gsap.to(banner, {
-        opacity: () => gsap.utils.random(0.7, 1), // Random flickering between 70% and 100% brightness
-        filter: () => `brightness(${gsap.utils.random(0.8, 1.2)}) blur(${gsap.utils.random(0, 3)}px)`, // Random light glow
-        duration: gsap.utils.random(0.05, 0.2), // Fast flickers
-        repeat: 10, // Flicker about 10 times
+        opacity: () => gsap.utils.random(0.6, 1), // Quick flicker between 60% and 100% opacity
+        filter: () => `brightness(${gsap.utils.random(0.6, 1.3)})`, // Brightness variation
+        duration: gsap.utils.random(0.05, 0.2), // Quick flickers
+        repeat: 12, // Flickers ~12 times before stabilizing
+        yoyo: true, // Makes flicker effect feel more organic
         onComplete: () => {
-          gsap.to(banner, { opacity: 1, filter: 'brightness(1) blur(0px)', duration: 0.5 }); // Stabilizes after flickering
+          gsap.to(banner, { opacity: 1, filter: 'brightness(1)', duration: 0.5 }); // Stabilizes after flickering
         },
       });
     }
