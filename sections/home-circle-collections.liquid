@@ -45,13 +45,13 @@
     gsap.utils.toArray('.header-category img').forEach((img) => {
       gsap.fromTo(
         img,
-        { opacity: 0, scale: 0.8, skewX: 10 }, // Starts small & skewed
+        { opacity: 0, scale: 0.7, skewX: 15 }, // Starts smaller & skewed
         {
           opacity: 1,
-          scale: 1.1, // Expands beyond normal size
+          scale: 1.05, // Slightly larger before settling
           skewX: 0,
-          duration: 0.6,
-          ease: 'elastic.out(1, 0.5)', // Creates the wobbly effect
+          duration: 1.2, // Increased for smoother effect
+          ease: 'elastic.out(1.3, 0.6)', // Longer, more fluid wobble
           scrollTrigger: {
             trigger: img,
             start: 'top 85%',
