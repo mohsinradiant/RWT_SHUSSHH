@@ -67,11 +67,11 @@
     }
   }
 
-  .home-gender-categories-left-image {
+  .home-gender-categories-left-image.animate {
     animation: slideInLeft 1s ease-out forwards;
   }
 
-  .home-gender-categories-right-image {
+  .home-gender-categories-right-image.animate {
     animation: slideInRight 1s ease-out forwards;
   }
 
@@ -178,18 +178,15 @@
 
     const observerOptions = {
       root: null,
-      threshold: 0.2,
+      threshold: 0.2, // Adjusts how much of the element needs to be visible before triggering
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target === leftImage) {
-            leftImage.style.animation = 'slideInLeft 1s ease-out forwards';
-          }
-          if (entry.target === rightImage) {
-            rightImage.style.animation = 'slideInRight 1s ease-out forwards';
-          }
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate'); // Remove animation class when out of view
         }
       });
     }, observerOptions);
