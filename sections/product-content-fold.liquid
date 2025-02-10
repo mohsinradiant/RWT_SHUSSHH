@@ -469,6 +469,8 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin();
+
     const track = document.querySelector('.carousel-track-custom');
     const items = document.querySelectorAll('.carousel-item-custom');
     const dots = document.querySelectorAll('.dot-custom');
@@ -479,8 +481,34 @@
     let currentIndex = 0;
     let startX = null;
 
-    const updateCarousel = () => {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    const updateCarousel = (direction) => {
+      const offset = -currentIndex * 100;
+
+      // Apply GSAP animation for smooth slide
+      gsap.to(track, {
+        xPercent: offset,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+
+      // Add a 3D rotation effect to slides
+      gsap.fromTo(
+        items[currentIndex],
+        {
+          opacity: 0.5,
+          scale: 0.9,
+          rotationY: direction === 'next' ? -30 : 30, // Rotate based on direction
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          rotationY: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+        }
+      );
+
+      // Update active dot
       dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
       });
@@ -488,18 +516,18 @@
 
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-      updateCarousel();
+      updateCarousel('prev');
     });
 
     nextBtn.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % itemCount;
-      updateCarousel();
+      updateCarousel('next');
     });
 
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         currentIndex = index;
-        updateCarousel();
+        updateCarousel('next');
       });
     });
 
