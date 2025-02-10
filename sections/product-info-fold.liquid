@@ -416,10 +416,12 @@
       -webkit-animation: floatUpDown 3s ease-in-out infinite;
       animation: floatUpDown 3s ease-in-out infinite;
     }
-    .product-content-fold-container {
-      overflow-x: hidden;
-      padding-bottom: 43px;
-      margin-bottom: 0;
+    @media (max-width: 850px) {
+      .product-content-fold-container {
+        overflow-x: hidden;
+        padding-bottom: 43px;
+        margin-bottom: 0;
+      }
     }
   </style>
 {% endif %}
