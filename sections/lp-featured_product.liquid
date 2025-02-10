@@ -108,10 +108,11 @@
   }
 
   .lp-top-product_heading {
+    display: none;
     text-align: center;
     color: #dd9942;
     font-family: 'Kanit';
-    margin: 0 auto -40px;
+    margin: 0 auto;
     animation: glow 1.5s infinite alternate ease-in-out;
   }
 
@@ -222,6 +223,11 @@
     font-weight: 500;
     letter-spacing: 0;
     text-transform: uppercase;
+  }
+  @media (max-width: 756px) {
+    .lp-top-product_heading {
+      display: flex;
+    }
   }
 </style>
 <style>
