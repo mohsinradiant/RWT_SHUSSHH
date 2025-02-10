@@ -38,7 +38,29 @@
     </a>
   {% endcomment %}
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    gsap.registerPlugin(ScrollTrigger);
 
+    gsap.utils.toArray('.header-category img').forEach((img) => {
+      gsap.fromTo(
+        img,
+        { opacity: 0, scale: 0.8 }, // Starts smaller and invisible
+        {
+          opacity: 1,
+          scale: 1.1, // Grows slightly bigger
+          duration: 0.6,
+          ease: 'bounce.out', // Adds bounce effect
+          scrollTrigger: {
+            trigger: img,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Circle Collections Strip",
