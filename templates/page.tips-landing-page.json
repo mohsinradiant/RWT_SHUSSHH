@@ -111,6 +111,9 @@
     },
     "content_slider_strip_dFxGXg": {
       "type": "content-slider-strip",
+      "custom_css": [
+        "H3 {font-size : 26PX;}"
+      ],
       "settings": {
         "text": "This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart"
       }
