@@ -427,7 +427,10 @@
 {% endif %}
 {% if product.metafields.content.floating_media == false %}
   <style>
-    .product-content-fold-container .product-info-fold-middle-container img {
+    .product-content-fold-container .product-info-fold-middle-container img,
+    .product-content-fold-container .product-info-fold-middle-container modal-opener,
+    .product-content-fold-container .product-info-fold-middle-container .product-media-container,
+    .product-content-fold-container .product-info-fold-middle-container li {
       width: 100% !important;
       height: auto !important;
     }
