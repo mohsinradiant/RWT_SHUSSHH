@@ -17,16 +17,6 @@
         "padding_bottom": 28
       }
     },
-    "landing_page_banner_tPURrF": {
-      "type": "landing-page-banner",
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
-        "mobile_image": "shopify://shop_images/2_3426104e-aefa-4da9-8eda-23b493427b92.png"
-      }
-    },
     "lp_featured_product_yw8Pt7": {
       "type": "lp-featured_product",
       "blocks": {
@@ -107,6 +97,16 @@
         "product_usp_text_1_png": "shopify://shop_images/Iconsnew-27.png",
         "text_2": "Elevates Sensory Pleasure",
         "product_usp_text_2_png": "shopify://shop_images/Iconsnew-26.png"
+      }
+    },
+    "landing_page_banner_tPURrF": {
+      "type": "landing-page-banner",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
+        "mobile_image": "shopify://shop_images/2_3426104e-aefa-4da9-8eda-23b493427b92.png"
       }
     },
     "content_slider_strip_dFxGXg": {
@@ -234,7 +234,7 @@
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/Ingredientsblack.png",
-        "mobile_image": "shopify://shop_images/Ingredients_2_2805d338-98c4-4474-b450-6bd78d2dde02.png"
+        "mobile_image": "shopify://shop_images/Ingredients_2_ea172490-279d-4284-b26c-12fde4d59138.png"
       }
     },
     "landing_page_banner_dEmk7P": {
@@ -382,8 +382,8 @@
   },
   "order": [
     "main",
-    "landing_page_banner_tPURrF",
     "lp_featured_product_yw8Pt7",
+    "landing_page_banner_tPURrF",
     "content_slider_strip_dFxGXg",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
