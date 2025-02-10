@@ -48,7 +48,7 @@
             {% endfor %}
           </div>
         </div>
-      {% else %}
+      {% elsif product.metafields.content.show_floating_image == true %}
         <div class="product-info-fold-middle-container">
           <div class="hotspot-backdrop"></div>
           {% render 'product-media-gallery-2', variant_images: variant_images %}
