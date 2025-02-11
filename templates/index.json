@@ -19,8 +19,8 @@
         "slide_HJCMH7": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Wen_banners.zip_-_1_199602e8-cdd0-447f-8b9b-f77de99f81af.png",
-            "mobile_image": "shopify://shop_images/phone_banners.zip_-_2_4c3441b1-7ac0-462e-ae4d-21e7060164db.png",
+            "image": "shopify://shop_images/Wen_banners.png",
+            "mobile_image": "shopify://shop_images/phone_banners_479bf54f-55ab-4e0b-a811-f626202458b2.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -35,9 +35,27 @@
             "text_alignment_mobile": "center"
           }
         },
+        "slide_cak4QR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners_4.png",
+            "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
         "slide_DUHbHa": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Web_new_banners_4_91689994-10c9-42ed-bace-5f30d677ca11.png",
             "mobile_image": "shopify://shop_images/phonecropped_4_1512ebb8-6cc8-4450-afb8-da57213641f9.png",
@@ -57,7 +75,6 @@
         },
         "slide_F4dbxc": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Wen_banners.zip_-_3_4f019980-4e81-40c7-9136-72e27f496c5b.png",
             "mobile_image": "shopify://shop_images/phone_banners.zip_-_1_8a3e76f1-5ea0-4458-875d-e8e90ec24c28.png",
@@ -98,6 +115,7 @@
       },
       "block_order": [
         "slide_HJCMH7",
+        "slide_cak4QR",
         "slide_DUHbHa",
         "slide_F4dbxc",
         "slide_aKAQ9M"
