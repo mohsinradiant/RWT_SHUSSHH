@@ -73,6 +73,13 @@
           <div class="lp-product-prices">
             <span> {{ product.price | money_without_trailing_zeros }}</span>
             <span class="strikethrogh-price">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+            <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+              {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
+              {%- assign discount = product.compare_at_price | minus: product.price -%}
+              {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
+              {{ discount_percentage }}
+              %
+            </span>
           </div>
           <button
             id="ProductSubmitButton-{{ section_id }}"
