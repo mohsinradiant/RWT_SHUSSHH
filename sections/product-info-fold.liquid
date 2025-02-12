@@ -338,7 +338,9 @@
           </div>
         </div>
       </div>
-      {% if product.metafields.content.floating_media == true and product.metafields.content.show_floating_image == true %}
+      {% if product.metafields.content.floating_media == true
+        and product.metafields.content.show_floating_image == true
+      %}
         <div class="product-info-fold-middle-container">
           <div class="hotspot-backdrop"></div>
           {% comment %}
@@ -638,8 +640,9 @@
   .product-info-fold-left-container h1 {
     font-family: 'Kanit', sans-serif;
     font-weight: 600;
-    margin: 0;
+    margin: 10px 0;
     font-size: 4.5rem;
+    line-height: 4rem;
   }
   .product-info-fold-left-subheadng {
     margin: 0;
