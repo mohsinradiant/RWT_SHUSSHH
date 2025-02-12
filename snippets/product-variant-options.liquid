@@ -146,44 +146,6 @@
     >
       .
     </div>
-    <script>
-      function updateVariantDivs() {
-        document.querySelectorAll('input[type="radio"]').forEach((input) => {
-          const variantDiv = document.querySelector(`.variant-div[data-input-id="${input.id}"]`);
-
-          if (variantDiv) {
-            if (input.value.toLowerCase().includes('ml')) {
-              variantDiv.classList.add('size-div'); // Add class
-              variantDiv.textContent = input.value; // Update content
-            } else {
-              variantDiv.classList.remove('size-div'); // Remove class
-              variantDiv.textContent = '.'; // Reset content
-            }
-          }
-        });
-      }
-
-      function attachEventListeners() {
-        document.querySelectorAll('input[type="radio"]').forEach((input) => {
-          input.addEventListener('change', function () {
-            document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.remove('size-div'); // Remove from all
-              div.textContent = '.'; // Reset text
-            });
-
-            updateVariantDivs(); // Reapply updates
-          });
-        });
-
-        updateVariantDivs(); // Run on load to apply initial changes
-      }
-
-      document.addEventListener('DOMContentLoaded', attachEventListeners);
-
-      // **Fix for Shopify Section Refresh**
-      document.addEventListener('shopify:section:load', attachEventListeners);
-    </script>
-
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"
