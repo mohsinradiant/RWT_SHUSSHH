@@ -497,7 +497,7 @@ slideshow-component .slider-counter__link--dots .dot {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     overflow-x: auto;
 }
 
@@ -623,7 +623,7 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .header-category img {
-    width: 75px;
+    width: 60px;
     height: auto;
     aspect-ratio: 1 / 1;
 }
