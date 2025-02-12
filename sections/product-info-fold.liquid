@@ -337,6 +337,68 @@
             <p>Free & discreet shipping</p>
           </div>
         </div>
+
+        <style>
+          .pdp-pincode-checker {
+            max-width: 400px;
+            margin: 20px;
+          }
+          .pdp-input {
+            padding: 8px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+          .pdp-button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #a07c64;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+          }
+          .pdp-message {
+            margin-top: 10px;
+            font-size: 14px;
+          }
+          .pdp-valid {
+            color: green;
+          }
+          .pdp-invalid {
+            color: red;
+          }
+        </style>
+        <div class="pdp-pincode-checker">
+          <label>Check Delivery</label><br>
+          <br>
+          <input type="text" id="pdp-pincode-input" class="pdp-input" placeholder="Enter Pincode">
+          <button class="pdp-button" onclick="checkDelivery()">Check</button>
+          <p id="pdp-message" class="pdp-message"></p>
+        </div>
+        <script>
+          function checkDelivery() {
+            const pincode = document.getElementById('pdp-pincode-input').value;
+            const message = document.getElementById('pdp-message');
+
+            // Regex to validate Indian pincode (6 digits)
+            const pincodePattern = /^[1-9][0-9]{5}$/;
+
+            if (pincodePattern.test(pincode)) {
+              message.innerHTML =
+                '✅ Express Delivery (1-3 Business Days) - Free<br>📦 Delivery by ' + getDeliveryDate();
+              message.className = 'pdp-message pdp-valid';
+            } else {
+              message.innerHTML = '❌ Invalid Pincode';
+              message.className = 'pdp-message pdp-invalid';
+            }
+          }
+
+          function getDeliveryDate() {
+            let today = new Date();
+            today.setDate(today.getDate() + Math.floor(Math.random() * 3) + 1);
+            return today.toDateString();
+          }
+        </script>
       </div>
       {% if product.metafields.content.floating_media == true
         and product.metafields.content.show_floating_image == true
