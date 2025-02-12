@@ -356,6 +356,10 @@
             font-weight: 400;
             font-size: 1.3rem;
           }
+          .pdp-pincode-checker-input-parent {
+            display: flex;
+            gap: 2%;
+          }
           .pdp-input {
             padding: 8px;
             width: 150px;
@@ -383,8 +387,10 @@
         </style>
         <div class="pdp-pincode-checker">
           <label>Check Delivery</label>
-          <input type="text" id="pdp-pincode-input" class="pdp-input" placeholder="Enter Pincode">
-          <button class="pdp-button" onclick="checkDelivery()">Check</button>
+          <div class="pdp-pincode-checker-input-parent">
+            <input type="text" id="pdp-pincode-input" class="pdp-input" placeholder="Enter Pincode">
+            <button class="pdp-button" onclick="checkDelivery()">Check</button>
+          </div>
           <p id="pdp-message" class="pdp-message"></p>
         </div>
         <script>
