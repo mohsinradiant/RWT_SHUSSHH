@@ -91,6 +91,12 @@
                 {{ 'products.product.add_to_cart' | t }}
                 {{ product.price | money_without_trailing_zeros }}
                 <span class="strikethrogh-price">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+                <style>
+                  .strikethrogh-price {
+                    text-decoration: line-through;
+                    opacity: 0.7;
+                  }
+                </style>
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
