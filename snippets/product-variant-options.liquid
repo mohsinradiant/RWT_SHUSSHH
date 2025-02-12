@@ -143,8 +143,8 @@
             const variantDiv = document.querySelector(`.variant-div[data-input-id="${input.id}"]`);
 
             if (variantDiv) {
-              // Check if input is checked and contains 'ml'
-              if (input.checked && input.value.toLowerCase().includes('ml')) {
+              // Check if the value contains 'ml'
+              if (input.value.toLowerCase().includes('ml')) {
                 variantDiv.classList.add('size-div'); // Add the class
                 variantDiv.textContent = input.value; // Change the text content
               } else {
@@ -155,12 +155,19 @@
           });
         }
 
-        // Run function on page load to handle pre-selected variants
+        // Run function on page load to handle all variants
         updateVariantDivs();
 
         // Add event listener to update on change
         document.querySelectorAll('input[type="radio"]').forEach((input) => {
-          input.addEventListener('change', updateVariantDivs);
+          input.addEventListener('change', function () {
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.classList.remove('size-div'); // Remove the class from all
+              div.textContent = '.'; // Reset all content
+            });
+
+            updateVariantDivs(); // Apply changes again
+          });
         });
       });
     </script>
