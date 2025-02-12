@@ -373,7 +373,7 @@
         "category_gbhLnT": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/image.png",
+            "image": "shopify://shop_images/2_30be0b5e-b25c-4110-b52c-18b330c223aa.png",
             "title": "For Her",
             "subtitle": "Products designed for her ultimate satisfaction",
             "collection": "shopify://collections/for-her"
@@ -382,7 +382,7 @@
         "category_Yn7AM8": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/image-1.png",
+            "image": "shopify://shop_images/1_bb0b715d-4946-4988-8d5d-40ef522a7eb9.png",
             "title": "For Him",
             "subtitle": "Products designed for his satisfaction and exploration",
             "collection": "shopify://collections/for-him"
@@ -391,7 +391,7 @@
         "category_cPNefU": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/image-2.png",
+            "image": "shopify://shop_images/3_6172b092-30ee-4f90-8539-c9769a4a39fd.png",
             "title": "For Couples",
             "subtitle": "Products made for mutual satisfaction",
             "collection": "shopify://collections/for-couple"
@@ -399,6 +399,7 @@
         },
         "category_Lnfkzt": {
           "type": "category",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/0.png",
             "title": "For Gifting",

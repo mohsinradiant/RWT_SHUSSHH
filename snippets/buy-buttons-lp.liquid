@@ -70,6 +70,17 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+          <div class="lp-product-prices">
+            <span> {{ product.price | money_without_trailing_zeros }}</span>
+            <span class="strikethrogh-price">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+            <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+              {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
+              {%- assign discount = product.compare_at_price | minus: product.price -%}
+              {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
+              {{ discount_percentage }}
+              %
+            </span>
+          </div>
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -89,7 +100,28 @@
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
                 {{ 'products.product.add_to_cart' | t }}
-                {{ product.price | money_without_trailing_zeros }}
+
+                <style>
+                  .lp-product-prices {
+                    color: #dd9942;
+                    display: flex;
+                    gap: 8px;
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                    align-items: baseline;
+                    letter-spacing: 0;
+                    margin-top: 15px;
+                  }
+                  .strikethrogh-price {
+                    text-decoration: line-through;
+                    opacity: 0.7;
+                    font-weight: 300;
+                    font-size: 1.8rem;
+                  }
+                  #rupee_symbol {
+                    margin-left: 5px;
+                  }
+                </style>
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
