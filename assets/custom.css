@@ -492,8 +492,8 @@ slideshow-component .slider-counter__link--dots .dot {
 
 .header-categories-container {
     background-color: #FBF4FF;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 12px;
+    padding-bottom: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -898,7 +898,7 @@ sticky-header {
 
     .header-categories-container {
         justify-content: start;
-        padding: 20px 10px;
+        padding: 10px 10px 5px;
         gap: 20px;
     }
 
