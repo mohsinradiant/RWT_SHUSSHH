@@ -136,6 +136,30 @@
     >
       .
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get all radio inputs inside the form
+        const variantInputs = document.querySelectorAll('input[type="radio"]');
+
+        variantInputs.forEach((input) => {
+          input.addEventListener('change', function () {
+            const variantDiv = document.querySelector(`.variant-div[data-input-id="${input.id}"]`);
+
+            if (variantDiv) {
+              // Check if the value contains 'ml'
+              if (input.value.toLowerCase().includes('ml')) {
+                variantDiv.classList.add('size-div'); // Add the class
+                variantDiv.textContent = input.value; // Change the text content
+              } else {
+                variantDiv.classList.remove('size-div'); // Remove the class if not 'ml'
+                variantDiv.textContent = '.'; // Reset content
+              }
+            }
+          });
+        });
+      });
+    </script>
+
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"
