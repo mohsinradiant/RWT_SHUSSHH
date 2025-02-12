@@ -69,7 +69,7 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .quick-add button {
-    background-color: #3F2D4B !important;
+    background: linear-gradient(90deg, rgba(103, 0, 192, 1), rgba(1, 0, 1, 1) 100%) !important;
     color: #ffffff !important;
     min-width: fit-content;
     width: fit-content;
