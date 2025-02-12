@@ -148,36 +148,32 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        function updateVariantDivs() {
-          document.querySelectorAll('input[type="radio"]').forEach((input) => {
-            const variantDiv = document.querySelector(`.variant-div[data-input-id="${input.id}"]`);
+        function updateSelectedVariant() {
+          // Find the currently checked input
+          const selectedInput = document.querySelector('input[type="radio"]:checked');
 
-            if (variantDiv) {
-              // Check if the value contains 'ml'
-              if (input.value.toLowerCase().includes('ml')) {
-                variantDiv.classList.add('size-div'); // Add the class
-                variantDiv.textContent = input.value; // Change the text content
-              } else {
-                variantDiv.classList.remove('size-div'); // Remove the class
-                variantDiv.textContent = '.'; // Reset content
-              }
-            }
+          // Reset all variant divs first
+          document.querySelectorAll('.variant-div').forEach((div) => {
+            div.classList.remove('size-div'); // Remove size-div class
+            div.textContent = '.'; // Reset to default text
           });
+
+          // If there is a selected input, update its corresponding div
+          if (selectedInput) {
+            const variantDiv = document.querySelector(`.variant-div[data-input-id="${selectedInput.id}"]`);
+            if (variantDiv && selectedInput.value.toLowerCase().includes('ml')) {
+              variantDiv.classList.add('size-div'); // Add class
+              variantDiv.textContent = selectedInput.value; // Update content
+            }
+          }
         }
 
-        // Run function on page load to handle all variants
-        updateVariantDivs();
+        // Run function on page load to update the pre-selected variant
+        updateSelectedVariant();
 
-        // Add event listener to update on change
+        // Listen for changes and update accordingly
         document.querySelectorAll('input[type="radio"]').forEach((input) => {
-          input.addEventListener('change', function () {
-            document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.remove('size-div'); // Remove the class from all
-              div.textContent = '.'; // Reset all content
-            });
-
-            updateVariantDivs(); // Apply changes again
-          });
+          input.addEventListener('change', updateSelectedVariant);
         });
       });
     </script>
