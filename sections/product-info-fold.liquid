@@ -512,7 +512,7 @@
             </button>
             <div class="carousel-track-custom">
               {% for image in product.metafields.content.info_images.value %}
-                <img class="carousel-item-custom" src="{{image | image_url}}">
+                <img class="carousel-item-custom" src="{{image | image_url}}" alt="{{image.alt}}">
               {% endfor %}
             </div>
             <button class="carousel-btn-custom right-btn-custom">
