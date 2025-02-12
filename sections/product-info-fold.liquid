@@ -404,18 +404,12 @@
 
             if (pincodePattern.test(pincode)) {
               message.innerHTML =
-                '✅ Express Delivery (1-3 Business Days) - Free<br>📦 Delivery by ' + getDeliveryDate();
+                '✅ Express Delivery 3-5 Days - Free
               message.className = 'pdp-message pdp-valid';
             } else {
               message.innerHTML = '❌ Invalid Pincode';
               message.className = 'pdp-message pdp-invalid';
             }
-          }
-
-          function getDeliveryDate() {
-            let today = new Date();
-            today.setDate(today.getDate() + Math.floor(Math.random() * 3) + 1);
-            return today.toDateString();
           }
         </script>
       </div>
