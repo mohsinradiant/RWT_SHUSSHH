@@ -70,6 +70,8 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+          {{ product.price | money_without_trailing_zeros }}
+          <span class="strikethrogh-price">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -89,8 +91,7 @@
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
                 {{ 'products.product.add_to_cart' | t }}
-                {{ product.price | money_without_trailing_zeros }}
-                <span class="strikethrogh-price">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+
                 <style>
                   .strikethrogh-price {
                     text-decoration: line-through;
