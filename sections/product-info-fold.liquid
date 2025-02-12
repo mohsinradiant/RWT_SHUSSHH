@@ -275,22 +275,61 @@
                     div.textContent = radioInput.value;
                   }
                 }
+
+                // Update the carousel images when a new variant is selected
+                updateCarousel();
               });
             });
           }
 
-          document.addEventListener('DOMContentLoaded', () => {
-            console.log('Initializing variant divs on DOMContentLoaded...');
-            initializeVariantDivs();
+          function updateCarousel() {
+            console.log('Updating carousel images...');
 
-            // Observe Shopify updates
+            // Get the checked input
+            const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
+
+            if (!checkedInput) {
+              console.warn('No selected input found!');
+              return;
+            }
+
+            const selectedValue = checkedInput.value.trim().toLowerCase();
+            console.log(`Selected variant: ${selectedValue}`);
+
+            // Get all carousel images
+            const images = document.querySelectorAll('.carousel-track-custom img');
+
+            images.forEach((img) => {
+              const altText = img.alt ? img.alt.trim().toLowerCase() : '';
+
+              // Check if alt text contains the selected value
+              if (altText.includes(selectedValue)) {
+                img.style.display = 'block'; // Show the image
+              } else {
+                img.style.display = 'none'; // Hide the image
+              }
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing scripts on DOMContentLoaded...');
+            initializeVariantDivs();
+            updateCarousel();
+
+            // Listen for input change events
+            document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
+              input.addEventListener('change', updateCarousel);
+            });
+
+            // Observe Shopify AJAX updates
             const productContainer = document.querySelector('.product-form');
             if (productContainer) {
               const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
                   if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                    console.log('Product container updated. Reinitializing variant divs...');
+                    console.log('Product container updated. Reinitializing scripts...');
                     initializeVariantDivs();
+                    updateCarousel();
                   }
                 });
               });
@@ -301,8 +340,9 @@
 
           // Fix for Shopify Section Refresh
           document.addEventListener('shopify:section:load', () => {
-            console.log('Shopify section reloaded. Reinitializing variant divs...');
+            console.log('Shopify section reloaded. Reinitializing scripts...');
             initializeVariantDivs();
+            updateCarousel();
           });
         </script>
 
