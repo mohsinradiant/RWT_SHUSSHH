@@ -820,6 +820,7 @@ sticky-header {
 
     .header-category p {
         font-size: 1.15rem;
+        line-height: 1.4rem;
     }
 
     .collection_page_products-grid .facet-filters {
@@ -900,6 +901,7 @@ sticky-header {
         justify-content: start;
         padding: 10px 10px 5px;
         gap: 20px;
+        align-items: start;
     }
 
     .collection-categories-container .page-width {

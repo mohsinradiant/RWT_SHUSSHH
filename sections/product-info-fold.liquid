@@ -218,74 +218,131 @@
           function initializeVariantDivs() {
             console.log('Initializing variant divs...');
 
-            // Remove 'initialized' class to ensure the listener gets reattached on every update
+            // Remove 'initialized' class to reattach event listeners
             document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.remove('initialized'); // Reset initialization for each div
+              div.classList.remove('initialized');
             });
 
             document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.add('initialized'); // Mark this element as initialized
-              const color = div.getAttribute('data-color');
-              if (color) {
-                const formattedColor = color.toLowerCase().replace(/\s+/g, '-');
-                div.style.backgroundColor = formattedColor || '#ccc';
+              div.classList.add('initialized'); // Mark as initialized
+              const inputId = div.getAttribute('data-input-id');
+              const radioInput = document.getElementById(inputId);
+              const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+
+              if (radioInput) {
+                const value = radioInput.value.trim().toLowerCase();
+
+                if (value.includes('ml')) {
+                  div.classList.add('size-div');
+                  div.textContent = radioInput.value; // Show size
+                } else {
+                  div.classList.remove('size-div');
+                  div.textContent = '.'; // Default content
+                }
               }
 
+              // Click event for selecting variants
               div.addEventListener('click', () => {
-                const inputId = div.getAttribute('data-input-id');
-                const radioInput = document.getElementById(inputId);
-
-                console.log(`Div clicked: ${color}`);
+                console.log(`Div clicked: ${radioInput.value}`);
                 console.log(`Input ID: ${inputId}`);
 
-                // Deselect all other variants
+                // Deselect other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected');
+                  item.classList.remove('selected', 'size-div');
+                  item.textContent = '.';
                 });
 
                 if (radioInput) {
                   console.log('Simulating click on radio input');
 
-                  // Force check the radio input and trigger a change event
+                  // Check the radio input and trigger a change event
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
-                  // Add 'selected' class to the clicked variant
+                  // Add selected class
                   div.classList.add('selected');
                   console.log('Variant selected and class "selected" added');
 
-                  // Update the color name dynamically
-                  const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+                  // Update color name dynamically
                   if (colorNameElement) {
-                    colorNameElement.textContent = color;
-                    console.log(`Color name updated to: ${color}`);
+                    colorNameElement.textContent = radioInput.value;
+                    console.log(`Color name updated to: ${radioInput.value}`);
                   }
-                } else {
-                  console.warn(`Radio input with ID "${inputId}" not found.`);
+
+                  // If value contains "ml", keep size-div class
+                  if (radioInput.value.toLowerCase().includes('ml')) {
+                    div.classList.add('size-div');
+                    div.textContent = radioInput.value;
+                  }
                 }
+
+                // Update the carousel images when a new variant is selected
+                updateCarousel();
               });
             });
           }
 
-          document.addEventListener('DOMContentLoaded', () => {
-            console.log('Initializing variant divs on DOMContentLoaded...');
-            initializeVariantDivs();
+          function updateCarousel() {
+            console.log('Updating carousel images...');
 
-            // Observe changes in the product container for Shopify AJAX updates
+            // Get the checked input
+            const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
+
+            if (!checkedInput) {
+              console.warn('No selected input found!');
+              return;
+            }
+
+            const selectedValue = checkedInput.value.trim().toLowerCase();
+            console.log(`Selected variant: ${selectedValue}`);
+
+            // Get all carousel images
+            const images = document.querySelectorAll('.carousel-track-custom img');
+
+            images.forEach((img) => {
+              const altText = img.alt ? img.alt.trim().toLowerCase() : '';
+
+              // Check if alt text contains the selected value
+              if (altText.includes(selectedValue)) {
+                img.style.display = 'block'; // Show the image
+              } else {
+                img.style.display = 'none'; // Hide the image
+              }
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing scripts on DOMContentLoaded...');
+            initializeVariantDivs();
+            updateCarousel();
+
+            // Listen for input change events
+            document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
+              input.addEventListener('change', updateCarousel);
+            });
+
+            // Observe Shopify AJAX updates
             const productContainer = document.querySelector('.product-form');
             if (productContainer) {
               const observer = new MutationObserver((mutations) => {
-                // Check for added or removed nodes and reinitialize only new elements
                 mutations.forEach((mutation) => {
                   if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                    console.log('Product container updated. Reinitializing variant divs...');
+                    console.log('Product container updated. Reinitializing scripts...');
                     initializeVariantDivs();
+                    updateCarousel();
                   }
                 });
               });
 
               observer.observe(productContainer, { childList: true, subtree: true });
             }
+          });
+
+          // Fix for Shopify Section Refresh
+          document.addEventListener('shopify:section:load', () => {
+            console.log('Shopify section reloaded. Reinitializing scripts...');
+            initializeVariantDivs();
+            updateCarousel();
           });
         </script>
 
@@ -301,22 +358,24 @@
               class="product-info-fold-claims-container-first-image"
               src="{{ product.metafields.content.banner_1 | image_url }}"
             >
-            <div class="countdown-container">
-              <div class="countdown">
-                <div class="time-segment hours">
-                  <span class="value" id="hours">00</span>
-                  <span class="label">Hours</span>
-                </div>
-                <div class="time-segment minutes">
-                  <span class="value" id="minutes">00</span>
-                  <span class="label">Minutes</span>
-                </div>
-                <div class="time-segment seconds">
-                  <span class="value" id="seconds">00</span>
-                  <span class="label">Seconds</span>
+            {% comment %}
+              <div class="countdown-container">
+                <div class="countdown">
+                  <div class="time-segment hours">
+                    <span class="value" id="hours">00</span>
+                    <span class="label">Hours</span>
+                  </div>
+                  <div class="time-segment minutes">
+                    <span class="value" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                  </div>
+                  <div class="time-segment seconds">
+                    <span class="value" id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            {% endcomment %}
           </div>
         {% endif %}
         <div class="product-info-fold-claims-container">
@@ -455,7 +514,7 @@
             </button>
             <div class="carousel-track-custom">
               {% for image in product.metafields.content.info_images.value %}
-                <img class="carousel-item-custom" src="{{image | image_url}}">
+                <img class="carousel-item-custom" src="{{image | image_url}}" alt="{{image.alt}}">
               {% endfor %}
             </div>
             <button class="carousel-btn-custom right-btn-custom">
