@@ -337,6 +337,80 @@
             <p>Free & discreet shipping</p>
           </div>
         </div>
+
+        <style>
+          .pdp-pincode-checker {
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+          .pdp-pincode-checker label {
+            color: #000;
+            visibility: visible;
+            text-wrap: nowrap;
+            width: fit-content;
+            height: fit-content;
+            margin: 10px 0 5px;
+            letter-spacing: 0;
+            font-weight: 400;
+            font-size: 1.3rem;
+          }
+          .pdp-pincode-checker-input-parent {
+            display: flex;
+            gap: 2%;
+          }
+          .pdp-input {
+            padding: 8px 16px;
+            width: 58%;
+            border: 1px solid #5200a480;
+            border-radius: 75px;
+          }
+          .pdp-button {
+            padding: 8px 16px;
+            border: none;
+            width: 40%;
+            background-color: #be7af9;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+          }
+          .pdp-message {
+            margin-top: 10px;
+            font-size: 14px;
+          }
+          .pdp-valid {
+            color: green;
+          }
+          .pdp-invalid {
+            color: red;
+          }
+        </style>
+        <div class="pdp-pincode-checker">
+          <label>Check Delivery</label>
+          <div class="pdp-pincode-checker-input-parent">
+            <input type="text" id="pdp-pincode-input" class="pdp-input" placeholder="Enter Pincode">
+            <button class="pdp-button" onclick="checkDelivery()">Check</button>
+          </div>
+          <p id="pdp-message" class="pdp-message"></p>
+        </div>
+        <script>
+          function checkDelivery() {
+            const pincode = document.getElementById('pdp-pincode-input').value;
+            const message = document.getElementById('pdp-message');
+
+            // Regex to validate Indian pincode (6 digits)
+            const pincodePattern = /^[1-9][0-9]{5}$/;
+
+            if (pincodePattern.test(pincode)) {
+              message.innerHTML = '✅ Express Delivery 3-5 Days - Free';
+              message.className = 'pdp-message pdp-valid';
+            } else {
+              message.innerHTML = '❌ Invalid Pincode';
+              message.className = 'pdp-message pdp-invalid';
+            }
+          }
+        </script>
       </div>
       {% if product.metafields.content.floating_media == true
         and product.metafields.content.show_floating_image == true
