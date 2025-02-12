@@ -71,7 +71,7 @@
             endif
           -%}
           <div class="lp-product-prices">
-            {{ product.price | money_without_trailing_zeros }}
+            <span> {{ product.price | money_without_trailing_zeros }}</span>
             <span class="strikethrogh-price">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
           </div>
           <button
@@ -95,6 +95,11 @@
                 {{ 'products.product.add_to_cart' | t }}
 
                 <style>
+                  .lp-product-prices {
+                    color: #dd9942;
+                    display: flex;
+                    gap: 8px;
+                  }
                   .strikethrogh-price {
                     text-decoration: line-through;
                     opacity: 0.7;
