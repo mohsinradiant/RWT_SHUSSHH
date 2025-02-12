@@ -138,24 +138,29 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // Get all radio inputs inside the form
-        const variantInputs = document.querySelectorAll('input[type="radio"]');
-
-        variantInputs.forEach((input) => {
-          input.addEventListener('change', function () {
+        function updateVariantDivs() {
+          document.querySelectorAll('input[type="radio"]').forEach((input) => {
             const variantDiv = document.querySelector(`.variant-div[data-input-id="${input.id}"]`);
 
             if (variantDiv) {
-              // Check if the value contains 'ml'
-              if (input.value.toLowerCase().includes('ml')) {
+              // Check if input is checked and contains 'ml'
+              if (input.checked && input.value.toLowerCase().includes('ml')) {
                 variantDiv.classList.add('size-div'); // Add the class
                 variantDiv.textContent = input.value; // Change the text content
               } else {
-                variantDiv.classList.remove('size-div'); // Remove the class if not 'ml'
+                variantDiv.classList.remove('size-div'); // Remove the class
                 variantDiv.textContent = '.'; // Reset content
               }
             }
           });
+        }
+
+        // Run function on page load to handle pre-selected variants
+        updateVariantDivs();
+
+        // Add event listener to update on change
+        document.querySelectorAll('input[type="radio"]').forEach((input) => {
+          input.addEventListener('change', updateVariantDivs);
         });
       });
     </script>
