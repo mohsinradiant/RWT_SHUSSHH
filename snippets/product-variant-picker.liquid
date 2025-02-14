@@ -43,10 +43,6 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <p class="product-info-fold-variant-color-name">
-          {{ option.name }}:
-          <span>{{- option.selected_value -}}</span>
-        </p>
         <fieldset class="js product-form__input product-form__input--pill">
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options',
@@ -58,9 +54,11 @@
         </fieldset>
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
-          </label>
+          {% comment %}
+            <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+              {{ option.name }}
+            </label>
+          {% endcomment %}
           <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
               <span
@@ -84,7 +82,8 @@
               %}
             </select>
             <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+              {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
+              <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Vector_16.png?v=1738755650">
             </span>
           </div>
         </div>
@@ -95,4 +94,37 @@
       {{ product.selected_or_first_available_variant | json }}
     </script>
   </variant-selects>
+  <div class="sizing-guide">
+    <button id="openPopup">Sizing Guide</button>
+  </div>
+
+  <div class="popup" id="popup">
+    <button class="close-btn" id="closePopup">&times;</button>
+    <img
+      src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Zinara_Ring_Size_Guide_removed_page-0001.jpg?v=1738784512"
+      alt="Sizing Guide Image"
+    >
+  </div>
+  <script>
+    const openPopup = document.getElementById('openPopup');
+    const closePopup = document.getElementById('closePopup');
+    const popup = document.getElementById('popup');
+
+    openPopup.addEventListener('click', () => {
+      popup.style.display = 'flex';
+      // document.body.classList.add('no-scroll');
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+      // document.body.classList.remove('no-scroll');
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+        // document.body.classList.remove('no-scroll');
+      }
+    });
+  </script>
 {%- endunless -%}

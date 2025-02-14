@@ -77,54 +77,6 @@
       additional_props: input_dataset
     %}
   {%- elsif picker_type == 'button' -%}
-    {%- assign color_mapping = 'passionate plum:#cc8899,carmine:#ff0038,RUSIAN PINK:#ff007f,blue khalifa:#55e2e9,chocolate:#4b3530,blueberry:#6a8bba,raspberry:#ce444d,peach:#9a2924,baby pink:#ffc0cb,lime yellow:#dfff00,white:#fff,pale blue:#bbeaea,classic rose:#ce80bd,blue:#250084,red:#cf2b2c,copper:#8d6b6d,emerald green:#629689,midnight purple:#82367e,hot pink:#eab7b4'
-      | split: ','
-    -%}
-    <style>
-        .size-div{
-          border-radius:10px !important;
-          border: solid 1px #b16ef4 !important;
-          color: #000;
-          background: #b16ef450 !important;
-          width: fit-content !important;
-          height: fit-content !important;
-          padding: 2px 10px;
-          font-size: 1.4rem;
-        }
-        .variant-div {
-            display: inline-block;
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            margin: 5px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            transition: transform 0.2s ease;
-            background-color: transparent;
-        }
-        .variant-div.selected {
-            transform: scale(1.1);
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        input[type='radio'], label {
-          visibility: hidden;
-      margin: 0;
-      width: 0;
-      height: 0;
-      padding: 0;      }
-
-        {%- for color in color_mapping -%}
-            {%- assign key_value = color | split: ':' -%}
-            {%- assign color_key = key_value[0] | downcase -%}
-            {%- assign color_value = key_value[1] -%}
-            .variant-div[data-color="{{ color_key }}"] {
-                background-color: {{ color_value }} !important;
-                color: {{ color_value }} !important;
-            }
-        {%- endfor -%}
-    </style>
-
     <input
       type="radio"
       id="{{ input_id }}"
@@ -139,13 +91,10 @@
       {% endif %}
       {{ input_dataset }}
     >
-    <div
-      class="variant-div {% if value.selected %}selected{% endif %}"
-      data-color="{{ value | downcase }}"
-      data-input-id="{{ input_id }}"
-    >
-      .
-    </div>
+    <label for="{{ input_id }}">
+      {{ value -}}
+      {{ label_unavailable }}
+    </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       id="{{ input_id }}"
@@ -164,7 +113,7 @@
       {% if option_disabled -%}
         {{- 'products.product.value_unavailable' | t: option_value: value -}}
       {%- else -%}
-        {{- value -}}
+        <span class="Variant-type-label">{{ option.name }}</span>: {{ value }}
       {%- endif %}
     </option>
   {%- endif -%}

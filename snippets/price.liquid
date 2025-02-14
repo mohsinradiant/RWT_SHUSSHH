@@ -26,13 +26,22 @@
   assign price_min = product.price_min
   assign price_max = product.price_max
   assign available = target.available | default: false
-  assign money_price = price | money
-  assign money_price_min = price_min | money
-  assign money_price_max = price_max | money
+
+  assign money_compare_at_price = compare_at_price | divided_by: 100 | floor
+  assign money_price = price | divided_by: 100 | floor
+  assign money_price_min = price_min | divided_by: 100 | floor
+  assign money_price_max = price_max | divided_by: 100 | floor
+
   if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
-    assign money_price_min = price_min | money_with_currency
-    assign money_price_max = price_max | money_with_currency
+    assign money_compare_at_price = cart.currency.symbol | append: money_compare_at_price
+    assign money_price = cart.currency.symbol | append: money_price
+    assign money_price_min = cart.currency.symbol | append: money_price_min
+    assign money_price_max = cart.currency.symbol | append: money_price_max
+  else
+    assign money_compare_at_price = '₹' | append: money_compare_at_price
+    assign money_price = '₹' | append: money_price
+    assign money_price_min = '₹' | append: money_price_min
+    assign money_price_max = '₹' | append: money_price_max
   endif
 
   if target == product and product.price_varies
@@ -68,9 +77,9 @@
               <span>
                 <s class="price-item price-item--regular variant-item__old-price">
                   {% if settings.currency_code_enabled %}
-                    {{ compare_at_price | money_with_currency }}
+                    {{ money_compare_at_price | money_with_currency }}
                   {% else %}
-                    {{ compare_at_price | money }}
+                    {{ money_compare_at_price | money }}
                   {% endif %}
                 </s>
               </span>
@@ -91,22 +100,22 @@
         {%- endif -%}
       </div>
       <div class="price__sale">
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale price-item--last">
-          {{ money_price }}
-        </span>
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
             <s class="price-item price-item--regular">
               {% if settings.currency_code_enabled %}
-                {{ compare_at_price | money_with_currency }}
+                {{ money_compare_at_price }}
               {% else %}
-                {{ compare_at_price | money }}
+                {{ money_compare_at_price | money }}
               {% endif %}
             </s>
           </span>
         {%- endunless -%}
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+        <span class="price-item price-item--sale price-item--last">
+          {{ money_price }}
+        </span>
       </div>
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
         <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
@@ -125,11 +134,7 @@
     </div>
     {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
-        {%- assign discount = product.compare_at_price | minus: product.price -%}
-        {%- assign discount_percentage = discount | times: 100 | divided_by: product.compare_at_price | round -%}
-        {{ discount_percentage }}
-        %
+        {{ 'products.product.on_sale' | t }}
       </span>
 
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
@@ -137,4 +142,5 @@
       </span>
     {%- endif -%}
   </div>
+  {% comment %} <p class="product-info-price-subtitle">(Inclusive of all taxes and shipping)</p> {% endcomment %}
 {% endunless %}
