@@ -11,106 +11,97 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
       "settings": {
         "show_collection_description": false,
         "show_collection_image": true,
         "color_scheme": "scheme-1"
       }
     },
-    "collection_banner_QG38Ee": {
-      "type": "collection-banner",
-      "settings": {}
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "blocks": {
-        "product_category_8bbeWH": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/For_Him.png",
-            "text": "For Him",
-            "url": "/collections/for-him-1"
-          }
-        },
-        "product_category_EWxNgJ": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/New_Launch.png",
-            "text": "New Launch",
-            "url": "/collections/new-launch"
-          }
-        },
-        "product_category_LLbff7": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/V-Day_Sasle.png",
-            "text": "V-day Sale",
-            "url": "/collections/sale"
-          }
-        },
-        "product_category_zdtXfW": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/4_7974c1f7-2f89-4dae-b551-9c432879127a.png",
-            "text": "Deals",
-            "url": "/collections/deals-of-the-day"
-          }
-        },
-        "product_category_twKGnB": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/Lubes.png",
-            "text": "Lubricants",
-            "url": "/collections/lubes"
-          }
-        },
-        "product_category_7EUBfz": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/Bundles.png",
-            "text": "Bundles",
-            "url": "/collections/bundles"
-          }
-        }
-      },
-      "block_order": [
-        "product_category_8bbeWH",
-        "product_category_EWxNgJ",
-        "product_category_LLbff7",
-        "product_category_zdtXfW",
-        "product_category_twKGnB",
-        "product_category_7EUBfz"
-      ],
       "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "products_per_page": 50,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-df6532fc-b063-435e-9039-25f6aece7c28",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "standard",
-        "enable_filtering": false,
-        "filter_type": "horizontal",
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "vertical",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "home_promises_nCggac": {
-      "type": "home-promises",
+    "collapsible_content_nLnX9P": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_fa6hEp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_MUnAgU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KgCLYw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_g7PpD3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_fa6hEp",
+        "collapsible_row_MUnAgU",
+        "collapsible_row_KgCLYw",
+        "collapsible_row_g7PpD3"
+      ],
       "settings": {
-        "section_heading": "Our Promises"
+        "caption": "",
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "banner",
-    "collection_banner_QG38Ee",
     "product-grid",
-    "home_promises_nCggac"
+    "collapsible_content_nLnX9P"
   ]
 }

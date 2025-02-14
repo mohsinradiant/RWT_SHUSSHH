@@ -9,11 +9,12 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/image_6_1.png",
-    "logo_width": 120,
-    "type_header_font": "assistant_n7",
+    "logo": "shopify://shop_images/Frame_1116601359_1.png",
+    "logo_width": 90,
+    "favicon": "shopify://shop_images/Logo_Container.png",
+    "type_header_font": "playfair_display_n7",
     "heading_scale": 100,
-    "type_body_font": "inter_n4",
+    "type_body_font": "quicksand_n5",
     "body_scale": 100,
     "page_width": 1200,
     "spacing_sections": 0,
@@ -23,7 +24,7 @@
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
-    "buttons_radius": 40,
+    "buttons_radius": 0,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
@@ -102,17 +103,16 @@
     "drawer_shadow_horizontal_offset": 0,
     "drawer_shadow_vertical_offset": 4,
     "drawer_shadow_blur": 5,
-    "badge_position": "top right",
-    "badge_corner_radius": 0,
-    "sale_badge_color_scheme": "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb",
-    "sold_out_badge_color_scheme": "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb",
-    "brand_headline": "",
-    "brand_description": "<p>Shusshh is more than a collection of body massagers; it's a movement that invites you to elevate your lifestyle. Join us in embracing a holistic approach to well-being, where self-care becomes an art, and every Shusshh product is a brushstroke that adds serenity to your life's canvas.</p>",
-    "brand_image": "shopify://shop_images/image_6_1.png",
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "Contact Us",
+    "brand_description": "<p>Inditren Technologies Pvt. Ltd.A-277-278, 2nd Floor, Dhaka Johar, G.T.B Nagar, North West Delhi, Delhi - 110009</p>",
     "brand_image_width": 100,
-    "social_facebook_link": "https://www.facebook.com/shusshh.in/",
-    "social_instagram_link": "https://www.instagram.com/shusshh.in/",
-    "social_youtube_link": "https://www.youtube.com/@shusshh_in",
+    "social_facebook_link": "https://www.facebook.com/profile.php?id=61560450745044",
+    "social_instagram_link": "https://www.instagram.com/zinaraofficial/",
+    "social_youtube_link": "",
     "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_snapchat_link": "",
@@ -123,7 +123,7 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
-    "cart_type": "drawer",
+    "cart_type": "notification",
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
@@ -143,13 +143,20 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
           "text": "#121212",
-          "button": "#121212",
+          "button": "#712242",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
@@ -199,25 +206,36 @@
           "shadow": "#121212"
         }
       },
-      "scheme-42469595-bf58-4d5e-9165-3856141c7d23": {
+      "scheme-df6532fc-b063-435e-9039-25f6aece7c28": {
         "settings": {
           "background": "#ffffff",
-          "background_gradient": "linear-gradient(90deg, rgba(103, 0, 192, 1), rgba(1, 0, 1, 1) 100%)",
-          "text": "#ffffff",
-          "button": "#ffb800",
-          "button_label": "#333333",
-          "secondary_button_label": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#610c27",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#610c27",
           "shadow": "#121212"
         }
       },
-      "scheme-2d0fdbf0-86c9-40b4-bb8e-662411a29feb": {
+      "scheme-a0833cff-1252-4aa2-8751-2f7cf27edbb0": {
         "settings": {
-          "background": "#d92424",
+          "background": "#f4eeeb",
           "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
+          "text": "#712242",
+          "button": "#121212",
           "button_label": "#ffffff",
-          "secondary_button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-d156c5aa-1619-482c-ae41-dcf88e5aa9f2": {
+        "settings": {
+          "background": "#f4eeeb",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#712242",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
       }
