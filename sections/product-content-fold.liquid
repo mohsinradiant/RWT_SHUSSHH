@@ -481,7 +481,6 @@
 
     // Function to filter visible items only
     const getVisibleItems = () => items.filter((item) => getComputedStyle(item).display !== 'none');
-    let visibleItems = getVisibleItems();
 
     // Function to update the dots based on visible images
     const createDotsForVisibleItems = () => {
@@ -489,6 +488,7 @@
       dotsContainer.innerHTML = '';
 
       // Add dots for visible items only
+      const visibleItems = getVisibleItems();
       visibleItems.forEach((item, index) => {
         const dot = document.createElement('button');
         dot.className = 'dot-custom';
@@ -510,7 +510,7 @@
     createDotsForVisibleItems();
 
     const updateCarousel = (direction) => {
-      visibleItems = getVisibleItems(); // Update visible items dynamically
+      const visibleItems = getVisibleItems(); // Update visible items dynamically
       const offset = -currentIndex * (100 / visibleItems.length);
 
       // Animate track movement
@@ -545,12 +545,12 @@
     };
 
     prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+      currentIndex = (currentIndex - 1 + getVisibleItems().length) % getVisibleItems().length;
       updateCarousel('prev');
     });
 
     nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % visibleItems.length;
+      currentIndex = (currentIndex + 1) % getVisibleItems().length;
       updateCarousel('next');
     });
 
@@ -571,6 +571,20 @@
       }
 
       startX = null;
+    });
+
+    // MutationObserver to track changes to the display style of images
+    const observer = new MutationObserver(() => {
+      createDotsForVisibleItems(); // Recreate dots whenever the visibility of images changes
+      updateCarousel('next'); // Optionally, update carousel based on the current state
+    });
+
+    // Observe changes to the images' display property
+    items.forEach((item) => {
+      observer.observe(item, {
+        attributes: true,
+        attributeFilter: ['style'],
+      });
     });
 
     updateCarousel();
