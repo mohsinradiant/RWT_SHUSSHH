@@ -116,9 +116,16 @@
           {% if collection and collection.products.size > 0 %}
             {% for product in collection.products %}
               <div class="carousel-item">
-                <a href="{{ product.url }}">
-                  <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
-                </a>
+                {% render 'card-product',
+                  card_product: product,
+                  show_secondary_image: true,
+                  lazy_load: true,
+                  quick_add: 'standard',
+                  section_id: section.id,
+                  horizontal_quick_add: true,
+                  show_rating: false,
+                  media_aspect_ratio: 'square'
+                %}
               </div>
             {% endfor %}
           {% else %}
