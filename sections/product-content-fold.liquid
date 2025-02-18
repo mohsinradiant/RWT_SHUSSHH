@@ -473,17 +473,17 @@
 
     const track = document.querySelector('.carousel-track-custom');
     const items = Array.from(document.querySelectorAll('.carousel-item-custom'));
-    const dotsContainer = document.querySelector('.dots-container'); // Container for dots
+    const dotsContainer = document.querySelector('.carousel-indicators-custom'); // Container for dots
     const prevBtn = document.querySelector('.left-btn-custom');
     const nextBtn = document.querySelector('.right-btn-custom');
     let startX = null;
     let currentIndex = 0;
 
-    // Filter visible items only
+    // Function to filter visible items only
     const getVisibleItems = () => items.filter((item) => getComputedStyle(item).display !== 'none');
     let visibleItems = getVisibleItems();
 
-    // Function to create dots for visible items
+    // Function to update the dots based on visible images
     const createDotsForVisibleItems = () => {
       // Clear existing dots
       dotsContainer.innerHTML = '';
@@ -496,7 +496,7 @@
         dotsContainer.appendChild(dot);
       });
 
-      // Reinitialize dots after creating them
+      // Reinitialize event listeners for newly created dots
       const dots = Array.from(dotsContainer.children);
       dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
