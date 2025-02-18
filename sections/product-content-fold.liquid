@@ -472,38 +472,40 @@
     gsap.registerPlugin();
 
     const track = document.querySelector('.carousel-track-custom');
-    const items = document.querySelectorAll('.carousel-item-custom');
+    const items = Array.from(document.querySelectorAll('.carousel-item-custom'));
     const dots = document.querySelectorAll('.dot-custom');
     const prevBtn = document.querySelector('.left-btn-custom');
     const nextBtn = document.querySelector('.right-btn-custom');
-    const itemCount = items.length;
 
+    // Filter visible items only
+    const getVisibleItems = () => items.filter((item) => getComputedStyle(item).display !== 'none');
+    let visibleItems = getVisibleItems();
     let currentIndex = 0;
-    let startX = null;
 
     const updateCarousel = (direction) => {
-      const offset = -currentIndex * 100;
+      visibleItems = getVisibleItems(); // Update visible items dynamically
+      const offset = -currentIndex * (100 / visibleItems.length);
 
       // Animate track movement
       gsap.to(track, {
-        xPercent: offset,
-        duration: 0.2, // Faster transition
+        xPercent: offset * visibleItems.length, // Adjust offset based on visible items
+        duration: 0.2,
         ease: 'power2.out',
       });
 
       // Apply 3D rotation effect
       gsap.fromTo(
-        items[currentIndex],
+        visibleItems[currentIndex],
         {
           opacity: 0.5,
           scale: 0.95,
-          rotateY: direction === 'next' ? 50 : -50, // 3D Rotate based on direction
+          rotateY: direction === 'next' ? 50 : -50,
         },
         {
           opacity: 1,
           scale: 1,
           rotateY: 0,
-          duration: 0.2, // Sync with slide animation
+          duration: 0.2,
           ease: 'power2.out',
         }
       );
@@ -515,12 +517,12 @@
     };
 
     prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+      currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
       updateCarousel('prev');
     });
 
     nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % itemCount;
+      currentIndex = (currentIndex + 1) % visibleItems.length;
       updateCarousel('next');
     });
 
@@ -547,7 +549,7 @@
         prevBtn.click();
       }
 
-      startX = null; // Reset after swipe ends
+      startX = null;
     });
 
     updateCarousel();
