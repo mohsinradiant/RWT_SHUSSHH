@@ -1,51 +1,3 @@
-{% if product.metafields.content.combos_collection %}
-  <div class="infinite-carousel">
-    <div class="page-width">
-      <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
-      <div class="carousel-container">
-        <div class="carousel-track">
-          {% assign collection = product.metafields.content.combos_collection.value %}
-          {% if collection and collection.products.size > 0 %}
-            {% for product in collection.products %}
-              {% comment %}
-                <div class="carousel-item">
-                  <a href="{{ product.url }}">
-                    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
-                  </a>
-                </div>
-              {% endcomment %}
-              {% render 'card-product',
-                card_product: product,
-                show_secondary_image: true,
-                lazy_load: true,
-                quick_add: 'standard',
-                section_id: section.id,
-                horizontal_quick_add: true,
-                show_rating: false,
-                media_aspect_ratio: 'square'
-              %}
-            {% endfor %}
-          {% else %}
-            <p>No products found in the specified collection.</p>
-          {% endif %}
-        </div>
-      </div>
-      <div class="carousel-dots">
-        {% if collection and collection.products.size > 0 %}
-          {% for product in collection.products %}
-            <button class="dot" data-index="{{ forloop.index0 }}"></button>
-          {% endfor %}
-        {% endif %}
-      </div>
-      <button class="carousel-arrow left">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-      </button>
-      <button class="carousel-arrow right" style="transform: rotate(180deg);">
-        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
-      </button>
-    </div>
-  </div>
-{% endif %}
 <style>
   .infinite-carousel {
     background-color: #faf3ff;
@@ -73,14 +25,13 @@
     overflow: hidden;
   }
 
-  .carousel-track {
+  .combos-carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    gap: 0.5%;
+    gap: 4px;
   }
 
-  .carousel-item,
-  .carousel-track .card-wrapper {
+  .carousel-item {
     min-width: 33%;
     max-width: 33%;
   }
@@ -145,122 +96,124 @@
   }
   @media (max-width: 850px) {
     .carousel-item,
-    .carousel-track .card-wrapper {
-      width: 230px;
+    .combos-carousel-track .card-wrapper {
+      width: 200px;
+      max-width: unset;
     }
     .carousel-container,
-    .carousel-track .card-wrapper {
+    .combos-carousel-track .card-wrapper {
       justify-content: start;
     }
   }
 </style>
+{% if product.metafields.content.combos_collection %}
+  <div class="infinite-carousel">
+    <div class="page-width">
+      <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+      <div class="carousel-container">
+        <div class="combos-carousel-track">
+          {% assign collection = product.metafields.content.combos_collection.value %}
+          {% if collection and collection.products.size > 0 %}
+            {% for product in collection.products %}
+              <div class="carousel-item">
+                {% render 'card-product',
+                  card_product: product,
+                  show_secondary_image: true,
+                  lazy_load: true,
+                  quick_add: 'standard',
+                  section_id: section.id,
+                  horizontal_quick_add: true,
+                  show_rating: false,
+                  media_aspect_ratio: 'square'
+                %}
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No products found in the specified collection.</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="carousel-dots">
+        {% if collection and collection.products.size > 0 %}
+          {% for product in collection.products %}
+            <button class="dot" data-index="{{ forloop.index0 }}"></button>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <button class="carousel-arrow left">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+      </button>
+      <button class="carousel-arrow right" style="transform: rotate(180deg);">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+      </button>
+    </div>
+  </div>
+{% endif %}
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
+    const track = document.querySelector('.combos-carousel-track');
     const items = Array.from(track.children);
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const dots = Array.from(dotsContainer.children);
     const leftArrow = document.querySelector('.carousel-arrow.left');
     const rightArrow = document.querySelector('.carousel-arrow.right');
-    const dotsContainer = document.querySelector('.carousel-dots');
 
-    const totalItems = items.length;
     let currentIndex = 0;
-    let startX = 0,
-      isDragging = false,
-      moveX = 0;
+    const totalItems = items.length;
 
-    // Generate dots dynamically
-    dotsContainer.innerHTML = items
-      .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
-      .join('');
-    const dots = Array.from(dotsContainer.children);
+    // Ensure the track width is set correctly to fit all items
+    const setTrackWidth = () => {
+      const trackWidth = items[0].getBoundingClientRect().width * totalItems;
+      track.style.width = `${trackWidth}px`;
+    };
 
-    const updateCarousel = () => {
-      const itemWidth = items[0].getBoundingClientRect().width;
-      const containerPadding = 10; // Adjust this based on actual padding
-      const offset = currentIndex * itemWidth + containerPadding;
-
-      track.style.transition = 'transform 0.3s ease-in-out';
-      track.style.transform = `translateX(-${offset}px)`;
+    // GSAP animation function to move to a specific index
+    const moveToIndex = (index) => {
+      currentIndex = index;
+      gsap.to(track, {
+        x: -items[0].getBoundingClientRect().width * currentIndex,
+        duration: 0.5,
+        ease: 'power2.out',
+      });
 
       // Update active dot
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
       });
     };
 
+    // Move to next item (looping)
     const moveToNext = () => {
-      if (currentIndex < totalItems - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
-      updateCarousel();
+      currentIndex = (currentIndex + 1) % totalItems;
+      moveToIndex(currentIndex);
     };
 
+    // Move to previous item (looping)
     const moveToPrevious = () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = totalItems - 1;
-      }
-      updateCarousel();
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      moveToIndex(currentIndex);
     };
 
-    // Click Event Listeners for Arrows
-    rightArrow.addEventListener('click', moveToNext);
+    // Handle left arrow click
     leftArrow.addEventListener('click', moveToPrevious);
 
-    // Click Event for Dots
+    // Handle right arrow click
+    rightArrow.addEventListener('click', moveToNext);
+
+    // Handle dot click
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
+        moveToIndex(index);
       });
     });
 
-    // Touch & Drag Support
-    track.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      track.style.transition = 'none'; // Disable smooth scrolling while dragging
-    });
+    // Auto-slide every 5 seconds
+    setInterval(moveToNext, 5000);
 
-    track.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      moveX = e.touches[0].clientX - startX;
-    });
-
-    track.addEventListener('touchend', () => {
-      if (moveX < -50) {
-        moveToNext();
-      } else if (moveX > 50) {
-        moveToPrevious();
-      }
-      isDragging = false;
-    });
-
-    track.addEventListener('mousedown', (e) => {
-      startX = e.clientX;
-      isDragging = true;
-      track.style.transition = 'none';
-    });
-
-    track.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      moveX = e.clientX - startX;
-    });
-
-    track.addEventListener('mouseup', () => {
-      if (moveX < -50) {
-        moveToNext();
-      } else if (moveX > 50) {
-        moveToPrevious();
-      }
-      isDragging = false;
-    });
-
-    setInterval(moveToNext, 8000);
+    // Initialize the carousel
+    setTrackWidth(); // Set track width before initial move
+    moveToIndex(currentIndex);
   });
 </script>
 
