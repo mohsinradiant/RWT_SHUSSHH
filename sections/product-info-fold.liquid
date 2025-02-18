@@ -218,16 +218,12 @@
           function initializeVariantDivs() {
             console.log('Initializing variant divs...');
 
-            // Check if variant divs are found
-            const variantDivs = document.querySelectorAll('.variant-div');
-            console.log(`Found ${variantDivs.length} variant divs`);
-
             // Remove 'initialized' class to reattach event listeners
-            variantDivs.forEach((div) => {
+            document.querySelectorAll('.variant-div').forEach((div) => {
               div.classList.remove('initialized');
             });
 
-            variantDivs.forEach((div) => {
+            document.querySelectorAll('.variant-div').forEach((div) => {
               div.classList.add('initialized'); // Mark as initialized
               const inputId = div.getAttribute('data-input-id');
               const radioInput = document.getElementById(inputId);
@@ -245,7 +241,7 @@
                 }
               }
 
-              // Add click event listener to div
+              // Click event for selecting variants
               div.addEventListener('click', () => {
                 console.log(`Div clicked: ${radioInput.value}`);
                 console.log(`Input ID: ${inputId}`);
@@ -259,14 +255,9 @@
                 if (radioInput) {
                   console.log('Simulating click on radio input');
 
-                  // If already selected, trigger change event again
-                  if (radioInput.checked) {
-                    radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-                  } else {
-                    // Otherwise, check the radio input
-                    radioInput.checked = true;
-                    radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-                  }
+                  // Check the radio input and trigger a change event
+                  radioInput.checked = true;
+                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
                   // Add selected class
                   div.classList.add('selected');
@@ -288,6 +279,35 @@
                 // Update the carousel images when a new variant is selected
                 updateCarousel();
               });
+            });
+          }
+
+          function updateCarousel() {
+            console.log('Updating carousel images...');
+
+            // Get the checked input
+            const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
+
+            if (!checkedInput) {
+              console.warn('No selected input found!');
+              return;
+            }
+
+            const selectedValue = checkedInput.value.trim().toLowerCase();
+            console.log(`Selected variant: ${selectedValue}`);
+
+            // Get all carousel images
+            const images = document.querySelectorAll('.carousel-track-custom img');
+
+            images.forEach((img) => {
+              const altText = img.alt ? img.alt.trim().toLowerCase() : '';
+
+              // Check if alt text contains the selected value
+              if (altText.includes(selectedValue)) {
+                img.style.display = 'block'; // Show the image
+              } else {
+                img.style.display = 'none'; // Hide the image
+              }
             });
           }
 
@@ -316,6 +336,13 @@
 
               observer.observe(productContainer, { childList: true, subtree: true });
             }
+          });
+
+          // Fix for Shopify Section Refresh
+          document.addEventListener('shopify:section:load', () => {
+            console.log('Shopify section reloaded. Reinitializing scripts...');
+            initializeVariantDivs();
+            updateCarousel();
           });
         </script>
 
