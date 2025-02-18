@@ -6,9 +6,14 @@
         <div class="combos-carousel-track">
           {% assign collection = product.metafields.content.combos_collection.value %}
           {% if collection and collection.products.size > 0 %}
-            {% assign displayed_products = collection.products | slice: 0, 5 %}
-            <!-- Adjust the number of products you want to display -->
-            {% for product in displayed_products %}
+            {% for product in collection.products %}
+              {% comment %}
+                <div class="carousel-item">
+                  <a href="{{ product.url }}">
+                    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+                  </a>
+                </div>
+              {% endcomment %}
               {% render 'card-product',
                 card_product: product,
                 show_secondary_image: true,
@@ -27,9 +32,7 @@
       </div>
       <div class="carousel-dots">
         {% if collection and collection.products.size > 0 %}
-          {% assign displayed_products = collection.products | slice: 0, 5 %}
-          <!-- Adjust the number of products you want to display -->
-          {% for product in displayed_products %}
+          {% for product in collection.products %}
             <button class="dot" data-index="{{ forloop.index0 }}"></button>
           {% endfor %}
         {% endif %}
@@ -43,7 +46,6 @@
     </div>
   </div>
 {% endif %}
-
 <style>
   .infinite-carousel {
     background-color: #faf3ff;
@@ -152,114 +154,6 @@
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const combosTrack = document.querySelector('.combos-carousel-track');
-    const combosItems = Array.from(combosTrack.children);
-    const combosLeftArrow = document.querySelector('.carousel-arrow.left');
-    const combosRightArrow = document.querySelector('.carousel-arrow.right');
-    const combosDotsContainer = document.querySelector('.carousel-dots');
-
-    const totalItems = combosItems.length;
-    let currentIndex = 0;
-    let startX = 0,
-      isDragging = false,
-      moveX = 0;
-
-    // Generate dots dynamically
-    combosDotsContainer.innerHTML = combosItems
-      .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
-      .join('');
-    const dots = Array.from(combosDotsContainer.children);
-
-    const updateCarousel = () => {
-      const itemWidth = combosItems[0].getBoundingClientRect().width;
-      const offset = currentIndex * itemWidth; // Offset based on current index
-
-      combosTrack.style.transition = 'transform 0.3s ease-in-out';
-      combosTrack.style.transform = `translateX(-${offset}px)`; // Move the track
-
-      // Update active dot
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    };
-
-    const moveToNext = () => {
-      if (currentIndex < totalItems - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0; // Loop back to the first item
-      }
-      updateCarousel();
-    };
-
-    const moveToPrevious = () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = totalItems - 1; // Loop back to the last item
-      }
-      updateCarousel();
-    };
-
-    // Click Event Listeners for Arrows
-    combosRightArrow.addEventListener('click', moveToNext);
-    combosLeftArrow.addEventListener('click', moveToPrevious);
-
-    // Click Event for Dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-      });
-    });
-
-    // Touch & Drag Support
-    combosTrack.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      combosTrack.style.transition = 'none'; // Disable smooth scrolling while dragging
-    });
-
-    combosTrack.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      moveX = e.touches[0].clientX - startX;
-    });
-
-    combosTrack.addEventListener('touchend', () => {
-      if (moveX < -50) {
-        moveToNext();
-      } else if (moveX > 50) {
-        moveToPrevious();
-      }
-      isDragging = false;
-    });
-
-    combosTrack.addEventListener('mousedown', (e) => {
-      startX = e.clientX;
-      isDragging = true;
-      combosTrack.style.transition = 'none'; // Disable smooth scrolling while dragging
-    });
-
-    combosTrack.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      moveX = e.clientX - startX;
-    });
-
-    combosTrack.addEventListener('mouseup', () => {
-      if (moveX < -50) {
-        moveToNext();
-      } else if (moveX > 50) {
-        moveToPrevious();
-      }
-      isDragging = false;
-    });
-
-    setInterval(moveToNext, 8000); // Automatic slide every 8 seconds
-  });
-</script>
 
 {% schema %}
 {
