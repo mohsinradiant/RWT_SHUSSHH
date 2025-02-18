@@ -70,7 +70,6 @@
               assign quantity_rule_soldout = true
             endif
           -%}
-          <a href="">Try at Home</a>
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -83,7 +82,6 @@
               disabled
             {% endif %}
           >
-            <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Shopping_Cart.png?v=1738756998">
             <span>
               {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}

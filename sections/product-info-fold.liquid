@@ -1,0 +1,1353 @@
+<product-info
+  id="MainProduct-{{ section.id }}"
+  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  data-section="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-update-url="true"
+  data-url="{{ product.url }}"
+>
+  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+  {% unless product.has_only_default_variant %}
+    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+    {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+    {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+  {% endunless %}
+  {%- if product.quantity_price_breaks_configured? -%}
+    {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+
+  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- if product.quantity_price_breaks_configured? -%}
+    <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {% if section.settings.image_zoom == 'hover' %}
+    <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
+  {%- if request.design_mode -%}
+    <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+  {%- if first_3d_model -%}
+    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+    <link
+      id="ModelViewerStyle"
+      rel="stylesheet"
+      href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
+      media="print"
+      onload="this.media='all'"
+    >
+    <link
+      id="ModelViewerOverride"
+      rel="stylesheet"
+      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+      media="print"
+      onload="this.media='all'"
+    >
+  {%- endif -%}
+
+  {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+
+  {%- assign product_form_id = 'product-form-' | append: section.id -%}
+  <div class="product-info-fold-container">
+    <div class="page-width">
+      <div class="product-info-fold-left-container">
+        <h1>{{ product.title | escape }}</h1>
+        <p class="product-info-fold-left-subheadng">{{ product.metafields.content.subheading }}</p>
+        <p class="product-info-fold-left-description">{{ product.metafields.content.info_fold_description }}</p>
+        {% comment %} Product Inventory {% endcomment %}
+        {% comment %}
+          <p
+            class="product__inventory {% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+            id="Inventory-{{ section.id }}"
+            role="status"
+          >
+            {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
+              {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- else -%}
+                <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- endif -%}
+            {%- else -%}
+              {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
+                <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- else -%}
+                <span class="svg-wrapper" style="color: rgb(200, 200, 200)">
+                  {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                </span>
+              {%- endif -%}
+            {%- endif -%}
+          </p>
+        {% endcomment %}
+        <div class="product-info-fold-right-container mobile-usp-right-container">
+          <div class="product-info-fold-right-parent">
+            {% for usp in product.metafields.content.product_usp.value %}
+              <div class="product-info-fold-right-usp-div">
+                <img src="{{usp.image |  image_url }}">
+                <p>{{ usp.text }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="product-info-fold-price-and-rating-container">
+          <div class="product-info-fold-price-container">
+            <div id="price-{{ section.id }}" role="status">
+              {%- render 'price',
+                product: product,
+                use_variant: true,
+                show_badges: true,
+                price_class: 'price--large'
+              -%}
+            </div>
+            {% comment %}
+              {%- if product.quantity_price_breaks_configured? -%}
+                <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                  <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                </div>
+              {%- endif -%}
+                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                  <div class="product__tax caption rte">
+                    {%- if cart.duties_included and cart.taxes_included -%}
+                      {{ 'products.product.duties_and_taxes_included' | t }}
+                    {%- elsif cart.taxes_included -%}
+                      {{ 'products.product.taxes_included' | t }}
+                    {%- elsif cart.duties_included -%}
+                      {{ 'products.product.duties_included' | t }}
+                    {%- endif -%}
+                    {%- if shop.shipping_policy.body != blank -%}
+                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+            {% endcomment %}
+            <div>
+              {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+              {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                {{ form | payment_terms }}
+              {%- endform -%}
+            </div>
+          </div>
+          {% comment %}
+            {%- if product.metafields.reviews.rating.value != blank -%}
+              <div class="rating-wrapper">
+                {% liquid
+                  assign rating_decimal = 0
+                  assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+                  if decimal >= 0.3 and decimal <= 0.7
+                    assign rating_decimal = 0.5
+                  elsif decimal > 0.7
+                    assign rating_decimal = 1
+                  endif
+                %}
+                <div
+                  class="rating"
+                  role="img"
+                  aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="rating-star"
+                    style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+                  ></span>
+                </div>
+                <p class="rating-text caption">
+                  <span aria-hidden="true">
+                    {{- product.metafields.reviews.rating.value }} /
+                    {{ product.metafields.reviews.rating.value.scale_max -}}
+                  </span>
+                </p>
+                <p class="rating-count caption">
+                  <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
+                  <span class="visually-hidden">
+                    {{- product.metafields.reviews.rating_count }}
+                    {{ 'accessibility.total_reviews' | t -}}
+                  </span>
+                </p>
+              </div>
+            {%- endif -%}
+          {% endcomment %}
+        </div>
+        {%- assign discount = product.compare_at_price | minus: product.price -%}
+        {% if discount > 0 and discount != null %}
+          <p class="price-dropped-product-card price">
+            ↓ price dropped by
+            <span>{{ discount | money }}</span>
+          </p>
+        {% endif %}
+
+        {% comment %} Product Variant {% endcomment %}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'variant_picker' -%}
+              <div class="product-info-fold-variant-parent-container">
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+        <script>
+          function initializeVariantDivs() {
+            console.log('Initializing variant divs...');
+
+            // Remove 'initialized' class to reattach event listeners
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.classList.remove('initialized');
+            });
+
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.classList.add('initialized'); // Mark as initialized
+              const inputId = div.getAttribute('data-input-id');
+              const radioInput = document.getElementById(inputId);
+              const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+
+              if (radioInput) {
+                const value = radioInput.value.trim().toLowerCase();
+
+                if (value.includes('ml')) {
+                  div.classList.add('size-div');
+                  div.textContent = radioInput.value; // Show size
+                } else {
+                  div.classList.remove('size-div');
+                  div.textContent = '.'; // Default content
+                }
+              }
+
+              // Click event for selecting variants
+              div.addEventListener('click', () => {
+                console.log(`Div clicked: ${radioInput.value}`);
+                console.log(`Input ID: ${inputId}`);
+
+                // Deselect other variants
+                document.querySelectorAll('.variant-div').forEach((item) => {
+                  item.classList.remove('selected', 'size-div');
+                  item.textContent = '.';
+                });
+
+                if (radioInput) {
+                  console.log('Simulating click on radio input');
+
+                  // Check the radio input and trigger a change event
+                  radioInput.checked = true;
+                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+                  // Add selected class
+                  div.classList.add('selected');
+                  console.log('Variant selected and class "selected" added');
+
+                  // Update color name dynamically
+                  if (colorNameElement) {
+                    colorNameElement.textContent = radioInput.value;
+                    console.log(`Color name updated to: ${radioInput.value}`);
+                  }
+
+                  // If value contains "ml", keep size-div class
+                  if (radioInput.value.toLowerCase().includes('ml')) {
+                    div.classList.add('size-div');
+                    div.textContent = radioInput.value;
+                  }
+                }
+
+                // Update the carousel images when a new variant is selected
+                updateCarousel();
+              });
+            });
+          }
+
+          function updateCarousel() {
+            console.log('Updating carousel images...');
+
+            // Get the checked input
+            const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
+
+            if (!checkedInput) {
+              console.warn('No selected input found!');
+              return;
+            }
+
+            const selectedValue = checkedInput.value.trim().toLowerCase();
+            console.log(`Selected variant: ${selectedValue}`);
+
+            // Get all carousel images
+            const images = document.querySelectorAll('.carousel-track-custom img');
+
+            images.forEach((img) => {
+              const altText = img.alt ? img.alt.trim().toLowerCase() : '';
+
+              // Check if alt text contains the selected value
+              if (altText.includes(selectedValue)) {
+                img.style.display = 'block'; // Show the image
+              } else {
+                img.style.display = 'none'; // Hide the image
+              }
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing scripts on DOMContentLoaded...');
+            initializeVariantDivs();
+            updateCarousel();
+
+            // Listen for input change events
+            document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
+              input.addEventListener('change', updateCarousel);
+            });
+
+            // Observe Shopify AJAX updates
+            const productContainer = document.querySelector('.product-form');
+            if (productContainer) {
+              const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                  if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    console.log('Product container updated. Reinitializing scripts...');
+                    initializeVariantDivs();
+                    updateCarousel();
+                  }
+                });
+              });
+
+              observer.observe(productContainer, { childList: true, subtree: true });
+            }
+          });
+
+          // Fix for Shopify Section Refresh
+          document.addEventListener('shopify:section:load', () => {
+            console.log('Shopify section reloaded. Reinitializing scripts...');
+            initializeVariantDivs();
+            updateCarousel();
+          });
+        </script>
+
+        {%- render 'buy-buttons',
+          product: product,
+          product_form_id: product_form_id,
+          section_id: section.id,
+          show_pickup_availability: true
+        -%}
+        {% if product.metafields.content.banner_1 %}
+          <div class="product-info-fold-claims-container-first-image-container">
+            <img
+              class="product-info-fold-claims-container-first-image"
+              src="{{ product.metafields.content.banner_1 | image_url }}"
+            >
+            {% comment %}
+              <div class="countdown-container">
+                <div class="countdown">
+                  <div class="time-segment hours">
+                    <span class="value" id="hours">00</span>
+                    <span class="label">Hours</span>
+                  </div>
+                  <div class="time-segment minutes">
+                    <span class="value" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                  </div>
+                  <div class="time-segment seconds">
+                    <span class="value" id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                  </div>
+                </div>
+              </div>
+            {% endcomment %}
+          </div>
+        {% endif %}
+        <div class="product-info-fold-claims-container">
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/india.png?v=1738690950">
+            <p>Designed for Indians</p>
+          </div>
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/express-delivery.png?v=1738690732">
+            <p>1-3 day Xpress Shipping</p>
+          </div>
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-warranty.png?v=1737969814">
+            <p>100 Days Warranty</p>
+          </div>
+          <div>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/pdp-discreet-shipping.png?v=1737969814">
+            <p>Free & discreet shipping</p>
+          </div>
+        </div>
+
+        <style>
+          .pdp-pincode-checker {
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+          .pdp-pincode-checker label {
+            color: #000;
+            visibility: visible;
+            text-wrap: nowrap;
+            width: fit-content;
+            height: fit-content;
+            margin: 10px 0 5px;
+            letter-spacing: 0;
+            font-weight: 400;
+            font-size: 1.3rem;
+          }
+          .pdp-pincode-checker-input-parent {
+            display: flex;
+            gap: 2%;
+          }
+          .pdp-input {
+            padding: 8px 16px;
+            width: 58%;
+            border: 1px solid #5200a480;
+            border-radius: 75px;
+          }
+          .pdp-button {
+            padding: 8px 16px;
+            border: none;
+            width: 40%;
+            background-color: #be7af9;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+          }
+          .pdp-message {
+            margin-top: 10px;
+            font-size: 14px;
+          }
+          .pdp-valid {
+            color: green;
+          }
+          .pdp-invalid {
+            color: red;
+          }
+        </style>
+        <div class="pdp-pincode-checker">
+          <label>Check Delivery</label>
+          <div class="pdp-pincode-checker-input-parent">
+            <input type="text" id="pdp-pincode-input" class="pdp-input" placeholder="Enter Pincode">
+            <button class="pdp-button" onclick="checkDelivery()">Check</button>
+          </div>
+          <p id="pdp-message" class="pdp-message"></p>
+        </div>
+        <script>
+          function checkDelivery() {
+            const pincode = document.getElementById('pdp-pincode-input').value;
+            const message = document.getElementById('pdp-message');
+
+            // Regex to validate Indian pincode (6 digits)
+            const pincodePattern = /^[1-9][0-9]{5}$/;
+
+            if (pincodePattern.test(pincode)) {
+              message.innerHTML = '✅ Express Delivery 3-5 Days - Free';
+              message.className = 'pdp-message pdp-valid';
+            } else {
+              message.innerHTML = '❌ Invalid Pincode';
+              message.className = 'pdp-message pdp-invalid';
+            }
+          }
+        </script>
+      </div>
+      {% if product.metafields.content.floating_media == true
+        and product.metafields.content.show_floating_image == true
+      %}
+        <div class="product-info-fold-middle-container">
+          <div class="hotspot-backdrop"></div>
+          {% comment %}
+            <img
+              src="{{ product.selected_or_first_available_variant.featured_media | image_url }}"
+              alt="{{ product.title }}"
+            >
+          {% endcomment %}
+          {% render 'product-media-gallery-2', variant_images: variant_images %}
+          {% if product.metafields.content.product_png_hotspots.value %}
+            {% for hotspot in product.metafields.content.product_png_hotspots.value %}
+              <div
+                class="hotspot"
+                style="--x: {{ hotspot.x_axis }}%; --y: {{ hotspot.y_axis }}%;"
+              >
+                <span class="hotspot-toggle"> + </span>
+                <div
+                  {% if hotspot.text_in_left == true %}
+                    style="
+                      left: unset;
+                      right: -5px;
+                      padding: 10px 52px 10px 20px;
+                    "
+                  {% endif -%}
+                  class="hotspot-detail"
+                >
+                  {{ hotspot.text }}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% else %}
+        <div class="product-content-fold-container-parent-carousel">
+          <div class="carousel-wrapper-custom">
+            <button class="carousel-btn-custom left-btn-custom">
+              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+            </button>
+            <div class="carousel-track-custom">
+              {% for image in product.metafields.content.info_images.value %}
+                <img class="carousel-item-custom" src="{{image | image_url}}" alt="{{image.alt}}">
+              {% endfor %}
+            </div>
+            <button class="carousel-btn-custom right-btn-custom">
+              <img
+                style="transform: rotate(180deg);"
+                src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124"
+              >
+            </button>
+          </div>
+          <div class="carousel-indicators-custom">
+            {% for image in product.metafields.content.info_images.value %}
+              <button class="dot-custom" data-index="{{ forloop.index0 }}"></button>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      <div class="product-info-fold-right-container desktop-usp-right-container">
+        <div class="product-info-fold-right-parent">
+          {% for usp in product.metafields.content.product_usp.value %}
+            <div class="product-info-fold-right-usp-div">
+              <img src="{{usp.image |  image_url }}">
+              <p>{{ usp.text }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</product-info>
+
+{% if product.metafields.content.floating_animation == true %}
+  <style>
+    .product-info-fold-middle-container img {
+      -webkit-animation: floatUpDown 3s ease-in-out infinite;
+      animation: floatUpDown 3s ease-in-out infinite;
+    }
+  </style>
+{% endif %}
+{% if product.metafields.content.floating_media == false %}
+  <style>
+    .product-content-fold-container .product-info-fold-middle-container img,
+    .product-content-fold-container .product-info-fold-middle-container modal-opener,
+    .product-content-fold-container .product-info-fold-middle-container .product-media-container,
+    .product-content-fold-container .product-info-fold-middle-container media-gallery,
+    .product-content-fold-container .product-info-fold-middle-container ul,
+    .product-content-fold-container .product-info-fold-middle-container li,
+    .product-content-fold-container .product-info-fold-middle-container .product-media-container .media {
+      width: 100% !important;
+      height: auto !important;
+    }
+    .product-content-fold-container .product-info-fold-middle-container {
+      width: 50% !important;
+      height: auto !important;
+    }
+    @media (max-width: 750px) {
+      .product-content-fold-container .product-info-fold-middle-container {
+        width: 93% !important;
+      }
+    }
+    @media (max-width: 850px) {
+      .product-content-fold-container {
+        overflow-x: hidden;
+        padding-bottom: 43px;
+        margin-bottom: 0 !important;
+      }
+    }
+  </style>
+{% endif %}
+<style>
+  .product-info-fold-container .product-content-fold-container-parent-carousel {
+    width: 40%;
+    margin-right: -150px;
+  }
+  .carousel-btn-custom img {
+    width: 100%;
+  }
+  .product-info-fold-claims-container-first-image-container {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .countdown-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .countdown {
+    scale: 0.5;
+    display: flex;
+    gap: 5px;
+  }
+
+  .time-segment {
+    display: flex;
+    font-family: 'Inter';
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .time-segment .value {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 4rem;
+    color: #000;
+  }
+
+  .time-segment .label {
+    font-size: 1rem;
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #000;
+  }
+  .product-info-fold-left-container .price-dropped-product-card {
+    font-size: 1.5rem !important;
+    color: #5d00b9 !important;
+  }
+
+  .hotspot-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    display: none;
+  }
+  .content-slider-strip p {
+    font-size: 1.1rem !important;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .product-info-fold-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 80px 0 0;
+    overflow: hidden;
+  }
+  .product-info-fold-left-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    width: 33%;
+  }
+  .product-info-fold-left-container .product__inventory {
+    margin: 16px 0 -16px;
+    line-height: 1rem;
+  }
+  .product-info-fold-left-container .product__inventory .svg-wrapper {
+    width: 16px;
+    height: 16px;
+  }
+  .product-info-fold-middle-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: auto;
+    position: relative;
+  }
+  .product-info-fold-middle-container a {
+    display: none;
+  }
+  .product-info-fold-middle-container ul {
+    overflow: visible !important;
+  }
+  .product-info-fold-middle-container li {
+    width: fit-content;
+    height: fit-content;
+    max-width: unset;
+  }
+  .product-info-fold-middle-container .product-media-container {
+    width: fit-content;
+    height: fit-content;
+    max-width: unset;
+    border: none;
+  }
+  .product-info-fold-middle-container modal-opener {
+    width: fit-content;
+    height: fit-content;
+  }
+  .product-info-fold-middle-container .product-media-container span {
+    display: none;
+  }
+  .product-info-fold-middle-container .product-media-container .media {
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    overflow: visible !important;
+  }
+  .product-info-fold-middle-container .product-media-container .media img {
+    width: fit-content;
+    height: 420px;
+    position: unset;
+    max-width: unset;
+  }
+  .product-info-fold-right-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 27%;
+  }
+  .product-info-fold-container .page-width {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .product-info-fold-left-container h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    margin: 10px 0;
+    font-size: 4.5rem;
+    line-height: 4rem;
+  }
+  .product-info-fold-left-subheadng {
+    margin: 0;
+    color: #5d00b9;
+    font-weight: 500;
+    font-size: 1.7rem;
+    letter-spacing: 0;
+  }
+  .product-info-fold-left-description {
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    line-height: 2rem;
+    margin: 25px 0 0 0;
+  }
+  .product-info-fold-variant-color-name {
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    line-height: 2rem;
+    margin-bottom: 6px;
+  }
+  .product-info-fold-variant-color-name span {
+    font-weight: 700;
+  }
+  .product-info-fold-price-and-rating-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0 0 0;
+    gap: 10px;
+  }
+  .product-info-fold-price-container .price-item--last {
+    font-size: 1.7rem !important;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .product-info-fold-price-container .price-item--regular,
+  .product-info-fold-price-and-rating-container .rating-count span {
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .product-info-fold-price-and-rating-container .rating-star::before {
+    background-color: #ffb800 !important;
+    font-size: 2rem;
+    line-height: 0rem;
+  }
+  .product-info-fold-price-and-rating-container .price--large {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 5px;
+  }
+  .product-info-fold-price-and-rating-container .price--large .price__badge-sale {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .product-info-fold-left-container .product-form__submit {
+    color: #fff;
+    background: linear-gradient(90deg, rgba(103, 0, 192, 1), rgba(1, 0, 1, 1) 100%);
+    text-transform: uppercase;
+    padding: 25px 65px;
+    font-size: 1.3rem;
+    margin: 15px 0 20px;
+    font-weight: 600;
+  }
+  /* .product-info-fold-claims-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    width: 100%;
+    gap: 10px;
+  } */
+  .product-info-fold-claims-container-first-image {
+    width: 100%;
+  }
+  .product-info-fold-claims-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    align-items: start;
+  }
+
+  .product-info-fold-claims-container > *:nth-child(2n) {
+    justify-self: end;
+  }
+
+  .product-info-fold-claims-container div {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 6px;
+  }
+  .product-info-fold-claims-container div img {
+    width: 24px;
+    height: 24px;
+  }
+  .product-info-fold-claims-container div p {
+    margin: 0;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #000;
+    text-wrap: nowrap;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  @-webkit-keyframes floatUpDown {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    33% {
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  @keyframes floatUpDown {
+    0% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    33% {
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  .product-info-fold-middle-container img {
+    height: 360px !important;
+    width: auto !important;
+    position: relative !important;
+    display: block !important;
+  }
+  .product-info-fold-right-parent {
+    background: #fff;
+    padding: 20px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 14px 18px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 14px 18px rgba(0, 0, 0, 0.04);
+  }
+  .product-info-fold-right-usp-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100px;
+    height: auto;
+  }
+  .product-info-fold-right-usp-div img {
+    width: 50%;
+    height: auto;
+  }
+  .product-info-fold-right-usp-div p {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333333;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+  }
+  .hotspot {
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    border-radius: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+  .hotspot-toggle {
+    width: 37px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #3f2d4b;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+    font-size: 2.5rem;
+    line-height: 0;
+  }
+  .hotspot-detail {
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    background-color: #fff;
+    color: #333333;
+    padding: 10px 20px 10px 52px;
+    opacity: 0;
+    border-radius: 5000px;
+    pointer-events: none;
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+  .hotspot.active {
+    z-index: 3;
+  }
+  .hotspot.active .hotspot-detail {
+    opacity: 1;
+    z-index: -1;
+    pointer-events: auto;
+  }
+  .hotspot.active .hotspot-toggle {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #f9f0ff;
+  }
+  .product-info-fold-variant-parent-container {
+    width: 100%;
+  }
+  @media (max-width: 850px) {
+    .hotspot.active .hotspot-detail {
+      padding: 10px 20px;
+      z-index: 3;
+    }
+    .product-info-fold-container .page-width {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+    .product-info-fold-container {
+      padding: 20px 0 0;
+    }
+    .product-info-fold-left-container {
+      -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+      order: 2;
+      width: 100%;
+    }
+    .product-info-fold-middle-container {
+      -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+      order: 1;
+    }
+    .product-info-fold-right-container {
+      width: 100%;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+    .product-info-fold-right-parent {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      margin-top: 20px;
+      width: 100%;
+      padding: 30px;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+  }
+  .product-info-fold-claims-discreet-image {
+    display: none;
+  }
+  @media (max-width: 756px) {
+    .product-info-fold-container .product-content-fold-container-parent-carousel {
+      margin: 0;
+      width: 93vw;
+    }
+    .product-info-fold-left-container .price-dropped-product-card {
+      font-size: 1.5rem !important;
+    }
+
+    .product-info-fold-claims-discreet-image {
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+    }
+    .product-info-fold-middle-container {
+      margin-bottom: -3px;
+      margin-top: -20px;
+    }
+
+    .product-info-fold-variant-parent-container {
+      border-bottom: solid 1px #3b2b4a50;
+      padding-bottom: 14px;
+    }
+    .product-info-fold-claims-container {
+      padding-top: 14px;
+    }
+    .product-info-fold-claims-container-first-image-container {
+      border-top: solid 1px #3b2b4a50;
+      padding-top: 11px;
+    }
+    .countdown-container {
+      margin-top: 11px;
+    }
+    .product-info-fold-left-description {
+      margin: 5px 0 0 0;
+    }
+    .product-info-fold-right-usp-div {
+      width: 20%;
+    }
+    .product-info-fold-right-parent {
+      padding: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: start;
+      background: transparent;
+      gap: 6%;
+    }
+    .product-info-fold-right-usp-div img {
+      width: 65%;
+    }
+    .product-info-fold-left-container .product-form__submit {
+      width: 92.6vw;
+      padding: 18px 65px;
+      margin: 11px 0;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const backdrop = document.querySelector('.hotspot-backdrop');
+
+    document.querySelectorAll('.hotspot').forEach((hotspot) => {
+      const toggle = hotspot.querySelector('.hotspot-toggle');
+      const detail = hotspot.querySelector('.hotspot-detail');
+
+      // Toggle functionality
+      toggle.addEventListener('click', () => {
+        const isViewportNarrow = window.innerWidth < 850;
+        const isCurrentlyActive = hotspot.classList.contains('active');
+
+        if (isViewportNarrow) {
+          // Deactivate all other hotspots and hide their details
+          document.querySelectorAll('.hotspot').forEach((otherHotspot) => {
+            if (otherHotspot !== hotspot) {
+              otherHotspot.classList.remove('active');
+              const otherToggle = otherHotspot.querySelector('.hotspot-toggle');
+              const otherDetail = otherHotspot.querySelector('.hotspot-detail');
+              otherToggle.textContent = '+';
+              otherDetail.style.opacity = '0';
+              otherDetail.style.pointerEvents = 'none';
+              otherDetail.style.transform = '';
+            }
+          });
+
+          // Toggle the current hotspot
+          if (!isCurrentlyActive) {
+            hotspot.classList.add('active');
+            toggle.textContent = '-';
+            detail.style.opacity = '1';
+            detail.style.pointerEvents = 'auto';
+
+            // Show the backdrop
+            backdrop.style.display = 'block';
+
+            // Center the .hotspot-detail horizontally and vertically
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const detailRect = detail.getBoundingClientRect();
+
+            const offsetX = viewportWidth / 2 - detailRect.width / 2 - detailRect.left;
+            const offsetY = viewportHeight / 2 - detailRect.height / 2 - detailRect.top;
+
+            detail.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+          } else {
+            hotspot.classList.remove('active');
+            toggle.textContent = '+';
+            detail.style.opacity = '0';
+            detail.style.pointerEvents = 'none';
+            detail.style.transform = '';
+
+            // Hide the backdrop
+            backdrop.style.display = 'none';
+          }
+        } else {
+          // For wider viewports, simply toggle the current hotspot without affecting others
+          if (isCurrentlyActive) {
+            hotspot.classList.remove('active');
+            toggle.textContent = '+';
+            detail.style.opacity = '0';
+            detail.style.pointerEvents = 'none';
+            detail.style.transform = '';
+          } else {
+            hotspot.classList.add('active');
+            toggle.textContent = '-';
+            detail.style.opacity = '1';
+            detail.style.pointerEvents = 'auto';
+          }
+        }
+      });
+    });
+
+    // Close the backdrop when clicked (only for narrow viewports)
+    backdrop.addEventListener('click', () => {
+      if (window.innerWidth < 850) {
+        document.querySelectorAll('.hotspot').forEach((hotspot) => {
+          hotspot.classList.remove('active');
+          const toggle = hotspot.querySelector('.hotspot-toggle');
+          const detail = hotspot.querySelector('.hotspot-detail');
+          toggle.textContent = '+';
+          detail.style.opacity = '0';
+          detail.style.pointerEvents = 'none';
+          detail.style.transform = '';
+        });
+
+        // Hide the backdrop
+        backdrop.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+{% comment %} countdown {% endcomment %}
+<script>
+  function updateCountdown() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    const diff = midnight - now;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+{% schema %}
+{
+  "name": "Product Info Fold",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "id": "swatch_shape",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.label",
+          "type": "select",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.info",
+          "options": [
+            {
+              "value": "circle",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__1.label"
+            },
+            {
+              "value": "square",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__2.label"
+            },
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
+            }
+          ],
+          "default": "circle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Info Fold"
+    }
+  ]
+}
+{% endschema %}

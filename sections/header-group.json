@@ -17,17 +17,32 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "🔥 Cum-aa-सूत्रा Sale Live – Up to 60% OFF! 💥",
+            "link": ""
+          }
+        },
+        "announcement_f3zh8E": {
+          "type": "announcement",
+          "settings": {
+            "text": "Find your perfect massager.  Take our Quiz!",
+            "link": ""
+          }
+        },
+        "announcement_epMgaN": {
+          "type": "announcement",
+          "settings": {
+            "text": "Find your perfect massager.  Take our Quiz!",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_f3zh8E",
+        "announcement_epMgaN"
       ],
-      "disabled": true,
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
         "show_line_separator": true,
         "show_social": false,
         "auto_rotate": false,
@@ -39,9 +54,9 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "drawer",
+        "logo_position": "middle-center",
+        "menu": "header-main-menu",
+        "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
@@ -51,8 +66,8 @@
         "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 4,
+        "padding_bottom": 4
       }
     }
   },

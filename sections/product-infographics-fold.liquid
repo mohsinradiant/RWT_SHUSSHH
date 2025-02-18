@@ -1,0 +1,284 @@
+{% if product.metafields.content.combos_collection %}
+  <div class="infinite-carousel">
+    <div class="page-width">
+      <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+      <div class="carousel-container">
+        <div class="carousel-track">
+          {% assign collection = product.metafields.content.combos_collection.value %}
+          {% if collection and collection.products.size > 0 %}
+            {% for product in collection.products %}
+              {% comment %}
+                <div class="carousel-item">
+                  <a href="{{ product.url }}">
+                    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
+                  </a>
+                </div>
+              {% endcomment %}
+              {% render 'card-product',
+                card_product: product,
+                show_secondary_image: true,
+                lazy_load: true,
+                quick_add: 'standard',
+                section_id: section.id,
+                horizontal_quick_add: true,
+                show_rating: false,
+                media_aspect_ratio: 'square'
+              %}
+            {% endfor %}
+          {% else %}
+            <p>No products found in the specified collection.</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="carousel-dots">
+        {% if collection and collection.products.size > 0 %}
+          {% for product in collection.products %}
+            <button class="dot" data-index="{{ forloop.index0 }}"></button>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <button class="carousel-arrow left">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+      </button>
+      <button class="carousel-arrow right" style="transform: rotate(180deg);">
+        <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_323.png?v=1738057124">
+      </button>
+    </div>
+  </div>
+{% endif %}
+<style>
+  .infinite-carousel {
+    background-color: #faf3ff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 3rem;
+    line-height: 2rem;
+  }
+  .infinite-carousel .page-width {
+    position: relative;
+    overflow: hidden;
+  }
+  .infinite-carousel .section-heading {
+    margin-top: 0 !important;
+  }
+  #shopify-section-template--23829512061238__product_infographics_fold_7ecJwW {
+    background-color: #faf3ff;
+  }
+
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 0.5%;
+  }
+
+  .carousel-item,
+  .carousel-track .card-wrapper {
+    min-width: 33%;
+    max-width: 33%;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: #cdcdcd;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+    padding: 0;
+  }
+
+  .dot.active {
+    background-color: #d5b7e0;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: transparent;
+  }
+  .carousel-arrow img {
+    width: 100%;
+    height: 100%;
+  }
+  .carousel-arrow:hover {
+    scale: 1.2;
+  }
+
+  .carousel-arrow.left {
+    left: 30px;
+  }
+
+  .carousel-arrow.right {
+    right: 30px;
+  }
+  @media (max-width: 850px) {
+    .carousel-item,
+    .carousel-track .card-wrapper {
+      width: 230px;
+    }
+    .carousel-container,
+    .carousel-track .card-wrapper {
+      justify-content: start;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    const totalItems = items.length;
+    let currentIndex = 0;
+    let startX = 0,
+      isDragging = false,
+      moveX = 0;
+
+    // Generate dots dynamically
+    dotsContainer.innerHTML = items
+      .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
+      .join('');
+    const dots = Array.from(dotsContainer.children);
+
+    const updateCarousel = () => {
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const containerPadding = 10; // Adjust this based on actual padding
+      const offset = currentIndex * itemWidth + containerPadding;
+
+      track.style.transition = 'transform 0.3s ease-in-out';
+      track.style.transform = `translateX(-${offset}px)`;
+
+      // Update active dot
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    const moveToNext = () => {
+      if (currentIndex < totalItems - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateCarousel();
+    };
+
+    const moveToPrevious = () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalItems - 1;
+      }
+      updateCarousel();
+    };
+
+    // Click Event Listeners for Arrows
+    rightArrow.addEventListener('click', moveToNext);
+    leftArrow.addEventListener('click', moveToPrevious);
+
+    // Click Event for Dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Touch & Drag Support
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      track.style.transition = 'none'; // Disable smooth scrolling while dragging
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      moveX = e.touches[0].clientX - startX;
+    });
+
+    track.addEventListener('touchend', () => {
+      if (moveX < -50) {
+        moveToNext();
+      } else if (moveX > 50) {
+        moveToPrevious();
+      }
+      isDragging = false;
+    });
+
+    track.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+      track.style.transition = 'none';
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      moveX = e.clientX - startX;
+    });
+
+    track.addEventListener('mouseup', () => {
+      if (moveX < -50) {
+        moveToNext();
+      } else if (moveX > 50) {
+        moveToPrevious();
+      }
+      isDragging = false;
+    });
+
+    setInterval(moveToNext, 8000);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Combos Fold",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Discover What’s Making Everyone Go Wild!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Combos Fold"
+    }
+  ]
+}
+{% endschema %}

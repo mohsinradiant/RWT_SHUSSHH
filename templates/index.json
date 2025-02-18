@@ -9,494 +9,483 @@
  */
 {
   "sections": {
-    "slideshow_iE63EG": {
+    "home_circle_collections_gjnENC": {
+      "type": "home-circle-collections",
+      "settings": {}
+    },
+    "slideshow_VzBdWB": {
       "type": "slideshow",
       "blocks": {
-        "slide_BLKkdp": {
+        "slide_HJCMH7": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_42.png",
-            "image_mobile": "shopify://shop_images/2cc7099d8c8d3b36d96f7e7c5ee65156.png",
-            "heading": "Image slide",
+            "image": "shopify://shop_images/Wen_banners.png",
+            "mobile_image": "shopify://shop_images/phone_banners_479bf54f-55ab-4e0b-a811-f626202458b2.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
+            "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
-            "color_scheme": "",
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
             "text_alignment_mobile": "center"
           }
         },
-        "slide_ByegG4": {
+        "slide_cak4QR": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_42.png",
-            "image_mobile": "shopify://shop_images/2cc7099d8c8d3b36d96f7e7c5ee65156.png",
-            "heading": "Image slide",
+            "image": "shopify://shop_images/Wen_banners_4.png",
+            "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
+            "subheading": "",
+            "button_label": "",
             "link": "",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
+            "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
-            "color_scheme": "",
+            "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
         },
-        "slide_eATNGz": {
+        "slide_DUHbHa": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_42.png",
-            "image_mobile": "shopify://shop_images/2cc7099d8c8d3b36d96f7e7c5ee65156.png",
-            "heading": "Image slide",
+            "image": "shopify://shop_images/Web_new_banners_4_91689994-10c9-42ed-bace-5f30d677ca11.png",
+            "mobile_image": "shopify://shop_images/phonecropped_4_1512ebb8-6cc8-4450-afb8-da57213641f9.png",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
+            "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
-            "color_scheme": "",
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_F4dbxc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners.zip_-_3_4f019980-4e81-40c7-9136-72e27f496c5b.png",
+            "mobile_image": "shopify://shop_images/phone_banners.zip_-_1_8a3e76f1-5ea0-4458-875d-e8e90ec24c28.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_aKAQ9M": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners_3_7d19664b-a894-4d89-8fcf-a5e0ae2e6f10.png",
+            "mobile_image": "shopify://shop_images/23_f2d7889a-c8e2-4e49-93fb-bdaca9ebc0ea.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
             "text_alignment_mobile": "center"
           }
         }
       },
       "block_order": [
-        "slide_BLKkdp",
-        "slide_ByegG4",
-        "slide_eATNGz"
+        "slide_HJCMH7",
+        "slide_cak4QR",
+        "slide_DUHbHa",
+        "slide_F4dbxc",
+        "slide_aKAQ9M"
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "medium",
+        "slide_height": "small",
         "slider_visual": "dots",
-        "auto_rotate": true,
+        "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "home_shop_by_category_jmQhfR": {
-      "type": "home-shop-by-category",
+    "content_slider_strip_qpKFNJ": {
+      "type": "content-slider-strip",
+      "settings": {
+        "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
+      }
+    },
+    "home_vday_banner_gXk89j": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "#010002",
+        "gradient_color_2": "#5d00b9",
+        "gradient_angle": 90,
+        "glow_color": "#ffb800",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
+        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
+        "button_text": "EXPLORE",
+        "button_url": "shopify://pages/tips-landing-page"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Shop Our Best Sellers",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "best-sellers",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "1739215445ada50f90": {
+      "type": "apps",
       "blocks": {
-        "tab_qCGGww": {
-          "type": "tab",
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
+          "type": "shopify://apps/tolstoy-shoppable-video-ugc/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
           "settings": {
-            "tab_title": "Rings"
-          }
-        },
-        "tab_qVM7eD": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Earrings"
-          }
-        },
-        "tab_PfgpzQ": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Pendants"
-          }
-        },
-        "tab_qyCRW7": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Bracelets"
-          }
-        },
-        "tab_6iK7P8": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Necklaces"
-          }
-        },
-        "category_item_UnpUTB": {
-          "type": "category_item",
-          "settings": {
-            "collection": "rings",
-            "image": "shopify://shop_images/Engagement_Rings_Image.png",
-            "text": "View All Rings",
-            "associated_tab": "Rings"
-          }
-        },
-        "category_item_GUPLzn": {
-          "type": "category_item",
-          "settings": {
-            "collection": "rings",
-            "image": "shopify://shop_images/Engagement_Rings_Image.png",
-            "text": "Engagement Rings",
-            "associated_tab": "Rings"
-          }
-        },
-        "category_item_LC3t6F": {
-          "type": "category_item",
-          "settings": {
-            "collection": "rings",
-            "image": "shopify://shop_images/Engagement_Rings_Image.png",
-            "text": "Daily Wear Rings",
-            "associated_tab": "Rings"
-          }
-        },
-        "category_item_xqWnqU": {
-          "type": "category_item",
-          "settings": {
-            "collection": "rings",
-            "image": "shopify://shop_images/Engagement_Rings_Image.png",
-            "text": "Eternity Rings",
-            "associated_tab": "Rings"
+            "publishId": "4d4cie0j73he2"
           }
         }
       },
       "block_order": [
-        "tab_qCGGww",
-        "tab_qVM7eD",
-        "tab_PfgpzQ",
-        "tab_qyCRW7",
-        "tab_6iK7P8",
-        "category_item_UnpUTB",
-        "category_item_GUPLzn",
-        "category_item_LC3t6F",
-        "category_item_xqWnqU"
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
       ],
       "settings": {
-        "heading": "Shop by Category"
+        "include_margins": true
       }
     },
-    "home_shop_by_occasion_WePWCL": {
-      "type": "home-shop-by-occasion",
+    "home_deal_of_the_day_NJGxyT": {
+      "type": "home-deal-of-the-day",
+      "settings": {
+        "product_1": "rosy",
+        "product_2": "ecstasy-personal",
+        "product_3": "lush-women-massager"
+      }
+    },
+    "shoppable_videos_FFPLxM": {
+      "type": "shoppable-videos",
       "blocks": {
-        "tab_xLqmkC": {
-          "type": "tab",
+        "video_product_drr6xr": {
+          "type": "video_product",
           "settings": {
-            "text": "Proposal",
-            "image": "shopify://shop_images/image_46_2.png",
-            "collection": "rings"
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_265.png",
+            "product": "rosy"
           }
         },
-        "tab_KtkDJe": {
-          "type": "tab",
+        "video_product_9Bmmcf": {
+          "type": "video_product",
           "settings": {
-            "text": "Engagement",
-            "image": "shopify://shop_images/image_46_2.png",
-            "collection": "rings"
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_264.png",
+            "product": "ecstasy-personal"
           }
         },
-        "tab_wgzCbP": {
-          "type": "tab",
+        "video_product_EHRaap": {
+          "type": "video_product",
           "settings": {
-            "text": "Daily Wear",
-            "image": "shopify://shop_images/image_46_2.png",
-            "collection": "rings"
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_262.png",
+            "product": "lush-women-massager"
           }
         },
-        "tab_6eXazx": {
-          "type": "tab",
+        "video_product_4EaYia": {
+          "type": "video_product",
           "settings": {
-            "text": "Office Wear",
-            "image": "shopify://shop_images/image_46_2.png",
-            "collection": "rings"
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_265.png",
+            "product": "passion-massager-for-men"
           }
         }
       },
       "block_order": [
-        "tab_xLqmkC",
-        "tab_KtkDJe",
-        "tab_wgzCbP",
-        "tab_6eXazx"
+        "video_product_drr6xr",
+        "video_product_9Bmmcf",
+        "video_product_EHRaap",
+        "video_product_4EaYia"
       ],
+      "disabled": true,
       "settings": {
-        "heading": "Shop by Occasion"
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
-    "home_benefits_pbKiTY": {
-      "type": "home-benefits",
+    "home_discreet_packaging_bKNnKt": {
+      "type": "home-discreet-packaging",
+      "settings": {
+        "image": "shopify://shop_images/DISCREET_80d8f14c-5b2d-4dfc-95c6-5caf2fa8e62c.png",
+        "mobile_image": "shopify://shop_images/DISCREET_412_x_571_px.png",
+        "button_text": "CHECK PACKAGING"
+      }
+    },
+    "home_vday_banner_NBD7WK": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "",
+        "gradient_color_2": "",
+        "gradient_angle": 90,
+        "glow_color": "#ba1093",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Fap.jpg",
+        "mobile_image": "shopify://shop_images/Fap_phone.jpg",
+        "button_text": "FAP IT",
+        "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+      }
+    },
+    "featured_product_3C3jVK": {
+      "type": "featured-product",
       "blocks": {
-        "tab_7fV9BA": {
-          "type": "tab",
+        "text_xHeaWP": {
+          "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "Lifetime Buy-Back & Exchange",
-            "image": "shopify://shop_images/Vector_18.png"
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
           }
         },
-        "tab_iJWKPH": {
-          "type": "tab",
+        "title_xTxdnz": {
+          "type": "title",
           "settings": {
-            "text": "IGI/SGL Certified Diamonds",
-            "image": "shopify://shop_images/Certificate.png"
+            "heading_size": "h1"
           }
         },
-        "tab_TqxtAF": {
-          "type": "tab",
+        "price_tMJGme": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_9AMfUx": {
+          "type": "variant_picker",
+          "disabled": true,
           "settings": {
-            "text": "BIS Hallmarked Gold",
-            "image": "shopify://shop_images/Certificate_1.png"
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
-        "tab_MM97Qt": {
-          "type": "tab",
+        "quantity_selector_fpLmah": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_hLfBVM": {
+          "type": "buy_buttons",
           "settings": {
-            "text": "Try at Home",
-            "image": "shopify://shop_images/Vector_17.png"
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
           }
         },
-        "tab_wb9CEG": {
-          "type": "tab",
+        "share_HJGeXM": {
+          "type": "share",
+          "disabled": true,
           "settings": {
-            "text": "Insured & Free Shipping",
-            "image": "shopify://shop_images/Free_Shipping.png"
-          }
-        },
-        "tab_yQDX9k": {
-          "type": "tab",
-          "settings": {
-            "text": "Ethically Sourced Jewellery",
-            "image": "shopify://shop_images/Wedding_Rings.png"
+            "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "tab_7fV9BA",
-        "tab_iJWKPH",
-        "tab_TqxtAF",
-        "tab_MM97Qt",
-        "tab_wb9CEG",
-        "tab_yQDX9k"
+        "text_xHeaWP",
+        "title_xTxdnz",
+        "price_tMJGme",
+        "variant_picker_9AMfUx",
+        "quantity_selector_fpLmah",
+        "buy_buttons_hLfBVM",
+        "share_HJGeXM"
       ],
+      "disabled": true,
       "settings": {
-        "heading": "Zinara Benefits"
+        "product": "fap-the-ultimate-male-stroker",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "home_tryathome_UAw34q": {
-      "type": "home-tryathome",
+    "home_quiz_cta_yVMz3E": {
+      "type": "home-quiz-cta",
       "settings": {
-        "heading": "Want to see designs personally?",
-        "sub-heading": "Get designs to try at home or schedule a video call",
-        "button-1": "Try at Home",
-        "url-1": "shopify://collections/rings",
-        "button-2": "Video Call",
-        "url-2": "shopify://collections/rings",
-        "image": "shopify://shop_images/image_50.png"
+        "bg_image": "shopify://shop_images/Half_Sunburst_Orange_Background.png",
+        "image": "shopify://shop_images/file_28_1.png",
+        "button_text": "TAKE YOUR QUIZ",
+        "button_link": "shopify://pages/new-quiz"
       }
     },
-    "home_image_gallery_carousel_73c7Ep": {
-      "type": "home-image_gallery-carousel",
+    "home_combos_8LUwCe": {
+      "type": "home-combos",
+      "disabled": true,
+      "settings": {
+        "collection": "bachelorette-gifting",
+        "section_subheading": "Money Saver Combos",
+        "section_heading": "More Pleasure, More Savings",
+        "button_link": "shopify://collections/bachelorette-gifting"
+      }
+    },
+    "home_categories_section_M7r4cE": {
+      "type": "home-categories-section",
       "blocks": {
-        "image_picker_wrD7jz": {
-          "type": "image_picker",
+        "category_gbhLnT": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Daily_Wear_Image.png",
-            "alt_text": "Carousel Image"
+            "image": "shopify://shop_images/2_30be0b5e-b25c-4110-b52c-18b330c223aa.png",
+            "title": "For Her",
+            "subtitle": "Products designed for her ultimate satisfaction",
+            "collection": "shopify://collections/for-her"
           }
         },
-        "image_picker_gtLymc": {
-          "type": "image_picker",
+        "category_Yn7AM8": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Daily_Wear_Image.png",
-            "alt_text": "Carousel Image"
+            "image": "shopify://shop_images/1_bb0b715d-4946-4988-8d5d-40ef522a7eb9.png",
+            "title": "For Him",
+            "subtitle": "Products designed for his satisfaction and exploration",
+            "collection": "shopify://collections/for-him"
           }
         },
-        "image_picker_zN3d8M": {
-          "type": "image_picker",
+        "category_cPNefU": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Daily_Wear_Image.png",
-            "alt_text": "Carousel Image"
+            "image": "shopify://shop_images/3_6172b092-30ee-4f90-8539-c9769a4a39fd.png",
+            "title": "For Couples",
+            "subtitle": "Products made for mutual satisfaction",
+            "collection": "shopify://collections/for-couple"
           }
         },
-        "image_picker_8FC4jK": {
-          "type": "image_picker",
+        "category_Lnfkzt": {
+          "type": "category",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Daily_Wear_Image.png",
-            "alt_text": "Carousel Image"
-          }
-        },
-        "image_picker_rwCCJA": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Daily_Wear_Image.png",
-            "alt_text": "Carousel Image"
+            "image": "shopify://shop_images/0.png",
+            "title": "For Gifting",
+            "subtitle": "Give the gift of intimacy, and  connection",
+            "collection": "shopify://collections/for-couple"
           }
         }
       },
       "block_order": [
-        "image_picker_wrD7jz",
-        "image_picker_gtLymc",
-        "image_picker_zN3d8M",
-        "image_picker_8FC4jK",
-        "image_picker_rwCCJA"
+        "category_gbhLnT",
+        "category_Yn7AM8",
+        "category_cPNefU",
+        "category_Lnfkzt"
       ],
-      "settings": {}
-    },
-    "home_own_design_WDng9w": {
-      "type": "home-own_design",
       "settings": {
-        "heading": "Get your own design",
-        "sub-heading": "Have another design in mind? Something from a website or a magazine perhaps?",
-        "button-1": "Start Designing",
-        "url-1": "",
-        "image": "shopify://shop_images/image_50.png"
+        "image_1": "shopify://shop_images/file_5_7.png",
+        "image_2": "shopify://shop_images/file_12.png",
+        "heading": "What Are You Looking For?"
       }
     },
-    "home_testimonials_iX3QWY": {
+    "home_testimonials_YW7Q6D": {
       "type": "home-testimonials",
       "blocks": {
-        "image_picker_D9xDnB": {
-          "type": "image_picker",
+        "testimonial_rAjCaA": {
+          "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/DSC02204.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Kartik Rao",
-            "review": "“OMG, so cool website. I hope the designer and PM get paid well (in equity).”"
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_262.png"
           }
         },
-        "image_picker_hQmWqT": {
-          "type": "image_picker",
+        "testimonial_Eq9YkQ": {
+          "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/DSC02204.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Kartik Rao",
-            "review": "“OMG, so cool website. I hope the designer and PM get paid well (in equity).”"
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_264.png"
           }
         },
-        "image_picker_pey7c8": {
-          "type": "image_picker",
+        "testimonial_A8XmAH": {
+          "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/DSC02204.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Kartik Rao",
-            "review": "“OMG, so cool website. I hope the designer and PM get paid well (in equity).”"
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_265.png"
           }
         },
-        "image_picker_nKRGwE": {
-          "type": "image_picker",
+        "testimonial_3gNtj6": {
+          "type": "testimonial",
           "settings": {
-            "image": "shopify://shop_images/DSC02204.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Kartik Rao",
-            "review": "“OMG, so cool website. I hope the designer and PM get paid well (in equity).”"
-          }
-        },
-        "image_picker_VfkVjb": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/DSC02204.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Kartik Rao",
-            "review": "“OMG, so cool website. I hope the designer and PM get paid well (in equity).”"
-          }
-        },
-        "image_picker_kpwbdb": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/DSC02204.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Kartik Rao",
-            "review": "“OMG, so cool website. I hope the designer and PM get paid well (in equity).”"
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_262.png"
           }
         }
       },
       "block_order": [
-        "image_picker_D9xDnB",
-        "image_picker_hQmWqT",
-        "image_picker_pey7c8",
-        "image_picker_nKRGwE",
-        "image_picker_VfkVjb",
-        "image_picker_kpwbdb"
+        "testimonial_rAjCaA",
+        "testimonial_Eq9YkQ",
+        "testimonial_A8XmAH",
+        "testimonial_3gNtj6"
       ],
+      "disabled": true,
       "settings": {
-        "heading": "Testimonials"
+        "section_heading": "See What You Will Get"
       }
     },
-    "home_about_hDMerC": {
-      "type": "home-about",
+    "home_promises_itd8DF": {
+      "type": "home-promises",
       "settings": {
-        "heading": "About Us",
-        "image": "shopify://shop_images/image_51.png",
-        "image_2": "shopify://shop_images/image_52_1.png",
-        "image_3": "shopify://shop_images/image_53.png",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius."
-      }
-    },
-    "collapsible_content_AU8NGL": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_3dqmmT": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
-            "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_BajYeE": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
-            "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_TenACw": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
-            "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_hNK4me": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Lorem ipsum dolor sit amet, adipiscing elit?",
-            "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus justo sed urna finibus fermentum. Fusce vestibulum sollicitudin felis, at ultricies leo semper at. Nunc volutpat auctor varius. Aenean consectetur ex id nulla euismod vulputate. Nam eu posuere mauris, at gravida neque. Phasellus vehicula ex sit amet ante efficitur, vel semper velit rhoncus. Phasellus quis felis odio.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_3dqmmT",
-        "collapsible_row_BajYeE",
-        "collapsible_row_TenACw",
-        "collapsible_row_hNK4me"
-      ],
-      "settings": {
-        "caption": "",
-        "heading": "FAQs",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 52,
-        "padding_bottom": 0
+        "section_heading": "Our Promises"
       }
     }
   },
   "order": [
-    "slideshow_iE63EG",
-    "home_shop_by_category_jmQhfR",
-    "home_shop_by_occasion_WePWCL",
-    "home_benefits_pbKiTY",
-    "home_tryathome_UAw34q",
-    "home_image_gallery_carousel_73c7Ep",
-    "home_own_design_WDng9w",
-    "home_testimonials_iX3QWY",
-    "home_about_hDMerC",
-    "collapsible_content_AU8NGL"
+    "home_circle_collections_gjnENC",
+    "slideshow_VzBdWB",
+    "content_slider_strip_qpKFNJ",
+    "home_vday_banner_gXk89j",
+    "featured_collection",
+    "1739215445ada50f90",
+    "home_deal_of_the_day_NJGxyT",
+    "shoppable_videos_FFPLxM",
+    "home_discreet_packaging_bKNnKt",
+    "home_vday_banner_NBD7WK",
+    "featured_product_3C3jVK",
+    "home_quiz_cta_yVMz3E",
+    "home_combos_8LUwCe",
+    "home_categories_section_M7r4cE",
+    "home_testimonials_YW7Q6D",
+    "home_promises_itd8DF"
   ]
 }

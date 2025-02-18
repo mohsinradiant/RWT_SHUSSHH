@@ -9,11 +9,11 @@
     data-zoom-on-hover
   {% endif %}
 >
+  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
-  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
@@ -84,6 +84,7 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
@@ -105,28 +106,14 @@
                   </a>
                 </div>
               {%- when 'price' -%}
-                <div
-                  class="product__info-container-price-container"
-                  id="price-{{ section.id }}"
-                  role="status"
-                  {{ block.shopify_attributes }}
-                >
+                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
                     product: product,
                     use_variant: true,
-                    show_badges: false,
+                    show_badges: true,
                     price_class: 'price--large'
                   -%}
-                  <div class="price-breakdown-container" onclick="togglePopup()">
-                    <span>Price Breakdown</span>
-                    <img
-                      src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Vector_20.png?v=1739480382"
-                      alt="Dropdown Icon"
-                      class="price-breakdown-icon"
-                    >
-                  </div>
                 </div>
-
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -206,205 +193,9 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div class="product__description-container">
-                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                      <span class="full-text">{{ product.description }}</span>
-                      <span class="truncated-text"></span>
-                    </div>
-                    <button class="toggle-btn-desc">Read more</button>
+                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                    {{ product.description }}
                   </div>
-
-                  <style>
-                    .truncated-text {
-                      display: none;
-                    }
-                    .toggle-btn-desc {
-                      padding: 0;
-                      background: none;
-                      border: none;
-                      color: #612342;
-                      cursor: pointer;
-                      font-size: 14px;
-                      display: none;
-                    }
-                    .sticky-atc-container {
-                      display: none;
-                    }
-                    .sticky-atc-container div {
-                      width: 100%;
-                    }
-                    @media (max-width: 756px) {
-                      .product__info-container {
-                        display: flex;
-                        flex-direction: column;
-                      }
-                      .product__info-container .product__title {
-                        order: 1;
-                      }
-                      .product__info-container .product__info-container-price-container {
-                        order: 2;
-                      }
-                      .product__info-container .product-features-badges-container {
-                        order: 3;
-                      }
-                      .product__info-container .product__description-container {
-                        order: 4;
-                        margin-top: 1.2rem;
-                      }
-                      .product__info-container variant-selects {
-                        order: 5;
-                        overflow-x: auto;
-                        flex-wrap: nowrap;
-                        width: 100%;
-                        gap: 13px;
-                      }
-                      .product__info-container .product-form__input--dropdown {
-                        flex: unset;
-                      }
-                      .product__info-container .sizing-guide {
-                        order: 6;
-                        line-height: 1.7rem;
-                      }
-                      .product__info-container .pincode-availability-checker-container {
-                        order: 7;
-                        margin: 0;
-                      }
-                      .product__info-container .pincode-checker-result {
-                        order: 8;
-                      }
-                      .product__info-container .expected-delivery-date {
-                        order: 9;
-                        margin-bottom: 0;
-                      }
-                      .shopify-section .product-page-details-container .section-heading {
-                        margin-top: 30px !important;
-                        margin-bottom: 20px !important;
-                      }
-                      .sticky-atc-container div product-form,
-                      .sticky-atc-container {
-                        display: flex !important;
-                      }
-                      .sticky-atc-container {
-                        position: fixed;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                        z-index: 5;
-                        width: 100%;
-                        background-color: #f2eeeb;
-                        padding-top: 15px;
-                        padding-bottom: 15px;
-                      }
-                      .sticky-atc-container form {
-                        width: 95%;
-                        margin: 0 auto;
-                      }
-                      .product__info-container product-form {
-                        display: none;
-                      }
-
-                      .section_heading_with_button .section-heading {
-                        font-size: 2rem !important;
-                        font-weight: 600 !important;
-                        margin-bottom: 0 !important;
-                        margin: 0;
-                        color: black;
-                        letter-spacing: 0;
-                        font-family: 'Quicksand';
-                      }
-                      .home-benefits-container-parent {
-                        background-color: #f2eeeb;
-                        padding-top: 10px;
-                        padding-bottom: 21px;
-                        margin-top: 30px !important;
-                      }
-                      .zinara-benefits-content img {
-                        opacity: 0.5;
-                        width: 21px !important;
-                      }
-                      .home-benefits-container {
-                        justify-content: start !important;
-                      }
-                      .zinara-benefits-content {
-                        flex-direction: row !important;
-                        gap: 13px;
-                        min-width: fit-content;
-                        background: #eae3e1;
-                        padding: 10px 15px;
-                      }
-                      .pdp-try-at-home-section-container {
-                        margin-top: 30px !important;
-                        margin-bottom: 30px !important;
-                      }
-                      .home-testimonials-container {
-                        margin-bottom: 3px !important;
-                      }
-                      .gradient .related-products {
-                        margin-bottom: 30px !important;
-                      }
-                      .shopify-section .pdp-try-at-home-section-container {
-                        padding: 15px 0 30px !important;
-                        margin: 0 !important;
-                      }
-                      .zinara-benefits-content p {
-                        text-wrap: nowrap;
-                        font-size: 1.5rem !important;
-                        line-height: 2rem !important;
-                        margin: 0 !important;
-                      }
-                      .product__info-container .product-form__input .select {
-                        width: fit-content;
-                      }
-                      .product__info-container .product__description {
-                        width: fit-content;
-                      }
-                      .toggle-btn-desc {
-                        display: flex;
-                      }
-                      .full-text {
-                        display: none;
-                      }
-                      .truncated-text {
-                        display: inline;
-                      }
-                      .product__description-container {
-                        display: flex;
-                        flex-wrap: wrap;
-                        align-items: center;
-                      }
-                    }
-                  </style>
-
-                  <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                      const description = document.querySelector('.full-text');
-                      const truncated = document.querySelector('.truncated-text');
-                      const button = document.querySelector('.toggle-btn-desc');
-
-                      if (window.innerWidth < 756 && description) {
-                        let words = description.innerText.split(' ');
-                        if (words.length > 5) {
-                          truncated.innerText = words.slice(0, 5).join(' ') + '...';
-                          description.style.display = 'none'; // Ensure full text is hidden initially
-                        } else {
-                          truncated.innerText = description.innerText;
-                          button.style.display = 'none'; // Hide button if text is already short
-                        }
-                      }
-
-                      button.addEventListener('click', function () {
-                        if (description.style.display === 'none' || description.style.display === '') {
-                          description.style.display = 'inline';
-                          truncated.style.display = 'none';
-                          button.innerText = 'Read Less';
-                        } else {
-                          description.style.display = 'none';
-                          truncated.style.display = 'inline';
-                          button.innerText = 'Read more';
-                        }
-                      });
-                    });
-                  </script>
                 {%- endif -%}
               {%- when 'sku' -%}
                 <p
@@ -869,81 +660,6 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
-              {%- when 'product-features-badges' -%}
-                <div class="product-features-badges-container">
-                  {% for badge in product.metafields.content['product-features-badges'].value %}
-                    <p class="product-features-badge-text">{{ badge }}</p>
-                  {% endfor %}
-                </div>
-              {%- when 'pincode-availability' -%}
-                <div class="pincode-availability-checker-container">
-                  <div class="pincode-availability-left">
-                    <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Location_1.png?v=1738797670">
-                    <input
-                      id="zipcode"
-                      type="number"
-                      class="pincode-checker-input"
-                      placeholder="Enter Pincode"
-                      maxlength="6"
-                    >
-                  </div>
-                  <button
-                    id="submit-btn"
-                    type="submit"
-                    class="pincode-checker-button"
-                  >
-                    Check Availability
-                  </button>
-                </div>
-                <div id="res" class="pincode-checker-result"></div>
-                <p class="expected-delivery-date">Get it delivered by: <span id="delivery-date"></span></p>
-
-                <script>
-                  document.addEventListener('DOMContentLoaded', () => {
-                    const btn = document.getElementById('submit-btn');
-                    const zipcodeInput = document.getElementById('zipcode');
-                    const res = document.getElementById('res');
-                    const deliveryDateSpan = document.getElementById('delivery-date');
-
-                    // Calculate the date 15 days from today
-                    function getDateAfter15Days() {
-                      const today = new Date();
-                      const deliveryDate = new Date(today);
-                      deliveryDate.setDate(today.getDate() + 15); // Add 15 days
-
-                      // Format the date as "DD Month, YYYY"
-                      const options = { day: 'numeric', month: 'long', year: 'numeric' };
-                      return deliveryDate.toLocaleDateString('en-US', options);
-                    }
-
-                    // Set the delivery date in the span
-                    deliveryDateSpan.textContent = getDateAfter15Days();
-
-                    // Restrict input to numbers only
-                    zipcodeInput.addEventListener('input', (event) => {
-                      event.target.value = event.target.value.replace(/[^0-9]/g, '');
-                    });
-
-                    // Validate and check availability
-                    btn.addEventListener('click', () => {
-                      const zipcode = zipcodeInput.value.trim();
-
-                      const pincodeRegex = /^[1-9][0-9]{5}$/;
-
-                      if (pincodeRegex.test(zipcode)) {
-                        console.log('true');
-                        res.textContent = 'Available';
-                        res.className = 'pincode-checker-result available';
-                      } else {
-                        console.log('false');
-                        res.textContent = 'Invalid Pincode';
-                        res.className = 'pincode-checker-result invalid';
-                      }
-
-                      // zipcodeInput.value = '';
-                    });
-                  });
-                </script>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -1007,31 +723,7 @@
     </script>
   </div>
 </product-info>
-<div class="price-breakdown-overlay" id="overlay" onclick="togglePopup()"></div>
-<div class="price-breakdown-popup" id="popup">
-  <ul class="price-breakdown-list">
-    <li><span>Gold Price</span> <span>₹5526.6</span></li>
-    <li><span>Diamond Price</span> <span>₹2500</span></li>
-    <li><span>Making Cost</span> <span>₹5490</span></li>
-    <li><span>Tax</span> <span>₹405.5</span></li>
-    <li class="price-breakdown-total"><span>Total Cost</span> <span>₹13,516.60</span></li>
-  </ul>
-  <div class="price-breakdown-close-btn" onclick="togglePopup()">Close</div>
-</div>
-<script>
-  function togglePopup() {
-    document.querySelector('.price-breakdown-popup').classList.toggle('active');
-    document.getElementById('overlay').classList.toggle('active');
-  }
-</script>
-<div class="sticky-atc-container">
-  {%- render 'buy-buttons',
-    product: product,
-    product_form_id: product_form_id,
-    section_id: section.id,
-    show_pickup_availability: true
-  -%}
-</div>
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
@@ -2382,14 +2074,6 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
-    },
-    {
-      "type": "product-features-badges",
-      "name": "Product Features Badges"
-    },
-    {
-      "type": "pincode-availability",
-      "name": "Pincode Availability"
     }
   ],
   "settings": [

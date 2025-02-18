@@ -1,0 +1,40 @@
+{% if product.metafields.content.banner_2 %}
+  <div class="product-banners-fold-container page-width">
+    <img src="{{ product.metafields.content.banner_2 | image_url }}">
+  </div>
+{% endif %}
+<style>
+  .product-banners-fold-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 1%;
+  }
+  .product-banners-fold-container img {
+    border-radius: 10px;
+    width: 49%;
+  }
+  @media (max-width: 850px) {
+    .product-banners-fold-container {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 40px;
+    }
+    .product-banners-fold-container img {
+      width: 100%;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Product Banners Fold",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Product Banners Fold"
+    }
+  ]
+}
+{% endschema %}

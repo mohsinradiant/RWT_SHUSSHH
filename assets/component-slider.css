@@ -1,8 +1,6 @@
 slider-component {
-  --desktop-margin-left-first-item: max(
-    5rem,
-    calc((100vw - var(--page-width) + 10rem - var(--grid-desktop-horizontal-spacing)) / 2)
-  );
+  --desktop-margin-left-first-item: max(5rem,
+      calc((100vw - var(--page-width) + 10rem - var(--grid-desktop-horizontal-spacing)) / 2));
   position: relative;
   display: block;
 }
@@ -259,14 +257,14 @@ slider-component.slider-component-full-width {
 
 @media screen and (max-width: 749px) {
   .slider-counter__link {
-    padding: 0.4rem;
+    padding: 0.7rem;
   }
 }
 
 .slider-counter__link--dots .dot {
-  width: .7rem;
-  height: .7rem;
-  border-radius: 100px;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
   border: 0.1rem solid rgba(var(--color-foreground), 0.5);
   padding: 0;
   display: block;
@@ -318,19 +316,19 @@ slider-component.slider-component-full-width {
 }
 
 @media screen and (min-width: 990px) {
-  .slider:not(.slider--everywhere):not(.slider--desktop) + .slider-buttons {
+  .slider:not(.slider--everywhere):not(.slider--desktop)+.slider-buttons {
     display: none;
   }
 }
 
 @media screen and (max-width: 989px) {
-  .slider--desktop:not(.slider--tablet) + .slider-buttons {
+  .slider--desktop:not(.slider--tablet)+.slider-buttons {
     display: none;
   }
 }
 
 @media screen and (min-width: 750px) {
-  .slider--mobile + .slider-buttons {
+  .slider--mobile+.slider-buttons {
     display: none;
   }
 }
@@ -341,7 +339,7 @@ slider-component.slider-component-full-width {
   border: none;
   cursor: pointer;
   width: 44px;
-  height: 44px;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;

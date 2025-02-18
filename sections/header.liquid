@@ -74,19 +74,7 @@
 
 {%- style -%}
   .header {
-<<<<<<< HEAD
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1rem;
-=======
-<<<<<<< HEAD
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1.5rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1.5rem;
-=======
-<<<<<<< HEAD
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1.5rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1.5rem;
-=======
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1rem;
->>>>>>> 75a893d3ff30d48715c11cf8172818df8a17eddd
->>>>>>> 7fdd22279b4d9f224716086e671edf3894ed2363
->>>>>>> de1e306ddf922825af3c5bcea58208a3a37cbd93
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 4rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 4rem;
   }
 
   .section-header {
@@ -132,8 +120,7 @@
     endif
   -%}
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-   <div class="header-drawer-and-logo">
-  {%- liquid
+    {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
       endif
@@ -172,7 +159,7 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
-    </div>
+
     {%- liquid
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
@@ -212,11 +199,7 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
-    <div class="c-menu2">
-      {% for link in linklists.header_menu_2.links %}
-        <a class="header__menu-item list-menu__item link link--text focus-inset" href="{{ link.url }}">{{ link.title }}</a>
-       {% endfor %}
-    </div>
+
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -242,6 +225,30 @@
         {%- endif -%}
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
+
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+          {% if cart == empty %}
+            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
+          {% else %}
+            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
+          {% endif %}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
 
       {%- if shop.customer_accounts_enabled -%}
         <a
@@ -271,56 +278,9 @@
           </span>
         </a>
       {%- endif -%}
-
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
-          {% else %}
-            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
-          {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_275.png?v=1737751084">
     </div>
   </header>
-  <div class="c-menu3">
-    {% for link in linklists.header_menu_3.links %}
-      {% if link.links.size > 0 %}
-        <div class="dropdown">
-          <a class="header__menu-item list-menu__item link link--text focus-inset dropdown-toggle" href="{{ link.url }}">
-            {{ link.title }}
-            {{- 'icon-caret.svg' | inline_asset_content -}}
-            </a>
-          <div class="dropdown-menu">
-            {% for sublink in link.links %}
-              <a class="dropdown-item" href="{{ sublink.url }}">{{ sublink.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-      {% else %}
-        <a class="header__menu-item list-menu__item link link--text focus-inset" href="{{ link.url }}">{{ link.title }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
-  {% if template == 'index' %}
-  <div class="mobile-search">
-    {% render 'header-search', input_id: 'Search-In-Modal' %}
-  </div>
-  {% endif %}
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
@@ -462,31 +422,6 @@
   }
 </script>
 
-
-{% comment %}Show Submenu on hover in header menu 3{% endcomment %}
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const dropdowns = document.querySelectorAll(".c-menu3 .dropdown");
-
-  dropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".dropdown-toggle");
-
-    // Toggle submenu on click
-    toggle.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent link navigation
-      dropdown.classList.toggle("active");
-    });
-
-    // Close submenu if clicked outside
-    document.addEventListener("click", function (e) {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("active");
-      }
-    });
-  });
-});
-
-</script>
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">
