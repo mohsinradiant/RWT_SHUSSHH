@@ -482,7 +482,7 @@
     // Function to filter visible items only
     const getVisibleItems = () => items.filter((item) => getComputedStyle(item).display !== 'none');
 
-    // Function to update the dots based on visible images
+    // Function to update the dots based on visible items
     const createDotsForVisibleItems = () => {
       // Clear existing dots
       dotsContainer.innerHTML = '';
@@ -573,19 +573,14 @@
       startX = null;
     });
 
-    // MutationObserver to track changes to the display style of images
-    const observer = new MutationObserver(() => {
-      createDotsForVisibleItems(); // Recreate dots whenever the visibility of images changes
-      updateCarousel('next'); // Optionally, update carousel based on the current state
-    });
-
-    // Observe changes to the images' display property
-    items.forEach((item) => {
-      observer.observe(item, {
-        attributes: true,
-        attributeFilter: ['style'],
+    // Add event listener for .variant-div click
+    const variantDiv = document.querySelector('.variant-div');
+    if (variantDiv) {
+      variantDiv.addEventListener('click', () => {
+        createDotsForVisibleItems(); // Update dots when .variant-div is clicked
+        updateCarousel('next'); // Optionally, update carousel position if needed
       });
-    });
+    }
 
     updateCarousel();
   });
