@@ -6,14 +6,9 @@
         <div class="combos-carousel-track">
           {% assign collection = product.metafields.content.combos_collection.value %}
           {% if collection and collection.products.size > 0 %}
-            {% for product in collection.products %}
-              {% comment %}
-                <div class="carousel-item">
-                  <a href="{{ product.url }}">
-                    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt }}">
-                  </a>
-                </div>
-              {% endcomment %}
+            {% assign displayed_products = collection.products | slice: 0, 5 %}
+            <!-- Adjust the number of products you want to display -->
+            {% for product in displayed_products %}
               {% render 'card-product',
                 card_product: product,
                 show_secondary_image: true,
@@ -32,7 +27,9 @@
       </div>
       <div class="carousel-dots">
         {% if collection and collection.products.size > 0 %}
-          {% for product in collection.products %}
+          {% assign displayed_products = collection.products | slice: 0, 5 %}
+          <!-- Adjust the number of products you want to display -->
+          {% for product in displayed_products %}
             <button class="dot" data-index="{{ forloop.index0 }}"></button>
           {% endfor %}
         {% endif %}
@@ -46,6 +43,7 @@
     </div>
   </div>
 {% endif %}
+
 <style>
   .infinite-carousel {
     background-color: #faf3ff;
