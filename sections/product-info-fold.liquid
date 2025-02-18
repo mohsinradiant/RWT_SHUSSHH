@@ -255,9 +255,14 @@
                 if (radioInput) {
                   console.log('Simulating click on radio input');
 
-                  // Check the radio input and trigger a change event
-                  radioInput.checked = true;
-                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+                  // If already selected, trigger change event again
+                  if (radioInput.checked) {
+                    radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+                  } else {
+                    // Otherwise, check the radio input
+                    radioInput.checked = true;
+                    radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+                  }
 
                   // Add selected class
                   div.classList.add('selected');
