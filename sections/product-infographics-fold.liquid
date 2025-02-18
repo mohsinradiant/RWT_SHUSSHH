@@ -177,11 +177,10 @@
 
     const updateCarousel = () => {
       const itemWidth = combosItems[0].getBoundingClientRect().width;
-      const containerPadding = 10; // Adjust this based on actual padding
-      const offset = currentIndex * itemWidth + containerPadding;
+      const offset = currentIndex * itemWidth; // Offset based on current index
 
       combosTrack.style.transition = 'transform 0.3s ease-in-out';
-      combosTrack.style.transform = `translateX(-${offset}px)`;
+      combosTrack.style.transform = `translateX(-${offset}px)`; // Move the track
 
       // Update active dot
       dots.forEach((dot, index) => {
@@ -193,7 +192,7 @@
       if (currentIndex < totalItems - 1) {
         currentIndex++;
       } else {
-        currentIndex = 0;
+        currentIndex = 0; // Loop back to the first item
       }
       updateCarousel();
     };
@@ -202,7 +201,7 @@
       if (currentIndex > 0) {
         currentIndex--;
       } else {
-        currentIndex = totalItems - 1;
+        currentIndex = totalItems - 1; // Loop back to the last item
       }
       updateCarousel();
     };
@@ -243,7 +242,7 @@
     combosTrack.addEventListener('mousedown', (e) => {
       startX = e.clientX;
       isDragging = true;
-      combosTrack.style.transition = 'none';
+      combosTrack.style.transition = 'none'; // Disable smooth scrolling while dragging
     });
 
     combosTrack.addEventListener('mousemove', (e) => {
@@ -260,7 +259,7 @@
       isDragging = false;
     });
 
-    setInterval(moveToNext, 8000);
+    setInterval(moveToNext, 8000); // Automatic slide every 8 seconds
   });
 </script>
 
