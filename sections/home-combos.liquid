@@ -6,7 +6,7 @@
       class="home-combos-slider-button--prev"
       src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
     >
-    <div class="combos-carousel-track">
+    <div class="carousel-track">
       {% for product in section.settings.collection.products %}
         {% render 'card-product',
           card_product: product,
@@ -56,7 +56,7 @@
     position: relative;
   }
 
-  .combos-carousel-track {
+  .carousel-track {
     display: flex;
     overflow: hidden;
     scroll-behavior: smooth;
@@ -64,43 +64,43 @@
     gap: 10px;
     overflow: auto;
   }
-  .combos-carousel-track .card-wrapper .quick-add {
+  .carousel-track .card-wrapper .quick-add {
     visibility: hidden;
     opacity: 0;
     scale: 0;
     height: 0;
     transition: all 0.3s ease-in-out;
   }
-  .combos-carousel-track .card-wrapper:hover .quick-add {
+  .carousel-track .card-wrapper:hover .quick-add {
     visibility: visible;
     height: auto;
     scale: 1;
     opacity: 1;
   }
-  .combos-carousel-track .card-wrapper {
+  .carousel-track .card-wrapper {
     transition: all 0.3s ease-in-out;
   }
-  .combos-carousel-track .card-wrapper:hover {
+  .carousel-track .card-wrapper:hover {
     scale: 0.95;
   }
-  .combos-carousel-track::-webkit-scrollbar {
+  .carousel-track::-webkit-scrollbar {
     display: none;
   }
   .home-all-combos-cta-button {
     color: #382d43;
     background-color: #ff9d00;
   }
-  .combos-carousel-track .card-wrapper {
+  .carousel-track .card-wrapper {
     box-shadow: none !important;
     transition: all ease-in 0.2s;
   }
-  .combos-carousel-track .card-wrapper:hover {
+  .carousel-track .card-wrapper:hover {
     box-shadow: 0px 3px 24px -4px rgba(0, 0, 0, 0.15) !important;
   }
-  .combos-carousel-track .card__badge {
+  .carousel-track .card__badge {
     display: none;
   }
-  .combos-carousel-track {
+  .carousel-track {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -143,54 +143,54 @@
     scale: 1.1;
     opacity: 0.8;
   }
-  .combos-carousel-track .card-wrapper {
+  .carousel-track .card-wrapper {
     min-width: 320px;
   }
 
-  .combos-carousel-track
+  .carousel-track
     .card-information
     > *:not(.visually-hidden:first-child)
     + *:not(.rating):not(.card__information-volume-pricing-note) {
     margin-top: 0 !important;
   }
-  .combos-carousel-track .card__inner {
+  .carousel-track .card__inner {
     border-radius: 20px;
     overflow: hidden;
   }
-  .combos-carousel-track .price--on-sale .price-item--regular {
+  .carousel-track .price--on-sale .price-item--regular {
     font-weight: 300;
     font-size: 1.3rem;
   }
-  .combos-carousel-track a,
-  .combos-carousel-track span {
+  .carousel-track a,
+  .carousel-track span {
     text-align: center;
   }
-  .combos-carousel-track a {
+  .carousel-track a {
     font-weight: 400;
     font-family: 'Kanit';
     font-size: 2.3rem;
     margin-top: 5px;
   }
-  .combos-carousel-track .price-item,
-  .combos-carousel-track .price-item span {
+  .carousel-track .price-item,
+  .carousel-track .price-item span {
     font-size: 1.5rem;
   }
-  .combos-carousel-track .full-unstyled-link {
+  .carousel-track .full-unstyled-link {
     font-size: 1.95rem;
     text-align: center;
   }
-  .combos-carousel-track .price__container {
+  .carousel-track .price__container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
   }
-  .combos-carousel-track .quick-add form {
+  .carousel-track .quick-add form {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .combos-carousel-track .price-dropped-product-card {
+  .carousel-track .price-dropped-product-card {
     text-align: center;
     display: flex;
     justify-content: center;
@@ -207,20 +207,20 @@
     }
   }
   @media (max-width: 500px) {
-    .combos-carousel-track .card-wrapper .quick-add {
+    .carousel-track .card-wrapper .quick-add {
       visibility: visible;
       height: auto;
       scale: 1;
       opacity: 1;
     }
-    .combos-carousel-track .card-wrapper {
+    .carousel-track .card-wrapper {
       min-width: 195px;
     }
-    .combos-carousel-track a {
+    .carousel-track a {
       font-size: 2rem;
       text-align: left;
     }
-    .combos-carousel-track span {
+    .carousel-track span {
       font-size: 1.6rem;
     }
     .home-combos-slider-button--next {
@@ -238,7 +238,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.combos-carousel-track');
+    const track = document.querySelector('.carousel-track');
     const prevButton = document.querySelector('.home-combos-slider-button--prev');
     const nextButton = document.querySelector('.home-combos-slider-button--next');
 
