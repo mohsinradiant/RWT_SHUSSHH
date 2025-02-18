@@ -157,31 +157,31 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.combos-carousel-track');
-    const items = Array.from(track.children);
-    const leftArrow = document.querySelector('.carousel-arrow.left');
-    const rightArrow = document.querySelector('.carousel-arrow.right');
-    const dotsContainer = document.querySelector('.carousel-dots');
+    const combosTrack = document.querySelector('.combos-carousel-track');
+    const combosItems = Array.from(combosTrack.children);
+    const combosLeftArrow = document.querySelector('.carousel-arrow.left');
+    const combosRightArrow = document.querySelector('.carousel-arrow.right');
+    const combosDotsContainer = document.querySelector('.carousel-dots');
 
-    const totalItems = items.length;
+    const totalItems = combosItems.length;
     let currentIndex = 0;
     let startX = 0,
       isDragging = false,
       moveX = 0;
 
     // Generate dots dynamically
-    dotsContainer.innerHTML = items
+    combosDotsContainer.innerHTML = combosItems
       .map((_, i) => `<button class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`)
       .join('');
-    const dots = Array.from(dotsContainer.children);
+    const dots = Array.from(combosDotsContainer.children);
 
     const updateCarousel = () => {
-      const itemWidth = items[0].getBoundingClientRect().width;
+      const itemWidth = combosItems[0].getBoundingClientRect().width;
       const containerPadding = 10; // Adjust this based on actual padding
       const offset = currentIndex * itemWidth + containerPadding;
 
-      track.style.transition = 'transform 0.3s ease-in-out';
-      track.style.transform = `translateX(-${offset}px)`;
+      combosTrack.style.transition = 'transform 0.3s ease-in-out';
+      combosTrack.style.transform = `translateX(-${offset}px)`;
 
       // Update active dot
       dots.forEach((dot, index) => {
@@ -208,8 +208,8 @@
     };
 
     // Click Event Listeners for Arrows
-    rightArrow.addEventListener('click', moveToNext);
-    leftArrow.addEventListener('click', moveToPrevious);
+    combosRightArrow.addEventListener('click', moveToNext);
+    combosLeftArrow.addEventListener('click', moveToPrevious);
 
     // Click Event for Dots
     dots.forEach((dot, index) => {
@@ -220,18 +220,18 @@
     });
 
     // Touch & Drag Support
-    track.addEventListener('touchstart', (e) => {
+    combosTrack.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       isDragging = true;
-      track.style.transition = 'none'; // Disable smooth scrolling while dragging
+      combosTrack.style.transition = 'none'; // Disable smooth scrolling while dragging
     });
 
-    track.addEventListener('touchmove', (e) => {
+    combosTrack.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       moveX = e.touches[0].clientX - startX;
     });
 
-    track.addEventListener('touchend', () => {
+    combosTrack.addEventListener('touchend', () => {
       if (moveX < -50) {
         moveToNext();
       } else if (moveX > 50) {
@@ -240,18 +240,18 @@
       isDragging = false;
     });
 
-    track.addEventListener('mousedown', (e) => {
+    combosTrack.addEventListener('mousedown', (e) => {
       startX = e.clientX;
       isDragging = true;
-      track.style.transition = 'none';
+      combosTrack.style.transition = 'none';
     });
 
-    track.addEventListener('mousemove', (e) => {
+    combosTrack.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       moveX = e.clientX - startX;
     });
 
-    track.addEventListener('mouseup', () => {
+    combosTrack.addEventListener('mouseup', () => {
       if (moveX < -50) {
         moveToNext();
       } else if (moveX > 50) {
