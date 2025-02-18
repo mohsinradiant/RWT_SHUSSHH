@@ -154,7 +154,65 @@
     }
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.combos-carousel-track');
+    const items = Array.from(track.children);
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const dots = Array.from(dotsContainer.children);
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
 
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    // GSAP animation function to move to a specific index
+    const moveToIndex = (index) => {
+      currentIndex = index;
+      gsap.to(track, {
+        x: -items[0].getBoundingClientRect().width * currentIndex,
+        duration: 0.5,
+        ease: 'power2.out',
+      });
+
+      // Update active dot
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    };
+
+    // Move to next item (looping)
+    const moveToNext = () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      moveToIndex(currentIndex);
+    };
+
+    // Move to previous item (looping)
+    const moveToPrevious = () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      moveToIndex(currentIndex);
+    };
+
+    // Handle left arrow click
+    leftArrow.addEventListener('click', moveToPrevious);
+
+    // Handle right arrow click
+    rightArrow.addEventListener('click', moveToNext);
+
+    // Handle dot click
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        moveToIndex(index);
+      });
+    });
+
+    // Auto-slide every 5 seconds
+    setInterval(moveToNext, 5000);
+
+    // Initialize the carousel
+    moveToIndex(currentIndex);
+  });
+</script>
 {% schema %}
 {
   "name": "Product Combos Fold",
