@@ -3,7 +3,7 @@
     <div class="page-width">
       <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
       <div class="carousel-container">
-        <div class="carousel-track">
+        <div class="combos-carousel-track">
           {% assign collection = product.metafields.content.combos_collection.value %}
           {% if collection and collection.products.size > 0 %}
             {% for product in collection.products %}
@@ -73,14 +73,14 @@
     overflow: hidden;
   }
 
-  .carousel-track {
+  .combos-carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
     gap: 0.5%;
   }
 
   .carousel-item,
-  .carousel-track .card-wrapper {
+  .combos-carousel-track .card-wrapper {
     min-width: 33%;
     max-width: 33%;
   }
@@ -145,11 +145,11 @@
   }
   @media (max-width: 850px) {
     .carousel-item,
-    .carousel-track .card-wrapper {
+    .combos-carousel-track .card-wrapper {
       width: 230px;
     }
     .carousel-container,
-    .carousel-track .card-wrapper {
+    .combos-carousel-track .card-wrapper {
       justify-content: start;
     }
   }
@@ -157,7 +157,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
+    const track = document.querySelector('.combos-carousel-track');
     const items = Array.from(track.children);
     const leftArrow = document.querySelector('.carousel-arrow.left');
     const rightArrow = document.querySelector('.carousel-arrow.right');
