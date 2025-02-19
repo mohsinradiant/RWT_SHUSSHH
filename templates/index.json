@@ -131,6 +131,23 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "1739215445ada50f90": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "0txi67owib4jd"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "content_slider_strip_qpKFNJ": {
       "type": "content-slider-strip",
       "settings": {
@@ -150,6 +167,23 @@
         "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
         "button_text": "EXPLORE",
         "button_url": "shopify://pages/tips-landing-page"
+      }
+    },
+    "1739966954c67125d1": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_quiz_stories_block_J6NFT4": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/stories-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "publishId"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_quiz_stories_block_J6NFT4"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "featured_collection": {
@@ -178,23 +212,6 @@
         "swipe_on_mobile": true,
         "padding_top": 52,
         "padding_bottom": 52
-      }
-    },
-    "1739215445ada50f90": {
-      "type": "apps",
-      "blocks": {
-        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
-          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
-          "settings": {
-            "publishId": "4d4cie0j73he2"
-          }
-        }
-      },
-      "block_order": [
-        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "home_deal_of_the_day_NJGxyT": {
@@ -473,10 +490,11 @@
   "order": [
     "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
+    "1739215445ada50f90",
     "content_slider_strip_qpKFNJ",
     "home_vday_banner_gXk89j",
+    "1739966954c67125d1",
     "featured_collection",
-    "1739215445ada50f90",
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
     "home_discreet_packaging_bKNnKt",
