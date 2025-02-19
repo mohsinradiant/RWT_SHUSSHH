@@ -71,25 +71,20 @@
     line-height: 0;
     font-family: 'Kanit';
     font-weight: 400;
-    background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Example gradient background */
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
     transition: 0.3s ease-in-out;
   }
 
-  .sticky-atc-container-buy-button button::before {
+  /* Adding a white overlay with animation */
+  .sticky-atc-container-buy-button button::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
-    width: 200%;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 30%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(255, 255, 255, 0) 70%
-    );
-    transform: skewX(-30deg);
-    animation: shiny-effect 2s infinite linear;
+    background: rgba(255, 255, 255, 0.2); /* Slight white sheen */
+    animation: shiny-effect 3s infinite linear; /* Adjust timing for smoothness */
   }
 
   @keyframes shiny-effect {
