@@ -125,7 +125,7 @@
   display: grid;
   grid-template-rows: minmax(0, 1fr) max-content minmax(0, 1fr);
   padding: 1rem;
-  width: 100%;
+  width: calc(100% - 2rem);
   flex-grow: 1;
 }
 
