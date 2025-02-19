@@ -202,7 +202,7 @@ cart-drawer-items {
 .cart-drawer .cart-item {
   display: grid;
   grid-template: repeat(2, auto) / repeat(3, 1fr);
-  gap: 1rem;
+  gap: 5px;
   margin-bottom: 0;
   padding: 10px;
   border: solid 1px #00000020;
@@ -258,9 +258,9 @@ cart-drawer-items {
   padding-top: 1.7rem;
 } */
 
-.cart-drawer .cart-item>td+td {
+/* .cart-drawer .cart-item>td+td {
   padding-left: 1rem;
-}
+} */
 
 .cart-drawer .cart-item__details {
   width: auto;
