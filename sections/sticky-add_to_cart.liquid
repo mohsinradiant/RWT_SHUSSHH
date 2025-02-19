@@ -65,43 +65,10 @@
     width: 45%;
   }
   .sticky-atc-container-buy-button button {
-    position: relative;
-    overflow: hidden;
-    transition: all 150ms ease-in-out;
-  }
-
-  /* Shine effect */
-  .sticky-atc-container-buy-button button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -50%;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    box-shadow: 0 24px 32px 2px #1d9bf0;
-    animation: shinebright 3s linear infinite;
-    transition: all 0.4s ease;
-  }
-  .sticky-atc-container-buy-button button:hover::after {
-    animation-play-state: paused;
-    box-shadow: 0 24px 32px 12px #1d9bf0;
-  }
-
-  /* Animation */
-  @keyframes shinebright {
-    0% {
-      transform: translateX(0) rotate(0deg);
-    }
-    25% {
-      transform: translateX(-32px) rotate(90deg);
-    }
-    75% {
-      transform: translateX(32px) rotate(270deg);
-    }
-    100% {
-      transform: translateX(0) rotate(360deg);
-    }
+    font-size: 1.7rem;
+    line-height: 0;
+    font-family: 'Kanit';
+    font-weight: 400;
   }
 
   .sticky-atc-container .price-item--sale,
