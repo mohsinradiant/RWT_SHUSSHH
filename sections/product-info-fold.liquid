@@ -221,10 +221,7 @@
             document.querySelectorAll('.variant-div').forEach((div, index) => {
               console.log(`%c[initializeVariantDivs] Processing .variant-div #${index}`, 'color: blue;');
 
-              const newDiv = div.cloneNode(true); // Clone to remove old event listeners
-              div.parentNode.replaceChild(newDiv, div); // Replace old div with new one
-
-              const inputId = newDiv.getAttribute('data-input-id');
+              const inputId = div.getAttribute('data-input-id');
               const radioInput = document.getElementById(inputId);
               const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
 
@@ -235,45 +232,38 @@
 
               console.log(`[initializeVariantDivs] Associated input ID: ${inputId}, Value: ${radioInput.value}`);
 
-              const value = radioInput.value.trim().toLowerCase();
-              if (value.includes('ml')) {
-                newDiv.classList.add('size-div');
-                newDiv.textContent = radioInput.value;
-              } else {
-                newDiv.classList.remove('size-div');
-                newDiv.textContent = '.';
-              }
-
-              newDiv.addEventListener('click', () => {
+              function updateSelection() {
                 console.log(`%c[Click] Variant Div Clicked: ${radioInput.value}`, 'color: purple; font-weight: bold;');
 
-                // Deselect other variants
+                // Remove previous selection styles
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected', 'size-div');
                   item.textContent = '.';
                 });
 
-                // Check if the radioInput exists before checking it
+                // Check if radio input exists before selecting it
                 if (radioInput) {
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-                  newDiv.classList.add('selected');
+
+                  div.classList.add('selected');
+                  if (radioInput.value.toLowerCase().includes('ml')) {
+                    div.classList.add('size-div');
+                    div.textContent = radioInput.value;
+                  }
 
                   if (colorNameElement) {
                     colorNameElement.textContent = radioInput.value;
                     console.log(`[Click] Updated color name to: ${radioInput.value}`);
                   }
-
-                  if (radioInput.value.toLowerCase().includes('ml')) {
-                    newDiv.classList.add('size-div');
-                    newDiv.textContent = radioInput.value;
-                  }
                 } else {
                   console.warn(`[Click] Radio input for ${inputId} was not found.`);
                 }
-              });
+              }
 
-              console.log(`%c[initializeVariantDivs] Event listener attached for div #${index}`, 'color: green;');
+              // Attach event listener (removes previous to prevent duplicates)
+              div.removeEventListener('click', updateSelection);
+              div.addEventListener('click', updateSelection);
             });
           }
 
@@ -288,16 +278,23 @@
             }
 
             const observer = new MutationObserver((mutations) => {
+              let needsReinit = false;
               mutations.forEach((mutation) => {
                 if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
                   console.log(
                     '%c[observeProductUpdates] Product container updated. Reinitializing scripts...',
                     'color: red; font-weight: bold;'
                   );
-                  initializeVariantDivs();
-                  updateCarousel();
+                  needsReinit = true;
                 }
               });
+
+              if (needsReinit) {
+                setTimeout(() => {
+                  initializeVariantDivs();
+                  updateCarousel();
+                }, 50);
+              }
             });
 
             observer.observe(productContainer, { childList: true, subtree: true });
@@ -305,6 +302,7 @@
             console.log('%c[observeProductUpdates] MutationObserver attached successfully.', 'color: cyan;');
           }
 
+          // Run on DOM ready
           document.addEventListener('DOMContentLoaded', () => {
             console.log('%c[DOMContentLoaded] Initializing scripts...', 'color: black; font-weight: bold;');
             initializeVariantDivs();
@@ -316,6 +314,7 @@
             });
           });
 
+          // Reinitialize on Shopify section load
           document.addEventListener('shopify:section:load', () => {
             console.log(
               '%c[shopify:section:load] Shopify section reloaded. Reinitializing scripts...',
