@@ -218,14 +218,11 @@
           function initializeVariantDivs() {
             console.log('Initializing variant divs...');
 
-            // Remove 'initialized' class to reattach event listeners
             document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.remove('initialized');
-            });
+              const newDiv = div.cloneNode(true); // Clone to remove old event listeners
+              div.parentNode.replaceChild(newDiv, div); // Replace old div with new one
 
-            document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.add('initialized'); // Mark as initialized
-              const inputId = div.getAttribute('data-input-id');
+              const inputId = newDiv.getAttribute('data-input-id');
               const radioInput = document.getElementById(inputId);
               const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
 
@@ -233,18 +230,16 @@
                 const value = radioInput.value.trim().toLowerCase();
 
                 if (value.includes('ml')) {
-                  div.classList.add('size-div');
-                  div.textContent = radioInput.value; // Show size
+                  newDiv.classList.add('size-div');
+                  newDiv.textContent = radioInput.value;
                 } else {
-                  div.classList.remove('size-div');
-                  div.textContent = '.'; // Default content
+                  newDiv.classList.remove('size-div');
+                  newDiv.textContent = '.';
                 }
               }
 
-              // Click event for selecting variants
-              div.addEventListener('click', () => {
+              newDiv.addEventListener('click', () => {
                 console.log(`Div clicked: ${radioInput.value}`);
-                console.log(`Input ID: ${inputId}`);
 
                 // Deselect other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
@@ -253,30 +248,21 @@
                 });
 
                 if (radioInput) {
-                  console.log('Simulating click on radio input');
-
-                  // Check the radio input and trigger a change event
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
-                  // Add selected class
-                  div.classList.add('selected');
-                  console.log('Variant selected and class "selected" added');
+                  newDiv.classList.add('selected');
 
-                  // Update color name dynamically
                   if (colorNameElement) {
                     colorNameElement.textContent = radioInput.value;
-                    console.log(`Color name updated to: ${radioInput.value}`);
                   }
 
-                  // If value contains "ml", keep size-div class
                   if (radioInput.value.toLowerCase().includes('ml')) {
-                    div.classList.add('size-div');
-                    div.textContent = radioInput.value;
+                    newDiv.classList.add('size-div');
+                    newDiv.textContent = radioInput.value;
                   }
                 }
 
-                // Update the carousel images when a new variant is selected
                 updateCarousel();
               });
             });
@@ -285,7 +271,6 @@
           function updateCarousel() {
             console.log('Updating carousel images...');
 
-            // Get the checked input
             const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
 
             if (!checkedInput) {
@@ -296,33 +281,14 @@
             const selectedValue = checkedInput.value.trim().toLowerCase();
             console.log(`Selected variant: ${selectedValue}`);
 
-            // Get all carousel images
-            const images = document.querySelectorAll('.carousel-track-custom img');
-
-            images.forEach((img) => {
-              const altText = img.alt ? img.alt.trim().toLowerCase() : '';
-
-              // Check if alt text contains the selected value
-              if (altText.includes(selectedValue)) {
-                img.style.display = 'block'; // Show the image
-              } else {
-                img.style.display = 'none'; // Hide the image
-              }
+            document.querySelectorAll('.carousel-track-custom img').forEach((img) => {
+              img.style.display = img.alt.trim().toLowerCase().includes(selectedValue) ? 'block' : 'none';
             });
           }
 
-          document.addEventListener('DOMContentLoaded', () => {
-            console.log('Initializing scripts on DOMContentLoaded...');
-            initializeVariantDivs();
-            updateCarousel();
-
-            // Listen for input change events
-            document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
-              input.addEventListener('change', updateCarousel);
-            });
-
-            // Observe Shopify AJAX updates
+          function observeProductUpdates() {
             const productContainer = document.querySelector('.product-form');
+
             if (productContainer) {
               const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
@@ -336,13 +302,24 @@
 
               observer.observe(productContainer, { childList: true, subtree: true });
             }
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            console.log('Initializing scripts on DOMContentLoaded...');
+            initializeVariantDivs();
+            updateCarousel();
+            observeProductUpdates();
+
+            document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
+              input.addEventListener('change', updateCarousel);
+            });
           });
 
-          // Fix for Shopify Section Refresh
           document.addEventListener('shopify:section:load', () => {
             console.log('Shopify section reloaded. Reinitializing scripts...');
             initializeVariantDivs();
             updateCarousel();
+            observeProductUpdates();
           });
         </script>
 
