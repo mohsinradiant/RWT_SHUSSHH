@@ -386,6 +386,15 @@
             <button>Know more</button>
           </div>
         </div>
+
+        <div id="popup-backdrop" class="hidden">
+          <div id="popup-image-container">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Discreet_Delivery_Pop_up_image_2.png?v=1739948622"
+              alt="Discreet Delivery Popup"
+            >
+          </div>
+        </div>
         <div class="product-info-fold-claims-container">
           <div>
             <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/india.png?v=1738690950">
@@ -455,6 +464,8 @@
           .product-discreet-delivery-container {
             display: flex;
             gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
           }
           .product-discreet-delivery-container img {
             width: 20%;
@@ -485,6 +496,39 @@
             background: transparent;
             color: #5d00b9;
             font-size: 1.6rem;
+          }
+          /* Backdrop */
+          #popup-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(8px);
+          }
+
+          /* Hidden class */
+          .hidden {
+            display: none !important;
+          }
+
+          /* Popup container */
+          #popup-image-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+          }
+
+          #popup-image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
           }
         </style>
         <div class="pdp-pincode-checker">
