@@ -345,6 +345,84 @@
             updateCarousel();
           });
         </script>
+        <script>
+          <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fieldset = document.querySelector('.js.product-form__input');
+
+    if (!fieldset) return;
+
+    function attachEventListeners() {
+      document.querySelectorAll('.variant-div').forEach((div) => {
+        div.removeEventListener('click', handleVariantClick);
+        div.addEventListener('click', handleVariantClick);
+      });
+    }
+
+    function handleVariantClick(event) {
+      const selectedDiv = event.currentTarget; // Ensure correct element is selected
+
+      // Remove 'selected' class from all variant divs
+      document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
+
+      // Add 'selected' class to clicked div
+      selectedDiv.classList.add('selected');
+
+      // Select corresponding radio input
+      const inputId = selectedDiv.getAttribute('data-input-id');
+      if (inputId) {
+        const correspondingInput = document.getElementById(inputId);
+        if (correspondingInput) {
+          correspondingInput.checked = true;
+          correspondingInput.dispatchEvent(new Event('change', { bubbles: true })); // Trigger change event
+
+          // Ensure variant selection updates correctly even after Shopify URL change
+          setTimeout(syncSelectedVariant, 100);
+        }
+      }
+    }
+
+    function syncSelectedVariant() {
+      // Find the checked radio input
+      const checkedInput = document.querySelector('.js.product-form__input input[type="radio"]:checked');
+
+      if (checkedInput) {
+        const inputId = checkedInput.id;
+
+        // Remove selected class from all variant divs
+        document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
+
+        // Add selected class to the corresponding div
+        const selectedDiv = document.querySelector(`.variant-div[data-input-id="${inputId}"]`);
+        if (selectedDiv) {
+          selectedDiv.classList.add('selected');
+        }
+      }
+    }
+
+    // Observe fieldset changes to reapply listeners
+    const observer = new MutationObserver(() => {
+      attachEventListeners();
+      syncSelectedVariant();
+    });
+
+    observer.observe(fieldset, { childList: true, subtree: true });
+
+    // Detect URL changes (Shopify updates URL without reloading)
+    let lastUrl = window.location.href;
+    setInterval(() => {
+      if (window.location.href !== lastUrl) {
+        lastUrl = window.location.href;
+        syncSelectedVariant();
+      }
+    }, 500);
+
+    // Attach listeners on page load
+    attachEventListeners();
+    syncSelectedVariant();
+  });
+</script>
+        </script>
 
         {%- render 'buy-buttons',
           product: product,
