@@ -531,6 +531,29 @@
             display: block;
           }
         </style>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const popupBackdrop = document.getElementById('popup-backdrop');
+            const knowMoreBtn = document.getElementById('know-more-btn');
+
+            // Toggle popup and manage scroll behavior
+            const togglePopup = () => {
+              const isHidden = popupBackdrop.classList.contains('hidden');
+              popupBackdrop.classList.toggle('hidden');
+              document.body.style.overflow = isHidden ? 'hidden' : 'auto';
+            };
+
+            // Show popup when "Know More" is clicked
+            knowMoreBtn.addEventListener('click', togglePopup);
+
+            // Hide popup when backdrop is clicked
+            popupBackdrop.addEventListener('click', (e) => {
+              if (e.target === popupBackdrop) {
+                togglePopup();
+              }
+            });
+          });
+        </script>
         <div class="pdp-pincode-checker">
           <label>Check Delivery</label>
           <div class="pdp-pincode-checker-input-parent">
