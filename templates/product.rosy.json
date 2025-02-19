@@ -15,22 +15,6 @@
         "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
       }
     },
-    "1739951484fe15766b": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_preview_badge_3hRxTt": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_preview_badge_3hRxTt"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "product_info_fold_PK4khL": {
       "type": "product-info-fold",
       "blocks": {
@@ -46,21 +30,6 @@
         "variant_picker_UAKitY"
       ],
       "settings": {}
-    },
-    "1738182448a0149dbc": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_6FwXw6": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_6FwXw6"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     },
     "1738589613f985f8d8": {
       "type": "apps",
@@ -137,6 +106,21 @@
     "product_bullets_8bLf4H": {
       "type": "product-bullets",
       "settings": {}
+    },
+    "1738182448a0149dbc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6FwXw6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6FwXw6"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     },
     "product_shoppable_videos_7XLkhn": {
       "type": "product-shoppable-videos",
@@ -275,9 +259,7 @@
   },
   "order": [
     "content_slider_strip_hA3y4W",
-    "1739951484fe15766b",
     "product_info_fold_PK4khL",
-    "1738182448a0149dbc",
     "1738589613f985f8d8",
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
@@ -285,6 +267,7 @@
     "home_combos_TrKwY9",
     "featured_collection_kEqMpU",
     "product_bullets_8bLf4H",
+    "1738182448a0149dbc",
     "product_shoppable_videos_7XLkhn",
     "product_faqs_tLQNqz",
     "home_promises_ACUrRd",

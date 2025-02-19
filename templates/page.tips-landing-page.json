@@ -52,7 +52,7 @@
         "dropdown_kpEQ3c": {
           "type": "dropdown",
           "settings": {
-            "title": "Why you should buy this ?",
+            "title": "Whats in the box",
             "description": "TIPS isn’t just chocolate—it’s foreplay in a box.Close Your Eyes & Picture This , You hand her a chocolate, she takes a bite, and within 30 minutes her mood changes.You spray the seductive perfume, and suddenly, the air feels electric.Then, you bring out the Dip, a silky blindfold, and Shab-e-Raz—a secret guide filled with moves that guarantee she won’t forget this night."
           }
         },
@@ -71,34 +71,6 @@
             "image": "shopify://shop_images/Ingredients_1_1.png"
           }
         },
-        "in_the_box_tNhT7X": {
-          "type": "in_the_box",
-          "settings": {
-            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
-            "text": "sdvsdvsd"
-          }
-        },
-        "in_the_box_wWq9Ni": {
-          "type": "in_the_box",
-          "settings": {
-            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
-            "text": "sdvsdvsd"
-          }
-        },
-        "in_the_box_y9pXtK": {
-          "type": "in_the_box",
-          "settings": {
-            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
-            "text": "sdvsdvsd"
-          }
-        },
-        "in_the_box_YtDFKV": {
-          "type": "in_the_box",
-          "settings": {
-            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
-            "text": "sdvsdvsd"
-          }
-        },
         "dropdown_PaXHqz": {
           "type": "dropdown",
           "settings": {
@@ -115,10 +87,6 @@
         "dropdown_kpEQ3c",
         "dropdown_apRaph",
         "dropdown_DYM66B",
-        "in_the_box_tNhT7X",
-        "in_the_box_wWq9Ni",
-        "in_the_box_y9pXtK",
-        "in_the_box_YtDFKV",
         "dropdown_PaXHqz"
       ],
       "settings": {
@@ -150,15 +118,8 @@
         "text": "This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart"
       }
     },
-    "17399582107a851837": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "video_BWFiNG": {
       "type": "video",
-      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
@@ -442,7 +403,6 @@
     "lp_featured_product_yw8Pt7",
     "landing_page_banner_tPURrF",
     "content_slider_strip_dFxGXg",
-    "17399582107a851837",
     "video_BWFiNG",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
