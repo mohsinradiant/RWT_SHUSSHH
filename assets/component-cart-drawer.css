@@ -325,6 +325,8 @@ quantity-popover .quantity__input:not(:focus-visible):not(.focused),
 
 .cart-drawer .quantity__button {
   width: 30px;
+  border: solid 1px #eabe39;
+  border-radius: 6px;
 }
 
 .cart-drawer .quantity:after {
