@@ -310,6 +310,8 @@ cart-drawer-items {
   margin: 0;
   min-height: 20px;
   width: auto;
+  display: flex;
+  justify-content: end;
 }
 
 .cart-drawer quantity-popover .quantity__button:not(:focus-visible):not(.focused),
