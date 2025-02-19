@@ -1,6 +1,6 @@
 <section class="lp-video-section">
   <video id="lp-video" autoplay loop muted playsinline>
-    <source src="{{ section.settings.video_file | video_tag }}" type="video/mp4">
+    <source src="{{ section.settings.video_file | file_url  }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <button id="mute-toggle">🔊</button>
