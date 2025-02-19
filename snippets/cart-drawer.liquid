@@ -442,8 +442,13 @@
                           }
                           .drawer__upsell .card__inner {
                             width: 25%;
-                            border-radius: 10px;
+                            border-radius: 10px !important;
                             overflow: hidden;
+                          }
+                          .drawer__upsell_product .card:not(.ratio) > .card__content {
+                            display: flex !important;
+                            flex-direction: row !important;
+                            justify-content: space-between !important;
                           }
                         </style>
                       </div>
