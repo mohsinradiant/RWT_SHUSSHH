@@ -171,6 +171,8 @@ cart-drawer {
 
 .cart-drawer .drawer__cart-items-wrapper {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .cart-drawer .cart-items {
