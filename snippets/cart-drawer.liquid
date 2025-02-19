@@ -514,167 +514,155 @@
                         role="cell"
                         headers="CartDrawer-ColumnQuantity"
                       >
-                        <quantity-popover>
-                          <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
-                            <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
-                              <quantity-input class="quantity cart-quantity">
-                                <button class="quantity__button" name="minus" type="button">
-                                  <span class="visually-hidden">
-                                    {{-
-                                      'products.product.quantity.decrease'
-                                      | t: product: upsell_variant.product.title
-                                      | escape
-                                    -}}
-                                  </span>
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-minus.svg' | inline_asset_content -}}
-                                  </span>
-                                </button>
-                                <input
-                                  class="quantity__input"
-                                  type="number"
-                                  data-quantity-variant-id="{{ upsell_variant.variant.id }}"
-                                  name="updates[]"
-                                  value="{{ upsell_variant.quantity }}"
-                                  {% # theme-check-disable %}
-                                  data-cart-quantity="{{ cart | item_count_for_variant: upsell_variant.variant.id }}"
-                                  min="0"
-                                  data-min="{{ upsell_variant.variant.quantity_rule.min }}"
-                                  {% if upsell_variant.variant.quantity_rule.max != null %}
-                                    max="{{ upsell_variant.variant.quantity_rule.max }}"
-                                  {% endif %}
-                                  step="{{ upsell_variant.variant.quantity_rule.increment }}"
-                                  {% # theme-check-enable %}
-                                  aria-label="{{ 'products.product.quantity.input_label' | t: product: upsell_variant.product.title | escape }}"
-                                  id="Drawer-quantity-{{ upsell_variant.index | plus: 1 }}"
-                                  data-index="{{ upsell_variant.index | plus: 1 }}"
-                                >
-                                <button class="quantity__button" name="plus" type="button">
-                                  <span class="visually-hidden">
-                                    {{-
-                                      'products.product.quantity.increase'
-                                      | t: product: upsell_variant.product.title
-                                      | escape
-                                    -}}
-                                  </span>
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-plus.svg' | inline_asset_content -}}
-                                  </span>
-                                </button>
-                              </quantity-input>
-                            </div>
-                            <cart-remove-button
-                              id="CartDrawer-Remove-{{ upsell_variant.index | plus: 1 }}"
-                              data-index="{{ upsell_variant.index | plus: 1 }}"
+                        <div {{ block.shopify_attributes }}>
+                          {%- if product != blank -%}
+                            {%- liquid
+                              assign gift_card_recipient_feature_active = false
+                              if block.settings.show_gift_card_recipient and product.gift_card?
+                                assign gift_card_recipient_feature_active = true
+                              endif
+
+                              assign show_dynamic_checkout = false
+                              if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+                                assign show_dynamic_checkout = true
+                              endif
+                            -%}
+
+                            <product-form
+                              class="product-form"
+                              data-hide-errors="{{ gift_card_recipient_feature_active }}"
+                              data-section-id="{{ section.id }}"
                             >
-                              <button
-                                type="button"
-                                class="button button--tertiary cart-remove-button"
-                                aria-label="{{ 'sections.cart.remove_title' | t: title: upsell_variant.title | escape }}"
-                                data-variant-id="{{ upsell_variant.variant.id }}"
-                              >
+                              <div class="product-form__error-message-wrapper" role="alert" hidden>
                                 <span class="svg-wrapper">
-                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                  {{- 'icon-error.svg' | inline_asset_content -}}
                                 </span>
-                              </button>
-                            </cart-remove-button>
-                          </div>
-                          {%- if has_qty_rules or has_vol_pricing -%}
-                            <button
-                              type="button"
-                              class="quantity-popover__info-button quantity-popover__info-button--icon-with-label button button--tertiary"
-                              aria-expanded="false"
-                            >
-                              <span class="svg-wrapper">
-                                {{- 'icon-info.svg' | inline_asset_content -}}
-                              </span>
-                              <span>
-                                {%- if has_vol_pricing -%}
-                                  {{ 'products.product.volume_pricing.note' | t }}
-                                {%- elsif has_qty_rules -%}
-                                  {{ 'products.product.quantity.note' | t }}
-                                {%- endif -%}
-                              </span>
-                            </button>
-                          {%- endif -%}
-                          {%- if has_vol_pricing or has_qty_rules -%}
-                            <div
-                              class="cart-items__info global-settings-popup quantity-popover__info"
-                              tabindex="-1"
-                              hidden
-                            >
-                              {%- if has_qty_rules == false -%}
-                                <span class="volume-pricing-label caption">
-                                  {{- 'products.product.volume_pricing.title' | t -}}
-                                </span>
-                              {%- endif -%}
-                              <div class="quantity__rules caption">
-                                {%- if upsell_variant.variant.quantity_rule.increment > 1 -%}
-                                  <span class="divider">
-                                    {{-
-                                      'products.product.quantity.multiples_of'
-                                      | t: quantity: upsell_variant.variant.quantity_rule.increment
-                                    -}}
-                                  </span>
-                                {%- endif -%}
-                                {%- if upsell_variant.variant.quantity_rule.min > 1 -%}
-                                  <span class="divider">
-                                    {{-
-                                      'products.product.quantity.min_of'
-                                      | t: quantity: upsell_variant.variant.quantity_rule.min
-                                    -}}
-                                  </span>
-                                {%- endif -%}
-                                {%- if upsell_variant.variant.quantity_rule.max != null -%}
-                                  <span class="divider">
-                                    {{-
-                                      'products.product.quantity.max_of'
-                                      | t: quantity: upsell_variant.variant.quantity_rule.max
-                                    -}}
-                                  </span>
-                                {%- endif -%}
+                                <span class="product-form__error-message"></span>
                               </div>
-                              <button
-                                class="button-close button button--tertiary"
-                                type="button"
-                                aria-label="{{ 'accessibility.close' | t }}"
-                              >
-                                <span class="svg-wrapper">
-                                  {{- 'icon-close.svg' | inline_asset_content -}}
-                                </span>
-                              </button>
-                              {%- if upsell_variant.variant.quantity_price_breaks.size > 0 -%}
-                                <volume-pricing class="parent-display">
-                                  <ul class="list-unstyled">
-                                    <li>
-                                      <span>{{ upsell_variant.variant.quantity_rule.min }}+</span>
-                                      <span>{{ upsell_variant.variant.price | money_with_currency }}/ea</span>
-                                    </li>
-                                    {%- for price_break in upsell_variant.variant.quantity_price_breaks -%}
-                                      <li>
-                                        <span>
-                                          {{- price_break.minimum_quantity -}}
-                                          <span aria-hidden="true">+</span></span
-                                        >
-                                        <span>{{ price_break.price | money_with_currency }}/ea</span>
-                                      </li>
-                                    {%- endfor -%}
-                                  </ul>
-                                </volume-pricing>
-                              {%- endif -%}
+
+                              {%- form 'product',
+                                product,
+                                id: product_form_id,
+                                class: 'form',
+                                novalidate: 'novalidate',
+                                data-type: 'add-to-cart-form'
+                              -%}
+                                <input
+                                  type="hidden"
+                                  name="id"
+                                  value="{{ product.selected_or_first_available_variant.id }}"
+                                  {% if product.selected_or_first_available_variant.available == false
+                                    or quantity_rule_soldout
+                                    or product.selected_or_first_available_variant == null
+                                  %}
+                                    disabled
+                                  {% endif %}
+                                  class="product-variant-id"
+                                >
+
+                                {%- if gift_card_recipient_feature_active -%}
+                                  {%- render 'gift-card-recipient-form',
+                                    product: product,
+                                    form: form,
+                                    section: section
+                                  -%}
+                                {%- endif -%}
+
+                                <div class="product-form__buttons">
+                                  {%- liquid
+                                    assign check_against_inventory = true
+                                    if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                                      assign check_against_inventory = false
+                                    endif
+                                    if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                                      assign quantity_rule_soldout = true
+                                    endif
+                                  -%}
+                                  <button
+                                    id="ProductSubmitButton-{{ section_id }}"
+                                    type="submit"
+                                    name="add"
+                                    class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                                    {% if product.selected_or_first_available_variant.available == false
+                                      or quantity_rule_soldout
+                                      or product.selected_or_first_available_variant == null
+                                    %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                    <span>
+                                      {%- if product.selected_or_first_available_variant == null -%}
+                                        {{ 'products.product.unavailable' | t }}
+                                      {%- elsif product.selected_or_first_available_variant.available == false
+                                        or quantity_rule_soldout
+                                      -%}
+                                        {{ 'products.product.sold_out' | t }}
+                                      {%- else -%}
+                                        {{ 'products.product.add_to_cart' | t }}
+                                      {%- endif -%}
+                                    </span>
+                                    {%- render 'loading-spinner' -%}
+                                  </button>
+                                  {%- if show_dynamic_checkout -%}
+                                    {{ form | payment_button }}
+                                  {%- endif -%}
+                                </div>
+                              {%- endform -%}
+                            </product-form>
+                          {%- else -%}
+                            <div class="product-form">
+                              <div class="product-form__buttons form">
+                                <button
+                                  type="submit"
+                                  name="add"
+                                  class="product-form__submit button button--full-width button--primary"
+                                  disabled
+                                >
+                                  {{ 'products.product.sold_out' | t }}
+                                </button>
+                              </div>
                             </div>
                           {%- endif -%}
-                          <div
-                            id="CartDrawer-LineItemError-{{ upsell_variant.index | plus: 1 }}"
-                            class="cart-item__error"
-                            role="alert"
-                          >
-                            <small class="cart-item__error-text"></small>
-                            <span class="svg-wrapper">
-                              {{- 'icon-error.svg' | inline_asset_content -}}
-                            </span>
-                          </div>
-                        </quantity-popover>
+
+                          {%- if show_pickup_availability -%}
+                            {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+                            {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+                              | where: 'pick_up_enabled', true
+                            -%}
+
+                            <pickup-availability
+                              class="product__pickup-availabilities quick-add-hidden"
+                              {% if product.selected_or_first_available_variant.available
+                                and pick_up_availabilities.size > 0
+                              %}
+                                available
+                              {% endif %}
+                              data-root-url="{{ routes.root_url }}"
+                              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                              data-has-only-default-variant="{{ product.has_only_default_variant }}"
+                              data-product-page-color-scheme="gradient color-{{ section.settings.color_scheme }}"
+                            >
+                              <template>
+                                <pickup-availability-preview class="pickup-availability-preview">
+                                  <span class="svg-wrapper">
+                                    {{- 'icon-unavailable.svg' | inline_asset_content -}}
+                                  </span>
+                                  <div class="pickup-availability-info">
+                                    <p class="caption-large">
+                                      {{ 'products.product.pickup_availability.unavailable' | t }}
+                                    </p>
+                                    <button class="pickup-availability-button link link--text underlined-link">
+                                      {{ 'products.product.pickup_availability.refresh' | t }}
+                                    </button>
+                                  </div>
+                                </pickup-availability-preview>
+                              </template>
+                            </pickup-availability>
+
+                            <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+                          {%- endif -%}
+                        </div>
                       </td>
                       {%- liquid
                         assign has_qty_rules = false
