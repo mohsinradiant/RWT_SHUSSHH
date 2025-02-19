@@ -201,6 +201,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-item {
   display: flex;
+  align-items: center;
   /* grid-template: repeat(2, auto) / repeat(3, 1fr); */
   gap: 5px;
   margin-bottom: 0;
