@@ -343,6 +343,11 @@
             "label": "Collection",
             "info": "Visible when cart drawer is empty."
           }
+        },
+        "cart_upsell_product": {
+          "product": {
+            "label": "Product" 
+          }
         }
       }
     },
