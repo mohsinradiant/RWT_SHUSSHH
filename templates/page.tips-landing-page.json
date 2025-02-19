@@ -153,11 +153,12 @@
     "lp_video_RMnf7x": {
       "type": "lp-video",
       "settings": {
-        "video_url": "https://youtu.be/AigpJpSG_Ks?si=GiqXZpr_splYy5lC"
+        "video_url": "shopify://files/videos/videoplayback.mp4"
       }
     },
     "video_BWFiNG": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
