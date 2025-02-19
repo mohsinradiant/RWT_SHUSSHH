@@ -543,33 +543,41 @@
 
         <div class="cart__ctas" {{ block.shopify_attributes }}>
           <div class="shiprocket-headless" data-type="mini-cart"></div>
-<!-- <div id="fastrrButton" style="width:100%"></div>
-<div id="nativeCheckoutButton" style="width:100%"></div>
-<script>
-  if(Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Calcutta") {
-   document.write('<div class="shiprocket-headless" data-type="mini-cart"></div>')
-  }
-            else{
-            if(Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Kolkata") {
-   document.write('<div class="shiprocket-headless" data-type="mini-cart"></div>')
-  }
-           else{ document.write('<button class="button" type="submit" name="checkout" id="checkout" > checkout </button>')
-            }
-            }
-</script> -->
-          <!-- <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-          >
-            {{ 'sections.cart.checkout' | t }}
-          </button> -->
+          <!--
+            <div id="fastrrButton" style="width:100%"></div>
+            <div id="nativeCheckoutButton" style="width:100%"></div>
+            <script>
+              if(Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Calcutta") {
+               document.write('<div class="shiprocket-headless" data-type="mini-cart"></div>')
+              }
+                        else{
+                        if(Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Kolkata") {
+               document.write('<div class="shiprocket-headless" data-type="mini-cart"></div>')
+              }
+                       else{ document.write('<button class="button" type="submit" name="checkout" id="checkout" > checkout </button>')
+                        }
+                        }
+            </script>
+          -->
+          <!--
+            <button
+              type="submit"
+              id="CartDrawer-Checkout"
+              class="cart__checkout-button button"
+              name="checkout"
+              form="CartDrawer-Form"
+              {% if cart == empty %}
+                disabled
+              {% endif %}
+            >
+              {{ 'sections.cart.checkout' | t }}
+            </button>
+          -->
         </div>
+        <img
+          style="width: 100%; height: auto;"
+          src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Frame_10998_1.webp?v=1739993410"
+        >
       </div>
     </div>
   </div>
