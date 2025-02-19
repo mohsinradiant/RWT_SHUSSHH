@@ -215,114 +215,46 @@
           {%- endcase -%}
         {%- endfor -%}
         <script>
-          function initializeVariantDivs() {
-            console.log('%c[initializeVariantDivs] Running...', 'color: green; font-weight: bold;');
+          document.addEventListener('DOMContentLoaded', function () {
+            const fieldset = document.querySelector('.js.product-form__input');
 
-            document.querySelectorAll('.variant-div').forEach((div, index) => {
-              console.log(`%c[initializeVariantDivs] Processing .variant-div #${index}`, 'color: blue;');
+            if (!fieldset) return;
 
-              const inputId = div.getAttribute('data-input-id');
-              const radioInput = document.getElementById(inputId);
-              const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-
-              if (!radioInput) {
-                console.warn(`[initializeVariantDivs] No radio input found for div #${index}`);
-                return;
-              }
-
-              console.log(`[initializeVariantDivs] Associated input ID: ${inputId}, Value: ${radioInput.value}`);
-
-              // Ensure previous event listeners are removed before adding a new one
-              div.removeEventListener('click', handleVariantClick);
-              div.addEventListener('click', () => handleVariantClick(div, radioInput, colorNameElement));
-            });
-          }
-
-          function handleVariantClick(div, radioInput, colorNameElement) {
-            console.log(`%c[Click] Variant Div Clicked: ${radioInput.value}`, 'color: purple; font-weight: bold;');
-
-            // Remove previous selections
-            document.querySelectorAll('.variant-div').forEach((item) => {
-              item.classList.remove('selected', 'size-div');
-              item.textContent = '.';
-            });
-
-            // Check and select the radio input
-            if (radioInput) {
-              radioInput.checked = true;
-              radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-
-              div.classList.add('selected');
-              if (radioInput.value.toLowerCase().includes('ml')) {
-                div.classList.add('size-div');
-                div.textContent = radioInput.value;
-              }
-
-              if (colorNameElement) {
-                colorNameElement.textContent = radioInput.value;
-                console.log(`[Click] Updated color name to: ${radioInput.value}`);
-              }
-            } else {
-              console.warn(`[Click] Radio input for ${radioInput.id} was not found.`);
-            }
-          }
-
-          function observeProductUpdates() {
-            console.log('%c[observeProductUpdates] Setting up MutationObserver...', 'color: cyan; font-weight: bold;');
-
-            const productContainer = document.querySelector('.product-form');
-
-            if (!productContainer) {
-              console.warn('[observeProductUpdates] Product container not found!');
-              return;
-            }
-
-            const observer = new MutationObserver((mutations) => {
-              let needsReinit = false;
-              mutations.forEach((mutation) => {
-                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                  console.log(
-                    '%c[observeProductUpdates] Product container updated. Reinitializing scripts...',
-                    'color: red; font-weight: bold;'
-                  );
-                  needsReinit = true;
-                }
+            // Function to update event listeners
+            function attachEventListeners() {
+              document.querySelectorAll('.variant-div').forEach((div) => {
+                div.removeEventListener('click', handleVariantClick);
+                div.addEventListener('click', handleVariantClick);
               });
+            }
 
-              if (needsReinit) {
-                setTimeout(() => {
-                  initializeVariantDivs();
-                  updateCarousel();
-                }, 50);
+            function handleVariantClick(event) {
+              const selectedDiv = event.target;
+              if (!selectedDiv.classList.contains('variant-div')) return;
+
+              // Remove 'selected' class from all variant divs
+              document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
+
+              // Add 'selected' class to clicked div
+              selectedDiv.classList.add('selected');
+
+              // Select corresponding radio input
+              const inputId = selectedDiv.getAttribute('data-input-id');
+              if (inputId) {
+                const correspondingInput = document.getElementById(inputId);
+                if (correspondingInput) correspondingInput.checked = true;
               }
+            }
+
+            // Attach event listeners initially
+            attachEventListeners();
+
+            // Observe changes in fieldset
+            const observer = new MutationObserver(() => {
+              attachEventListeners();
             });
 
-            observer.observe(productContainer, { childList: true, subtree: true });
-
-            console.log('%c[observeProductUpdates] MutationObserver attached successfully.', 'color: cyan;');
-          }
-
-          // Run on DOM ready
-          document.addEventListener('DOMContentLoaded', () => {
-            console.log('%c[DOMContentLoaded] Initializing scripts...', 'color: black; font-weight: bold;');
-            initializeVariantDivs();
-            updateCarousel();
-            observeProductUpdates();
-
-            document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
-              input.addEventListener('change', updateCarousel);
-            });
-          });
-
-          // Reinitialize on Shopify section load
-          document.addEventListener('shopify:section:load', () => {
-            console.log(
-              '%c[shopify:section:load] Shopify section reloaded. Reinitializing scripts...',
-              'color: magenta; font-weight: bold;'
-            );
-            initializeVariantDivs();
-            updateCarousel();
-            observeProductUpdates();
+            observer.observe(fieldset, { childList: true, subtree: true });
           });
         </script>
         {%- render 'buy-buttons',
