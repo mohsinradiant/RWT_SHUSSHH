@@ -66,44 +66,60 @@
   }
   .sticky-atc-container-buy-button button {
     position: relative;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 999px;
     overflow: hidden;
-    font-size: 1.7rem;
-    line-height: 0;
-    font-family: 'Kanit';
-    font-weight: 400;
-    transition: 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 150ms ease-in-out;
   }
 
-  /* Shiny effect using an SVG mask */
-  .sticky-atc-container-buy-button button::after {
+  /* Shine effect */
+  .sticky-atc-container-buy-button button::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -150%;
-    width: 200%;
-    height: 100%;
-    background: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 40" xml:space="preserve"><defs><polygon id="polyclip" points="-42.167,40 -230,40 -190,0 -2.167,0"/></defs><clipPath id="clipper"><use xlink:href="#polyclip"  style="overflow:visible;"/></clipPath><g style="opacity:0.2;clip-path:url(#clipper);"><path style="fill:%23FFFFFF;" d="M200,20c0,11.046-8.954,20-20,20H20C8.954,40,0,31.046,0,20l0,0C0,8.954,8.954,0,20,0h160C191.046,0,200,8.954,200,20L200,20z"/></g></svg>')
-      no-repeat center;
-    background-size: cover;
-    animation: shiny-sweep 2s linear infinite;
+    top: 50%;
+    left: -50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    box-shadow: 0 24px 32px 2px #1d9bf0;
+    animation: shinebright 3s linear infinite;
+    transition: all 0.4s ease;
   }
 
-  @keyframes shiny-sweep {
+  .sticky-atc-container-buy-button button:hover {
+    color: #1d9bf0;
+  }
+
+  .sticky-atc-container-buy-button button:hover::before {
+    animation-play-state: paused;
+    box-shadow: 0 24px 32px 12px #1d9bf0;
+  }
+
+  /* Click effect */
+  .sticky-atc-container-buy-button button:active {
+    transform: scale(0.98) translateY(1px);
+  }
+
+  .sticky-atc-container-buy-button button:active::before {
+    box-shadow: 0 24px 32px 42px #1d9bf0;
+  }
+
+  /* Animation */
+  @keyframes shinebright {
     0% {
-      left: -150%;
-      opacity: 0;
+      transform: translateX(0) rotate(0deg);
     }
-    30% {
-      left: -50%;
-      opacity: 1;
+    25% {
+      transform: translateX(-32px) rotate(90deg);
     }
-    60% {
-      left: 100%;
-      opacity: 0.8;
+    75% {
+      transform: translateX(32px) rotate(270deg);
     }
     100% {
-      left: 150%;
-      opacity: 0;
+      transform: translateX(0) rotate(360deg);
     }
   }
 
