@@ -225,6 +225,7 @@
 
             document.querySelectorAll('.variant-div').forEach((div) => {
               div.classList.add('initialized'); // Mark as initialized
+              console.log('Applied Initialized classes to variant divs...');
               const inputId = div.getAttribute('data-input-id');
               const radioInput = document.getElementById(inputId);
               const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
