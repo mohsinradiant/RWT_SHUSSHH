@@ -203,7 +203,7 @@ cart-drawer-items {
   display: flex;
   align-items: center;
   /* grid-template: repeat(2, auto) / repeat(3, 1fr); */
-  gap: 5px;
+  gap: 1rem;
   margin-bottom: 0;
   padding: 10px;
   border: solid 1px #00000020;
