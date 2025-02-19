@@ -1,0 +1,46 @@
+<div class="collection-banner-container">
+  {% if collection.metafields.content.desktop_image %}
+    <img
+      class="page-width collection-desktop-image"
+      src="{{ collection.metafields.content.desktop_image |  image_url  }}"
+    >
+  {% endif %}
+  {% if collection.metafields.content.mobile_image %}
+    <img class="page-width collection-mobile-image" src="{{ collection.metafields.content.mobile_image | image_url }}">
+  {% endif %}
+</div>
+<style>
+  .collection-banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 201, 62, 1), rgba(176, 65, 255, 1) 100%);
+  }
+  .collection-desktop-image {
+    width: 100%;
+  }
+  .collection-mobile-image {
+    width: 100%;
+    display: none;
+  }
+  @media (max-width: 750px) {
+    .collection-desktop-image {
+      display: none;
+    }
+    .collection-mobile-image {
+      display: flex;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Collection Banner",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection Banner"
+    }
+  ]
+}
+{% endschema %}

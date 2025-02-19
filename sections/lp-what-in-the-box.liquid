@@ -1,0 +1,154 @@
+{% schema %}
+{
+  "name": "LP What's in the Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "WHAT'S IN THE BOX"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Item Heading"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Add a little bit of body text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP What's in the Box"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="swiper-carousel-section">
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="carousel-item">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.heading }}">
+            {% endif %}
+            <h3>{{ block.settings.heading }}</h3>
+            <p>{{ block.settings.subheading }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-button-prev">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_350_1.png?v=1739094560" alt="Prev">
+    </div>
+    <div class="swiper-button-next">
+      <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_350.png?v=1739094561" alt="Next">
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-heading {
+    font-family: 'Kanit' !important;
+  }
+  .swiper-carousel-section .carousel-item h3 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    font-weight: 700;
+    font-family: 'Inter';
+    letter-spacing: 0;
+  }
+  .swiper-carousel-section .carousel-item p {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Inter';
+    margin: 0;
+    letter-spacing: 0;
+  }
+  .swiper-carousel-section .section-heading {
+    margin-top: 0 !important;
+    font-family: 'Kanit', sans-serif;
+    color: #fff;
+    font-size: 5rem;
+  }
+  .swiper-carousel-section {
+    text-align: center;
+    background: linear-gradient(to right, #d82424, #4f0707);
+    color: white;
+    padding: 40px 0;
+  }
+  .swiper-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+  }
+  .swiper-carousel-section .swiper-button-prev::after,
+  .swiper-carousel-section .swiper-button-next::after {
+    display: none;
+  }
+  .swiper-slide {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    opacity: 0.6;
+    transform: scale(0.8) !important;
+  }
+  .carousel-item img {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  .swiper-button-prev img,
+  .swiper-button-next img {
+    width: 40px;
+    height: auto;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      breakpoints: {
+        1024: {
+          slidesPerView: 2.2,
+        },
+        768: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  });
+</script>

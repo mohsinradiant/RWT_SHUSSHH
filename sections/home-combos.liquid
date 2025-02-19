@@ -1,0 +1,294 @@
+<div class="home-combo-section-container">
+  <p class="section-subheading">{{ section.settings.section_subheading }}</p>
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  <div class="page-width home-combo-section">
+    <img
+      class="home-combos-slider-button--prev"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
+    <div class="carousel-track">
+      {% for product in section.settings.collection.products %}
+        {% render 'card-product',
+          card_product: product,
+          show_secondary_image: true,
+          lazy_load: true,
+          quick_add: 'standard',
+          section_id: section.id,
+          horizontal_quick_add: true,
+          show_rating: false,
+          media_aspect_ratio: 'square'
+        %}
+      {% endfor %}
+    </div>
+
+    <img
+      class="home-combos-slider-button--next"
+      style="transform: rotate(180deg);"
+      src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_252.png?v=1737363649"
+    >
+  </div>
+  {% if section.settings.button_link %}
+    <a class="home-all-combos-cta-button" href="{{section.settings.button_link}}">All Combos</a>
+  {% endif %}
+</div>
+
+<style>
+  .home-combo-section .card__content {
+    margin-left: -10px;
+  }
+  .home-combo-section-container {
+    padding: 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-combo-section-container a {
+    text-decoration: none;
+  }
+  .home-combo-section-container .section-heading {
+    margin-top: 0 !important;
+    line-height: 3.5rem;
+  }
+  .home-combo-section {
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    gap: 10px;
+    overflow: auto;
+  }
+  .carousel-track .card-wrapper .quick-add {
+    visibility: hidden;
+    opacity: 0;
+    scale: 0;
+    height: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .carousel-track .card-wrapper:hover .quick-add {
+    visibility: visible;
+    height: auto;
+    scale: 1;
+    opacity: 1;
+  }
+  .carousel-track .card-wrapper {
+    transition: all 0.3s ease-in-out;
+  }
+  .carousel-track .card-wrapper:hover {
+    scale: 0.95;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  .home-all-combos-cta-button {
+    color: #382d43;
+    background-color: #ff9d00;
+  }
+  .carousel-track .card-wrapper {
+    box-shadow: none !important;
+    transition: all ease-in 0.2s;
+  }
+  .carousel-track .card-wrapper:hover {
+    box-shadow: 0px 3px 24px -4px rgba(0, 0, 0, 0.15) !important;
+  }
+  .carousel-track .card__badge {
+    display: none;
+  }
+  .carousel-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .carousel-item {
+    flex: 0 0 25%;
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Navigation Buttons */
+  .home-combos-slider-button--prev {
+    position: absolute;
+    background: #3f2d4b;
+    width: 40px;
+    z-index: 2;
+    left: 0;
+    top: 37%;
+    cursor: pointer;
+    bottom: 50%;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all ease-in 0.3s;
+  }
+  .home-combos-slider-button--next {
+    position: absolute;
+    background: #3f2d4b;
+    width: 40px;
+    z-index: 9;
+    right: 0;
+    top: 37%;
+    bottom: 50%;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all ease-in 0.3s;
+  }
+  .home-combos-slider-button--prev:hover,
+  .home-combos-slider-button--next:hover {
+    scale: 1.1;
+    opacity: 0.8;
+  }
+  .carousel-track .card-wrapper {
+    min-width: 320px;
+  }
+
+  .carousel-track
+    .card-information
+    > *:not(.visually-hidden:first-child)
+    + *:not(.rating):not(.card__information-volume-pricing-note) {
+    margin-top: 0 !important;
+  }
+  .carousel-track .card__inner {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .carousel-track .price--on-sale .price-item--regular {
+    font-weight: 300;
+    font-size: 1.3rem;
+  }
+  .carousel-track a,
+  .carousel-track span {
+    text-align: center;
+  }
+  .carousel-track a {
+    font-weight: 400;
+    font-family: 'Kanit';
+    font-size: 2.3rem;
+    margin-top: 5px;
+  }
+  .carousel-track .price-item,
+  .carousel-track .price-item span {
+    font-size: 1.5rem;
+  }
+  .carousel-track .full-unstyled-link {
+    font-size: 1.95rem;
+    text-align: center;
+  }
+  .carousel-track .price__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .carousel-track .quick-add form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel-track .price-dropped-product-card {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 1200px) {
+    .home-combos-slider-button--next {
+      right: 40px;
+    }
+    .home-combos-slider-button--prev {
+      left: 40px;
+    }
+  }
+  @media (max-width: 500px) {
+    .carousel-track .card-wrapper .quick-add {
+      visibility: visible;
+      height: auto;
+      scale: 1;
+      opacity: 1;
+    }
+    .carousel-track .card-wrapper {
+      min-width: 195px;
+    }
+    .carousel-track a {
+      font-size: 2rem;
+      text-align: left;
+    }
+    .carousel-track span {
+      font-size: 1.6rem;
+    }
+    .home-combos-slider-button--next {
+      right: 30px;
+      width: 30px;
+      top: 25%;
+    }
+    .home-combos-slider-button--prev {
+      left: 30px;
+      width: 30px;
+      top: 25%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.home-combos-slider-button--prev');
+    const nextButton = document.querySelector('.home-combos-slider-button--next');
+
+    if (track && prevButton && nextButton) {
+      const scrollAmount = track.clientWidth / 3; // Adjust this value as needed
+
+      prevButton.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+
+      nextButton.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    } else {
+      console.error('Carousel track or buttons not found');
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Home Combo",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Combo Collection"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Section SubHeading",
+      "default": "Money Saver Combos"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "More Pleasure, More Savings"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Combo"
+    }
+  ]
+}
+{% endschema %}

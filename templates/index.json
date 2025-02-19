@@ -1,0 +1,491 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "home_circle_collections_gjnENC": {
+      "type": "home-circle-collections",
+      "settings": {}
+    },
+    "slideshow_VzBdWB": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_HJCMH7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners.png",
+            "mobile_image": "shopify://shop_images/phone_banners_479bf54f-55ab-4e0b-a811-f626202458b2.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_cak4QR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners_4.png",
+            "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_DUHbHa": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Web_new_banners_4_91689994-10c9-42ed-bace-5f30d677ca11.png",
+            "mobile_image": "shopify://shop_images/phonecropped_4_1512ebb8-6cc8-4450-afb8-da57213641f9.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_F4dbxc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners.zip_-_3_4f019980-4e81-40c7-9136-72e27f496c5b.png",
+            "mobile_image": "shopify://shop_images/phone_banners.zip_-_1_8a3e76f1-5ea0-4458-875d-e8e90ec24c28.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_aKAQ9M": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Wen_banners_3_7d19664b-a894-4d89-8fcf-a5e0ae2e6f10.png",
+            "mobile_image": "shopify://shop_images/23_f2d7889a-c8e2-4e49-93fb-bdaca9ebc0ea.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-42469595-bf58-4d5e-9165-3856141c7d23",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_HJCMH7",
+        "slide_cak4QR",
+        "slide_DUHbHa",
+        "slide_F4dbxc",
+        "slide_aKAQ9M"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "small",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "content_slider_strip_qpKFNJ": {
+      "type": "content-slider-strip",
+      "settings": {
+        "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
+      }
+    },
+    "home_vday_banner_gXk89j": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "#010002",
+        "gradient_color_2": "#5d00b9",
+        "gradient_angle": 90,
+        "glow_color": "#ffb800",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
+        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
+        "button_text": "EXPLORE",
+        "button_url": "shopify://pages/tips-landing-page"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Shop Our Best Sellers",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "best-sellers",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "1739215445ada50f90": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
+          "type": "shopify://apps/tolstoy-shoppable-video-ugc/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "4d4cie0j73he2"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "home_deal_of_the_day_NJGxyT": {
+      "type": "home-deal-of-the-day",
+      "settings": {
+        "product_1": "rosy",
+        "product_2": "ecstasy-personal",
+        "product_3": "lush-women-massager"
+      }
+    },
+    "shoppable_videos_FFPLxM": {
+      "type": "shoppable-videos",
+      "blocks": {
+        "video_product_drr6xr": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_265.png",
+            "product": "rosy"
+          }
+        },
+        "video_product_9Bmmcf": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_264.png",
+            "product": "ecstasy-personal"
+          }
+        },
+        "video_product_EHRaap": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_262.png",
+            "product": "lush-women-massager"
+          }
+        },
+        "video_product_4EaYia": {
+          "type": "video_product",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
+            "image": "shopify://shop_images/Group_265.png",
+            "product": "passion-massager-for-men"
+          }
+        }
+      },
+      "block_order": [
+        "video_product_drr6xr",
+        "video_product_9Bmmcf",
+        "video_product_EHRaap",
+        "video_product_4EaYia"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
+      }
+    },
+    "home_discreet_packaging_bKNnKt": {
+      "type": "home-discreet-packaging",
+      "settings": {
+        "image": "shopify://shop_images/DISCREET_80d8f14c-5b2d-4dfc-95c6-5caf2fa8e62c.png",
+        "mobile_image": "shopify://shop_images/DISCREET_412_x_571_px.png",
+        "button_text": "CHECK PACKAGING"
+      }
+    },
+    "home_vday_banner_NBD7WK": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "",
+        "gradient_color_2": "",
+        "gradient_angle": 90,
+        "glow_color": "#ba1093",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Fap.jpg",
+        "mobile_image": "shopify://shop_images/Fap_phone.jpg",
+        "button_text": "FAP IT",
+        "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+      }
+    },
+    "featured_product_3C3jVK": {
+      "type": "featured-product",
+      "blocks": {
+        "text_xHeaWP": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_xTxdnz": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_tMJGme": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_9AMfUx": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_fpLmah": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_hLfBVM": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_HJGeXM": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_xHeaWP",
+        "title_xTxdnz",
+        "price_tMJGme",
+        "variant_picker_9AMfUx",
+        "quantity_selector_fpLmah",
+        "buy_buttons_hLfBVM",
+        "share_HJGeXM"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "fap-the-ultimate-male-stroker",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "home_quiz_cta_yVMz3E": {
+      "type": "home-quiz-cta",
+      "settings": {
+        "bg_image": "shopify://shop_images/Half_Sunburst_Orange_Background.png",
+        "image": "shopify://shop_images/file_28_1.png",
+        "button_text": "TAKE YOUR QUIZ",
+        "button_link": "shopify://pages/new-quiz"
+      }
+    },
+    "home_combos_8LUwCe": {
+      "type": "home-combos",
+      "disabled": true,
+      "settings": {
+        "collection": "bachelorette-gifting",
+        "section_subheading": "Money Saver Combos",
+        "section_heading": "More Pleasure, More Savings",
+        "button_link": "shopify://collections/bachelorette-gifting"
+      }
+    },
+    "home_categories_section_M7r4cE": {
+      "type": "home-categories-section",
+      "blocks": {
+        "category_gbhLnT": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/2_30be0b5e-b25c-4110-b52c-18b330c223aa.png",
+            "title": "For Her",
+            "subtitle": "Products designed for her ultimate satisfaction",
+            "collection": "shopify://collections/for-her"
+          }
+        },
+        "category_Yn7AM8": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/1_bb0b715d-4946-4988-8d5d-40ef522a7eb9.png",
+            "title": "For Him",
+            "subtitle": "Products designed for his satisfaction and exploration",
+            "collection": "shopify://collections/for-him"
+          }
+        },
+        "category_cPNefU": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/3_6172b092-30ee-4f90-8539-c9769a4a39fd.png",
+            "title": "For Couples",
+            "subtitle": "Products made for mutual satisfaction",
+            "collection": "shopify://collections/for-couple"
+          }
+        },
+        "category_Lnfkzt": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/0.png",
+            "title": "For Gifting",
+            "subtitle": "Give the gift of intimacy, and  connection",
+            "collection": "shopify://collections/for-couple"
+          }
+        }
+      },
+      "block_order": [
+        "category_gbhLnT",
+        "category_Yn7AM8",
+        "category_cPNefU",
+        "category_Lnfkzt"
+      ],
+      "settings": {
+        "image_1": "shopify://shop_images/file_5_7.png",
+        "image_2": "shopify://shop_images/file_12.png",
+        "heading": "What Are You Looking For?"
+      }
+    },
+    "home_testimonials_YW7Q6D": {
+      "type": "home-testimonials",
+      "blocks": {
+        "testimonial_rAjCaA": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_262.png"
+          }
+        },
+        "testimonial_Eq9YkQ": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_264.png"
+          }
+        },
+        "testimonial_A8XmAH": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_265.png"
+          }
+        },
+        "testimonial_3gNtj6": {
+          "type": "testimonial",
+          "settings": {
+            "video_url": "shopify://files/videos/tolstoy_be758754-7584-4ec7-9a32-c1569197aa2a.webm",
+            "image": "shopify://shop_images/Group_262.png"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_rAjCaA",
+        "testimonial_Eq9YkQ",
+        "testimonial_A8XmAH",
+        "testimonial_3gNtj6"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "See What You Will Get"
+      }
+    },
+    "home_promises_itd8DF": {
+      "type": "home-promises",
+      "settings": {
+        "section_heading": "Our Promises"
+      }
+    }
+  },
+  "order": [
+    "home_circle_collections_gjnENC",
+    "slideshow_VzBdWB",
+    "content_slider_strip_qpKFNJ",
+    "home_vday_banner_gXk89j",
+    "featured_collection",
+    "1739215445ada50f90",
+    "home_deal_of_the_day_NJGxyT",
+    "shoppable_videos_FFPLxM",
+    "home_discreet_packaging_bKNnKt",
+    "home_vday_banner_NBD7WK",
+    "featured_product_3C3jVK",
+    "home_quiz_cta_yVMz3E",
+    "home_combos_8LUwCe",
+    "home_categories_section_M7r4cE",
+    "home_testimonials_YW7Q6D",
+    "home_promises_itd8DF"
+  ]
+}

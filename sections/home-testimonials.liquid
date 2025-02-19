@@ -1,0 +1,118 @@
+<h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+<div class="page-width home-testimonials-container">
+  {% for block in section.blocks %}
+    <div class="testimonial-block" id="testimonial-{{ block.id }}">
+      <img
+        src="{{ block.settings.image | img_url: 'medium' }}"
+        class="testimonial-image"
+        alt="Testimonial Placeholder"
+      >
+      <div class="testimonial-video-container">
+        {{ block.settings.video_url | video_tag: autoplay: false, loop: true, muted: false, controls: true }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<style>
+  .home-testimonials-container {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+  }
+  .testimonial-block {
+    width: 24.5%;
+  }
+  .testimonial-block img {
+    width: 100%;
+    height: auto;
+  }
+  .testimonial-video-container {
+    width: 100%;
+    height: auto;
+  }
+  .testimonial-video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  @media (max-width: 850px) {
+    .home-testimonials-container {
+      overflow-x: auto;
+    }
+    .testimonial-block {
+      min-width: 300px;
+    }
+    .home-testimonials-container::-webkit-scrollbar {
+      display: none;
+    }
+    .home-testimonials-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all testimonial blocks
+    const testimonialBlocks = document.querySelectorAll('.testimonial-block');
+
+    testimonialBlocks.forEach((block) => {
+      const image = block.querySelector('.testimonial-image');
+      const videoContainer = block.querySelector('.testimonial-video-container');
+      const video = videoContainer.querySelector('video'); // Access the video element within the container
+
+      // Hide the video container initially
+      videoContainer.style.display = 'none';
+
+      // Add click event to the image
+      image.addEventListener('click', () => {
+        image.style.display = 'none'; // Hide the image
+        videoContainer.style.display = 'block'; // Show the video container
+        video.play(); // Play the video
+      });
+
+      // Add pause event to the video
+      video.addEventListener('pause', () => {
+        videoContainer.style.display = 'none'; // Hide the video container
+        image.style.display = 'block'; // Show the image
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Home Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Discover What’s Making Everyone Go Wild!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video_url",
+          "label": "Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Placeholder"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Testimonials"
+    }
+  ]
+}
+{% endschema %}

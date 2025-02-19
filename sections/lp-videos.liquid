@@ -1,0 +1,205 @@
+<div class="lp-videos-videos">
+  <h2 class="section-heading">{{ section.settings.section_heading }}</h2>
+  <div class="page-width">
+    {% for block in section.blocks %}
+      <div class="lp-videos-video-block">
+        <div class="lp-videos-video-container" style="position: relative;">
+          <div class="play-pause-icon play-icon visible" id="play-icon-{{ forloop.index }}">
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_335.png?v=1738186522" alt="Play">
+          </div>
+          <div class="play-pause-icon pause-icon" id="pause-icon-{{ forloop.index }}">
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Group_334.png?v=1738186521" alt="Pause">
+          </div>
+          <img src="{{ block.settigns.thumbnail | img_url: 'medium' }}" class="lp-videos-video-image">
+          <div class="lp-videos-lp-videos-video-container" style="display: none;">
+            {{ block.settigns.video.value | video_tag: autoplay: false, loop: true, muted: false, controls: false }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .play-pause-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .play-pause-icon.visible {
+    opacity: 1;
+  }
+
+  .play-icon.visible {
+    opacity: 1;
+  }
+  .lp-videos-lp-videos-video-container {
+    background-color: #faf3ff;
+  }
+  .lp-videos-videos {
+    background-color: #faf3ff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .lp-videos-videos .page-width {
+    display: flex;
+    gap: 0.5%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .lp-videos-videos .section-heading {
+    margin-top: 0;
+  }
+
+  .lp-videos-videos .page-width::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lp-videos-video-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    min-width: 19.6%;
+    cursor: pointer;
+  }
+  .lp-videos-video-container img {
+    width: 100%;
+    display: flex;
+    height: auto;
+  }
+  .lp-videos-video-container {
+    width: 100%;
+    aspect-ratio: 147 / 240;
+    overflow: hidden;
+    border-radius: 10px;
+    height: auto;
+  }
+  .lp-videos-video-container video {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
+    aspect-ratio: 147 / 240;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 850px) {
+    .lp-videos-videos .page-width {
+      gap: 10px;
+    }
+  }
+  @media (max-width: 500px) {
+    .lp-videos-video-block {
+      min-width: 220px;
+    }
+    .lp-videos-videos .page-width {
+      margin-left: 10px;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const videoBlocks = document.querySelectorAll('.lp-videos-video-container');
+
+    videoBlocks.forEach((block, index) => {
+      const image = block.querySelector('.lp-videos-video-image');
+      const videoContainer = block.querySelector('.lp-videos-lp-videos-video-container');
+      const video = videoContainer.querySelector('video');
+
+      const playIcon = document.getElementById(`play-icon-${index + 1}`);
+      const pauseIcon = document.getElementById(`pause-icon-${index + 1}`);
+
+      function showTemporaryIcon(icon) {
+        icon.classList.add('visible');
+        setTimeout(() => {
+          icon.classList.remove('visible');
+        }, 800);
+      }
+
+      // Show play icon initially
+      playIcon.classList.add('visible');
+
+      // When image is clicked, show video & play
+      image.addEventListener('click', () => {
+        image.style.display = 'none'; // Hide placeholder
+        videoContainer.style.display = 'flex'; // Show video
+        video.play();
+        playIcon.classList.remove('visible'); // Hide play icon
+        showTemporaryIcon(pauseIcon); // Show pause icon briefly
+      });
+
+      // Toggle play/pause on video click
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playIcon.classList.remove('visible');
+          showTemporaryIcon(pauseIcon);
+        } else {
+          video.pause();
+          videoContainer.style.display = 'none'; // Hide video
+          image.style.display = 'flex'; // Show placeholder
+          playIcon.classList.add('visible'); // Show play icon
+        }
+      });
+
+      // Show play icon when video is paused
+      video.addEventListener('pause', () => {
+        videoContainer.style.display = 'none'; // Hide video
+        image.style.display = 'flex'; // Show placeholder
+        playIcon.classList.add('visible'); // Always show play icon
+      });
+
+      // Hide play icon & briefly show pause icon when playing
+      video.addEventListener('play', () => {
+        playIcon.classList.remove('visible');
+        showTemporaryIcon(pauseIcon);
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "LP Videos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Discover What’s Making Everyone Go Wild!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Videos"
+    }
+  ]
+}
+{% endschema %}
