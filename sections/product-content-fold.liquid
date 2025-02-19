@@ -90,22 +90,16 @@
                   </button>
                   <div class="product-content-fold-answer">
                     {% if metaobject.file.value %}
-                      {% assign file_extension = metaobject.file.value | split: '.' | last %}
-                      {% if file_extension == 'jpg'
-                        or file_extension == 'jpeg'
-                        or file_extension == 'png'
-                        or file_extension == 'gif'
-                        or file_extension == 'webp'
-                      %}
-                        <img class="product-content-fold-answer-image" src="{{ metaobject.file.value | image_url }}">
-                      {% elsif file_extension == 'mp4' %}
-                        {{
-                          metaobject.file.value
-                          | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: '600x'
-                        }}
-                      {% endif %}
+                      {% case metaobject.file.value.file_type %}
+                        {% when 'image' %}
+                          <img class="product-content-fold-answer-image" src="{{ metaobject.file.value | image_url }}">
+                        {% when 'video' %}
+                          {{
+                            metaobject.file.value
+                            | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: '600x'
+                          }}
+                      {% endcase %}
                     {% endif %}
-
                     <p>{{ metaobject.description | metafield_tag }}</p>
                   </div>
                 </div>
