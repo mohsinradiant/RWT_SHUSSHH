@@ -514,90 +514,38 @@
                         role="cell"
                         headers="CartDrawer-ColumnQuantity"
                       >
-                        <div {{ block.shopify_attributes }}>
-                          {%- if upsell_product != blank -%}
-                            <product-form
-                              class="product-form"
-                              data-section-id="{{ section.id }}"
-                            >
-                              <div class="product-form__error-message-wrapper" role="alert" hidden>
-                                <span class="svg-wrapper">
-                                  {{- 'icon-error.svg' | inline_asset_content -}}
-                                </span>
-                                <span class="product-form__error-message"></span>
-                              </div>
-
-                              {%- form 'product',
-                                upsell_product,
-                                id: 'upsell-product-form',
-                                class: 'form',
-                                novalidate: 'novalidate',
-                                data-type: 'add-to-cart-form'
-                              -%}
-                                <input
-                                  type="hidden"
-                                  name="id"
-                                  value="{{ upsell_variant.id }}"
-                                  {% if upsell_product.selected_or_first_available_variant.available == false %}
-                                    disabled
-                                  {% endif %}
-                                  class="product-variant-id"
-                                >
-
-                                <div class="product-form__buttons">
-                                  <button
-                                    id="UpsellProductSubmitButton-{{ section_id }}"
-                                    type="submit"
-                                    name="add"
-                                    class="product-form__submit button button--full-width button--primary"
-                                    {% if upsell_product.selected_or_first_available_variant.available == false %}
-                                      disabled
-                                    {% endif %}
-                                  >
-                                    <span>
-                                      {%- if upsell_product.selected_or_first_available_variant.available == false -%}
-                                        {{ 'products.product.sold_out' | t }}
-                                      {%- else -%}
-                                        {{ 'products.product.add_to_cart' | t }}
-                                      {%- endif -%}
-                                    </span>
-                                    {%- render 'loading-spinner' -%}
-                                  </button>
-                                </div>
-                              {%- endform -%}
-                            </product-form>
-                            <script>
-                              document.addEventListener('DOMContentLoaded', function () {
-                                document.querySelectorAll('.product-form').forEach((form) => {
-                                  form.addEventListener('submit', function (event) {
-                                    event.preventDefault(); // Stop form from reloading page
-
-                                    let formData = new FormData(form);
-
-                                    fetch('/cart/add.js', {
-                                      method: 'POST',
-                                      body: formData,
-                                    })
-                                      .then((response) => response.json())
-                                      .then((data) => {
-                                        console.log('Added to cart:', data);
-                                        alert('Product added to cart! ✅');
-
-                                        // Optionally update cart drawer
-                                        fetch('/cart.js')
-                                          .then((res) => res.json())
-                                          .then((cart) => {
-                                            console.log('Cart updated:', cart);
-                                          });
-                                      })
-                                      .catch((error) => {
-                                        console.error('Error adding to cart:', error);
-                                      });
-                                  });
-                                });
-                              });
-                            </script>
-                          {%- endif -%}
+                        {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
+                        <div class="quick-add no-js-hidden">
+                          {%- liquid
+                            assign qty_rules = false
+                            if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
+                              assign qty_rules = true
+                            endif
+                          -%}
+                          <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
+                            <form method="post" action="/cart/add">
+                              <input
+                                type="hidden"
+                                name="id"
+                                value="{{ card_product.selected_or_first_available_variant.id }}"
+                              >
+                              <input type="hidden" name="quantity" value="1">
+                              <button
+                                id="{{ product_form_id }}-submit"
+                                type="submit"
+                                class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}"
+                                aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                              >
+                                Buy Now
+                                {%- if horizontal_quick_add -%}
+                                  <span class="icon-wrap">
+                                    {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                  </span>
+                                {%- endif -%}
+                                {%- render 'loading-spinner' -%}
+                              </button>
+                            </form>
+                          </modal-opener>
                         </div>
                       </td>
                       {%- liquid
