@@ -96,6 +96,25 @@
                   </details>
                 </div>
             {%- endcase -%}
+
+            {% if section.blocks.in_the_box != null %}
+              <div class="product-content-fold-item">
+                <button class="product-content-fold-question" aria-expanded="false">
+                  <span>What's in the box</span>
+                </button>
+                <div
+                  style="padding: 25px 0 10px; height: fit-content;"
+                  class="product-content-fold-answer product-content-fold-answer-image-container-parent"
+                >
+                  {% for item in section.blocks.in_the_box %}
+                    <div class="product-content-fold-answer-image-container">
+                      <img src="{{ item.image | image_url }}">
+                      <p>{{ item.text }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
       </div>
@@ -585,6 +604,22 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "in_the_box",
+      "name": "What's in the box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
         }
       ]
     }
