@@ -293,7 +293,9 @@ cart-drawer-items {
   grid-column: 3 / 5;
   padding-left: 0 !important;
 }
-
+.cart-drawer .cart-item__image{
+  border-radius: 10px;
+}
 .cart-drawer .quantity-popover-container:not(.quantity-popover-container--hover) {
   width: 100%;
 }
