@@ -229,8 +229,7 @@
             }
 
             function handleVariantClick(event) {
-              const selectedDiv = event.target;
-              if (!selectedDiv.classList.contains('variant-div')) return;
+              const selectedDiv = event.currentTarget; // Ensure it's always the .variant-div element
 
               // Remove 'selected' class from all variant divs
               document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
@@ -242,7 +241,12 @@
               const inputId = selectedDiv.getAttribute('data-input-id');
               if (inputId) {
                 const correspondingInput = document.getElementById(inputId);
-                if (correspondingInput) correspondingInput.checked = true;
+                if (correspondingInput) {
+                  correspondingInput.checked = true;
+
+                  // Trigger change event to ensure form updates correctly
+                  correspondingInput.dispatchEvent(new Event('change', { bubbles: true }));
+                }
               }
             }
 
@@ -257,6 +261,7 @@
             observer.observe(fieldset, { childList: true, subtree: true });
           });
         </script>
+
         {%- render 'buy-buttons',
           product: product,
           product_form_id: product_form_id,
