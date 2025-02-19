@@ -1,0 +1,71 @@
+<section class="lp-video-section">
+  <video id="lp-video" autoplay loop muted playsinline>
+    <source src="" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button id="mute-toggle">🔊</button>
+</section>
+
+<style>
+  .lp-video-section {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #mute-toggle {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var video = document.getElementById('lp-video');
+    var toggleBtn = document.getElementById('mute-toggle');
+
+    // Set video source from Shopify settings
+    var videoSrc = '{{ section.settings.video_url }}';
+    if (videoSrc) {
+      video.querySelector('source').setAttribute('src', videoSrc);
+      video.load();
+    }
+
+    toggleBtn.addEventListener('click', function () {
+      video.muted = !video.muted;
+      toggleBtn.textContent = video.muted ? '🔊' : '🔇';
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "LP Video",
+  "settings": [
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Video"
+    }
+  ]
+}
+{% endschema %}
