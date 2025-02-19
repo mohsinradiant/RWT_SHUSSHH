@@ -537,7 +537,7 @@
                                 <input
                                   type="hidden"
                                   name="id"
-                                  value="{{ upsell_product.selected_or_first_available_variant.id }}"
+                                  value="{{ upsell_variant.id }}"
                                   {% if upsell_product.selected_or_first_available_variant.available == false %}
                                     disabled
                                   {% endif %}
