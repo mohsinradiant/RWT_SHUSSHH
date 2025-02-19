@@ -404,7 +404,10 @@
                       </tr>
                     {%- endfor -%}
                     {% assign upsell_product = all_products[settings.cart_upsell_product] %}
-                    {%- assign upsell_variant = upsell_product.variants | where: "id", settings.upsell_variant_id | first -%}
+                    {%- assign upsell_variant = upsell_product.variants
+                      | where: 'id', settings.upsell_variant_id
+                      | first
+                    -%}
                     <tr id="CartDrawer-Item-{{ upsell_variant.index | plus: 1 }}" class="cart-item" role="row">
                       <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
                         {% if upsell_variant.image %}
@@ -439,6 +442,7 @@
                             <s class="cart-item__old-price product-option">
                               {{- upsell_variant.original_price | money -}}
                             </s>
+                            {{ upsell_variant | json }}
                             <span class="visually-hidden">
                               {{ 'products.product.price.sale_price' | t }}
                             </span>
