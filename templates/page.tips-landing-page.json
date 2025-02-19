@@ -150,13 +150,20 @@
         "text": "This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart        .        This Chocolate Breaks Bed Not Heart"
       }
     },
+    "lp_video_RMnf7x": {
+      "type": "lp-video",
+      "settings": {
+        "video_file": "shopify://files/videos/videoplayback.mp4"
+      }
+    },
     "video_BWFiNG": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
         "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=AigpJpSG_Ks",
+        "video_url": "https://youtu.be/AigpJpSG_Ks?si=GiqXZpr_splYy5lC",
         "cover_image": "shopify://shop_images/image_38b6ae21-8fba-4016-a93f-b5e7f219c7df.png",
         "description": "",
         "full_width": false,
@@ -435,6 +442,7 @@
     "lp_featured_product_yw8Pt7",
     "landing_page_banner_tPURrF",
     "content_slider_strip_dFxGXg",
+    "lp_video_RMnf7x",
     "video_BWFiNG",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",

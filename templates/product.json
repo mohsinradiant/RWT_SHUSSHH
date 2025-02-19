@@ -54,6 +54,12 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "tolstoy_shoppable_video_quiz_stories_block_6eJyEL": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/stories-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "publishId"
+          }
         }
       },
       "block_order": [
@@ -64,7 +70,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "tolstoy_shoppable_video_quiz_stories_block_6eJyEL"
       ],
       "settings": {
         "enable_sticky_info": true,

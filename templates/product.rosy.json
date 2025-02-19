@@ -58,6 +58,14 @@
         "image": "shopify://shop_images/image_efa77f71-f944-4304-aca9-6bf62a330bf6.png"
       }
     },
+    "landing_page_banner_JVeCNm": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
+        "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
+      }
+    },
     "product_infographics_fold_7ecJwW": {
       "type": "product-infographics-fold",
       "settings": {
@@ -263,6 +271,7 @@
     "1738589613f985f8d8",
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
+    "landing_page_banner_JVeCNm",
     "product_infographics_fold_7ecJwW",
     "home_combos_TrKwY9",
     "featured_collection_kEqMpU",
