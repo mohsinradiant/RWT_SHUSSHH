@@ -265,6 +265,7 @@ cart-drawer-items {
 .cart-drawer .cart-item__details {
   width: auto;
   grid-column: 2 / 3;
+  height: fit-content;
 }
 
 .cart-drawer .cart-item__totals {
