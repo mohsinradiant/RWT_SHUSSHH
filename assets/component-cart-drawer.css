@@ -312,9 +312,14 @@ cart-drawer-items {
 }
 
 .cart-drawer quantity-popover .quantity__button:not(:focus-visible):not(.focused),
-quantity-popover .quantity__input:not(:focus-visible):not(.focused), .cart-drawer quantity-popover .quantity {
+quantity-popover .quantity__input:not(:focus-visible):not(.focused),
+.cart-drawer quantity-popover .quantity {
   height: 30px;
   min-height: 30px;
+}
+
+.cart-drawer .quantity__input {
+  width: 20px;
 }
 
 .cart-drawer .quantity-popover-container:not(.quantity-popover-container--hover) {
