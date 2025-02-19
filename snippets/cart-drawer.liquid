@@ -426,32 +426,28 @@
                       </td>
 
                       <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
-                        {%- if settings.show_vendor -%}
-                          <p class="caption-with-letter-spacing light">{{ upsell_variant.product.vendor }}</p>
-                        {%- endif -%}
-
                         <a href="{{ upsell_variant.url }}" class="cart-item__name h4 break">
                           {{- upsell_variant.product.title | escape -}}
                         </a>
 
-                        {%- if upsell_variant.original_price != upsell_variant.final_price -%}
+                        {%- if upsell_variant.price != upsell_variant.compare_at_price -%}
                           <div class="cart-item__discounted-prices">
                             <span class="visually-hidden">
                               {{ 'products.product.price.regular_price' | t }}
                             </span>
                             <s class="cart-item__old-price product-option">
-                              {{- upsell_variant.original_price | money -}}
+                              {{- upsell_variant.price | money -}}
                             </s>
                             <span class="visually-hidden">
                               {{ 'products.product.price.sale_price' | t }}
                             </span>
                             <strong class="cart-item__final-price product-option">
-                              {{ upsell_variant.final_price | money }}
+                              {{ upsell_variant.compare_at_price | money }}
                             </strong>
                           </div>
                         {%- else -%}
                           <div class="product-option">
-                            {{ upsell_variant.original_price | money }}
+                            {{ upsell_variant.price | money }}
                           </div>
                         {%- endif -%}
 
