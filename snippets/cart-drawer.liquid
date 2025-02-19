@@ -415,6 +415,88 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+      {% assign cart_contains_upsell = false %}
+      {% for item in cart.items %}
+        {% if item.product.handle == settings.cart_upsell_product %}
+          {% assign cart_contains_upsell = true %}
+        {%- endif %}
+      {%- endfor %}
+      {% unless cart_contains_upsell %}
+        <div class="drawer__upsell">
+          <div class="drawer__upsell_product">
+            {% assign upsell_product = all_products[settings.cart_upsell_product] %}
+            {% render 'card-product',
+              card_product: upsell_product,
+              quick_add: 'standard',
+              horizontal_class: true,
+              horizontal_quick_add: true
+            %}
+          </div>
+
+          <style>
+            .drawer__upsell_product .card__content {
+               display: flex;
+               flex-direction: column;
+               align-self: center;
+            }
+            .drawer__upsell_product {
+              padding: 10px;
+              width: 100%;
+            }
+            .drawer__upsell_product .card-wrapper {
+              box-shadow: none;
+            }
+            .drawer__upsell_product .product-card-subeading,
+            .drawer__upsell_product .product-card-description {
+              display: none;
+            }
+            .drawer__upsell_product .card.card--horizontal {
+              align-items: center;
+            }
+            .drawer__upsell_product .product-card-wrapper .quick-add {
+              display: flex;
+              align-items: center;
+              width: 50%;
+            }
+            .drawer__upsell_product .product-card-wrapper .quick-add modal-opener {
+              width: 100%;
+            }
+            .drawer__upsell {
+              display: flex;
+              align-items: center;
+              margin-bottom: 0;
+              border: solid 1px #00000020;
+              border-radius: 10px;
+            }
+            .drawer__upsell .card__inner {
+              width: 25%;
+              border-radius: 10px !important;
+              overflow: hidden;
+            }
+            .drawer__upsell_product .card:not(.ratio) > .card__content {
+              display: flex !important;
+              flex-direction: row !important;
+              justify-content: space-between !important;
+              width: 75%;
+              padding: 0 !important;
+            }
+            .drawer__upsell_product .quick-add button {
+              padding: 0;
+              margin: 0;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .drawer__upsell_product .card__content a {
+              font-size: 1.5rem;
+              font-family: 'Assistant', sans-serif;
+              font-weight: 600;
+              color: #000;
+            }
+          </style>
+        </div>
+      {%- endunless %}
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
@@ -438,88 +520,7 @@
 
         <!-- Start blocks -->
         <!-- Subtotals -->
-        {% assign cart_contains_upsell = false %}
-        {% for item in cart.items %}
-          {% if item.product.handle == settings.cart_upsell_product %}
-            {% assign cart_contains_upsell = true %}
-          {%- endif %}
-        {%- endfor %}
-        {% unless cart_contains_upsell %}
-          <div class="drawer__upsell">
-            <div class="drawer__upsell_product">
-              {% assign upsell_product = all_products[settings.cart_upsell_product] %}
-              {% render 'card-product',
-                card_product: upsell_product,
-                quick_add: 'standard',
-                horizontal_class: true,
-                horizontal_quick_add: true
-              %}
-            </div>
 
-            <style>
-              .drawer__upsell_product .card__content {
-                 display: flex;
-                 flex-direction: column;
-                 align-self: center;
-              }
-              .drawer__upsell_product {
-                padding: 10px;
-                width: 100%;
-              }
-              .drawer__upsell_product .card-wrapper {
-                box-shadow: none;
-              }
-              .drawer__upsell_product .product-card-subeading,
-              .drawer__upsell_product .product-card-description {
-                display: none;
-              }
-              .drawer__upsell_product .card.card--horizontal {
-                align-items: center;
-              }
-              .drawer__upsell_product .product-card-wrapper .quick-add {
-                display: flex;
-                align-items: center;
-                width: 50%;
-              }
-              .drawer__upsell_product .product-card-wrapper .quick-add modal-opener {
-                width: 100%;
-              }
-              .drawer__upsell {
-                display: flex;
-                align-items: center;
-                margin-bottom: 0;
-                border: solid 1px #00000020;
-                border-radius: 10px;
-              }
-              .drawer__upsell .card__inner {
-                width: 25%;
-                border-radius: 10px !important;
-                overflow: hidden;
-              }
-              .drawer__upsell_product .card:not(.ratio) > .card__content {
-                display: flex !important;
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                width: 75%;
-                padding: 0 !important;
-              }
-              .drawer__upsell_product .quick-add button {
-                padding: 0;
-                margin: 0;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-              .drawer__upsell_product .card__content a {
-                font-size: 1.5rem;
-                font-family: 'Assistant', sans-serif;
-                font-weight: 600;
-                color: #000;
-              }
-            </style>
-          </div>
-        {%- endunless %}
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
