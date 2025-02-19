@@ -91,8 +91,13 @@
                   <div class="product-content-fold-answer">
                     {% if metaobject.file.value %}
                       {% assign file_extension = metaobject.file.value | split: '.' | last | downcase %}
-                  
-                      {% if file_extension == 'jpg' or file_extension == 'jpeg' or file_extension == 'png' or file_extension == 'gif' or file_extension == 'webp' %}
+
+                      {% if file_extension == 'jpg'
+                        or file_extension == 'jpeg'
+                        or file_extension == 'png'
+                        or file_extension == 'gif'
+                        or file_extension == 'webp'
+                      %}
                         <img class="product-content-fold-answer-image" src="{{ metaobject.file.value | image_url }}">
                       {% elsif metaobject.file.value.media_type == 'video' %}
                         {{
@@ -101,10 +106,9 @@
                         }}
                       {% endif %}
                     {% endif %}
-                  
+
                     <p>{{ metaobject.description | metafield_tag }}</p>
                   </div>
-                  
                 </div>
               {% endif %}
             {% endfor %}
@@ -248,7 +252,9 @@
     border-radius: 15px;
     height: 100%;
   }
-
+  .product-content-fold-answer video {
+    height: auto !important;
+  }
   .product-content-fold-question span {
     font-family: 'Kanit', sans-serif;
     font-size: 1.8rem;
