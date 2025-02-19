@@ -566,6 +566,37 @@
                                 </div>
                               {%- endform -%}
                             </product-form>
+                            <script>
+                              document.addEventListener('DOMContentLoaded', function () {
+                                document.querySelectorAll('.product-form').forEach((form) => {
+                                  form.addEventListener('submit', function (event) {
+                                    event.preventDefault(); // Stop form from reloading page
+
+                                    let formData = new FormData(form);
+
+                                    fetch('/cart/add.js', {
+                                      method: 'POST',
+                                      body: formData,
+                                    })
+                                      .then((response) => response.json())
+                                      .then((data) => {
+                                        console.log('Added to cart:', data);
+                                        alert('Product added to cart! ✅');
+
+                                        // Optionally update cart drawer
+                                        fetch('/cart.js')
+                                          .then((res) => res.json())
+                                          .then((cart) => {
+                                            console.log('Cart updated:', cart);
+                                          });
+                                      })
+                                      .catch((error) => {
+                                        console.error('Error adding to cart:', error);
+                                      });
+                                  });
+                                });
+                              });
+                            </script>
                           {%- endif -%}
                         </div>
                       </td>
