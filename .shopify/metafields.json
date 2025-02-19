@@ -762,6 +762,26 @@
         "name": "boolean",
         "category": "TRUE_FALSE"
       }
+    },
+    {
+      "key": "usp_grid_collage",
+      "namespace": "content",
+      "name": "USP Grid Collage Desktop",
+      "description": "",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "usp_grid_collage_mobile",
+      "namespace": "content",
+      "name": "USP Grid Collage Mobile",
+      "description": "",
+      "type": {
+        "name": "file_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
