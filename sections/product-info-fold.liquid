@@ -232,39 +232,39 @@
 
               console.log(`[initializeVariantDivs] Associated input ID: ${inputId}, Value: ${radioInput.value}`);
 
-              function updateSelection() {
-                console.log(`%c[Click] Variant Div Clicked: ${radioInput.value}`, 'color: purple; font-weight: bold;');
+              // Ensure previous event listeners are removed before adding a new one
+              div.removeEventListener('click', handleVariantClick);
+              div.addEventListener('click', () => handleVariantClick(div, radioInput, colorNameElement));
+            });
+          }
 
-                // Remove previous selection styles
-                document.querySelectorAll('.variant-div').forEach((item) => {
-                  item.classList.remove('selected', 'size-div');
-                  item.textContent = '.';
-                });
+          function handleVariantClick(div, radioInput, colorNameElement) {
+            console.log(`%c[Click] Variant Div Clicked: ${radioInput.value}`, 'color: purple; font-weight: bold;');
 
-                // Check if radio input exists before selecting it
-                if (radioInput) {
-                  radioInput.checked = true;
-                  radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+            // Remove previous selections
+            document.querySelectorAll('.variant-div').forEach((item) => {
+              item.classList.remove('selected', 'size-div');
+              item.textContent = '.';
+            });
 
-                  div.classList.add('selected');
-                  if (radioInput.value.toLowerCase().includes('ml')) {
-                    div.classList.add('size-div');
-                    div.textContent = radioInput.value;
-                  }
+            // Check and select the radio input
+            if (radioInput) {
+              radioInput.checked = true;
+              radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
-                  if (colorNameElement) {
-                    colorNameElement.textContent = radioInput.value;
-                    console.log(`[Click] Updated color name to: ${radioInput.value}`);
-                  }
-                } else {
-                  console.warn(`[Click] Radio input for ${inputId} was not found.`);
-                }
+              div.classList.add('selected');
+              if (radioInput.value.toLowerCase().includes('ml')) {
+                div.classList.add('size-div');
+                div.textContent = radioInput.value;
               }
 
-              // Attach event listener (removes previous to prevent duplicates)
-              div.removeEventListener('click', updateSelection);
-              div.addEventListener('click', updateSelection);
-            });
+              if (colorNameElement) {
+                colorNameElement.textContent = radioInput.value;
+                console.log(`[Click] Updated color name to: ${radioInput.value}`);
+              }
+            } else {
+              console.warn(`[Click] Radio input for ${radioInput.id} was not found.`);
+            }
           }
 
           function observeProductUpdates() {
