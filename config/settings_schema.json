@@ -1463,12 +1463,6 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
-      },
-      {
-        "type": "product",
-        "id": "cart_upsell_product",
-        "label": "Cart Upsell Product",
-        "info": "Select a product to upsell in the cart"
       }
     ]
   }
