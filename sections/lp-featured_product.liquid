@@ -97,7 +97,7 @@
                 </div>
             {%- endcase -%}
 
-            {% if section.blocks.in_the_box != null %}
+            {% if section.blocks.size > 0 %}
               <div class="product-content-fold-item">
                 <button class="product-content-fold-question" aria-expanded="false">
                   <span>What's in the box</span>
@@ -106,11 +106,13 @@
                   style="padding: 25px 0 10px; height: fit-content;"
                   class="product-content-fold-answer product-content-fold-answer-image-container-parent"
                 >
-                  {% for item in section.blocks.in_the_box %}
-                    <div class="product-content-fold-answer-image-container">
-                      <img src="{{ item.image | image_url }}">
-                      <p>{{ item.text }}</p>
-                    </div>
+                  {% for item in section.blocks %}
+                    {% if item.type == 'in_the_box' %}
+                      <div class="product-content-fold-answer-image-container">
+                        <img src="{{ item.settings.image | image_url }}">
+                        <p>{{ item.settings.text }}</p>
+                      </div>
+                    {% endif %}
                   {% endfor %}
                 </div>
               </div>
