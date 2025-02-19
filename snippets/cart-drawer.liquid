@@ -514,27 +514,21 @@
                         role="cell"
                         headers="CartDrawer-ColumnQuantity"
                       >
-                        {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
+                        {% assign product_form_id = 'quick-add-' | append: section_id | append: upsell_product.id %}
                         <div class="quick-add no-js-hidden">
-                          {%- liquid
-                            assign qty_rules = false
-                            if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
-                              assign qty_rules = true
-                            endif
-                          -%}
-                          <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
+                          <modal-opener data-modal="#QuickAdd-{{ upsell_product.id }}">
                             <form method="post" action="/cart/add">
                               <input
                                 type="hidden"
                                 name="id"
-                                value="{{ card_product.selected_or_first_available_variant.id }}"
+                                value="{{ upsell_product.selected_or_first_available_variant.id }}"
                               >
                               <input type="hidden" name="quantity" value="1">
                               <button
                                 id="{{ product_form_id }}-submit"
                                 type="submit"
                                 class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}"
-                                aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                                aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ upsell_product.id }}"
                               >
                                 Buy Now
                                 {%- if horizontal_quick_add -%}
