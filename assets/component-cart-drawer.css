@@ -303,6 +303,14 @@ cart-drawer-items {
   border-radius: 10px;
 }
 
+.cart-drawer cart-remove-button .button {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  min-height: 20px;
+  width: auto;
+}
+
 .cart-drawer .quantity-popover-container:not(.quantity-popover-container--hover) {
   width: 100%;
 }
