@@ -218,13 +218,12 @@
           function initializeVariantDivs() {
             console.log('Initializing variant divs...');
 
-            // Remove 'initialized' class to reattach event listeners
             document.querySelectorAll('.variant-div').forEach((div) => {
               div.classList.remove('initialized');
             });
 
             document.querySelectorAll('.variant-div').forEach((div) => {
-              div.classList.add('initialized'); // Mark as initialized
+              div.classList.add('initialized');
               console.log('Applied Initialized classes to variant divs...');
               const inputId = div.getAttribute('data-input-id');
               const radioInput = document.getElementById(inputId);
@@ -235,19 +234,17 @@
 
                 if (value.includes('ml')) {
                   div.classList.add('size-div');
-                  div.textContent = radioInput.value; // Show size
+                  div.textContent = radioInput.value;
                 } else {
                   div.classList.remove('size-div');
-                  div.textContent = '.'; // Default content
+                  div.textContent = '.';
                 }
               }
 
-              // Click event for selecting variants
               div.addEventListener('click', () => {
                 console.log(`Div clicked: ${radioInput.value}`);
                 console.log(`Input ID: ${inputId}`);
 
-                // Deselect other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected', 'size-div');
                   item.textContent = '.';
@@ -255,29 +252,23 @@
 
                 if (radioInput) {
                   console.log('Simulating click on radio input');
-
-                  // Check the radio input and trigger a change event
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
-                  // Add selected class
                   div.classList.add('selected');
                   console.log('Variant selected and class "selected" added');
 
-                  // Update color name dynamically
                   if (colorNameElement) {
                     colorNameElement.textContent = radioInput.value;
                     console.log(`Color name updated to: ${radioInput.value}`);
                   }
 
-                  // If value contains "ml", keep size-div class
                   if (radioInput.value.toLowerCase().includes('ml')) {
                     div.classList.add('size-div');
                     div.textContent = radioInput.value;
                   }
                 }
 
-                // Update the carousel images when a new variant is selected
                 updateCarousel();
               });
             });
@@ -285,8 +276,6 @@
 
           function updateCarousel() {
             console.log('Updating carousel images...');
-
-            // Get the checked input
             const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
 
             if (!checkedInput) {
@@ -297,17 +286,15 @@
             const selectedValue = checkedInput.value.trim().toLowerCase();
             console.log(`Selected variant: ${selectedValue}`);
 
-            // Get all carousel images
             const images = document.querySelectorAll('.carousel-track-custom img');
 
             images.forEach((img) => {
               const altText = img.alt ? img.alt.trim().toLowerCase() : '';
 
-              // Check if alt text contains the selected value
               if (altText.includes(selectedValue)) {
-                img.style.display = 'block'; // Show the image
+                img.style.display = 'block';
               } else {
-                img.style.display = 'none'; // Hide the image
+                img.style.display = 'none';
               }
             });
           }
@@ -317,12 +304,10 @@
             initializeVariantDivs();
             updateCarousel();
 
-            // Listen for input change events
             document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
               input.addEventListener('change', updateCarousel);
             });
 
-            // Observe Shopify AJAX updates
             const productContainer = document.querySelector('.product-form');
             if (productContainer) {
               const observer = new MutationObserver((mutations) => {
@@ -339,11 +324,17 @@
             }
           });
 
-          document.addEventListener('shopify:section:load', () => {
-            console.log('Shopify section reloaded. Reinitializing scripts...');
-            initializeVariantDivs();
-            updateCarousel();
-          });
+          // Watch for URL changes to detect variant selection updates
+          let lastUrl = window.location.href;
+
+          setInterval(() => {
+            if (window.location.href !== lastUrl) {
+              console.log('URL changed, reinitializing scripts...');
+              lastUrl = window.location.href;
+              initializeVariantDivs();
+              updateCarousel();
+            }
+          }, 500);
         </script>
 
         {%- render 'buy-buttons',
