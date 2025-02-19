@@ -1,6 +1,6 @@
 <section class="lp-video-section">
   <video id="lp-video" autoplay loop muted playsinline>
-    <source src="" type="video/mp4">
+    <source src="{{ section.settings.video_file | video_tag }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <button id="mute-toggle">🔊</button>
@@ -38,13 +38,6 @@
     var video = document.getElementById('lp-video');
     var toggleBtn = document.getElementById('mute-toggle');
 
-    // Set video source from Shopify settings
-    var videoSrc = '{{ section.settings.video_url }}';
-    if (videoSrc) {
-      video.querySelector('source').setAttribute('src', videoSrc);
-      video.load();
-    }
-
     toggleBtn.addEventListener('click', function () {
       video.muted = !video.muted;
       toggleBtn.textContent = video.muted ? '🔊' : '🔇';
@@ -58,8 +51,8 @@
   "settings": [
     {
       "type": "video",
-      "id": "video_url",
-      "label": "Video URL"
+      "id": "video_file",
+      "label": "Select Video"
     }
   ],
   "presets": [
