@@ -89,6 +89,7 @@
                     <span class="product-content-fold-toggle-icon">+</span>
                   </button>
                   <div class="product-content-fold-answer">
+                    <p>{{ metaobject.file.value }}</p>
                     {% if metaobject.file.value %}
                       {% assign file_extension = metaobject.file.value | split: '.' | last | downcase %}
 
