@@ -131,59 +131,10 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "1739215445ada50f90": {
-      "type": "apps",
-      "blocks": {
-        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
-          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
-          "settings": {
-            "publishId": "0txi67owib4jd"
-          }
-        }
-      },
-      "block_order": [
-        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "content_slider_strip_qpKFNJ": {
       "type": "content-slider-strip",
       "settings": {
         "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
-      }
-    },
-    "home_vday_banner_gXk89j": {
-      "type": "home-vday-banner",
-      "settings": {
-        "gradient_color_1": "#010002",
-        "gradient_color_2": "#5d00b9",
-        "gradient_angle": 90,
-        "glow_color": "#ffb800",
-        "glow_intensity": 20,
-        "animation_speed": 2,
-        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
-        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
-        "button_text": "EXPLORE",
-        "button_url": "shopify://pages/tips-landing-page"
-      }
-    },
-    "1739966954c67125d1": {
-      "type": "apps",
-      "blocks": {
-        "tolstoy_shoppable_video_quiz_stories_block_J6NFT4": {
-          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/stories-block/06fa8282-42ff-403e-b67c-1936776aed11",
-          "settings": {
-            "publishId": "publishId"
-          }
-        }
-      },
-      "block_order": [
-        "tolstoy_shoppable_video_quiz_stories_block_J6NFT4"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "featured_collection": {
@@ -212,6 +163,38 @@
         "swipe_on_mobile": true,
         "padding_top": 52,
         "padding_bottom": 52
+      }
+    },
+    "home_vday_banner_gXk89j": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "#010002",
+        "gradient_color_2": "#5d00b9",
+        "gradient_angle": 90,
+        "glow_color": "#ffb800",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
+        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
+        "button_text": "EXPLORE",
+        "button_url": "shopify://pages/tips-landing-page"
+      }
+    },
+    "1739215445ada50f90": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "0txi67owib4jd"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "home_deal_of_the_day_NJGxyT": {
@@ -269,14 +252,6 @@
         "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
-    "home_discreet_packaging_bKNnKt": {
-      "type": "home-discreet-packaging",
-      "settings": {
-        "image": "shopify://shop_images/DISCREET_80d8f14c-5b2d-4dfc-95c6-5caf2fa8e62c.png",
-        "mobile_image": "shopify://shop_images/DISCREET_412_x_571_px.png",
-        "button_text": "CHECK PACKAGING"
-      }
-    },
     "home_vday_banner_NBD7WK": {
       "type": "home-vday-banner",
       "settings": {
@@ -290,6 +265,14 @@
         "mobile_image": "shopify://shop_images/Fap_phone.jpg",
         "button_text": "FAP IT",
         "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+      }
+    },
+    "home_discreet_packaging_bKNnKt": {
+      "type": "home-discreet-packaging",
+      "settings": {
+        "image": "shopify://shop_images/DISCREET_80d8f14c-5b2d-4dfc-95c6-5caf2fa8e62c.png",
+        "mobile_image": "shopify://shop_images/DISCREET_412_x_571_px.png",
+        "button_text": "CHECK PACKAGING"
       }
     },
     "featured_product_3C3jVK": {
@@ -490,15 +473,14 @@
   "order": [
     "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
-    "1739215445ada50f90",
     "content_slider_strip_qpKFNJ",
-    "home_vday_banner_gXk89j",
-    "1739966954c67125d1",
     "featured_collection",
+    "home_vday_banner_gXk89j",
+    "1739215445ada50f90",
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
-    "home_discreet_packaging_bKNnKt",
     "home_vday_banner_NBD7WK",
+    "home_discreet_packaging_bKNnKt",
     "featured_product_3C3jVK",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
