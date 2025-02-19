@@ -404,7 +404,7 @@
                       </tr>
                     {%- endfor -%}
                     {% assign upsell_product = all_products[settings.cart_upsell_product] %}
-                    <p>Upsell Product: {{ all_products[settings.cart_upsell_product] }}</p>
+                    <p>Upsell Product: {{ settings.cart_upsell_product }}</p>
                     <tr id="CartDrawer-Item-{{ upsell_product.index | plus: 1 }}" class="cart-item" role="row">
                       <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
                         {% if upsell_product.image %}
