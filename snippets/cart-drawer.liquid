@@ -407,7 +407,7 @@
                     {% assign cart_contains_upsell = false %}
 
                     {% for item in cart.items %}
-                      {% if item.product.handle == settings.upsell_product_handle %}
+                      {% if item.product.handle == settings.upsell_product %}
                         {% assign cart_contains_upsell = true %}
                       {%- endif %}
                     {%- endfor %}
@@ -421,7 +421,7 @@
                         </div>
 
                         <div class="drawer__upsell_product">
-                          {% assign upsell_product = all_products[settings.upsell_product_handle] %}
+                          {% assign upsell_product = all_products[settings.upsell_product] %}
                           {% render 'card-product',
                             card_product: upsell_product,
                             quick_add: 'standard',
