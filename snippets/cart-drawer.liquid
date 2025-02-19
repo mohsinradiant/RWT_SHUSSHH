@@ -403,65 +403,62 @@
                         -%}
                       </tr>
                     {%- endfor -%}
-                    {%- assign upsell_variant = upsell_product.variants
-                      | where: 'id', settings.upsell_variant_id
-                      | first
-                    -%}
-                    <p>Upsell Product: {{ upsell_product.variants.first | json }}</p>
-                    <tr id="CartDrawer-Item-{{ upsell_product.index | plus: 1 }}" class="cart-item" role="row">
+                    {% assign upsell_product = all_products[settings.cart_upsell_product] %}
+                    {%- assign upsell_variant = upsell_product.variants | where: "id", settings.upsell_variant_id | first -%}
+                    <tr id="CartDrawer-Item-{{ upsell_variant.index | plus: 1 }}" class="cart-item" role="row">
                       <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
-                        {% if upsell_product.image %}
+                        {% if upsell_variant.image %}
                           {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                          <a href="{{ upsell_product.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true">
+                          <a href="{{ upsell_variant.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true">
                           </a>
                           <img
                             class="cart-item__image"
-                            src="{{ upsell_product.image | image_url: width: 300 }}"
-                            alt="{{ upsell_product.image.alt | escape }}"
+                            src="{{ upsell_variant.image | image_url: width: 300 }}"
+                            alt="{{ upsell_variant.image.alt | escape }}"
                             loading="lazy"
                             width="150"
-                            height="{{ 150 | divided_by: upsell_product.image.aspect_ratio | ceil }}"
+                            height="{{ 150 | divided_by: upsell_variant.image.aspect_ratio | ceil }}"
                           >
                         {% endif %}
                       </td>
 
                       <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
                         {%- if settings.show_vendor -%}
-                          <p class="caption-with-letter-spacing light">{{ upsell_product.product.vendor }}</p>
+                          <p class="caption-with-letter-spacing light">{{ upsell_variant.product.vendor }}</p>
                         {%- endif -%}
 
-                        <a href="{{ upsell_product.url }}" class="cart-item__name h4 break">
-                          {{- upsell_product.product.title | escape -}}
+                        <a href="{{ upsell_variant.url }}" class="cart-item__name h4 break">
+                          {{- upsell_variant.product.title | escape -}}
                         </a>
 
-                        {%- if upsell_product.original_price != upsell_product.final_price -%}
+                        {%- if upsell_variant.original_price != upsell_variant.final_price -%}
                           <div class="cart-item__discounted-prices">
                             <span class="visually-hidden">
                               {{ 'products.product.price.regular_price' | t }}
                             </span>
                             <s class="cart-item__old-price product-option">
-                              {{- upsell_product.original_price | money -}}
+                              {{- upsell_variant.original_price | money -}}
                             </s>
                             <span class="visually-hidden">
                               {{ 'products.product.price.sale_price' | t }}
                             </span>
                             <strong class="cart-item__final-price product-option">
-                              {{ upsell_product.final_price | money }}
+                              {{ upsell_variant.final_price | money }}
                             </strong>
                           </div>
                         {%- else -%}
                           <div class="product-option">
-                            {{ upsell_product.original_price | money }}
+                            {{ upsell_variant.original_price | money }}
                           </div>
                         {%- endif -%}
 
-                        {%- if upsell_product.product.has_only_default_variant == false
-                          or upsell_product.properties.size != 0
-                          or upsell_product.selling_plan_allocation != null
+                        {%- if upsell_variant.product.has_only_default_variant == false
+                          or upsell_variant.properties.size != 0
+                          or upsell_variant.selling_plan_allocation != null
                         -%}
                           <dl>
-                            {%- if upsell_product.product.has_only_default_variant == false -%}
-                              {%- for option in upsell_product.options_with_values -%}
+                            {%- if upsell_variant.product.has_only_default_variant == false -%}
+                              {%- for option in upsell_variant.options_with_values -%}
                                 <div class="product-option">
                                   {% comment %} <dt>{{ option.name }}:</dt> {% endcomment %}
                                   <dd>
@@ -472,7 +469,7 @@
                               {%- endfor -%}
                             {%- endif -%}
 
-                            {%- for property in upsell_product.properties -%}
+                            {%- for property in upsell_variant.properties -%}
                               {%- assign property_first_char = property.first | slice: 0 -%}
                               {%- if property.last != blank and property_first_char != '_' -%}
                                 <div class="product-option">
@@ -496,7 +493,7 @@
                             {%- endfor -%}
                           </dl>
 
-                          <p class="product-option">{{ upsell_product.selling_plan_allocation.selling_plan.name }}</p>
+                          <p class="product-option">{{ upsell_variant.selling_plan_allocation.selling_plan.name }}</p>
                         {%- endif -%}
 
                         <ul
@@ -504,7 +501,7 @@
                           role="list"
                           aria-label="{{ 'customer.order.discount' | t }}"
                         >
-                          {%- for discount in upsell_product.line_level_discount_allocations -%}
+                          {%- for discount in upsell_variant.line_level_discount_allocations -%}
                             <li class="discounts__discount">
                               {{- 'icon-discount.svg' | inline_asset_content -}}
                               {{ discount.discount_application.title }}
@@ -526,7 +523,7 @@
                                   <span class="visually-hidden">
                                     {{-
                                       'products.product.quantity.decrease'
-                                      | t: product: upsell_product.product.title
+                                      | t: product: upsell_variant.product.title
                                       | escape
                                     -}}
                                   </span>
@@ -537,27 +534,27 @@
                                 <input
                                   class="quantity__input"
                                   type="number"
-                                  data-quantity-variant-id="{{ upsell_product.variant.id }}"
+                                  data-quantity-variant-id="{{ upsell_variant.variant.id }}"
                                   name="updates[]"
-                                  value="{{ upsell_product.quantity }}"
+                                  value="{{ upsell_variant.quantity }}"
                                   {% # theme-check-disable %}
-                                  data-cart-quantity="{{ cart | item_count_for_variant: upsell_product.variant.id }}"
+                                  data-cart-quantity="{{ cart | item_count_for_variant: upsell_variant.variant.id }}"
                                   min="0"
-                                  data-min="{{ upsell_product.variant.quantity_rule.min }}"
-                                  {% if upsell_product.variant.quantity_rule.max != null %}
-                                    max="{{ upsell_product.variant.quantity_rule.max }}"
+                                  data-min="{{ upsell_variant.variant.quantity_rule.min }}"
+                                  {% if upsell_variant.variant.quantity_rule.max != null %}
+                                    max="{{ upsell_variant.variant.quantity_rule.max }}"
                                   {% endif %}
-                                  step="{{ upsell_product.variant.quantity_rule.increment }}"
+                                  step="{{ upsell_variant.variant.quantity_rule.increment }}"
                                   {% # theme-check-enable %}
-                                  aria-label="{{ 'products.product.quantity.input_label' | t: product: upsell_product.product.title | escape }}"
-                                  id="Drawer-quantity-{{ upsell_product.index | plus: 1 }}"
-                                  data-index="{{ upsell_product.index | plus: 1 }}"
+                                  aria-label="{{ 'products.product.quantity.input_label' | t: product: upsell_variant.product.title | escape }}"
+                                  id="Drawer-quantity-{{ upsell_variant.index | plus: 1 }}"
+                                  data-index="{{ upsell_variant.index | plus: 1 }}"
                                 >
                                 <button class="quantity__button" name="plus" type="button">
                                   <span class="visually-hidden">
                                     {{-
                                       'products.product.quantity.increase'
-                                      | t: product: upsell_product.product.title
+                                      | t: product: upsell_variant.product.title
                                       | escape
                                     -}}
                                   </span>
@@ -568,14 +565,14 @@
                               </quantity-input>
                             </div>
                             <cart-remove-button
-                              id="CartDrawer-Remove-{{ upsell_product.index | plus: 1 }}"
-                              data-index="{{ upsell_product.index | plus: 1 }}"
+                              id="CartDrawer-Remove-{{ upsell_variant.index | plus: 1 }}"
+                              data-index="{{ upsell_variant.index | plus: 1 }}"
                             >
                               <button
                                 type="button"
                                 class="button button--tertiary cart-remove-button"
-                                aria-label="{{ 'sections.cart.remove_title' | t: title: upsell_product.title | escape }}"
-                                data-variant-id="{{ upsell_product.variant.id }}"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: upsell_variant.title | escape }}"
+                                data-variant-id="{{ upsell_variant.variant.id }}"
                               >
                                 <span class="svg-wrapper">
                                   {{- 'icon-remove.svg' | inline_asset_content -}}
@@ -613,27 +610,27 @@
                                 </span>
                               {%- endif -%}
                               <div class="quantity__rules caption">
-                                {%- if upsell_product.variant.quantity_rule.increment > 1 -%}
+                                {%- if upsell_variant.variant.quantity_rule.increment > 1 -%}
                                   <span class="divider">
                                     {{-
                                       'products.product.quantity.multiples_of'
-                                      | t: quantity: upsell_product.variant.quantity_rule.increment
+                                      | t: quantity: upsell_variant.variant.quantity_rule.increment
                                     -}}
                                   </span>
                                 {%- endif -%}
-                                {%- if upsell_product.variant.quantity_rule.min > 1 -%}
+                                {%- if upsell_variant.variant.quantity_rule.min > 1 -%}
                                   <span class="divider">
                                     {{-
                                       'products.product.quantity.min_of'
-                                      | t: quantity: upsell_product.variant.quantity_rule.min
+                                      | t: quantity: upsell_variant.variant.quantity_rule.min
                                     -}}
                                   </span>
                                 {%- endif -%}
-                                {%- if upsell_product.variant.quantity_rule.max != null -%}
+                                {%- if upsell_variant.variant.quantity_rule.max != null -%}
                                   <span class="divider">
                                     {{-
                                       'products.product.quantity.max_of'
-                                      | t: quantity: upsell_product.variant.quantity_rule.max
+                                      | t: quantity: upsell_variant.variant.quantity_rule.max
                                     -}}
                                   </span>
                                 {%- endif -%}
@@ -647,14 +644,14 @@
                                   {{- 'icon-close.svg' | inline_asset_content -}}
                                 </span>
                               </button>
-                              {%- if upsell_product.variant.quantity_price_breaks.size > 0 -%}
+                              {%- if upsell_variant.variant.quantity_price_breaks.size > 0 -%}
                                 <volume-pricing class="parent-display">
                                   <ul class="list-unstyled">
                                     <li>
-                                      <span>{{ upsell_product.variant.quantity_rule.min }}+</span>
-                                      <span>{{ upsell_product.variant.price | money_with_currency }}/ea</span>
+                                      <span>{{ upsell_variant.variant.quantity_rule.min }}+</span>
+                                      <span>{{ upsell_variant.variant.price | money_with_currency }}/ea</span>
                                     </li>
-                                    {%- for price_break in upsell_product.variant.quantity_price_breaks -%}
+                                    {%- for price_break in upsell_variant.variant.quantity_price_breaks -%}
                                       <li>
                                         <span>
                                           {{- price_break.minimum_quantity -}}
@@ -669,7 +666,7 @@
                             </div>
                           {%- endif -%}
                           <div
-                            id="CartDrawer-LineItemError-{{ upsell_product.index | plus: 1 }}"
+                            id="CartDrawer-LineItemError-{{ upsell_variant.index | plus: 1 }}"
                             class="cart-item__error"
                             role="alert"
                           >
@@ -682,12 +679,12 @@
                       </td>
                       {%- liquid
                         assign has_qty_rules = false
-                        if upsell_product.variant.quantity_rule.increment > 1 or upsell_product.variant.quantity_rule.min > 1 or upsell_product.variant.quantity_rule.max != null
+                        if upsell_variant.variant.quantity_rule.increment > 1 or upsell_variant.variant.quantity_rule.min > 1 or upsell_variant.variant.quantity_rule.max != null
                           assign has_qty_rules = true
                         endif
 
                         assign has_vol_pricing = false
-                        if upsell_product.variant.quantity_price_breaks.size > 0
+                        if upsell_variant.variant.quantity_price_breaks.size > 0
                           assign has_vol_pricing = true
                         endif
                       -%}
