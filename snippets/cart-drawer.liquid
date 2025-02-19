@@ -403,7 +403,6 @@
                         -%}
                       </tr>
                     {%- endfor -%}
-
                     {% assign cart_contains_upsell = false %}
                     {% for item in cart.items %}
                       {% if item.product.handle == settings.cart_upsell_product %}
