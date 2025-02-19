@@ -403,7 +403,7 @@
                         -%}
                       </tr>
                     {%- endfor -%}
-                    <tr id="CartDrawer-Item-{{ item.index | plus: 1 }}" class="cart-item" role="row">
+                    <tr id="CartDrawer-Item-{{ item.index | plus: 3 }}" class="cart-item" role="row">
                       {% assign cart_contains_upsell = false %}
                       {% for item in cart.items %}
                         {% if item.product.handle == settings.cart_upsell_product %}
