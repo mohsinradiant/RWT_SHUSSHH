@@ -71,7 +71,7 @@
   }
 
   /* Shine effect */
-  .sticky-atc-container-buy-button button::before {
+  .sticky-atc-container-buy-button button::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -83,12 +83,7 @@
     animation: shinebright 3s linear infinite;
     transition: all 0.4s ease;
   }
-
-  .sticky-atc-container-buy-button button:hover {
-    color: #1d9bf0;
-  }
-
-  .sticky-atc-container-buy-button button:hover::before {
+  .sticky-atc-container-buy-button button:hover::after {
     animation-play-state: paused;
     box-shadow: 0 24px 32px 12px #1d9bf0;
   }
