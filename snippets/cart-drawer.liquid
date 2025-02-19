@@ -403,7 +403,10 @@
                         -%}
                       </tr>
                     {%- endfor -%}
-                    {% assign upsell_product = all_products[settings.cart_upsell_product] %}
+                    {%- assign upsell_variant = upsell_product.variants
+                      | where: 'id', settings.upsell_variant_id
+                      | first
+                    -%}
                     <p>Upsell Product: {{ upsell_product.variants.first | json }}</p>
                     <tr id="CartDrawer-Item-{{ upsell_product.index | plus: 1 }}" class="cart-item" role="row">
                       <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
