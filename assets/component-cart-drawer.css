@@ -290,7 +290,8 @@ cart-drawer-items {
 
 .cart-drawer .cart-items .cart-item__quantity {
   padding-top: 0;
-  grid-column: 3 / 3;
+  grid-column: 3 / 5;
+  padding-left: 0 !important;
 }
 
 @media screen and (max-width: 749px) {
