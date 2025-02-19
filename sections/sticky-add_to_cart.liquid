@@ -65,11 +65,42 @@
     width: 45%;
   }
   .sticky-atc-container-buy-button button {
+    position: relative;
+    overflow: hidden;
     font-size: 1.7rem;
     line-height: 0;
     font-family: 'Kanit';
     font-weight: 400;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Example gradient background */
+    transition: 0.3s ease-in-out;
   }
+
+  .sticky-atc-container-buy-button button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    transform: skewX(-30deg);
+    animation: shiny-effect 2s infinite linear;
+  }
+
+  @keyframes shiny-effect {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
   .sticky-atc-container .price-item--sale,
   .sticky-atc-container .page-width .price--large p {
     font-size: 1.5rem;
