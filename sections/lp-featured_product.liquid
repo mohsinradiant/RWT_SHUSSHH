@@ -97,23 +97,28 @@
                 </div>
             {%- endcase -%}
           {% endfor %}
-            <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
-              <h3 class="accordion__title inline-richtext h4">What's in the box</h3>
-              <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Vector_1.png?v=1739091764">
-            </summary>
-            <div
-              class="accordion__content rte"
-              id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
-              role="region"
-              aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
-            >{% for item in section.blocks %}
-              {% if item.type == 'in_the_box' %}
-                <div class="product-content-fold-answer-image-container">
-                  <img src="{{ item.settings.image | image_url }}">
-                  <p>{{ item.settings.text }}</p>
-                </div>
-              {% endif %}
-            {% endfor %}</div>
+          <div
+          class="accordion content-container "
+        >
+          <details id="Details-{{ section.id }}-{{ forloop.index }}">
+          <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
+            <h3 class="accordion__title inline-richtext h4">What's in the box</h3>
+            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Vector_1.png?v=1739091764">
+          </summary>
+          <div
+            class="accordion__content rte"
+            id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
+            role="region"
+            aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
+          >{% for item in section.blocks %}
+            {% if item.type == 'in_the_box' %}
+              <div class="product-content-fold-answer-image-container">
+                <img src="{{ item.settings.image | image_url }}">
+                <p>{{ item.settings.text }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}</div></details>
+          </div>
           </div>
         </div>
       </div>
