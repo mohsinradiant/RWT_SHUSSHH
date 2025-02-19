@@ -273,6 +273,8 @@
         } else {
           console.warn(`[Click] Radio input for ${inputId} was not found.`);
         }
+
+        updateCarousel();
       });
 
       console.log(`%c[initializeVariantDivs] Event listener attached for div #${index}`, 'color: green;');
@@ -297,6 +299,7 @@
             'color: red; font-weight: bold;'
           );
           initializeVariantDivs();
+          updateCarousel();
         }
       });
     });
@@ -309,7 +312,12 @@
   document.addEventListener('DOMContentLoaded', () => {
     console.log('%c[DOMContentLoaded] Initializing scripts...', 'color: black; font-weight: bold;');
     initializeVariantDivs();
+    updateCarousel();
     observeProductUpdates();
+
+    document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
+      input.addEventListener('change', updateCarousel);
+    });
   });
 
   document.addEventListener('shopify:section:load', () => {
@@ -318,6 +326,7 @@
       'color: magenta; font-weight: bold;'
     );
     initializeVariantDivs();
+    updateCarousel();
     observeProductUpdates();
   });
 </script>
