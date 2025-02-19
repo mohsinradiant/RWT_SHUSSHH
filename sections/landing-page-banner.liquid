@@ -2,8 +2,12 @@
   {% if section.settings.section_heading %}
     <h2 class="page-width section-heading">{{ section.settings.section_heading }}</h2>
   {% endif %}
-  <img class="lp-desktop-banner" src="{{section.settings.desktop_image |  image_url }}">
-  <img class="lp-mobile-banner" src="{{section.settings.mobile_image |  image_url }}">
+  {% if section.settings.desktop_image %}
+    <img class="lp-desktop-banner" src="{{section.settings.desktop_image |  image_url }}">
+  {% endif %}
+  {% if section.settings.mobile_image %}
+    <img class="lp-mobile-banner" src="{{section.settings.mobile_image |  image_url }}">
+  {% endif %}
 </div>
 
 <style>

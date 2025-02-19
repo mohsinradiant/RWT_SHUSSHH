@@ -1,0 +1,39 @@
+<section class="page-width lp-video-section">
+  {{
+    section.settings.video_file
+    | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: '600x'
+  }}
+</section>
+
+<style>
+  .lp-video-section {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "LP Video",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Select Video"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP Video"
+    }
+  ]
+}
+{% endschema %}
