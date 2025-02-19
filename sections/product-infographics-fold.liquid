@@ -217,71 +217,73 @@
   });
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c[DOMContentLoaded] Initializing...', 'color: black; font-weight: bold;');
-    setupVariantClickListener();
-    observeProductUpdates();
-    updateCarousel();
-  });
+  function initializeVariantDivs() {
+    console.log('%c[initializeVariantDivs] Running...', 'color: green; font-weight: bold;');
 
-  function setupVariantClickListener() {
-    const productForm = document.querySelector('.product-form');
+    document.querySelectorAll('.variant-div').forEach((div, index) => {
+      console.log(`%c[initializeVariantDivs] Processing .variant-div #${index}`, 'color: blue;');
 
-    if (!productForm) {
-      console.warn('[setupVariantClickListener] Product form not found.');
-      return;
-    }
+      const newDiv = div.cloneNode(true); // Clone to remove old event listeners
+      div.parentNode.replaceChild(newDiv, div); // Replace old div with new one
 
-    productForm.addEventListener('click', (event) => {
-      const variantDiv = event.target.closest('.variant-div');
-      if (!variantDiv) return;
-
-      const inputId = variantDiv.getAttribute('data-input-id');
+      const inputId = newDiv.getAttribute('data-input-id');
       const radioInput = document.getElementById(inputId);
+      const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
 
       if (!radioInput) {
-        console.warn(`[Click] No input found for div: ${inputId}`);
+        console.warn(`[initializeVariantDivs] No radio input found for div #${index}`);
         return;
       }
 
-      console.log(`%c[Click] Variant Selected: ${radioInput.value}`, 'color: purple; font-weight: bold;');
+      console.log(`[initializeVariantDivs] Associated input ID: ${inputId}, Value: ${radioInput.value}`);
 
-      // Deselect all other variants
-      document.querySelectorAll('.variant-div').forEach((item) => item.classList.remove('selected'));
+      const value = radioInput.value.trim().toLowerCase();
+      if (value.includes('ml')) {
+        newDiv.classList.add('size-div');
+        newDiv.textContent = radioInput.value;
+      } else {
+        newDiv.classList.remove('size-div');
+        newDiv.textContent = '.';
+      }
 
-      // Select the clicked variant
-      variantDiv.classList.add('selected');
-      radioInput.checked = true;
-      radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+      newDiv.addEventListener('click', () => {
+        console.log(`%c[Click] Variant Div Clicked: ${radioInput.value}`, 'color: purple; font-weight: bold;');
 
-      updateColorName(radioInput.value);
-      updateCarousel();
-    });
-  }
+        // Deselect other variants
+        document.querySelectorAll('.variant-div').forEach((item) => {
+          item.classList.remove('selected', 'size-div');
+          item.textContent = '.';
+        });
 
-  function updateColorName(selectedValue) {
-    const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-    if (colorNameElement) {
-      colorNameElement.textContent = selectedValue;
-      console.log(`[updateColorName] Updated to: ${selectedValue}`);
-    }
-  }
+        // Check if the radioInput exists before checking it
+        if (radioInput) {
+          radioInput.checked = true;
+          radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+          newDiv.classList.add('selected');
 
-  function updateCarousel() {
-    console.log('%c[updateCarousel] Running...', 'color: orange; font-weight: bold;');
+          if (colorNameElement) {
+            colorNameElement.textContent = radioInput.value;
+            console.log(`[Click] Updated color name to: ${radioInput.value}`);
+          }
 
-    const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
-    if (!checkedInput) return;
+          if (radioInput.value.toLowerCase().includes('ml')) {
+            newDiv.classList.add('size-div');
+            newDiv.textContent = radioInput.value;
+          }
+        } else {
+          console.warn(`[Click] Radio input for ${inputId} was not found.`);
+        }
 
-    const selectedValue = checkedInput.value.trim().toLowerCase();
-    console.log(`[updateCarousel] Selected variant: ${selectedValue}`);
+        updateCarousel();
+      });
 
-    document.querySelectorAll('.carousel-track-custom img').forEach((img) => {
-      img.style.display = img.alt.trim().toLowerCase().includes(selectedValue) ? 'block' : 'none';
+      console.log(`%c[initializeVariantDivs] Event listener attached for div #${index}`, 'color: green;');
     });
   }
 
   function observeProductUpdates() {
+    console.log('%c[observeProductUpdates] Setting up MutationObserver...', 'color: cyan; font-weight: bold;');
+
     const productContainer = document.querySelector('.product-form');
 
     if (!productContainer) {
@@ -289,23 +291,45 @@
       return;
     }
 
-    const observer = new MutationObserver(() => {
-      console.log(
-        '%c[observeProductUpdates] Product container updated. Reinitializing...',
-        'color: blue; font-weight: bold;'
-      );
-      updateCarousel();
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          console.log(
+            '%c[observeProductUpdates] Product container updated. Reinitializing scripts...',
+            'color: red; font-weight: bold;'
+          );
+          initializeVariantDivs();
+          updateCarousel();
+        }
+      });
     });
 
     observer.observe(productContainer, { childList: true, subtree: true });
+
+    console.log('%c[observeProductUpdates] MutationObserver attached successfully.', 'color: cyan;');
   }
 
-  document.addEventListener('shopify:section:load', () => {
-    console.log('%c[shopify:section:load] Reload detected. Reinitializing...', 'color: magenta; font-weight: bold;');
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('%c[DOMContentLoaded] Initializing scripts...', 'color: black; font-weight: bold;');
+    initializeVariantDivs();
     updateCarousel();
+    observeProductUpdates();
+
+    document.querySelectorAll('input[name^="Color-1"]').forEach((input) => {
+      input.addEventListener('change', updateCarousel);
+    });
+  });
+
+  document.addEventListener('shopify:section:load', () => {
+    console.log(
+      '%c[shopify:section:load] Shopify section reloaded. Reinitializing scripts...',
+      'color: magenta; font-weight: bold;'
+    );
+    initializeVariantDivs();
+    updateCarousel();
+    observeProductUpdates();
   });
 </script>
-
 {% schema %}
 {
   "name": "Product Combos Fold",
