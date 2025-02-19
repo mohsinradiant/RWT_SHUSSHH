@@ -218,13 +218,15 @@
           function initializeVariantDivs() {
             console.log('%c[initializeVariantDivs] Running...', 'color: green; font-weight: bold;');
 
+            // 🔴 Remove old elements before reattaching
+            document.querySelectorAll('.variant-div').forEach((div) => {
+              div.replaceWith(div.cloneNode(true)); // Ensure no lingering old elements
+            });
+
             document.querySelectorAll('.variant-div').forEach((div, index) => {
               console.log(`%c[initializeVariantDivs] Processing .variant-div #${index}`, 'color: blue;');
 
-              const newDiv = div.cloneNode(true); // Clone to remove old event listeners
-              div.parentNode.replaceChild(newDiv, div); // Replace old div with new one
-
-              const inputId = newDiv.getAttribute('data-input-id');
+              const inputId = div.getAttribute('data-input-id');
               const radioInput = document.getElementById(inputId);
               const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
 
@@ -237,27 +239,25 @@
 
               const value = radioInput.value.trim().toLowerCase();
               if (value.includes('ml')) {
-                newDiv.classList.add('size-div');
-                newDiv.textContent = radioInput.value;
+                div.classList.add('size-div');
+                div.textContent = radioInput.value;
               } else {
-                newDiv.classList.remove('size-div');
-                newDiv.textContent = '.';
+                div.classList.remove('size-div');
+                div.textContent = '.';
               }
 
-              newDiv.addEventListener('click', () => {
+              div.addEventListener('click', () => {
                 console.log(`%c[Click] Variant Div Clicked: ${radioInput.value}`, 'color: purple; font-weight: bold;');
 
-                // Deselect other variants
                 document.querySelectorAll('.variant-div').forEach((item) => {
                   item.classList.remove('selected', 'size-div');
                   item.textContent = '.';
                 });
 
-                // Check if the radioInput exists before checking it
                 if (radioInput) {
                   radioInput.checked = true;
                   radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-                  newDiv.classList.add('selected');
+                  div.classList.add('selected');
 
                   if (colorNameElement) {
                     colorNameElement.textContent = radioInput.value;
@@ -265,8 +265,8 @@
                   }
 
                   if (radioInput.value.toLowerCase().includes('ml')) {
-                    newDiv.classList.add('size-div');
-                    newDiv.textContent = radioInput.value;
+                    div.classList.add('size-div');
+                    div.textContent = radioInput.value;
                   }
                 } else {
                   console.warn(`[Click] Radio input for ${inputId} was not found.`);
@@ -314,6 +314,10 @@
                     '%c[observeProductUpdates] Product container updated. Reinitializing scripts...',
                     'color: red; font-weight: bold;'
                   );
+
+                  // 🔴 Remove old variant divs to prevent duplicates
+                  document.querySelectorAll('.variant-div').forEach((div) => div.remove());
+
                   initializeVariantDivs();
                   updateCarousel();
                 }
@@ -341,6 +345,10 @@
               '%c[shopify:section:load] Shopify section reloaded. Reinitializing scripts...',
               'color: magenta; font-weight: bold;'
             );
+
+            // 🔴 Remove old variant divs to prevent duplicate elements
+            document.querySelectorAll('.variant-div').forEach((div) => div.remove());
+
             initializeVariantDivs();
             updateCarousel();
             observeProductUpdates();
