@@ -208,14 +208,15 @@
       });
     });
 
-    // Auto-slide every 5 seconds
-    setInterval(moveToNext, 5000);
+    // ❌ Removed Auto-slide (Disabled auto-scroll)
+    // setInterval(moveToNext, 5000);
 
     // Initialize the carousel
     setTrackWidth(); // Set track width before initial move
     moveToIndex(currentIndex);
   });
 </script>
+
 {% schema %}
 {
   "name": "Product Combos Fold",
