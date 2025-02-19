@@ -44,12 +44,6 @@
     </div>
     {%- assign product_form_id = 'product-form-' | append: section.id -%}
     {% render 'buy-buttons-lp', product: product, product_form_id: product_form_id, section_id: section.id %}
-
-    <button
-      style="padding: 10px 20px; background-color: #be1e28; color: white;  border-radius: 5px; ; font-size: 16px;"
-    >
-      Download Shab-e-Raaz
-    </button>
     <button
       style="border: none; cursor: pointer; padding:0;width: 100%; height:fit-content;aspect-ratio:400/127"
       onclick="downloadPDF()"
