@@ -339,7 +339,6 @@
             }
           });
 
-          // Fix for Shopify Section Refresh
           document.addEventListener('shopify:section:load', () => {
             console.log('Shopify section reloaded. Reinitializing scripts...');
             initializeVariantDivs();
