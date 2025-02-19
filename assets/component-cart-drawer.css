@@ -323,6 +323,10 @@ quantity-popover .quantity__input:not(:focus-visible):not(.focused),
   padding: 0;
 }
 
+.cart-drawer .quantity__button {
+  width: 30px;
+}
+
 .cart-drawer .quantity-popover-container:not(.quantity-popover-container--hover) {
   width: 100%;
 }
