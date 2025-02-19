@@ -110,7 +110,8 @@
             id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
             role="region"
             aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
-          >{% for item in section.blocks %}
+          >
+          {% for item in section.blocks %}
             {% if item.type == 'in_the_box' %}
               <div class="product-content-fold-answer-image-container">
                 <img src="{{ item.settings.image | image_url }}">
