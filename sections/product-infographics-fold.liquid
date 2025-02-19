@@ -218,9 +218,10 @@
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('[DOMContentLoaded] Initializing scripts...');
+    console.log('%c[DOMContentLoaded] Initializing...', 'color: black; font-weight: bold;');
     setupVariantClickListener();
     observeProductUpdates();
+    updateCarousel();
   });
 
   function setupVariantClickListener() {
@@ -237,38 +238,40 @@
 
       const inputId = variantDiv.getAttribute('data-input-id');
       const radioInput = document.getElementById(inputId);
-      const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
 
-      if (radioInput) {
-        console.log(`[Click] Variant Div Clicked: ${radioInput.value}`);
-        radioInput.checked = true;
-        radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-
-        // Update UI for selected variant
-        document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
-        variantDiv.classList.add('selected');
-
-        if (colorNameElement) {
-          colorNameElement.textContent = radioInput.value;
-          console.log(`[Click] Updated color name to: ${radioInput.value}`);
-        }
-
-        updateCarousel();
-      } else {
+      if (!radioInput) {
         console.warn(`[Click] No input found for div: ${inputId}`);
+        return;
       }
+
+      console.log(`%c[Click] Variant Selected: ${radioInput.value}`, 'color: purple; font-weight: bold;');
+
+      // Deselect all other variants
+      document.querySelectorAll('.variant-div').forEach((item) => item.classList.remove('selected'));
+
+      // Select the clicked variant
+      variantDiv.classList.add('selected');
+      radioInput.checked = true;
+      radioInput.dispatchEvent(new Event('change', { bubbles: true }));
+
+      updateColorName(radioInput.value);
+      updateCarousel();
     });
   }
 
+  function updateColorName(selectedValue) {
+    const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
+    if (colorNameElement) {
+      colorNameElement.textContent = selectedValue;
+      console.log(`[updateColorName] Updated to: ${selectedValue}`);
+    }
+  }
+
   function updateCarousel() {
-    console.log('[updateCarousel] Running...');
+    console.log('%c[updateCarousel] Running...', 'color: orange; font-weight: bold;');
 
     const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
-
-    if (!checkedInput) {
-      console.warn('[updateCarousel] No selected input found!');
-      return;
-    }
+    if (!checkedInput) return;
 
     const selectedValue = checkedInput.value.trim().toLowerCase();
     console.log(`[updateCarousel] Selected variant: ${selectedValue}`);
@@ -287,8 +290,10 @@
     }
 
     const observer = new MutationObserver(() => {
-      console.log('[observeProductUpdates] Product container updated. Reinitializing scripts...');
-      setupVariantClickListener();
+      console.log(
+        '%c[observeProductUpdates] Product container updated. Reinitializing...',
+        'color: blue; font-weight: bold;'
+      );
       updateCarousel();
     });
 
@@ -296,8 +301,7 @@
   }
 
   document.addEventListener('shopify:section:load', () => {
-    console.log('[shopify:section:load] Shopify section reloaded. Reinitializing scripts...');
-    setupVariantClickListener();
+    console.log('%c[shopify:section:load] Reload detected. Reinitializing...', 'color: magenta; font-weight: bold;');
     updateCarousel();
   });
 </script>
