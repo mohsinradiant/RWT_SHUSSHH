@@ -403,157 +403,42 @@
                         -%}
                       </tr>
                     {%- endfor -%}
-                    {% assign upsell_product = all_products[settings.cart_upsell_product] %}
-                    {%- assign upsell_variant = upsell_product.variants
-                      | where: 'id', settings.upsell_variant_id
-                      | first
-                    -%}
-                    <tr id="CartDrawer-Item-{{ upsell_variant.index | plus: 1 }}" class="cart-item" role="row">
-                      <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
-                        {% if upsell_variant.image %}
-                          {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                          <a href="{{ upsell_variant.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true">
-                          </a>
-                          <img
-                            class="cart-item__image"
-                            src="{{ upsell_variant.image | image_url: width: 300 }}"
-                            alt="{{ upsell_variant.image.alt | escape }}"
-                            loading="lazy"
-                            width="150"
-                            height="{{ 150 | divided_by: upsell_variant.image.aspect_ratio | ceil }}"
-                          >
-                        {% endif %}
-                      </td>
 
-                      <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
-                        <a href="{{ upsell_variant.url }}" class="cart-item__name h4 break">
-                          {{- upsell_variant.product.title | escape -}}
-                        </a>
+                    {% assign cart_contains_upsell = false %}
 
-                        {%- if upsell_variant.price != upsell_variant.compare_at_price -%}
-                          <div class="cart-item__discounted-prices">
-                            <span class="visually-hidden">
-                              {{ 'products.product.price.regular_price' | t }}
-                            </span>
-                            <s class="cart-item__old-price product-option">
-                              {{- upsell_variant.compare_at_price | money -}}
-                            </s>
-                            <span class="visually-hidden">
-                              {{ 'products.product.price.sale_price' | t }}
-                            </span>
-                            <strong class="cart-item__final-price product-option">
-                              {{ upsell_variant.price | money }}
-                            </strong>
-                          </div>
-                        {%- else -%}
-                          <div class="product-option">
-                            {{ upsell_variant.compare_at_price | money }}
-                          </div>
-                        {%- endif -%}
+                    {% for item in cart.items %}
+                      {% if item.product.handle == settings.upsell_product_handle %}
+                        {% assign cart_contains_upsell = true %}
+                      {%- endif %}
+                    {%- endfor %}
 
-                        {%- if upsell_variant.product.has_only_default_variant == false
-                          or upsell_variant.properties.size != 0
-                          or upsell_variant.selling_plan_allocation != null
-                        -%}
-                          <dl>
-                            {%- if upsell_variant.product.has_only_default_variant == false -%}
-                              {%- for option in upsell_variant.options_with_values -%}
-                                <div class="product-option">
-                                  {% comment %} <dt>{{ option.name }}:</dt> {% endcomment %}
-                                  <dd>
-                                    {{ option.value -}}
-                                    {%- unless forloop.last %}, {% endunless %}
-                                  </dd>
-                                </div>
-                              {%- endfor -%}
-                            {%- endif -%}
-
-                            {%- for property in upsell_variant.properties -%}
-                              {%- assign property_first_char = property.first | slice: 0 -%}
-                              {%- if property.last != blank and property_first_char != '_' -%}
-                                <div class="product-option">
-                                  <dt>{{ property.first }}:</dt>
-                                  <dd>
-                                    {%- if property.last contains '/uploads/' -%}
-                                      <a
-                                        href="{{ property.last }}"
-                                        class="link"
-                                        target="_blank"
-                                        aria-describedby="a11y-new-window-message"
-                                      >
-                                        {{ property.last | split: '/' | last }}
-                                      </a>
-                                    {%- else -%}
-                                      {{ property.last }}
-                                    {%- endif -%}
-                                  </dd>
-                                </div>
-                              {%- endif -%}
-                            {%- endfor -%}
-                          </dl>
-
-                          <p class="product-option">{{ upsell_variant.selling_plan_allocation.selling_plan.name }}</p>
-                        {%- endif -%}
-
-                        <ul
-                          class="discounts list-unstyled"
-                          role="list"
-                          aria-label="{{ 'customer.order.discount' | t }}"
-                        >
-                          {%- for discount in upsell_variant.line_level_discount_allocations -%}
-                            <li class="discounts__discount">
-                              {{- 'icon-discount.svg' | inline_asset_content -}}
-                              {{ discount.discount_application.title }}
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      </td>
-
-                      <td
-                        class="cart-item__quantity {% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}"
-                        role="cell"
-                        headers="CartDrawer-ColumnQuantity"
-                      >
-                        {% assign product_form_id = 'quick-add-' | append: section_id | append: upsell_product.id %}
-                        <div class="quick-add no-js-hidden">
-                          <modal-opener data-modal="#QuickAdd-{{ upsell_product.id }}">
-                            <form method="post" action="/cart/add">
-                              <input
-                                type="hidden"
-                                name="id"
-                                value="{{ upsell_product.selected_or_first_available_variant.id }}"
-                              >
-                              <input type="hidden" name="quantity" value="1">
-                              <button
-                                id="{{ product_form_id }}-submit"
-                                type="submit"
-                                class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}"
-                                aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ upsell_product.id }}"
-                              >
-                                Buy Now
-                                {%- if horizontal_quick_add -%}
-                                  <span class="icon-wrap">
-                                    {{- 'icon-arrow.svg' | inline_asset_content -}}
-                                  </span>
-                                {%- endif -%}
-                                {%- render 'loading-spinner' -%}
-                              </button>
-                            </form>
-                          </modal-opener>
+                    {% unless cart_contains_upsell %}
+                      <div class="drawer__upsell">
+                        <div class="drawer__upsell_header">
+                          <h3>
+                            <strong>{{ settings.upsell_title }}</strong>
+                          </h3>
                         </div>
-                      </td>
-                      {%- liquid
-                        assign has_qty_rules = false
-                        if upsell_variant.variant.quantity_rule.increment > 1 or upsell_variant.variant.quantity_rule.min > 1 or upsell_variant.variant.quantity_rule.max != null
-                          assign has_qty_rules = true
-                        endif
 
-                        assign has_vol_pricing = false
-                        if upsell_variant.variant.quantity_price_breaks.size > 0
-                          assign has_vol_pricing = true
-                        endif
-                      -%}
-                    </tr>
+                        <div class="drawer__upsell_product">
+                          {% assign upsell_product = all_products[settings.upsell_product_handle] %}
+                          {% render 'card-product',
+                            card_product: upsell_product,
+                            quick_add: 'standard',
+                            horizontal_class: true,
+                            horizontal_quick_add: true
+                          %}
+                        </div>
+
+                        <style>
+                          .drawer__upsell_product .card__content {
+                             display: flex;
+                             flex-direction: column;
+                             align-self: center;
+                          }
+                        </style>
+                      </div>
+                    {%- endunless %}
                   </tbody>
                 </table>
               </div>
