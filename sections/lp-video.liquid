@@ -1,9 +1,8 @@
-<section class="lp-video-section">
+<section class="page-width lp-video-section">
   {{
     section.settings.video_file
     | video_tag: autoplay: true, loop: true, muted: true, controls: true, image_size: '600x'
   }}
-  <button id="mute-toggle">🔊</button>
 </section>
 
 <style>
@@ -19,31 +18,7 @@
     height: auto;
     display: block;
   }
-
-  #mute-toggle {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var video = document.getElementById('lp-video');
-    var toggleBtn = document.getElementById('mute-toggle');
-
-    toggleBtn.addEventListener('click', function () {
-      video.muted = !video.muted;
-      toggleBtn.textContent = video.muted ? '🔊' : '🔇';
-    });
-  });
-</script>
 
 {% schema %}
 {
