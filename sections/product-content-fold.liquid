@@ -32,7 +32,7 @@
             </button>
             <div class="carousel-track-custom">
               {% for image in product.metafields.content.info_images.value %}
-                <img class="carousel-item-custom" src="{{image | image_url}}">
+                <img class="carousel-item-custom" src="{{image | image_url}}" alt="{{image.alt}}">
               {% endfor %}
             </div>
             <button class="carousel-btn-custom right-btn-custom">
@@ -399,6 +399,7 @@
   @media (max-width: 850px) {
     .product-content-fold-container {
       flex-direction: column;
+      overflow-x: hidden !important;
       gap: 15px;
     }
     .product-content-fold-container-parent {
@@ -472,63 +473,106 @@
     gsap.registerPlugin();
 
     const track = document.querySelector('.carousel-track-custom');
-    const items = document.querySelectorAll('.carousel-item-custom');
-    const dots = document.querySelectorAll('.dot-custom');
+    const items = Array.from(document.querySelectorAll('.carousel-item-custom'));
+    const dotsContainer = document.querySelector('.carousel-indicators-custom'); // Container for dots
     const prevBtn = document.querySelector('.left-btn-custom');
     const nextBtn = document.querySelector('.right-btn-custom');
-    const itemCount = items.length;
-
-    let currentIndex = 0;
+    const variantColorSpan = document.querySelector('.product-info-fold-variant-color-name span');
     let startX = null;
+    let currentIndex = 0;
+
+    // Function to filter visible items only
+    const getVisibleItems = () => items.filter((item) => getComputedStyle(item).display !== 'none');
+
+    // Function to filter images based on the span content
+    const filterImagesByVariant = () => {
+      const spanText = variantColorSpan?.textContent.trim();
+      if (!spanText) return;
+
+      items.forEach((item) => {
+        const altText = item.getAttribute('alt') || '';
+        if (altText.includes(spanText)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      createDotsForVisibleItems(); // Update dots after filtering
+      currentIndex = 0; // Reset to the first item
+      updateCarousel('next');
+    };
+
+    // Function to update the dots based on visible items
+    const createDotsForVisibleItems = () => {
+      // Clear existing dots
+      dotsContainer.innerHTML = '';
+
+      // Add dots for visible items only
+      const visibleItems = getVisibleItems();
+      visibleItems.forEach((item, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'dot-custom';
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+      });
+
+      // Reinitialize event listeners for newly created dots
+      const dots = Array.from(dotsContainer.children);
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel('next');
+        });
+      });
+    };
+
+    // Call to initially create dots based on visible items
+    createDotsForVisibleItems();
 
     const updateCarousel = (direction) => {
-      const offset = -currentIndex * 100;
+      const visibleItems = getVisibleItems(); // Update visible items dynamically
+      const offset = -currentIndex * (100 / visibleItems.length);
 
       // Animate track movement
       gsap.to(track, {
-        xPercent: offset,
-        duration: 0.2, // Faster transition
+        xPercent: offset * visibleItems.length, // Adjust offset based on visible items
+        duration: 0.2,
         ease: 'power2.out',
       });
 
       // Apply 3D rotation effect
       gsap.fromTo(
-        items[currentIndex],
+        visibleItems[currentIndex],
         {
           opacity: 0.5,
           scale: 0.95,
-          rotateY: direction === 'next' ? 50 : -50, // 3D Rotate based on direction
+          rotateY: direction === 'next' ? 50 : -50,
         },
         {
           opacity: 1,
           scale: 1,
           rotateY: 0,
-          duration: 0.2, // Sync with slide animation
+          duration: 0.2,
           ease: 'power2.out',
         }
       );
 
       // Update active dot
+      const dots = Array.from(dotsContainer.children);
       dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
       });
     };
 
     prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+      currentIndex = (currentIndex - 1 + getVisibleItems().length) % getVisibleItems().length;
       updateCarousel('prev');
     });
 
     nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % itemCount;
+      currentIndex = (currentIndex + 1) % getVisibleItems().length;
       updateCarousel('next');
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel('next');
-      });
     });
 
     // Swipe functionality
@@ -547,9 +591,27 @@
         prevBtn.click();
       }
 
-      startX = null; // Reset after swipe ends
+      startX = null;
     });
 
+    // Add event listener for .variant-div click
+    const variantDiv = document.querySelector('.variant-div');
+    if (variantDiv) {
+      variantDiv.addEventListener('click', () => {
+        filterImagesByVariant(); // Update images when .variant-div is clicked
+      });
+    }
+
+    // Add mutation observer to detect changes in the span content
+    if (variantColorSpan) {
+      const observer = new MutationObserver(() => {
+        filterImagesByVariant(); // Update images when the span text changes
+      });
+
+      observer.observe(variantColorSpan, { childList: true, subtree: true });
+    }
+
+    filterImagesByVariant(); // Initial filtering
     updateCarousel();
   });
 </script>
