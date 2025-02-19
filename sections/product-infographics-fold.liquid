@@ -217,48 +217,58 @@
   });
 </script>
 <script>
-  function initializeVariantDivs() {
-    console.log('%c[initializeVariantDivs] Running...', 'color: green; font-weight: bold;');
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('[DOMContentLoaded] Initializing scripts...');
+    setupVariantClickListener();
+    observeProductUpdates();
+  });
 
-    document.querySelectorAll('.variant-div').forEach((div) => {
-      const inputId = div.getAttribute('data-input-id');
+  function setupVariantClickListener() {
+    const productForm = document.querySelector('.product-form');
+
+    if (!productForm) {
+      console.warn('[setupVariantClickListener] Product form not found.');
+      return;
+    }
+
+    productForm.addEventListener('click', (event) => {
+      const variantDiv = event.target.closest('.variant-div');
+      if (!variantDiv) return;
+
+      const inputId = variantDiv.getAttribute('data-input-id');
       const radioInput = document.getElementById(inputId);
+      const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
 
-      if (!radioInput) return; // Skip if input not found
-
-      // Click event to toggle active variant
-      div.addEventListener('click', () => {
-        console.log(`%c[Click] Variant Selected: ${radioInput.value}`, 'color: purple; font-weight: bold;');
-
-        // Deselect all other variants
-        document.querySelectorAll('.variant-div').forEach((item) => {
-          item.classList.remove('selected');
-        });
-
-        // Select the clicked one
-        div.classList.add('selected');
+      if (radioInput) {
+        console.log(`[Click] Variant Div Clicked: ${radioInput.value}`);
         radioInput.checked = true;
         radioInput.dispatchEvent(new Event('change', { bubbles: true }));
 
-        updateColorName(radioInput.value);
+        // Update UI for selected variant
+        document.querySelectorAll('.variant-div').forEach((div) => div.classList.remove('selected'));
+        variantDiv.classList.add('selected');
+
+        if (colorNameElement) {
+          colorNameElement.textContent = radioInput.value;
+          console.log(`[Click] Updated color name to: ${radioInput.value}`);
+        }
+
         updateCarousel();
-      });
+      } else {
+        console.warn(`[Click] No input found for div: ${inputId}`);
+      }
     });
   }
 
-  function updateColorName(selectedValue) {
-    const colorNameElement = document.querySelector('.product-info-fold-variant-color-name span');
-    if (colorNameElement) {
-      colorNameElement.textContent = selectedValue;
-      console.log(`[updateColorName] Updated to: ${selectedValue}`);
-    }
-  }
-
   function updateCarousel() {
-    console.log('%c[updateCarousel] Running...', 'color: orange; font-weight: bold;');
+    console.log('[updateCarousel] Running...');
 
     const checkedInput = document.querySelector('input[name^="Color-1"]:checked');
-    if (!checkedInput) return;
+
+    if (!checkedInput) {
+      console.warn('[updateCarousel] No selected input found!');
+      return;
+    }
 
     const selectedValue = checkedInput.value.trim().toLowerCase();
     console.log(`[updateCarousel] Selected variant: ${selectedValue}`);
@@ -268,15 +278,26 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c[DOMContentLoaded] Initializing...', 'color: black; font-weight: bold;');
-    initializeVariantDivs();
-    updateCarousel();
-  });
+  function observeProductUpdates() {
+    const productContainer = document.querySelector('.product-form');
+
+    if (!productContainer) {
+      console.warn('[observeProductUpdates] Product container not found!');
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      console.log('[observeProductUpdates] Product container updated. Reinitializing scripts...');
+      setupVariantClickListener();
+      updateCarousel();
+    });
+
+    observer.observe(productContainer, { childList: true, subtree: true });
+  }
 
   document.addEventListener('shopify:section:load', () => {
-    console.log('%c[shopify:section:load] Reload detected. Reinitializing...', 'color: magenta; font-weight: bold;');
-    initializeVariantDivs();
+    console.log('[shopify:section:load] Shopify section reloaded. Reinitializing scripts...');
+    setupVariantClickListener();
     updateCarousel();
   });
 </script>
