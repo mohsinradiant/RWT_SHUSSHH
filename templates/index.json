@@ -131,23 +131,6 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "1739215445ada50f90": {
-      "type": "apps",
-      "blocks": {
-        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
-          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
-          "settings": {
-            "publishId": "0txi67owib4jd"
-          }
-        }
-      },
-      "block_order": [
-        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "content_slider_strip_qpKFNJ": {
       "type": "content-slider-strip",
       "settings": {
@@ -212,6 +195,23 @@
         "swipe_on_mobile": true,
         "padding_top": 52,
         "padding_bottom": 52
+      }
+    },
+    "1739215445ada50f90": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "0txi67owib4jd"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_ugc_carousel_block_MYQjDK"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "home_deal_of_the_day_NJGxyT": {
@@ -490,15 +490,15 @@
   "order": [
     "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
-    "1739215445ada50f90",
     "content_slider_strip_qpKFNJ",
+    "featured_collection",
     "home_vday_banner_gXk89j",
     "1739966954c67125d1",
-    "featured_collection",
+    "1739215445ada50f90",
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
-    "home_discreet_packaging_bKNnKt",
     "home_vday_banner_NBD7WK",
+    "home_discreet_packaging_bKNnKt",
     "featured_product_3C3jVK",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
