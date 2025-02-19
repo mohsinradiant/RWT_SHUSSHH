@@ -320,6 +320,7 @@ quantity-popover .quantity__input:not(:focus-visible):not(.focused),
 
 .cart-drawer .quantity__input {
   width: 20px;
+  padding: 0;
 }
 
 .cart-drawer .quantity-popover-container:not(.quantity-popover-container--hover) {
