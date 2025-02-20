@@ -60,9 +60,9 @@
         "product_category_7EUBfz": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/Bundles.png",
+            "image": "shopify://shop_images/Bundles_14563ec7-a989-48fc-8a11-fb59b592cc91.png",
             "text": "Bundles",
-            "url": "/collections/bundles"
+            "url": "shopify://collections/all-bundles"
           }
         },
         "product_category_twKGnB": {
