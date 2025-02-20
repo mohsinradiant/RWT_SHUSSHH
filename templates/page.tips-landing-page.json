@@ -105,6 +105,13 @@
             "image": "shopify://shop_images/blindfold_c243f1cf-dd46-4e16-bde8-1d55c26bf95a.png",
             "text": "BLINDFOLD"
           }
+        },
+        "in_the_box_UNqhrc": {
+          "type": "in_the_box",
+          "settings": {
+            "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
+            "text": "SHAB-E-RAAZ"
+          }
         }
       },
       "block_order": [
@@ -119,7 +126,8 @@
         "in_the_box_md3JBb",
         "in_the_box_fYf4cx",
         "in_the_box_RycmLx",
-        "in_the_box_tJnT94"
+        "in_the_box_tJnT94",
+        "in_the_box_UNqhrc"
       ],
       "settings": {
         "product": "tips-love-box",
