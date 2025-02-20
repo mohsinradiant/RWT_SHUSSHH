@@ -36,9 +36,9 @@
         "product_category_EWxNgJ": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/New_Launch.png",
-            "text": "New Launch",
-            "url": "/collections/new-launch"
+            "image": "shopify://shop_images/V-Day_Sasle_7e386bc0-2c42-4da2-8040-b929cccb9510.png",
+            "text": "All",
+            "url": "shopify://collections/all"
           }
         },
         "product_category_7EUBfz": {
