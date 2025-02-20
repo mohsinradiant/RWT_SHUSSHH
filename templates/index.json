@@ -13,6 +13,21 @@
       "type": "home-circle-collections",
       "settings": {}
     },
+    "home_vday_banner_gXk89j": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "#010002",
+        "gradient_color_2": "#5d00b9",
+        "gradient_angle": 90,
+        "glow_color": "#ffb800",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
+        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
+        "button_text": "EXPLORE",
+        "button_url": "shopify://pages/tips-landing-page"
+      }
+    },
     "slideshow_VzBdWB": {
       "type": "slideshow",
       "blocks": {
@@ -163,21 +178,6 @@
         "swipe_on_mobile": true,
         "padding_top": 52,
         "padding_bottom": 52
-      }
-    },
-    "home_vday_banner_gXk89j": {
-      "type": "home-vday-banner",
-      "settings": {
-        "gradient_color_1": "#010002",
-        "gradient_color_2": "#5d00b9",
-        "gradient_angle": 90,
-        "glow_color": "#ffb800",
-        "glow_intensity": 20,
-        "animation_speed": 2,
-        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
-        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
-        "button_text": "EXPLORE",
-        "button_url": "shopify://pages/tips-landing-page"
       }
     },
     "1739215445ada50f90": {
@@ -474,12 +474,12 @@
     "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
     "content_slider_strip_qpKFNJ",
-    "featured_collection",
     "home_vday_banner_gXk89j",
+    "featured_collection",
+    "home_vday_banner_NBD7WK",
     "1739215445ada50f90",
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
-    "home_vday_banner_NBD7WK",
     "home_discreet_packaging_bKNnKt",
     "featured_product_3C3jVK",
     "home_quiz_cta_yVMz3E",
