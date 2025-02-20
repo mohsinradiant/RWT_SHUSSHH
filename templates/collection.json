@@ -67,6 +67,7 @@
         },
         "product_category_twKGnB": {
           "type": "product_category",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Lubes.png",
             "text": "Lubricants",
