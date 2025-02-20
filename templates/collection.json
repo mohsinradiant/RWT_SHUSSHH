@@ -41,6 +41,14 @@
             "url": "/collections/new-launch"
           }
         },
+        "product_category_7EUBfz": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/Bundles.png",
+            "text": "Bundles",
+            "url": "/collections/bundles"
+          }
+        },
         "product_category_LLbff7": {
           "type": "product_category",
           "settings": {
@@ -64,23 +72,15 @@
             "text": "Lubricants",
             "url": "/collections/lubes"
           }
-        },
-        "product_category_7EUBfz": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/Bundles.png",
-            "text": "Bundles",
-            "url": "/collections/bundles"
-          }
         }
       },
       "block_order": [
         "product_category_8bbeWH",
         "product_category_EWxNgJ",
+        "product_category_7EUBfz",
         "product_category_LLbff7",
         "product_category_zdtXfW",
-        "product_category_twKGnB",
-        "product_category_7EUBfz"
+        "product_category_twKGnB"
       ],
       "settings": {
         "products_per_page": 16,
