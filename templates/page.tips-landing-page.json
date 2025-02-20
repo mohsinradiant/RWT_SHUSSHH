@@ -371,7 +371,6 @@
     },
     "landing_page_banner_dEmk7P": {
       "type": "landing-page-banner",
-      "disabled": true,
       "settings": {
         "section_heading": "Discover What’s Making Everyone Go Wild!",
         "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
@@ -523,10 +522,10 @@
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
     "landing_page_banner_nzbqBN",
+    "landing_page_banner_HfxDGk",
     "slideshow_z9Kix6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
-    "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
     "lp_testimonial_grid_8BKrhT"
