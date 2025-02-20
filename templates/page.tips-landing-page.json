@@ -291,8 +291,8 @@
       "type": "landing-page-banner",
       "settings": {
         "section_heading": "",
-        "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view.png",
-        "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations.png"
+        "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view_2.png",
+        "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations_1.png"
       }
     },
     "landing_page_banner_nzbqBN": {
@@ -301,6 +301,15 @@
         "section_heading": "",
         "desktop_image": "shopify://shop_images/Tips_comparison_web_view.png",
         "mobile_image": "shopify://shop_images/Phone_view_Tips_comparison.png"
+      }
+    },
+    "landing_page_banner_HfxDGk": {
+      "type": "landing-page-banner",
+      "disabled": true,
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!",
+        "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
+        "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
       }
     },
     "slideshow_z9Kix6": {
@@ -375,15 +384,6 @@
         "section_heading": "Discover What’s Making Everyone Go Wild!",
         "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
         "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
-      }
-    },
-    "landing_page_banner_HfxDGk": {
-      "type": "landing-page-banner",
-      "disabled": true,
-      "settings": {
-        "section_heading": "Discover What’s Making Everyone Go Wild!",
-        "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
-        "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
       }
     },
     "landing_page_banner_ew6gr8": {
