@@ -310,7 +310,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
-            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
+            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -349,6 +349,7 @@
         "slide_JddGYR",
         "slide_hyWjyL"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "medium",
