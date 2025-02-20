@@ -3,15 +3,15 @@
   <head>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // Check if the current URL matches the target product URL
-        if (window.location.href === 'https://shusshh.in/products/tips-love-box') {
+        // Check if the current URL contains the target product slug
+        if (window.location.href.startsWith('https://shusshh.in/products/tips-love-box')) {
           window.location.replace('https://shusshh.in/pages/tips-landing-page');
         }
 
         // Intercept clicks on all links and redirect if they match the target URL
         document.body.addEventListener('click', function (event) {
           let link = event.target.closest('a'); // Get the closest anchor tag
-          if (link && link.href === 'https://shusshh.in/products/tips-love-box') {
+          if (link && link.href.startsWith('https://shusshh.in/products/tips-love-box')) {
             event.preventDefault(); // Prevent the default navigation
             window.location.href = 'https://shusshh.in/pages/tips-landing-page';
           }
