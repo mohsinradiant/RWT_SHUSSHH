@@ -61,7 +61,7 @@
     "landing_page_banner_JVeCNm": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "",
+        "section_heading": "WHY CHOOSE SHIVER ?",
         "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
         "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
       }
@@ -268,16 +268,16 @@
   "order": [
     "content_slider_strip_hA3y4W",
     "product_info_fold_PK4khL",
+    "landing_page_banner_JVeCNm",
     "1738589613f985f8d8",
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
-    "landing_page_banner_JVeCNm",
     "product_infographics_fold_7ecJwW",
     "home_combos_TrKwY9",
-    "featured_collection_kEqMpU",
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
     "product_shoppable_videos_7XLkhn",
+    "featured_collection_kEqMpU",
     "product_faqs_tLQNqz",
     "home_promises_ACUrRd",
     "main",
