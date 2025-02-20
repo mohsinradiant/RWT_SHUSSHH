@@ -52,18 +52,18 @@
       "disabled": true,
       "settings": {}
     },
-    "product_content_fold_mWfjjY": {
-      "type": "product-content-fold",
-      "settings": {
-        "image": "shopify://shop_images/image_efa77f71-f944-4304-aca9-6bf62a330bf6.png"
-      }
-    },
     "landing_page_banner_JVeCNm": {
       "type": "landing-page-banner",
       "settings": {
         "section_heading": "",
         "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
         "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
+      }
+    },
+    "product_content_fold_mWfjjY": {
+      "type": "product-content-fold",
+      "settings": {
+        "image": "shopify://shop_images/image_efa77f71-f944-4304-aca9-6bf62a330bf6.png"
       }
     },
     "1738182448a0149dbc": {
@@ -276,8 +276,8 @@
     "product_info_fold_PK4khL",
     "1738589613f985f8d8",
     "product_banner_fold_7AiTqg",
-    "product_content_fold_mWfjjY",
     "landing_page_banner_JVeCNm",
+    "product_content_fold_mWfjjY",
     "1738182448a0149dbc",
     "product_infographics_fold_7ecJwW",
     "home_combos_TrKwY9",
