@@ -210,6 +210,10 @@
             "inventory_threshold": 10,
             "show_inventory_quantity": true
           }
+        },
+        "rating_4paQEx": {
+          "type": "rating",
+          "settings": {}
         }
       },
       "block_order": [
@@ -222,7 +226,8 @@
         "description",
         "share",
         "collapsible_tab_R3nViA",
-        "inventory_z8x6TV"
+        "inventory_z8x6TV",
+        "rating_4paQEx"
       ],
       "disabled": true,
       "settings": {

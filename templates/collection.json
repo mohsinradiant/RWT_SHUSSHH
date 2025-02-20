@@ -28,17 +28,33 @@
         "product_category_8bbeWH": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/For_Him.png",
-            "text": "For Him",
-            "url": "/collections/for-him-1"
+            "image": "shopify://shop_images/website_circle_section_2.png",
+            "text": "Under ₹1999",
+            "url": "shopify://collections/under-1999"
           }
         },
         "product_category_EWxNgJ": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/New_Launch.png",
-            "text": "New Launch",
-            "url": "/collections/new-launch"
+            "image": "shopify://shop_images/V-Day_Sasle_7e386bc0-2c42-4da2-8040-b929cccb9510.png",
+            "text": "All",
+            "url": "shopify://collections/all"
+          }
+        },
+        "product_category_zdtXfW": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/website_circle_section_3.png",
+            "text": "Daily Deals",
+            "url": "shopify://collections/deals-of-the-day"
+          }
+        },
+        "product_category_7EUBfz": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/Bundles.png",
+            "text": "Bundles",
+            "url": "/collections/bundles"
           }
         },
         "product_category_LLbff7": {
@@ -49,14 +65,6 @@
             "url": "/collections/sale"
           }
         },
-        "product_category_zdtXfW": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/4_7974c1f7-2f89-4dae-b551-9c432879127a.png",
-            "text": "Deals",
-            "url": "/collections/deals-of-the-day"
-          }
-        },
         "product_category_twKGnB": {
           "type": "product_category",
           "settings": {
@@ -64,23 +72,15 @@
             "text": "Lubricants",
             "url": "/collections/lubes"
           }
-        },
-        "product_category_7EUBfz": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/Bundles.png",
-            "text": "Bundles",
-            "url": "/collections/bundles"
-          }
         }
       },
       "block_order": [
         "product_category_8bbeWH",
         "product_category_EWxNgJ",
-        "product_category_LLbff7",
         "product_category_zdtXfW",
-        "product_category_twKGnB",
-        "product_category_7EUBfz"
+        "product_category_7EUBfz",
+        "product_category_LLbff7",
+        "product_category_twKGnB"
       ],
       "settings": {
         "products_per_page": 16,
