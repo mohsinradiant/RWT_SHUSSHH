@@ -31,6 +31,14 @@
       ],
       "settings": {}
     },
+    "landing_page_banner_JVeCNm": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "WHY CHOOSE SHIVER ?",
+        "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
+        "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
+      }
+    },
     "1738589613f985f8d8": {
       "type": "apps",
       "blocks": {
@@ -58,14 +66,6 @@
         "image": "shopify://shop_images/image_efa77f71-f944-4304-aca9-6bf62a330bf6.png"
       }
     },
-    "landing_page_banner_JVeCNm": {
-      "type": "landing-page-banner",
-      "settings": {
-        "section_heading": "WHY CHOOSE SHIVER ?",
-        "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
-        "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
-      }
-    },
     "product_infographics_fold_7ecJwW": {
       "type": "product-infographics-fold",
       "settings": {
@@ -80,6 +80,25 @@
         "section_subheading": "",
         "section_heading": "Bundles",
         "button_link": ""
+      }
+    },
+    "product_bullets_8bLf4H": {
+      "type": "product-bullets",
+      "settings": {}
+    },
+    "1738182448a0149dbc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6FwXw6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6FwXw6"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "featured_collection_kEqMpU": {
@@ -111,29 +130,21 @@
         "padding_bottom": 48
       }
     },
-    "product_bullets_8bLf4H": {
-      "type": "product-bullets",
-      "settings": {}
-    },
-    "1738182448a0149dbc": {
+    "174004318579ce4682": {
       "type": "apps",
       "blocks": {
-        "judge_me_reviews_review_widget_6FwXw6": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+        "tolstoy_shoppable_video_quiz_carousel_block_AEzaCm": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "0txi67owib4jd"
+          }
         }
       },
       "block_order": [
-        "judge_me_reviews_review_widget_6FwXw6"
+        "tolstoy_shoppable_video_quiz_carousel_block_AEzaCm"
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "product_shoppable_videos_7XLkhn": {
-      "type": "product-shoppable-videos",
-      "settings": {
-        "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
     "product_faqs_tLQNqz": {
@@ -276,7 +287,7 @@
     "home_combos_TrKwY9",
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
-    "product_shoppable_videos_7XLkhn",
+    "174004318579ce4682",
     "featured_collection_kEqMpU",
     "product_faqs_tLQNqz",
     "home_promises_ACUrRd",
