@@ -28,9 +28,9 @@
         "product_category_8bbeWH": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/For_Him.png",
-            "text": "For Him",
-            "url": "/collections/for-him-1"
+            "image": "shopify://shop_images/website_circle_section_2.png",
+            "text": "Under ₹1999",
+            "url": "shopify://collections/under-1999"
           }
         },
         "product_category_EWxNgJ": {
@@ -39,6 +39,14 @@
             "image": "shopify://shop_images/New_Launch.png",
             "text": "New Launch",
             "url": "/collections/new-launch"
+          }
+        },
+        "product_category_7EUBfz": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/Bundles.png",
+            "text": "Bundles",
+            "url": "/collections/bundles"
           }
         },
         "product_category_LLbff7": {
@@ -64,23 +72,15 @@
             "text": "Lubricants",
             "url": "/collections/lubes"
           }
-        },
-        "product_category_7EUBfz": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/Bundles.png",
-            "text": "Bundles",
-            "url": "/collections/bundles"
-          }
         }
       },
       "block_order": [
         "product_category_8bbeWH",
         "product_category_EWxNgJ",
+        "product_category_7EUBfz",
         "product_category_LLbff7",
         "product_category_zdtXfW",
-        "product_category_twKGnB",
-        "product_category_7EUBfz"
+        "product_category_twKGnB"
       ],
       "settings": {
         "products_per_page": 16,
