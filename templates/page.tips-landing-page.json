@@ -152,7 +152,6 @@
     },
     "lp_video_RMnf7x": {
       "type": "lp-video",
-      "disabled": true,
       "settings": {
         "video_file": "shopify://files/videos/videoplayback.mp4"
       }
