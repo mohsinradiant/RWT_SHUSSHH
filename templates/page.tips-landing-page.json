@@ -223,6 +223,7 @@
         "item_JJAJqa",
         "item_NAAUgK"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-size: 30px;}"
       ],
@@ -309,7 +310,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
-            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
+            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
