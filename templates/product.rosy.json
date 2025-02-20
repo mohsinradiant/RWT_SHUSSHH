@@ -34,7 +34,7 @@
     "landing_page_banner_JVeCNm": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "WHY CHOOSE SHIVER ?",
+        "section_heading": "",
         "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
         "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
       }
