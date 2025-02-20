@@ -52,7 +52,7 @@
         "dropdown_kpEQ3c": {
           "type": "dropdown",
           "settings": {
-            "title": "Why choose tips ?",
+            "title": "Whats in the box",
             "description": "TIPS isn’t just chocolate—it’s foreplay in a box.Close Your Eyes & Picture This , You hand her a chocolate, she takes a bite, and within 30 minutes her mood changes.You spray the seductive perfume, and suddenly, the air feels electric.Then, you bring out the Dip, a silky blindfold, and Shab-e-Raz—a secret guide filled with moves that guarantee she won’t forget this night."
           }
         },
@@ -81,36 +81,29 @@
         "in_the_box_md3JBb": {
           "type": "in_the_box",
           "settings": {
-            "image": "shopify://shop_images/dip_24a3a573-b6f4-47d9-8e26-30cf849f138b.png",
-            "text": "DIP"
+            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
+            "text": "asdasd"
           }
         },
         "in_the_box_fYf4cx": {
           "type": "in_the_box",
           "settings": {
-            "image": "shopify://shop_images/tiplip_197f8b1a-a9db-49ad-b71a-caa24ca5d6ea.png",
-            "text": "2 BARS"
+            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
+            "text": "asdasd"
           }
         },
         "in_the_box_RycmLx": {
           "type": "in_the_box",
           "settings": {
-            "image": "shopify://shop_images/aura.png",
-            "text": "AURA PERFUME"
+            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
+            "text": "asdasd"
           }
         },
         "in_the_box_tJnT94": {
           "type": "in_the_box",
           "settings": {
-            "image": "shopify://shop_images/blindfold_c243f1cf-dd46-4e16-bde8-1d55c26bf95a.png",
-            "text": "BLINDFOLD"
-          }
-        },
-        "in_the_box_UNqhrc": {
-          "type": "in_the_box",
-          "settings": {
-            "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
-            "text": "SHAB-E-RAAZ"
+            "image": "shopify://shop_images/discreet_popup_small_icon_8341d8f7-df44-4f49-84af-70c50770b9d5.png",
+            "text": "asdasd"
           }
         }
       },
@@ -126,8 +119,7 @@
         "in_the_box_md3JBb",
         "in_the_box_fYf4cx",
         "in_the_box_RycmLx",
-        "in_the_box_tJnT94",
-        "in_the_box_UNqhrc"
+        "in_the_box_tJnT94"
       ],
       "settings": {
         "product": "tips-love-box",

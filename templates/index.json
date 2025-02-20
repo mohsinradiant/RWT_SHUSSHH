@@ -137,21 +137,6 @@
         "text": "Free Shipping        .        Discreet Packaging        .        COD Available        .        Free Shipping        .        Discreet Packaging        .        COD & EMI Available        .        Free Shipping        .        Discreet Packaging        .        COD Available"
       }
     },
-    "home_vday_banner_gXk89j": {
-      "type": "home-vday-banner",
-      "settings": {
-        "gradient_color_1": "#010002",
-        "gradient_color_2": "#5d00b9",
-        "gradient_angle": 90,
-        "glow_color": "#ffb800",
-        "glow_intensity": 20,
-        "animation_speed": 2,
-        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
-        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
-        "button_text": "EXPLORE",
-        "button_url": "shopify://pages/tips-landing-page"
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -180,19 +165,19 @@
         "padding_bottom": 52
       }
     },
-    "home_vday_banner_NBD7WK": {
+    "home_vday_banner_gXk89j": {
       "type": "home-vday-banner",
       "settings": {
-        "gradient_color_1": "",
-        "gradient_color_2": "",
+        "gradient_color_1": "#010002",
+        "gradient_color_2": "#5d00b9",
         "gradient_angle": 90,
-        "glow_color": "#ba1093",
+        "glow_color": "#ffb800",
         "glow_intensity": 20,
         "animation_speed": 2,
-        "image": "shopify://shop_images/Fap.jpg",
-        "mobile_image": "shopify://shop_images/Fap_phone.jpg",
-        "button_text": "FAP IT",
-        "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+        "image": "shopify://shop_images/Homepage_tips_banner_2.png",
+        "mobile_image": "shopify://shop_images/tips_homepage_banner_phone.png",
+        "button_text": "EXPLORE",
+        "button_url": "shopify://pages/tips-landing-page"
       }
     },
     "1739215445ada50f90": {
@@ -265,6 +250,21 @@
       "disabled": true,
       "settings": {
         "section_heading": "Discover What’s Making Everyone Go Wild!"
+      }
+    },
+    "home_vday_banner_NBD7WK": {
+      "type": "home-vday-banner",
+      "settings": {
+        "gradient_color_1": "",
+        "gradient_color_2": "",
+        "gradient_angle": 90,
+        "glow_color": "#ba1093",
+        "glow_intensity": 20,
+        "animation_speed": 2,
+        "image": "shopify://shop_images/Fap.jpg",
+        "mobile_image": "shopify://shop_images/Fap_phone.jpg",
+        "button_text": "FAP IT",
+        "button_url": "shopify://products/fap-the-ultimate-male-stroker"
       }
     },
     "home_discreet_packaging_bKNnKt": {
@@ -347,10 +347,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "collection_banner_zRkyrd": {
-      "type": "collection-banner",
-      "settings": {}
     },
     "home_quiz_cta_yVMz3E": {
       "type": "home-quiz-cta",
@@ -478,15 +474,14 @@
     "home_circle_collections_gjnENC",
     "slideshow_VzBdWB",
     "content_slider_strip_qpKFNJ",
-    "home_vday_banner_gXk89j",
     "featured_collection",
-    "home_vday_banner_NBD7WK",
+    "home_vday_banner_gXk89j",
     "1739215445ada50f90",
     "home_deal_of_the_day_NJGxyT",
     "shoppable_videos_FFPLxM",
+    "home_vday_banner_NBD7WK",
     "home_discreet_packaging_bKNnKt",
     "featured_product_3C3jVK",
-    "collection_banner_zRkyrd",
     "home_quiz_cta_yVMz3E",
     "home_combos_8LUwCe",
     "home_categories_section_M7r4cE",

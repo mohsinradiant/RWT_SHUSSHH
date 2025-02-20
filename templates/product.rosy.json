@@ -31,14 +31,6 @@
       ],
       "settings": {}
     },
-    "landing_page_banner_JVeCNm": {
-      "type": "landing-page-banner",
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
-        "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
-      }
-    },
     "1738589613f985f8d8": {
       "type": "apps",
       "blocks": {
@@ -63,13 +55,21 @@
     "product_content_fold_mWfjjY": {
       "type": "product-content-fold",
       "settings": {
-        "image": "shopify://shop_images/6_eecd7cdb-3913-45bb-b0c3-b9581ca3d985.png"
+        "image": "shopify://shop_images/image_efa77f71-f944-4304-aca9-6bf62a330bf6.png"
+      }
+    },
+    "landing_page_banner_JVeCNm": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "{{ product.metafields.content.usp_grid_collage.value }}",
+        "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
       }
     },
     "product_infographics_fold_7ecJwW": {
       "type": "product-infographics-fold",
       "settings": {
-        "section_heading": "Bundle and Save Upto 50%"
+        "section_heading": "Bundles"
       }
     },
     "home_combos_TrKwY9": {
@@ -80,42 +80,6 @@
         "section_subheading": "",
         "section_heading": "Bundles",
         "button_link": ""
-      }
-    },
-    "product_bullets_8bLf4H": {
-      "type": "product-bullets",
-      "settings": {}
-    },
-    "1738182448a0149dbc": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_6FwXw6": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_6FwXw6"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "174004318579ce4682": {
-      "type": "apps",
-      "blocks": {
-        "tolstoy_shoppable_video_quiz_carousel_block_AEzaCm": {
-          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
-          "settings": {
-            "publishId": "0txi67owib4jd"
-          }
-        }
-      },
-      "block_order": [
-        "tolstoy_shoppable_video_quiz_carousel_block_AEzaCm"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "featured_collection_kEqMpU": {
@@ -145,6 +109,31 @@
         "swipe_on_mobile": true,
         "padding_top": 0,
         "padding_bottom": 48
+      }
+    },
+    "product_bullets_8bLf4H": {
+      "type": "product-bullets",
+      "settings": {}
+    },
+    "1738182448a0149dbc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6FwXw6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6FwXw6"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product_shoppable_videos_7XLkhn": {
+      "type": "product-shoppable-videos",
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
     "product_faqs_tLQNqz": {
@@ -279,16 +268,16 @@
   "order": [
     "content_slider_strip_hA3y4W",
     "product_info_fold_PK4khL",
-    "landing_page_banner_JVeCNm",
     "1738589613f985f8d8",
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
+    "landing_page_banner_JVeCNm",
     "product_infographics_fold_7ecJwW",
     "home_combos_TrKwY9",
+    "featured_collection_kEqMpU",
     "product_bullets_8bLf4H",
     "1738182448a0149dbc",
-    "174004318579ce4682",
-    "featured_collection_kEqMpU",
+    "product_shoppable_videos_7XLkhn",
     "product_faqs_tLQNqz",
     "home_promises_ACUrRd",
     "main",
