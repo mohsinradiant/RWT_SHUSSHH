@@ -66,10 +66,31 @@
         "mobile_image": "{{ product.metafields.content.usp_grid_collage_mobile.value }}"
       }
     },
+    "1738182448a0149dbc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6FwXw6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6FwXw6"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "product_infographics_fold_7ecJwW": {
       "type": "product-infographics-fold",
       "settings": {
-        "section_heading": "Bundles"
+        "section_heading": "Bundle Up And Save Upto 50%"
+      }
+    },
+    "product_shoppable_videos_7XLkhn": {
+      "type": "product-shoppable-videos",
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!"
       }
     },
     "home_combos_TrKwY9": {
@@ -114,27 +135,6 @@
     "product_bullets_8bLf4H": {
       "type": "product-bullets",
       "settings": {}
-    },
-    "1738182448a0149dbc": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_6FwXw6": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_6FwXw6"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "product_shoppable_videos_7XLkhn": {
-      "type": "product-shoppable-videos",
-      "settings": {
-        "section_heading": "Discover What’s Making Everyone Go Wild!"
-      }
     },
     "product_faqs_tLQNqz": {
       "type": "product-faqs",
@@ -277,12 +277,12 @@
     "product_banner_fold_7AiTqg",
     "product_content_fold_mWfjjY",
     "landing_page_banner_JVeCNm",
+    "1738182448a0149dbc",
     "product_infographics_fold_7ecJwW",
+    "product_shoppable_videos_7XLkhn",
     "home_combos_TrKwY9",
     "featured_collection_kEqMpU",
     "product_bullets_8bLf4H",
-    "1738182448a0149dbc",
-    "product_shoppable_videos_7XLkhn",
     "product_faqs_tLQNqz",
     "home_promises_ACUrRd",
     "main",
