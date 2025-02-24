@@ -289,7 +289,7 @@
     "landing_page_banner_JwiBEa": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "",
+        "section_heading": "KNOW WHAT YOU'LL GET",
         "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view.png",
         "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations.png"
       }
@@ -300,6 +300,12 @@
         "section_heading": "",
         "desktop_image": "shopify://shop_images/Tips_comparison_web_view.png",
         "mobile_image": "shopify://shop_images/Phone_view_Tips_comparison.png"
+      }
+    },
+    "landing_page_banner_wNz3Vn": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "HOW TO USE TIPS"
       }
     },
     "slideshow_z9Kix6": {
@@ -581,6 +587,7 @@
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
     "landing_page_banner_nzbqBN",
+    "landing_page_banner_wNz3Vn",
     "slideshow_z9Kix6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
