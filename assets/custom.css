@@ -930,9 +930,6 @@ sticky-header {
         text-wrap: nowrap;
     }
 
-    .images-carousel-home {
-        aspect-ratio: 686 / 960;
-    }
 
     .price {
         font-size: 1.4rem !important;
