@@ -1,11 +1,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 {% assign product = section.settings.product %}
-<h1 class="page-width lp-top-product_heading">{{ product.title | escape }}</h1>
 <div class="page-width lp-featured_product-container">
   <div class="lp-featured_product-left-container">
     <div class="product-carousel">
-      <!-- Main Image Carousel -->
       <div class="swiper main-carousel">
         <div class="swiper-wrapper">
           {% for image in product.images %}
@@ -14,21 +12,10 @@
             </div>
           {% endfor %}
         </div>
-        <!-- Navigation Arrows -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-
-      <!-- Thumbnail Carousel -->
-      <div class="swiper thumbnail-carousel">
-        <div class="swiper-wrapper">
-          {% for image in product.images %}
-            <div class="swiper-slide">
-              <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
-            </div>
-          {% endfor %}
-        </div>
-      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
   <div class="lp-featured_product-right-container">
@@ -98,64 +85,83 @@
             {%- endcase -%}
           {% endfor %}
           <div
-          class="accordion content-container "
-        >
-          <details id="Details-{{ section.id }}-{{ forloop.index }}">
-          <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
-            <h3 class="accordion__title inline-richtext h4">What's in the box</h3>
-            <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Vector_1.png?v=1739091764">
-          </summary>
-          <div
-            class="accordion__content rte"
-            id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
-            role="region"
-            aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
+            class="accordion content-container "
           >
-          {% for item in section.blocks %}
-            {% if item.type == 'in_the_box' %}
-              <div class="product-content-fold-answer-image-container">
-                <img src="{{ item.settings.image | image_url }}">
-                <p>{{ item.settings.text }}</p>
+            <details id="Details-{{ section.id }}-{{ forloop.index }}">
+              <summary id="Summary-{{ section.id }}-{{ forloop.index }}">
+                <h3 class="accordion__title inline-richtext h4">What's in the box</h3>
+                <img src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Vector_1.png?v=1739091764">
+              </summary>
+              <div
+                class="accordion__content rte"
+                id="CollapsibleAccordion-{{ section.id }}-{{ forloop.index }}"
+                role="region"
+                aria-labelledby="Summary-{{ section.id }}-{{ forloop.index }}"
+              >
+                {% for item in section.blocks %}
+                  {% if item.type == 'in_the_box' %}
+                    <div class="product-content-fold-answer-image-container">
+                      <img src="{{ item.settings.image | image_url }}">
+                      <p>{{ item.settings.text }}</p>
+                    </div>
+                  {% endif %}
+                {% endfor %}
               </div>
-            {% endif %}
-          {% endfor %}</div></details>
-          </div>
+            </details>
           </div>
         </div>
       </div>
     </div>
-
-    <script>
-      function downloadPDF() {
-        const link = document.createElement('a');
-        link.href = 'https://cdn.shopify.com/s/files/1/0767/6297/2470/files/shaab_e_raaz.pdf?v=1739374463';
-        link.download = 'Shab-e-Raaz.pdf'; // Suggested filename
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-    </script>
   </div>
+  <script>
+    function downloadPDF() {
+      const link = document.createElement('a');
+      link.href = 'https://cdn.shopify.com/s/files/1/0767/6297/2470/files/shaab_e_raaz.pdf?v=1739374463';
+      link.download = 'Shab-e-Raaz.pdf'; // Suggested filename
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 </div>
 
 <style>
+  .custom-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #fff; /* Change as needed */
+    border-radius: 50%;
+    margin: 0 5px;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .swiper-pagination {
+    position: absolute;
+    bottom: -25px !important;
+    top: unset !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .accordion__content:has(.product-content-fold-answer-image-container) {
-    display: flex
-;
+    display: flex;
     justify-content: space-between;
     align-items: start;
-}
+  }
 
-  .product-content-fold-answer-image-container{
-    display:flex;
+  .product-content-fold-answer-image-container {
+    display: flex;
     flex-direction: column;
     width: 20%;
   }
-  .product-content-fold-answer-image-container p{
+  .product-content-fold-answer-image-container p {
     text-align: center;
     margin: 0;
   }
-  .lp-dropdowns-container .accordion__content .product-content-fold-answer-image-container img{
+  .lp-dropdowns-container .accordion__content .product-content-fold-answer-image-container img {
     margin: 0 !important;
   }
   @keyframes glow {
@@ -389,6 +395,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: relative;
   }
 
   .main-carousel {
@@ -464,11 +471,18 @@
     .lp-featured_product-container {
       flex-direction: column;
       padding-top: 0;
+      position: relative;
+    }
+    .lp-featured_product_name_png {
+      position: absolute;
+      top: 20px;
+      z-index: 2;
     }
     .lp-featured_product-left-container {
       width: 100%;
       position: unset;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
+      margin-top: 150px;
     }
     .lp-featured_product-right-container {
       width: 100%;
@@ -496,15 +510,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Initialize the thumbnail carousel
-    const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
-      slidesPerView: 'auto',
-      spaceBetween: 10,
-      watchSlidesProgress: true,
-      slideToClickedSlide: true, // Allows clicking thumbnails to navigate the main carousel
-    });
-
-    // Initialize the main carousel
     const mainCarousel = new Swiper('.main-carousel', {
       loop: true,
       autoplay: {
@@ -514,45 +519,40 @@
       slidesPerView: 1,
       spaceBetween: 10,
       navigation: {
-        nextEl: '.swiper-button-next', // Bind next button
-        prevEl: '.swiper-button-prev', // Bind previous button
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
-      thumbs: {
-        swiper: thumbnailCarousel, // Link the thumbnail carousel
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<span class="${className} custom-pagination-bullet" data-index="${index}"></span>`;
+        },
       },
       on: {
         slideChange: function () {
-          // Ensure the thumbnail carousel slides to make the active thumbnail visible
-          const activeIndex = this.realIndex;
-          thumbnailCarousel.slideTo(activeIndex);
+          updatePaginationStyle();
         },
       },
     });
 
-    // Ensure the active thumbnail gets proper styles
-    mainCarousel.on('slideChange', function () {
-      const activeIndex = mainCarousel.realIndex;
-
-      // Update the active border for thumbnails
-      document.querySelectorAll('.thumbnail-carousel .swiper-slide').forEach((slide, index) => {
-        const img = slide.querySelector('img');
-        if (index === activeIndex) {
-          img.style.borderColor = '#fff'; // Active border color
+    function updatePaginationStyle() {
+      const bullets = document.querySelectorAll('.custom-pagination-bullet');
+      bullets.forEach((bullet, index) => {
+        if (index === mainCarousel.realIndex) {
+          bullet.style.opacity = '1';
+          bullet.style.transform = 'scale(1)';
         } else {
-          img.style.borderColor = 'transparent'; // Default border color
+          bullet.style.opacity = '0.7';
+          bullet.style.transform = 'scale(.7)';
         }
       });
-    });
+    }
 
-    // Sync thumbnails on click
-    thumbnailCarousel.on('click', function () {
-      const clickedIndex = thumbnailCarousel.clickedIndex;
-      if (clickedIndex !== undefined) {
-        mainCarousel.slideToLoop(clickedIndex);
-      }
-    });
+    updatePaginationStyle(); // Initialize styles
   });
 </script>
+
 {% schema %}
 {
   "name": "LP Featured Product",

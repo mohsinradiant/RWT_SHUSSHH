@@ -52,7 +52,7 @@
         "dropdown_kpEQ3c": {
           "type": "dropdown",
           "settings": {
-            "title": "Whats in the box",
+            "title": "Description",
             "description": "TIPS isn’t just chocolate—it’s foreplay in a box.Close Your Eyes & Picture This , You hand her a chocolate, she takes a bite, and within 30 minutes her mood changes.You spray the seductive perfume, and suddenly, the air feels electric.Then, you bring out the Dip, a silky blindfold, and Shab-e-Raz—a secret guide filled with moves that guarantee she won’t forget this night."
           }
         },
@@ -223,6 +223,7 @@
         "item_JJAJqa",
         "item_NAAUgK"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-size: 30px;}"
       ],
@@ -289,7 +290,7 @@
     "landing_page_banner_JwiBEa": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "",
+        "section_heading": "KNOW WHAT YOU'LL GET",
         "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view.png",
         "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations.png"
       }
@@ -297,9 +298,132 @@
     "landing_page_banner_nzbqBN": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "",
+        "section_heading": "WHY CHOOSE US?",
         "desktop_image": "shopify://shop_images/Tips_comparison_web_view.png",
         "mobile_image": "shopify://shop_images/Phone_view_Tips_comparison.png"
+      }
+    },
+    "landing_page_banner_wNz3Vn": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "HOW TO USE TIPS"
+      }
+    },
+    "slideshow_z9Kix6": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_JddGYR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/1_b9922505-9b66-4745-bb81-70dc276c59f9.png",
+            "mobile_image": "shopify://shop_images/1_ba08c756-a31c-4410-b6eb-f61874867861.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_hyWjyL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/2_deb2caf3-b8bf-40f2-a29a-6062c177e5d3.png",
+            "mobile_image": "shopify://shop_images/2_7caa43ed-4d4c-4f2e-a16a-9613fbf61ea8.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_QrKUi7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/3_ac302537-4aed-4553-9f46-846bd1af2145.png",
+            "mobile_image": "shopify://shop_images/3_1e3bcbe9-ff93-4611-a675-507e59277a7c.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_PhGNhR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/4_535605ec-e983-4524-b145-ff2f616ad555.png",
+            "mobile_image": "shopify://shop_images/4_024d5b77-cab9-42ea-aada-d94e10943731.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_nK6UFg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/5_0e52f35c-88fd-4850-b114-7818fd25462f.png",
+            "mobile_image": "shopify://shop_images/5_3fdae7c7-692e-4086-a909-ea62c22fb2bf.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_JddGYR",
+        "slide_hyWjyL",
+        "slide_QrKUi7",
+        "slide_PhGNhR",
+        "slide_nK6UFg"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "landing_page_banner_9T9rFj": {
@@ -451,63 +575,6 @@
       "settings": {
         "section_heading": "The Couples who tested it said some really good things"
       }
-    },
-    "slideshow_z9Kix6": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_JddGYR": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
-            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_hyWjyL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
-            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_JddGYR",
-        "slide_hyWjyL"
-      ],
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
     }
   },
   "order": [
@@ -521,6 +588,7 @@
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
     "landing_page_banner_nzbqBN",
+    "landing_page_banner_wNz3Vn",
     "slideshow_z9Kix6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
