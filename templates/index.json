@@ -20,7 +20,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Wen_banners_4.png",
-            "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",            "heading": "",
+            "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",
+            "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
@@ -37,8 +38,8 @@
         "slide_cak4QR": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Wen_banners_4.png",
-            "mobile_image": "shopify://shop_images/Untitled_design_15.png",
+            "image": "shopify://shop_images/banner.png",
+            "mobile_image": "shopify://shop_images/NEW_BANNER_PHONE_1_1b3170f6-ea17-40ba-8cda-182cc04d01b2.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
