@@ -637,7 +637,6 @@ slideshow-component .slider-counter__link--dots .dot {
 .images-carousel-home {
     height: auto;
     width: 100%;
-    aspect-ratio: 1920 / 820;
 }
 
 sticky-header {
