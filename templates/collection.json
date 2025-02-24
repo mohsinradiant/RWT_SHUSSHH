@@ -36,16 +36,16 @@
         "product_category_EWxNgJ": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/V-Day_Sasle_7e386bc0-2c42-4da2-8040-b929cccb9510.png",
-            "text": "All",
+            "image": "shopify://shop_images/V-Day_Sasle_1.png",
+            "text": "Shop All",
             "url": "shopify://collections/all"
           }
         },
         "product_category_zdtXfW": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/website_circle_section_3.png",
-            "text": "Daily Deals",
+            "image": "shopify://shop_images/6_d323835f-9870-4f54-a3cc-7eef16db2b78.png",
+            "text": "Hot Deals",
             "url": "shopify://collections/deals-of-the-day"
           }
         },
