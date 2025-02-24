@@ -52,7 +52,7 @@
         "dropdown_kpEQ3c": {
           "type": "dropdown",
           "settings": {
-            "title": "Whats in the box",
+            "title": "Description",
             "description": "TIPS isn’t just chocolate—it’s foreplay in a box.Close Your Eyes & Picture This , You hand her a chocolate, she takes a bite, and within 30 minutes her mood changes.You spray the seductive perfume, and suddenly, the air feels electric.Then, you bring out the Dip, a silky blindfold, and Shab-e-Raz—a secret guide filled with moves that guarantee she won’t forget this night."
           }
         },
@@ -298,7 +298,7 @@
     "landing_page_banner_nzbqBN": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "",
+        "section_heading": "WHY CHOOSE US?",
         "desktop_image": "shopify://shop_images/Tips_comparison_web_view.png",
         "mobile_image": "shopify://shop_images/Phone_view_Tips_comparison.png"
       }
