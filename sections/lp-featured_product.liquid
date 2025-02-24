@@ -126,6 +126,23 @@
 </div>
 
 <style>
+  .custom-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #fff; /* Change as needed */
+    border-radius: 50%;
+    margin: 0 5px;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+
   .accordion__content:has(.product-content-fold-answer-image-container) {
     display: flex;
     justify-content: space-between;
@@ -501,18 +518,37 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<span class="${className} custom-pagination-bullet" data-index="${index}"></span>`;
+        },
+      },
       on: {
         slideChange: function () {
-          const activeIndex = this.realIndex;
+          updatePaginationStyle();
         },
       },
     });
 
-    mainCarousel.on('slideChange', function () {
-      const activeIndex = mainCarousel.realIndex;
-    });
+    function updatePaginationStyle() {
+      const bullets = document.querySelectorAll('.custom-pagination-bullet');
+      bullets.forEach((bullet, index) => {
+        if (index === mainCarousel.realIndex) {
+          bullet.style.opacity = '1';
+          bullet.style.transform = 'scale(1.2)';
+        } else {
+          bullet.style.opacity = '0.7';
+          bullet.style.transform = 'scale(1)';
+        }
+      });
+    }
+
+    updatePaginationStyle(); // Initialize styles
   });
 </script>
+
 {% schema %}
 {
   "name": "LP Featured Product",
