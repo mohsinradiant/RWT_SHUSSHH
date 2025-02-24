@@ -12,10 +12,10 @@
             </div>
           {% endfor %}
         </div>
-        <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
   <div class="lp-featured_product-right-container">
@@ -137,7 +137,8 @@
   }
   .swiper-pagination {
     position: absolute;
-    bottom: 10px; /* Adjust as needed */
+    bottom: 15px !important;
+    top: unset !important;
     left: 50% !important;
     transform: translateX(-50%);
     display: flex;
