@@ -20,15 +20,17 @@
       </div>
 
       <!-- Thumbnail Carousel -->
-      <div class="swiper thumbnail-carousel">
-        <div class="swiper-wrapper">
-          {% for image in product.images %}
-            <div class="swiper-slide">
-              <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
-            </div>
-          {% endfor %}
+      {% comment %}
+        <div class="swiper thumbnail-carousel">
+          <div class="swiper-wrapper">
+            {% for image in product.images %}
+              <div class="swiper-slide">
+                <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
+              </div>
+            {% endfor %}
+          </div>
         </div>
-      </div>
+      {% endcomment %}
     </div>
   </div>
   <div class="lp-featured_product-right-container">
@@ -503,12 +505,12 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Initialize the thumbnail carousel
-    const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
-      slidesPerView: 'auto',
-      spaceBetween: 10,
-      watchSlidesProgress: true,
-      slideToClickedSlide: true, // Allows clicking thumbnails to navigate the main carousel
-    });
+    // const thumbnailCarousel = new Swiper('.thumbnail-carousel', {
+    //   slidesPerView: 'auto',
+    //   spaceBetween: 10,
+    //   watchSlidesProgress: true,
+    //   slideToClickedSlide: true, // Allows clicking thumbnails to navigate the main carousel
+    // });
 
     // Initialize the main carousel
     const mainCarousel = new Swiper('.main-carousel', {
@@ -523,14 +525,14 @@
         nextEl: '.swiper-button-next', // Bind next button
         prevEl: '.swiper-button-prev', // Bind previous button
       },
-      thumbs: {
-        swiper: thumbnailCarousel, // Link the thumbnail carousel
-      },
+      // thumbs: {
+      //   swiper: thumbnailCarousel, // Link the thumbnail carousel
+      // },
       on: {
         slideChange: function () {
           // Ensure the thumbnail carousel slides to make the active thumbnail visible
           const activeIndex = this.realIndex;
-          thumbnailCarousel.slideTo(activeIndex);
+          // thumbnailCarousel.slideTo(activeIndex);
         },
       },
     });
@@ -540,23 +542,23 @@
       const activeIndex = mainCarousel.realIndex;
 
       // Update the active border for thumbnails
-      document.querySelectorAll('.thumbnail-carousel .swiper-slide').forEach((slide, index) => {
-        const img = slide.querySelector('img');
-        if (index === activeIndex) {
-          img.style.borderColor = '#fff'; // Active border color
-        } else {
-          img.style.borderColor = 'transparent'; // Default border color
-        }
-      });
+      // document.querySelectorAll('.thumbnail-carousel .swiper-slide').forEach((slide, index) => {
+      //   const img = slide.querySelector('img');
+      //   if (index === activeIndex) {
+      //     img.style.borderColor = '#fff'; // Active border color
+      //   } else {
+      //     img.style.borderColor = 'transparent'; // Default border color
+      //   }
+      // });
     });
 
     // Sync thumbnails on click
-    thumbnailCarousel.on('click', function () {
-      const clickedIndex = thumbnailCarousel.clickedIndex;
-      if (clickedIndex !== undefined) {
-        mainCarousel.slideToLoop(clickedIndex);
-      }
-    });
+    // thumbnailCarousel.on('click', function () {
+    //   const clickedIndex = thumbnailCarousel.clickedIndex;
+    //   if (clickedIndex !== undefined) {
+    //     mainCarousel.slideToLoop(clickedIndex);
+    //   }
+    // });
   });
 </script>
 {% schema %}
