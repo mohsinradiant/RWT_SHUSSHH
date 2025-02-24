@@ -280,6 +280,8 @@ slideshow-component .slider-counter__link--dots .dot {
 .slideshow_media_desktop_image {
     display: flex !important;
     height: fit-content !important;
+    max-height: fit-content !important;
+    min-height: fit-content !important;
 }
 
 .collection .slider-buttons {
