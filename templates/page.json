@@ -18,7 +18,6 @@
     },
     "custom_liquid_rkgiyQ": {
       "type": "custom-liquid",
-      "disabled": true,
       "settings": {
         "custom_liquid": "",
         "color_scheme": "",
