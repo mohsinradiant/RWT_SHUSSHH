@@ -36,38 +36,37 @@
         "product_category_EWxNgJ": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/V-Day_Sasle_1.png",
-            "text": "Shop All",
+            "image": "shopify://shop_images/V-Day_Sasle_7e386bc0-2c42-4da2-8040-b929cccb9510.png",
+            "text": "All",
             "url": "shopify://collections/all"
-          }
-        },
-        "product_category_LLbff7": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/website_circle_section_6.png",
-            "text": "Dual Action",
-            "url": "shopify://collections/dual-functional"
           }
         },
         "product_category_zdtXfW": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/6_d323835f-9870-4f54-a3cc-7eef16db2b78.png",
-            "text": "Hot Deals",
+            "image": "shopify://shop_images/website_circle_section_3.png",
+            "text": "Daily Deals",
             "url": "shopify://collections/deals-of-the-day"
           }
         },
         "product_category_7EUBfz": {
           "type": "product_category",
           "settings": {
-            "image": "shopify://shop_images/Bundles_14563ec7-a989-48fc-8a11-fb59b592cc91.png",
+            "image": "shopify://shop_images/Bundles.png",
             "text": "Bundles",
-            "url": "shopify://collections/all-bundles"
+            "url": "/collections/bundles"
+          }
+        },
+        "product_category_LLbff7": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/V-Day_Sasle.png",
+            "text": "V-day Sale",
+            "url": "/collections/sale"
           }
         },
         "product_category_twKGnB": {
           "type": "product_category",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Lubes.png",
             "text": "Lubricants",
@@ -78,9 +77,9 @@
       "block_order": [
         "product_category_8bbeWH",
         "product_category_EWxNgJ",
-        "product_category_LLbff7",
         "product_category_zdtXfW",
         "product_category_7EUBfz",
+        "product_category_LLbff7",
         "product_category_twKGnB"
       ],
       "settings": {

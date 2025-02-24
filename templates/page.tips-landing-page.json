@@ -223,7 +223,6 @@
         "item_JJAJqa",
         "item_NAAUgK"
       ],
-      "disabled": true,
       "custom_css": [
         "h3 {font-size: 30px;}"
       ],
@@ -287,20 +286,37 @@
         "section_heading": "WHAT'S IN TIP'S LIPS"
       }
     },
-    "landing_page_banner_nzbqBN": {
-      "type": "landing-page-banner",
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "shopify://shop_images/Tips_comparison_web_view_3.png",
-        "mobile_image": "shopify://shop_images/Phone_view_Tips_comparison_1.png"
-      }
-    },
     "landing_page_banner_JwiBEa": {
       "type": "landing-page-banner",
       "settings": {
         "section_heading": "",
-        "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view_2.png",
-        "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations_1.png"
+        "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view.png",
+        "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations.png"
+      }
+    },
+    "landing_page_banner_nzbqBN": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/Tips_comparison_web_view.png",
+        "mobile_image": "shopify://shop_images/Phone_view_Tips_comparison.png"
+      }
+    },
+    "landing_page_banner_9T9rFj": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/Ingredientsblack.png",
+        "mobile_image": "shopify://shop_images/Ingredients_2_ea172490-279d-4284-b26c-12fde4d59138.png"
+      }
+    },
+    "landing_page_banner_dEmk7P": {
+      "type": "landing-page-banner",
+      "disabled": true,
+      "settings": {
+        "section_heading": "Discover What’s Making Everyone Go Wild!",
+        "desktop_image": "shopify://shop_images/whats_in_the_box.jpg",
+        "mobile_image": "shopify://shop_images/whats_in_the_box.jpg"
       }
     },
     "landing_page_banner_HfxDGk": {
@@ -312,87 +328,12 @@
         "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
       }
     },
-    "slideshow_z9Kix6": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_JddGYR": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
-            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_hyWjyL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
-            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_JddGYR",
-        "slide_hyWjyL"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
-    },
-    "landing_page_banner_9T9rFj": {
-      "type": "landing-page-banner",
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "shopify://shop_images/This_one_for_WEB_ingredients.png",
-        "mobile_image": "shopify://shop_images/Ingredients_4fb52dc5-6f41-4a27-ab35-5c30ae7f80f6.png"
-      }
-    },
-    "landing_page_banner_dEmk7P": {
-      "type": "landing-page-banner",
-      "custom_css": [],
-      "settings": {
-        "section_heading": "Discover What’s Making Everyone Go Wild!",
-        "desktop_image": "shopify://shop_images/whats_in_the_box_WEB.png",
-        "mobile_image": "shopify://shop_images/What_s_in_the_box_PHONE.png"
-      }
-    },
     "landing_page_banner_ew6gr8": {
       "type": "landing-page-banner",
       "settings": {
         "section_heading": "",
-        "desktop_image": "shopify://shop_images/PHONE_market_comparison_1.png",
-        "mobile_image": "shopify://shop_images/PHONE_market_comparison_1.png"
+        "desktop_image": "shopify://shop_images/marketcomparison2500_1.png",
+        "mobile_image": "shopify://shop_images/Market_Comparison_65766682-6a19-4208-b52f-a9a7cbca99be.png"
       }
     },
     "lp_videos_qMi7pq": {
@@ -510,6 +451,63 @@
       "settings": {
         "section_heading": "The Couples who tested it said some really good things"
       }
+    },
+    "slideshow_z9Kix6": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_JddGYR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
+            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_2.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_hyWjyL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
+            "mobile_image": "shopify://shop_images/how_to_pages_phone_view_1.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_JddGYR",
+        "slide_hyWjyL"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
     }
   },
   "order": [
@@ -521,12 +519,12 @@
     "video_BWFiNG",
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
-    "landing_page_banner_nzbqBN",
     "landing_page_banner_JwiBEa",
-    "landing_page_banner_HfxDGk",
+    "landing_page_banner_nzbqBN",
     "slideshow_z9Kix6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
+    "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
     "lp_testimonial_grid_8BKrhT"
