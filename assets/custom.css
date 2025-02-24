@@ -990,6 +990,16 @@ sticky-header {
     }
 }
 
+slideshow-component .slideshow .slideshow__slide .banner__buttons {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-wrap: nowrap;
+    display: flex;
+    width: fit-content;
+}
+
 @media(max-width:600px) {
     .price-dropped-product-card {
         font-size: 1.2rem !important;
