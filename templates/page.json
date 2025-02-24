@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -18,6 +19,7 @@
     },
     "custom_liquid_rkgiyQ": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "",
         "color_scheme": "",
@@ -31,7 +33,7 @@
         "quiz_kit_smart_product_finder_button_7mTKpm": {
           "type": "shopify://apps/quiz-kit-smart-product-finder/blocks/button/0b04f315-849a-4507-8339-7be41cc01813",
           "settings": {
-            "key": "",
+            "key": "2vOo-FP3Y1Z",
             "button_label": "Start Quiz",
             "button_style": "solid",
             "button_alignment": "center",
@@ -47,7 +49,6 @@
       "block_order": [
         "quiz_kit_smart_product_finder_button_7mTKpm"
       ],
-      "disabled": true,
       "settings": {
         "include_margins": true
       }
