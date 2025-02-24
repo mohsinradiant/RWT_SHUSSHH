@@ -5,10 +5,53 @@
     src="{{section.settings.mobile_image | img_url: 'master'}}"
     alt="Discreet Packaging"
   >
-  <button>{{ section.settings.button_text }}</button>
+  <button id="know-more-btn">{{ section.settings.button_text }}</button>
+  <div id="popup-backdrop" class="hidden">
+    <div id="popup-image-container">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0767/6297/2470/files/Discreet_Delivery_Pop_up_image_2.png?v=1739948622"
+        alt="Discreet Delivery Popup"
+      >
+    </div>
+  </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const popupBackdrop = document.getElementById('popup-backdrop');
+    const knowMoreBtn = document.getElementById('know-more-btn');
 
+    // Toggle popup and manage scroll behavior
+    const togglePopup = () => {
+      const isHidden = popupBackdrop.classList.contains('hidden');
+      popupBackdrop.classList.toggle('hidden');
+      document.body.style.overflow = isHidden ? 'hidden' : 'auto';
+    };
+
+    // Show popup when "Know More" is clicked
+    knowMoreBtn.addEventListener('click', togglePopup);
+
+    // Hide popup when backdrop is clicked
+    popupBackdrop.addEventListener('click', (e) => {
+      if (e.target === popupBackdrop) {
+        togglePopup();
+      }
+    });
+  });
+</script>
 <style>
+  #popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+  }
   .home-discreet-packaging {
     display: flex;
     justify-content: center;
@@ -53,6 +96,22 @@
     }
     .home-discreet-packaging button {
       bottom: 20px;
+    }
+  }
+  #popup-image-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  #popup-image-container img {
+    max-width: 400px;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 500px) {
+    #popup-image-container img {
+      max-width: 330px;
     }
   }
 </style>
