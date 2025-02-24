@@ -273,7 +273,7 @@ slideshow-component .slider-counter__link--dots .dot {
 
 .slideshow_media_mobile_image {
     display: none !important;
-    height: auto !important;
+    height: 100% !important;
     width: fit-content !important;
 }
 
