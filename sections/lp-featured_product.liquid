@@ -138,9 +138,11 @@
   .swiper-pagination {
     position: absolute;
     bottom: 10px; /* Adjust as needed */
-    left: 50%;
+    left: 50% !important;
     transform: translateX(-50%);
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .accordion__content:has(.product-content-fold-answer-image-container) {
