@@ -298,6 +298,7 @@
       "blocks": {
         "slide_nK6UFg": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/2_1a9ed092-8d40-4d60-9b54-69be0657e5af.png",
             "mobile_image": "shopify://shop_images/2_d543479b-3c45-496e-9530-bf2057969444.png",
