@@ -231,6 +231,62 @@
         "section_heading": "WHAT'S IN THE BOX"
       }
     },
+    "lp_what_in_the_box_qnJXXx": {
+      "type": "lp-what-in-the-box",
+      "blocks": {
+        "item_LVBmHe": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/ashwagandha.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_ri4XUA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/panax_ginseng.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_TMKCd3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/maca_root.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_y3gi6i": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/shilajit.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        },
+        "item_bDYGey": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/saffron.png",
+            "heading": "Play Dip",
+            "subheading": "Add a little bit of body text"
+          }
+        }
+      },
+      "block_order": [
+        "item_LVBmHe",
+        "item_ri4XUA",
+        "item_TMKCd3",
+        "item_y3gi6i",
+        "item_bDYGey"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "WHAT'S IN TIP'S LIPS"
+      }
+    },
     "landing_page_banner_JwiBEa": {
       "type": "landing-page-banner",
       "settings": {
@@ -353,6 +409,25 @@
             "color_scheme": "",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_PtDAem": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/7_002bd433-6c85-4376-a371-b1ce64bdba51.png",
+            "mobile_image": "shopify://shop_images/7_54179b21-6ea5-4055-89c9-73f6a360d824.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
@@ -361,7 +436,8 @@
         "slide_JQ96be",
         "slide_QJmkYR",
         "slide_9BJeNw",
-        "slide_iR7zQp"
+        "slide_iR7zQp",
+        "slide_PtDAem"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -507,7 +583,6 @@
     },
     "landing_page_banner_9T9rFj": {
       "type": "landing-page-banner",
-      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/This_one_for_WEB_ingredients.png",
@@ -521,61 +596,6 @@
         "section_heading": "Discover What’s Making Everyone Go Wild!",
         "desktop_image": "shopify://shop_images/whats_in_the_box_WEB.png",
         "mobile_image": "shopify://shop_images/What_s_in_the_box_PHONE.png"
-      }
-    },
-    "lp_what_in_the_box_qnJXXx": {
-      "type": "lp-what-in-the-box",
-      "blocks": {
-        "item_y3gi6i": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/1_859b957f-4808-4b9a-af8d-d37f00b71f65.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_TMKCd3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/2_647a6743-58f2-44ea-bd01-1c03d5899d6c.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_ri4XUA": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/3_8dfd6a60-b5f7-4c42-9690-5d25f4571238.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_LVBmHe": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/4_e9f95620-b866-4dcc-a5a3-6b06a70bc6ae.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        },
-        "item_bDYGey": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/5_bc4468af-dedb-4d3b-b0a1-ca3addf6fa3c.png",
-            "heading": "Play Dip",
-            "subheading": "Add a little bit of body text"
-          }
-        }
-      },
-      "block_order": [
-        "item_y3gi6i",
-        "item_TMKCd3",
-        "item_ri4XUA",
-        "item_LVBmHe",
-        "item_bDYGey"
-      ],
-      "settings": {
-        "section_heading": "WHAT'S IN TIP'S LIPS"
       }
     },
     "landing_page_banner_HfxDGk": {
@@ -720,6 +740,7 @@
     "lp_video_RMnf7x",
     "video_BWFiNG",
     "lp_what_in_the_box_6N9VwD",
+    "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
     "slideshow_z9Kix6",
     "landing_page_banner_nzbqBN",
@@ -727,7 +748,6 @@
     "slideshow_iHhrW6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
-    "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
