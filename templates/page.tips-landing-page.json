@@ -192,8 +192,52 @@
         "section_heading": "WHAT'S IN TIP'S LIPS"
       }
     },
-    "landing_page_banner_JwiBEa": {
-      "type": "landing-page-banner",
+    "lp_know_what_you_get_iCkpyU": {
+      "type": "lp-know-what-you-get",
+      "blocks": {
+        "image_kJV7Jg": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/3_fb5813db-9d10-4a50-9c1d-50c40f8b6fac.png",
+            "mobile_image": "shopify://shop_images/3_d0dc38b1-9e75-4a4e-a710-1cc0dd5afb0c.png"
+          }
+        },
+        "image_M4E4Vp": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/4_ce8acde3-ca26-408e-a081-63b019173327.png",
+            "mobile_image": "shopify://shop_images/4_79c713d5-d277-4192-b3d9-d75eaa18ccea.png"
+          }
+        },
+        "image_7RdTfd": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/5_eb0064df-fab0-4f71-9feb-e4a3d8f99842.png",
+            "mobile_image": "shopify://shop_images/5_de13aaa0-d1e5-45e7-8ec9-f29fcb5cdd72.png"
+          }
+        },
+        "image_XztYd3": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/6_c0cfc343-2b56-42fd-b6f5-5032a8757409.png",
+            "mobile_image": "shopify://shop_images/6_b9768c97-a2d9-428c-a50a-c6f3f561361e.png"
+          }
+        },
+        "image_6MGRHF": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/7_002bd433-6c85-4376-a371-b1ce64bdba51.png",
+            "mobile_image": "shopify://shop_images/7_54179b21-6ea5-4055-89c9-73f6a360d824.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_kJV7Jg",
+        "image_M4E4Vp",
+        "image_7RdTfd",
+        "image_XztYd3",
+        "image_6MGRHF"
+      ],
       "settings": {
         "section_heading": "KNOW WHAT YOU'LL GET"
       }
@@ -500,7 +544,7 @@
     "content_slider_strip_dFxGXg",
     "lp_video_RMnf7x",
     "lp_what_in_the_box_qnJXXx",
-    "landing_page_banner_JwiBEa",
+    "lp_know_what_you_get_iCkpyU",
     "landing_page_banner_CT9UEq",
     "landing_page_banner_TpbtFF",
     "landing_page_banner_Tr3B4d",
