@@ -295,6 +295,123 @@
         "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations.png"
       }
     },
+    "slideshow_z9Kix6": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_nK6UFg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/2_1a9ed092-8d40-4d60-9b54-69be0657e5af.png",
+            "mobile_image": "shopify://shop_images/2_d543479b-3c45-496e-9530-bf2057969444.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_FjtqNf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/3_fb5813db-9d10-4a50-9c1d-50c40f8b6fac.png",
+            "mobile_image": "shopify://shop_images/3_d0dc38b1-9e75-4a4e-a710-1cc0dd5afb0c.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_JQ96be": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/4_ce8acde3-ca26-408e-a081-63b019173327.png",
+            "mobile_image": "shopify://shop_images/4_79c713d5-d277-4192-b3d9-d75eaa18ccea.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_QJmkYR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/5_eb0064df-fab0-4f71-9feb-e4a3d8f99842.png",
+            "mobile_image": "shopify://shop_images/5_de13aaa0-d1e5-45e7-8ec9-f29fcb5cdd72.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_9BJeNw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/6_c0cfc343-2b56-42fd-b6f5-5032a8757409.png",
+            "mobile_image": "shopify://shop_images/6_b9768c97-a2d9-428c-a50a-c6f3f561361e.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nK6UFg",
+        "slide_FjtqNf",
+        "slide_JQ96be",
+        "slide_QJmkYR",
+        "slide_9BJeNw"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "landing_page_banner_nzbqBN": {
       "type": "landing-page-banner",
       "settings": {
@@ -309,10 +426,10 @@
         "section_heading": "HOW TO USE TIPS"
       }
     },
-    "slideshow_z9Kix6": {
+    "slideshow_iHhrW6": {
       "type": "slideshow",
       "blocks": {
-        "slide_JddGYR": {
+        "slide_G74EUH": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/1_b9922505-9b66-4745-bb81-70dc276c59f9.png",
@@ -331,7 +448,7 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_hyWjyL": {
+        "slide_DPUJLY": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/2_deb2caf3-b8bf-40f2-a29a-6062c177e5d3.png",
@@ -350,7 +467,7 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_QrKUi7": {
+        "slide_jtBQHd": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/3_ac302537-4aed-4553-9f46-846bd1af2145.png",
@@ -369,7 +486,7 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_PhGNhR": {
+        "slide_gHwJt3": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/4_535605ec-e983-4524-b145-ff2f616ad555.png",
@@ -388,7 +505,7 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_nK6UFg": {
+        "slide_WEACRz": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/5_0e52f35c-88fd-4850-b114-7818fd25462f.png",
@@ -409,11 +526,11 @@
         }
       },
       "block_order": [
-        "slide_JddGYR",
-        "slide_hyWjyL",
-        "slide_QrKUi7",
-        "slide_PhGNhR",
-        "slide_nK6UFg"
+        "slide_G74EUH",
+        "slide_DPUJLY",
+        "slide_jtBQHd",
+        "slide_gHwJt3",
+        "slide_WEACRz"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -587,9 +704,10 @@
     "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
+    "slideshow_z9Kix6",
     "landing_page_banner_nzbqBN",
     "landing_page_banner_wNz3Vn",
-    "slideshow_z9Kix6",
+    "slideshow_iHhrW6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
     "landing_page_banner_HfxDGk",
