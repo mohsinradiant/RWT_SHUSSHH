@@ -601,6 +601,7 @@
           document.addEventListener('DOMContentLoaded', () => {
             const popupBackdrop = document.getElementById('popup-backdrop');
             const knowMoreBtn = document.getElementById('know-more-btn');
+            const closeButton = document.querySelector('.discreet-delivery-X'); // Select the close button
 
             // Toggle popup and manage scroll behavior
             const togglePopup = () => {
@@ -618,6 +619,11 @@
                 togglePopup();
               }
             });
+
+            // Hide popup when the close button is clicked
+            if (closeButton) {
+              closeButton.addEventListener('click', togglePopup);
+            }
           });
         </script>
         <div class="pdp-pincode-checker">
