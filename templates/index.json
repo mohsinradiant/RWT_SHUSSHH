@@ -37,6 +37,7 @@
         },
         "slide_cak4QR": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/banner.png",
             "mobile_image": "shopify://shop_images/Untitled_design_15.png",
