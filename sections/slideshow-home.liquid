@@ -1,0 +1,178 @@
+<style>
+  .slideshow-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .slideshow-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  .slide {
+    flex: 0 0 100%;
+    position: relative;
+    text-align: center;
+  }
+  .slide img {
+    width: 100%;
+    display: none;
+  }
+  .slide .mobile-image {
+    display: block;
+  }
+  @media (min-width: 757px) {
+    .slide .mobile-image {
+      display: none;
+    }
+    .slide .desktop-image {
+      display: block;
+    }
+  }
+  .slide a {
+    background-color: #eabe39;
+    color: #382d43;
+    border-radius: 500px;
+    display: inline-block;
+    padding: 10px 55px;
+    text-decoration: none;
+    position: absolute;
+    font-size: 1rem;
+    bottom: 35px;
+    font-weight: 700;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all ease-in, 2s;
+  }
+  .slide a:hover {
+    background-color: #382d43;
+    color: #eabe39;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .dot.active {
+    background: rgba(255, 255, 255, 1);
+  }
+</style>
+
+<div class="slideshow-container">
+  <div class="slideshow-wrapper">
+    {% for block in section.blocks %}
+      <div class="slide">
+        {% if block.settings.mobile_image %}
+          <img class="mobile-image" src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="Slide Image">
+        {% endif %}
+        {% if block.settings.desktop_image %}
+          <img class="desktop-image" src="{{ block.settings.desktop_image | img_url: 'master' }}" alt="Slide Image">
+        {% endif %}
+        {% if block.settings.button_text != blank and block.settings.button_url != blank %}
+          <a href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="dots">
+    {% for block in section.blocks %}
+      <span class="dot" data-index="{{ forloop.index0 }}"></span>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const wrapper = document.querySelector('.slideshow-wrapper');
+    const totalSlides = slides.length;
+    let index = 0;
+    let startX = 0;
+    let endX = 0;
+
+    function updateSlide(newIndex) {
+      index = newIndex;
+      gsap.to(wrapper, {
+        x: `-${index * 100}%`,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      });
+      dots.forEach((dot) => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function autoSlide() {
+      updateSlide((index + 1) % totalSlides);
+    }
+
+    let interval = setInterval(autoSlide, 3000);
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        clearInterval(interval);
+        updateSlide(i);
+        interval = setInterval(autoSlide, 3000);
+      });
+    });
+
+    wrapper.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX));
+    wrapper.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      if (startX > endX + 50) updateSlide((index + 1) % totalSlides);
+      else if (startX < endX - 50) updateSlide((index - 1 + totalSlides) % totalSlides);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Slideshow Home",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow Home"
+    }
+  ]
+}
+{% endschema %}
