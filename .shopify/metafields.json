@@ -4,59 +4,9 @@
   "brand": [],
   "collection": [
     {
-      "key": "bannertext",
+      "key": "banner_image",
       "namespace": "custom",
-      "name": "bannertext",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "collections",
-      "namespace": "ecomposer",
-      "name": "Define sub collections for current collection",
-      "description": "Set the sub collection for curernt collection.",
-      "type": {
-        "name": "list.collection_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "banne_image_collectionpage",
-      "namespace": "custom",
-      "name": "banne_image_collectionpage",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "active_category_serial_number",
-      "namespace": "content",
-      "name": "Active Category Serial Number",
-      "description": "",
-      "type": {
-        "name": "number_integer",
-        "category": "NUMBER"
-      }
-    },
-    {
-      "key": "desktop_image",
-      "namespace": "content",
-      "name": "Desktop Image",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "mobile_image",
-      "namespace": "content",
-      "name": "Mobile Image",
+      "name": "Banner Image",
       "description": "",
       "type": {
         "name": "file_reference",
@@ -68,471 +18,9 @@
   "company_location": [],
   "location": [],
   "market": [],
-  "order": [
-    {
-      "key": "custom_fields",
-      "namespace": "apz-checkout",
-      "name": "Tell us more about you",
-      "description": null,
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
-  "page": [
-    {
-      "key": "product_box",
-      "namespace": "custom",
-      "name": "Product Box",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_box_items",
-      "namespace": "custom",
-      "name": "Product Box items",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    }
-  ],
+  "order": [],
+  "page": [],
   "product": [
-    {
-      "key": "size",
-      "namespace": "custom",
-      "name": "Size",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "productbox_details",
-      "namespace": "custom",
-      "name": "Productbox_details",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "how_to_use",
-      "namespace": "custom",
-      "name": "How to Use",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "productinclusion",
-      "namespace": "custom",
-      "name": "Productinclusion",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "testimonial_1",
-      "namespace": "custom",
-      "name": "Testimonial 1",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "testimonial_2",
-      "namespace": "custom",
-      "name": "Testimonial 2",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "testimonial3",
-      "namespace": "custom",
-      "name": "Testimonial3",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "technical_specification",
-      "namespace": "custom",
-      "name": "Technical Specification",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq1",
-      "namespace": "custom",
-      "name": "Faq1",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq2",
-      "namespace": "custom",
-      "name": "Faq2",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq3",
-      "namespace": "custom",
-      "name": "Faq3",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq4",
-      "namespace": "custom",
-      "name": "Faq4",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq5",
-      "namespace": "custom",
-      "name": "Faq5",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq6",
-      "namespace": "custom",
-      "name": "Faq6",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "countdown",
-      "namespace": "ecomposer",
-      "name": "EComposer product countdown end at",
-      "description": "Set date and time countdown end at",
-      "type": {
-        "name": "date_time",
-        "category": "DATE_TIME"
-      }
-    },
-    {
-      "key": "countdown_from",
-      "namespace": "ecomposer",
-      "name": "EComposer product countdown start at",
-      "description": "Set date and time countdown start at",
-      "type": {
-        "name": "date_time",
-        "category": "DATE_TIME"
-      }
-    },
-    {
-      "key": "rating",
-      "namespace": "reviews",
-      "name": "Product rating",
-      "description": "Average rating from customers",
-      "type": {
-        "name": "rating",
-        "category": "RATING"
-      }
-    },
-    {
-      "key": "rating_count",
-      "namespace": "reviews",
-      "name": "Product rating count",
-      "description": "Total number of ratings from customers",
-      "type": {
-        "name": "number_integer",
-        "category": "NUMBER"
-      }
-    },
-    {
-      "key": "image_cutout",
-      "namespace": "custom",
-      "name": "image-cutout",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "faq",
-      "namespace": "custom",
-      "name": "FAQ",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "witb_name",
-      "namespace": "custom",
-      "name": "witb-name",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "bgcolor",
-      "namespace": "custom",
-      "name": "bgcolor",
-      "description": "",
-      "type": {
-        "name": "color",
-        "category": "COLOR"
-      }
-    },
-    {
-      "key": "product_icon_1",
-      "namespace": "custom",
-      "name": "product-icon-1",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "video",
-      "namespace": "custom",
-      "name": "VIDEO",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "inside_the_box",
-      "namespace": "custom",
-      "name": "Inside the box desktop",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "inside_the_box_mobile",
-      "namespace": "custom",
-      "name": "Inside the box Mobile",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "box_inside_1",
-      "namespace": "custom",
-      "name": "Box Inside 1",
-      "description": "",
-      "type": {
-        "name": "list.mixed_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "tech_specs",
-      "namespace": "custom",
-      "name": "tech Specs - desktop",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "tech_specs_mobile",
-      "namespace": "custom",
-      "name": "tech specs mobile",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "vimeo_video",
-      "namespace": "custom",
-      "name": "vimeo video",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "videotest",
-      "namespace": "custom",
-      "name": "videotest",
-      "description": "",
-      "type": {
-        "name": "url",
-        "category": "URL"
-      }
-    },
-    {
-      "key": "text",
-      "namespace": "custom",
-      "name": "text",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "testmoni",
-      "namespace": "custom",
-      "name": "testmoni",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "video1",
-      "namespace": "custom",
-      "name": "VIDEO1",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "desc_product",
-      "namespace": "custom",
-      "name": "DESC_PRODUCT",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "video_cover",
-      "namespace": "custom",
-      "name": "VIDEO_COVER",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "custom_product",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Product",
-      "description": "Use to indicate whether or not the unique product identifiers (UPIs) GTIN, MPN, and brand are available for your product.",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "tech_specs_dd",
-      "namespace": "custom",
-      "name": "TECH SPECS DD",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_features",
-      "namespace": "custom",
-      "name": "Product Features",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "queries",
-      "namespace": "shopify--discovery--product_search_boost",
-      "name": "Search product boosts",
-      "description": "List of search queries for which a product gets higher rank in search results",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "related_products",
-      "namespace": "shopify--discovery--product_recommendation",
-      "name": "Related products",
-      "description": "List of related products",
-      "type": {
-        "name": "list.product_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "related_products_display",
-      "namespace": "shopify--discovery--product_recommendation",
-      "name": "Related products settings",
-      "description": "Determines how related products are displayed along with algorithmic product recommendations",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "complementary_products",
-      "namespace": "shopify--discovery--product_recommendation",
-      "name": "Complementary products",
-      "description": "List of complementary products",
-      "type": {
-        "name": "list.product_reference",
-        "category": "REFERENCE"
-      }
-    },
     {
       "key": "color-pattern",
       "namespace": "shopify",
@@ -544,378 +32,206 @@
       }
     },
     {
-      "key": "dietary-preferences",
+      "key": "jewelry-material",
       "namespace": "shopify",
-      "name": "Dietary preferences",
-      "description": "Helps identify products suitable for specific diets, e.g. vegan, nut free",
+      "name": "Jewelry material",
+      "description": "Identifies the main material used in jewelry items, such as gold or enamel",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "allergen-information",
+      "key": "ring-design",
       "namespace": "shopify",
-      "name": "Allergen information",
-      "description": "Indicates potential allergens present in food or beverages, such as wheat or peanuts",
+      "name": "Ring design",
+      "description": "Describes the style of a ring, such as band or solitaire",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "product_card_usp",
-      "namespace": "content",
-      "name": "Product Card USP",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "product_card_description",
-      "namespace": "content",
-      "name": "Product Card Description",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "subheading",
-      "namespace": "content",
-      "name": "Subheading",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "info_fold_description",
-      "namespace": "content",
-      "name": "Info Fold Description",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "product_png_hotspots",
-      "namespace": "content",
-      "name": "Product PNG Hotspots",
-      "description": "",
+      "key": "ring-size",
+      "namespace": "shopify",
+      "name": "Ring size",
+      "description": "Specifies the size of a ring, such as L or 6.5",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "content_fold_text",
-      "namespace": "content",
-      "name": "Content Fold Text",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "banner_1",
-      "namespace": "content",
-      "name": "Banner 1",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "banner_2",
-      "namespace": "content",
-      "name": "Banner 2",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "whats_in_the_box",
-      "namespace": "content",
-      "name": "What's in the box",
-      "description": "",
-      "type": {
-        "name": "list.file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_video",
-      "namespace": "content",
-      "name": "Product Video",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "combos_collection",
-      "namespace": "content",
-      "name": "Combos Collection",
-      "description": "",
-      "type": {
-        "name": "collection_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_bullets",
-      "namespace": "content",
-      "name": "Product Bullets",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_shoppable_videos",
-      "namespace": "content",
-      "name": "Product Shoppable Videos",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "frequently_asked_questions",
-      "namespace": "content",
-      "name": "Frequently Asked Questions",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_usp",
-      "namespace": "content",
-      "name": "Product USP",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "info_images",
-      "namespace": "content",
-      "name": "Info Images",
-      "description": "",
-      "type": {
-        "name": "list.file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "what_s_in_the_box_2",
-      "namespace": "content",
-      "name": "What's in the box",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "floating_media",
-      "namespace": "content",
-      "name": "Floating Media?",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "floating_animation",
-      "namespace": "content",
-      "name": "Floating Animation",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "show_floating_image",
-      "namespace": "content",
-      "name": "Show Floating Image?",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "usp_grid_collage",
-      "namespace": "content",
-      "name": "USP Grid Collage Desktop",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "usp_grid_collage_mobile",
-      "namespace": "content",
-      "name": "USP Grid Collage Mobile",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    }
-  ],
-  "variant": [
-    {
-      "key": "color",
+      "key": "short_description",
       "namespace": "custom",
-      "name": "Color",
+      "name": "Short Description",
       "description": "",
       "type": {
-        "name": "color",
-        "category": "COLOR"
+        "name": "multi_line_text_field",
+        "category": "TEXT"
       }
     },
     {
-      "key": "custom_label_4",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 4",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
+      "key": "metal_purity",
+      "namespace": "custom",
+      "name": "Metal Purity",
+      "description": "",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
       }
     },
     {
-      "key": "custom_label_3",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 3",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_2",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 2",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_1",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 1",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_0",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 0",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "size_system",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Size System",
-      "description": "The country of the size system used by your product.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "size_type",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Size Type",
-      "description": "Your apparel product’s cut.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "mpn",
-      "namespace": "mm-google-shopping",
-      "name": "Google: MPN",
-      "description": "Your product’s Manufacturer Part Number (MPN).",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "gender",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Gender",
-      "description": "The gender for which your product is intended.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "condition",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Condition",
-      "description": "The condition of your product at time of sale.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "age_group",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Age Group",
-      "description": "The demographic for which your product is intended.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
-  "shop": [
-    {
-      "key": "fastbundleconf",
-      "namespace": "rbrfb",
-      "name": "Fast Bundle Conf",
-      "description": "App's config for the widgets",
+      "key": "other_description",
+      "namespace": "custom",
+      "name": "Other Description",
+      "description": "",
       "type": {
         "name": "json",
         "category": "JSON"
       }
+    },
+    {
+      "key": "reference",
+      "namespace": "custom",
+      "name": "Reference",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "care_instructions",
+      "namespace": "custom",
+      "name": "Care Instructions",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "shipping_return",
+      "namespace": "custom",
+      "name": "Shipping & Return",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "length",
+      "namespace": "custom",
+      "name": "Length",
+      "description": "",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "insidethebox",
+      "namespace": "custom",
+      "name": "In The Box",
+      "description": "",
+      "type": {
+        "name": "rich_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "earring-design",
+      "namespace": "shopify",
+      "name": "Earring design",
+      "description": "Describes the style or structure of earrings, such as hoop or stud",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "target-gender",
+      "namespace": "shopify",
+      "name": "Target gender",
+      "description": "Identifies the intended gender for a product, such as female, male or unisex",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "age-group",
+      "namespace": "shopify",
+      "name": "Age group",
+      "description": "Defines the target age range for a product, such as adults or kids",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "jewelry-type",
+      "namespace": "shopify",
+      "name": "Jewelry type",
+      "description": "Distinguishes between types of jewelry, such as fine or imitation jewelry",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bracelet-design",
+      "namespace": "shopify",
+      "name": "Bracelet design",
+      "description": "Specifies the design of a bracelet, such as charm or cuff",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "theme",
+      "namespace": "shopify",
+      "name": "Theme",
+      "description": "Describes the product's primary theme or motif, such as sport, space, or holidays",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "decoration-material",
+      "namespace": "shopify",
+      "name": "Decoration material",
+      "description": "Identifies the material used for decoration, such as sequins or feathers",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "chain-link-type",
+      "namespace": "shopify",
+      "name": "Chain link type",
+      "description": "Defines the style of chain link for jewelry, such as rope or flat",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "necklace-design",
+      "namespace": "shopify",
+      "name": "Necklace design",
+      "description": "Describes the style of a necklace, such as pendant or choker",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
-  ]
+  ],
+  "variant": [],
+  "shop": []
 }
