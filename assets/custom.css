@@ -1011,7 +1011,7 @@ sticky-header {
     #shopify-section-template--23799476715830__slideshow_VzBdWB .slideshow_media_mobile_image,
     #shopify-section-template--23799476715830__slideshow_VzBdWB .slideshow_media_mobile_image img {
         aspect-ratio: 412/549 !important;
-        height: auto !important;
+        height: fit-content !important;
     }
 
     #shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow_media_mobile_image,
@@ -1019,8 +1019,8 @@ sticky-header {
     #shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow_media_mobile_image img,
     #shopify-section-template--23925777301814__slideshow_iHhrW6 .images-carousel-home,
     #shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow.banner {
-        aspect-ratio: 206/165 !important;
-        height: auto !important;
+        /* aspect-ratio: 206/165 !important;
+        height: fit-content !important; */
     }
 
     .announcement-bar__message {
