@@ -989,7 +989,9 @@ sticky-header {
         top: 182px;
     }
 }
-
+.jddkUx{
+    padding-top: 0 !important;
+}
 #Slider-template--23925777301814__slideshow_iHhrW6 .media::before{
     padding: 0 !important;
 }
