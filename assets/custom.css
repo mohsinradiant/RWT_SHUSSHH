@@ -1006,6 +1006,10 @@ sticky-header {
 }
 
 @media(max-width:750px) {
+    #shopify-section-template--23799476715830__slideshow_VzBdWB .slideshow_media_mobile_image{
+aspect-ratio: 412/549 !important;
+height: auto !important;
+    }
     .announcement-bar__message {
         padding: .65rem 0 !important;
     }
