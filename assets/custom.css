@@ -990,7 +990,9 @@ sticky-header {
     }
 }
 
-@media(max-width:600px) {
+#Slider-template--23925777301814__slideshow_iHhrW6 .media::before{
+    padding: 0 !important;
+}
     .price-dropped-product-card {
         font-size: 1.2rem !important;
     }
