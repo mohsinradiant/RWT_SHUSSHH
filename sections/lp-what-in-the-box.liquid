@@ -136,7 +136,7 @@
       loop: true,
       autoplay: {
         delay: 3000, // Adjust delay (in ms) as needed
-        disableOnInteraction: false, // Keeps autoplay running after user interaction
+        disableOnInteraction: false, // Ensures autoplay continues after interaction
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -153,6 +153,17 @@
           slidesPerView: 1,
         },
       },
+    });
+
+    // Manually restart autoplay when navigation buttons are clicked
+    document.querySelector('.swiper-button-next').addEventListener('click', () => {
+      swiper.slideNext();
+      swiper.autoplay.start();
+    });
+
+    document.querySelector('.swiper-button-prev').addEventListener('click', () => {
+      swiper.slidePrev();
+      swiper.autoplay.start();
     });
   });
 </script>
