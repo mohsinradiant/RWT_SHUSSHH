@@ -134,6 +134,10 @@
   document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.swiper-container', {
       loop: true,
+      autoplay: {
+        delay: 3000, // Adjust delay (in ms) as needed
+        disableOnInteraction: false, // Ensures autoplay continues after interaction
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -149,6 +153,17 @@
           slidesPerView: 1,
         },
       },
+    });
+
+    // Manually restart autoplay when navigation buttons are clicked
+    document.querySelector('.swiper-button-next').addEventListener('click', () => {
+      swiper.slideNext();
+      swiper.autoplay.start();
+    });
+
+    document.querySelector('.swiper-button-prev').addEventListener('click', () => {
+      swiper.slidePrev();
+      swiper.autoplay.start();
     });
   });
 </script>
