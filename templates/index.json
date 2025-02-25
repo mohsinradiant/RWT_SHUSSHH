@@ -13,6 +13,34 @@
       "type": "home-circle-collections",
       "settings": {}
     },
+    "slideshow_home_zwn7ja": {
+      "type": "slideshow-home",
+      "blocks": {
+        "slide_U8FRa7": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/NEW_TEMP_BANNER_0d75f7f3-bebe-41fd-9e6d-beca1d1277af.png",
+            "desktop_image": "shopify://shop_images/TEMP_BANNER_WEB_66d4bc67-e5ba-4d6a-a725-714e7b7f805f.png",
+            "button_text": "SHOP NOW",
+            "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+          }
+        },
+        "slide_nd73jE": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",
+            "desktop_image": "shopify://shop_images/Wen_banners_4.png",
+            "button_text": "SHOP NOW",
+            "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+          }
+        }
+      },
+      "block_order": [
+        "slide_U8FRa7",
+        "slide_nd73jE"
+      ],
+      "settings": {}
+    },
     "slideshow_VzBdWB": {
       "type": "slideshow",
       "blocks": {
@@ -121,6 +149,7 @@
         "slide_F4dbxc",
         "slide_aKAQ9M"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -473,6 +502,7 @@
   },
   "order": [
     "home_circle_collections_gjnENC",
+    "slideshow_home_zwn7ja",
     "slideshow_VzBdWB",
     "content_slider_strip_qpKFNJ",
     "home_vday_banner_gXk89j",

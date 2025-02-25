@@ -301,6 +301,64 @@
         "section_heading": "HOW TO USE TIPS"
       }
     },
+    "slideshow_home_jhYyxd": {
+      "type": "slideshow-home",
+      "blocks": {
+        "slide_kV8EDW": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/1_ba08c756-a31c-4410-b6eb-f61874867861.png",
+            "desktop_image": "shopify://shop_images/1_b9922505-9b66-4745-bb81-70dc276c59f9.png",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "slide_MpGNxe": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/2_7caa43ed-4d4c-4f2e-a16a-9613fbf61ea8.png",
+            "desktop_image": "shopify://shop_images/2_deb2caf3-b8bf-40f2-a29a-6062c177e5d3.png",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "slide_LwBR6P": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/3_1e3bcbe9-ff93-4611-a675-507e59277a7c.png",
+            "desktop_image": "shopify://shop_images/3_ac302537-4aed-4553-9f46-846bd1af2145.png",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "slide_xf6Tna": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/4_024d5b77-cab9-42ea-aada-d94e10943731.png",
+            "desktop_image": "shopify://shop_images/4_535605ec-e983-4524-b145-ff2f616ad555.png",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "slide_YV4rbb": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/5_3fdae7c7-692e-4086-a909-ea62c22fb2bf.png",
+            "desktop_image": "shopify://shop_images/5_0e52f35c-88fd-4850-b114-7818fd25462f.png",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_kV8EDW",
+        "slide_MpGNxe",
+        "slide_LwBR6P",
+        "slide_xf6Tna",
+        "slide_YV4rbb"
+      ],
+      "settings": {}
+    },
     "slideshow_iHhrW6": {
       "type": "slideshow",
       "blocks": {
@@ -407,6 +465,7 @@
         "slide_gHwJt3",
         "slide_WEACRz"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -557,6 +616,7 @@
     "landing_page_banner_kMETiP",
     "landing_page_banner_nzbqBN",
     "landing_page_banner_wNz3Vn",
+    "slideshow_home_jhYyxd",
     "slideshow_iHhrW6",
     "lp_testimonial_grid_8BKrhT",
     "landing_page_banner_ew6gr8",
