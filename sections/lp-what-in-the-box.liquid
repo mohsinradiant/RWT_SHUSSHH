@@ -134,6 +134,10 @@
   document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.swiper-container', {
       loop: true,
+      autoplay: {
+        delay: 3000, // Adjust delay (in ms) as needed
+        disableOnInteraction: false, // Keeps autoplay running after user interaction
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
