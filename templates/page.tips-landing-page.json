@@ -582,6 +582,7 @@
     },
     "landing_page_banner_9T9rFj": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/This_one_for_WEB_ingredients.png",
@@ -739,7 +740,6 @@
     "lp_video_RMnf7x",
     "video_BWFiNG",
     "lp_what_in_the_box_6N9VwD",
-    "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
     "slideshow_z9Kix6",
     "landing_page_banner_nzbqBN",
@@ -747,6 +747,7 @@
     "slideshow_iHhrW6",
     "landing_page_banner_9T9rFj",
     "landing_page_banner_dEmk7P",
+    "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
