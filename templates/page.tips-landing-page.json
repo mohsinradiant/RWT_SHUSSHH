@@ -290,9 +290,7 @@
     "landing_page_banner_JwiBEa": {
       "type": "landing-page-banner",
       "settings": {
-        "section_heading": "KNOW WHAT YOU'LL GET",
-        "desktop_image": "shopify://shop_images/The_box_of_temptations_web_view.png",
-        "mobile_image": "shopify://shop_images/Phone_The_box_of_temptations.png"
+        "section_heading": "KNOW WHAT YOU'LL GET"
       }
     },
     "slideshow_z9Kix6": {
