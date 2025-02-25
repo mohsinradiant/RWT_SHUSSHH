@@ -1,0 +1,115 @@
+<div class="slideshow-container">
+  <div class="slideshow-wrapper">
+    {% for block in section.blocks %}
+      <div class="slide">
+        {% if block.settings.mobile_image %}
+          <img class="mobile-image" src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="Slide Image">
+        {% endif %}
+        {% if block.settings.desktop_image %}
+          <img class="desktop-image" src="{{ block.settings.desktop_image | img_url: 'master' }}" alt="Slide Image">
+        {% endif %}
+        {% if block.settings.button_text != blank and block.settings.button_url != blank %}
+          <a href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .slideshow-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .slideshow-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  .slide {
+    flex: 0 0 100%;
+    position: relative;
+    text-align: center;
+  }
+  .slide img {
+    width: 100%;
+    display: none;
+  }
+  .slide .mobile-image {
+    display: block;
+  }
+  @media (min-width: 757px) {
+    .slide .mobile-image {
+      display: none;
+    }
+    .slide .desktop-image {
+      display: block;
+    }
+  }
+  .slide a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #be1e28;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let index = 0;
+
+    function autoSlide() {
+      gsap.to('.slideshow-wrapper', {
+        x: `-${index * 100}%`,
+        duration: 1,
+        ease: 'power2.inOut',
+      });
+      index = (index + 1) % totalSlides;
+    }
+
+    setInterval(autoSlide, 3000);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Slideshow Home",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow Home"
+    }
+  ]
+}
+{% endschema %}
