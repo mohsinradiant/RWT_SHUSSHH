@@ -642,9 +642,9 @@ slideshow-component .slider-counter__link--dots .dot {
 }
 
 .images-carousel-home {
-    height: auto;
+    height: fit-content;
     width: 100%;
-}
+    min-height: fit-content;}
 
 .images-carousel-home img {
     display: flex;
