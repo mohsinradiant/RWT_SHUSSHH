@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 slider-component {
   --desktop-margin-left-first-item: max(5rem,
       calc((100vw - var(--page-width) + 10rem - var(--grid-desktop-horizontal-spacing)) / 2));
@@ -26,16 +33,19 @@ slider-component.slider-component-full-width {
   --shadow-padding-top: calc((var(--shadow-vertical-offset) * -1 + var(--shadow-blur-radius)) * var(--shadow-visible));
   --shadow-padding-bottom: calc((var(--shadow-vertical-offset) + var(--shadow-blur-radius)) * var(--shadow-visible));
   scroll-snap-align: start;
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   padding-bottom: 0;
 }
 
 @media screen and (max-width: 749px) {
   .slider.slider--mobile {
     position: relative;
-    flex-wrap: inherit;
+    -ms-flex-wrap: inherit;
+        flex-wrap: inherit;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scroll-padding-left: 1.5rem;
     -webkit-overflow-scrolling: touch;
@@ -67,9 +77,11 @@ slider-component.slider-component-full-width {
 @media screen and (min-width: 750px) {
   .slider.slider--tablet-up {
     position: relative;
-    flex-wrap: inherit;
+    -ms-flex-wrap: inherit;
+        flex-wrap: inherit;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scroll-padding-left: 1rem;
     -webkit-overflow-scrolling: touch;
@@ -83,9 +95,11 @@ slider-component.slider-component-full-width {
 @media screen and (max-width: 989px) {
   .slider.slider--tablet {
     position: relative;
-    flex-wrap: inherit;
+    -ms-flex-wrap: inherit;
+        flex-wrap: inherit;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scroll-padding-left: 1.5rem;
     -webkit-overflow-scrolling: touch;
@@ -117,9 +131,11 @@ slider-component.slider-component-full-width {
 
 .slider--everywhere {
   position: relative;
-  flex-wrap: inherit;
+  -ms-flex-wrap: inherit;
+      flex-wrap: inherit;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1rem;
@@ -128,7 +144,11 @@ slider-component.slider-component-full-width {
 .slider.slider--everywhere .slider__slide {
   margin-bottom: 0;
   scroll-snap-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
   min-height: fit-content;
 }
 
@@ -139,9 +159,11 @@ slider-component.slider-component-full-width {
 
   .slider--desktop {
     position: relative;
-    flex-wrap: inherit;
+    -ms-flex-wrap: inherit;
+        flex-wrap: inherit;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     margin-bottom: 1rem;
@@ -242,8 +264,12 @@ slider-component.slider-component-full-width {
 }
 
 .slider-counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-width: 4.4rem;
 }
 
@@ -288,13 +314,19 @@ slider-component.slider-component-full-width {
 
 .slider-counter__link--dots .dot,
 .slider-counter__link--numbers {
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 .slider-counter__link--active.slider-counter__link--numbers,
 .slider-counter__link--dots:not(.slider-counter__link--active):hover .dot,
 .slider-counter__link--numbers:hover {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .slider-counter__link--numbers {
@@ -312,9 +344,15 @@ slider-component.slider-component-full-width {
 }
 
 .slider-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media screen and (min-width: 990px) {
@@ -341,10 +379,18 @@ slider-component.slider-component-full-width {
   border: none;
   cursor: pointer;
   width: 44px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .slider-button:not([disabled]):hover {
@@ -361,17 +407,25 @@ slider-component.slider-component-full-width {
 }
 
 .slider-button--next .icon {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .slider-button--prev .icon {
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .slider-button--next:not([disabled]):hover .icon {
-  transform: rotate(-90deg) scale(1.1);
+  -webkit-transform: rotate(-90deg) scale(1.1);
+      -ms-transform: rotate(-90deg) scale(1.1);
+          transform: rotate(-90deg) scale(1.1);
 }
 
 .slider-button--prev:not([disabled]):hover .icon {
-  transform: rotate(90deg) scale(1.1);
+  -webkit-transform: rotate(90deg) scale(1.1);
+      -ms-transform: rotate(90deg) scale(1.1);
+          transform: rotate(90deg) scale(1.1);
 }
