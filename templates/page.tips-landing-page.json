@@ -41,14 +41,6 @@
             "text": "Free + Discreet Delivery"
           }
         },
-        "usp_9CnC7K": {
-          "type": "usp",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/3333333333.png",
-            "text": "3-Day Express Shipping"
-          }
-        },
         "dropdown_kpEQ3c": {
           "type": "dropdown",
           "settings": {
@@ -111,7 +103,6 @@
         "usp_RXgWAp",
         "usp_eh9kTM",
         "usp_rdB3Ad",
-        "usp_9CnC7K",
         "dropdown_kpEQ3c",
         "dropdown_apRaph",
         "dropdown_DYM66B",
@@ -131,16 +122,6 @@
         "product_usp_text_2_png": "shopify://shop_images/Iconsnew-26.png"
       }
     },
-    "landing_page_banner_tPURrF": {
-      "type": "landing-page-banner",
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "shopify://shop_images/web_vday_sticker.jpg",
-        "mobile_image": "shopify://shop_images/2_3426104e-aefa-4da9-8eda-23b493427b92.png"
-      }
-    },
     "content_slider_strip_dFxGXg": {
       "type": "content-slider-strip",
       "custom_css": [
@@ -154,81 +135,6 @@
       "type": "lp-video",
       "settings": {
         "video_file": "shopify://files/videos/videoplayback.mp4"
-      }
-    },
-    "video_BWFiNG": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://youtu.be/AigpJpSG_Ks?si=GiqXZpr_splYy5lC",
-        "cover_image": "shopify://shop_images/image_38b6ae21-8fba-4016-a93f-b5e7f219c7df.png",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "lp_what_in_the_box_6N9VwD": {
-      "type": "lp-what-in-the-box",
-      "blocks": {
-        "item_gJ9LWR": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/blindfold_2_1.png",
-            "heading": "Blindfold",
-            "subheading": "Surrender to the unknown, feel everything. 😏"
-          }
-        },
-        "item_GznyEq": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/dip_24a3a573-b6f4-47d9-8e26-30cf849f138b.png",
-            "heading": "Play Dip",
-            "subheading": "Drizzle, lick, repeat—taste the temptation. 🍫🔥"
-          }
-        },
-        "item_YpbQBy": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/tiplip_197f8b1a-a9db-49ad-b71a-caa24ca5d6ea.png",
-            "heading": "Tip's Lip",
-            "subheading": "A bite-sized boost for better, longer bliss. 🍫✨"
-          }
-        },
-        "item_JJAJqa": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/aura.png",
-            "heading": "Aura Perfume",
-            "subheading": "One spritz, and they’re under your spell. ✨🔥"
-          }
-        },
-        "item_NAAUgK": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
-            "heading": "Shab-E-Raaz Playbook",
-            "subheading": "The ultimate guide to a night of unforgettable love. 💖🌙"
-          }
-        }
-      },
-      "block_order": [
-        "item_gJ9LWR",
-        "item_GznyEq",
-        "item_YpbQBy",
-        "item_JJAJqa",
-        "item_NAAUgK"
-      ],
-      "disabled": true,
-      "custom_css": [
-        "h3 {font-size: 30px;}"
-      ],
-      "settings": {
-        "section_heading": "WHAT'S IN THE BOX"
       }
     },
     "lp_what_in_the_box_qnJXXx": {
@@ -292,162 +198,44 @@
         "section_heading": "KNOW WHAT YOU'LL GET"
       }
     },
-    "slideshow_z9Kix6": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_nK6UFg": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/2_1a9ed092-8d40-4d60-9b54-69be0657e5af.png",
-            "mobile_image": "shopify://shop_images/2_d543479b-3c45-496e-9530-bf2057969444.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_FjtqNf": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/3_fb5813db-9d10-4a50-9c1d-50c40f8b6fac.png",
-            "mobile_image": "shopify://shop_images/3_d0dc38b1-9e75-4a4e-a710-1cc0dd5afb0c.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_JQ96be": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/4_ce8acde3-ca26-408e-a081-63b019173327.png",
-            "mobile_image": "shopify://shop_images/4_79c713d5-d277-4192-b3d9-d75eaa18ccea.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_QJmkYR": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/5_eb0064df-fab0-4f71-9feb-e4a3d8f99842.png",
-            "mobile_image": "shopify://shop_images/5_de13aaa0-d1e5-45e7-8ec9-f29fcb5cdd72.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_9BJeNw": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/6_c0cfc343-2b56-42fd-b6f5-5032a8757409.png",
-            "mobile_image": "shopify://shop_images/6_b9768c97-a2d9-428c-a50a-c6f3f561361e.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_iR7zQp": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/7_002bd433-6c85-4376-a371-b1ce64bdba51.png",
-            "mobile_image": "shopify://shop_images/7_54179b21-6ea5-4055-89c9-73f6a360d824.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_PtDAem": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/7_002bd433-6c85-4376-a371-b1ce64bdba51.png",
-            "mobile_image": "shopify://shop_images/7_54179b21-6ea5-4055-89c9-73f6a360d824.png",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_nK6UFg",
-        "slide_FjtqNf",
-        "slide_JQ96be",
-        "slide_QJmkYR",
-        "slide_9BJeNw",
-        "slide_iR7zQp",
-        "slide_PtDAem"
-      ],
+    "landing_page_banner_CT9UEq": {
+      "type": "landing-page-banner",
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "dots",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/3_fb5813db-9d10-4a50-9c1d-50c40f8b6fac.png",
+        "mobile_image": "shopify://shop_images/3_d0dc38b1-9e75-4a4e-a710-1cc0dd5afb0c.png"
+      }
+    },
+    "landing_page_banner_TpbtFF": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/4_ce8acde3-ca26-408e-a081-63b019173327.png",
+        "mobile_image": "shopify://shop_images/4_79c713d5-d277-4192-b3d9-d75eaa18ccea.png"
+      }
+    },
+    "landing_page_banner_Tr3B4d": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/5_eb0064df-fab0-4f71-9feb-e4a3d8f99842.png",
+        "mobile_image": "shopify://shop_images/5_de13aaa0-d1e5-45e7-8ec9-f29fcb5cdd72.png"
+      }
+    },
+    "landing_page_banner_rLNPA4": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/6_c0cfc343-2b56-42fd-b6f5-5032a8757409.png",
+        "mobile_image": "shopify://shop_images/6_b9768c97-a2d9-428c-a50a-c6f3f561361e.png"
+      }
+    },
+    "landing_page_banner_kMETiP": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/7_002bd433-6c85-4376-a371-b1ce64bdba51.png",
+        "mobile_image": "shopify://shop_images/7_54179b21-6ea5-4055-89c9-73f6a360d824.png"
       }
     },
     "landing_page_banner_nzbqBN": {
@@ -581,33 +369,6 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "landing_page_banner_9T9rFj": {
-      "type": "landing-page-banner",
-      "disabled": true,
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "shopify://shop_images/This_one_for_WEB_ingredients.png",
-        "mobile_image": "shopify://shop_images/Ingredients_4fb52dc5-6f41-4a27-ab35-5c30ae7f80f6.png"
-      }
-    },
-    "landing_page_banner_dEmk7P": {
-      "type": "landing-page-banner",
-      "disabled": true,
-      "settings": {
-        "section_heading": "Discover What’s Making Everyone Go Wild!",
-        "desktop_image": "shopify://shop_images/whats_in_the_box_WEB.png",
-        "mobile_image": "shopify://shop_images/What_s_in_the_box_PHONE.png"
-      }
-    },
-    "landing_page_banner_HfxDGk": {
-      "type": "landing-page-banner",
-      "disabled": true,
-      "settings": {
-        "section_heading": "Discover What’s Making Everyone Go Wild!",
-        "desktop_image": "shopify://shop_images/whats_in_the_box2.jpg",
-        "mobile_image": "shopify://shop_images/whats_in_the_box2.jpg"
-      }
-    },
     "landing_page_banner_ew6gr8": {
       "type": "landing-page-banner",
       "settings": {
@@ -736,20 +497,18 @@
   "order": [
     "main",
     "lp_featured_product_yw8Pt7",
-    "landing_page_banner_tPURrF",
     "content_slider_strip_dFxGXg",
     "lp_video_RMnf7x",
-    "video_BWFiNG",
-    "lp_what_in_the_box_6N9VwD",
     "lp_what_in_the_box_qnJXXx",
     "landing_page_banner_JwiBEa",
-    "slideshow_z9Kix6",
+    "landing_page_banner_CT9UEq",
+    "landing_page_banner_TpbtFF",
+    "landing_page_banner_Tr3B4d",
+    "landing_page_banner_rLNPA4",
+    "landing_page_banner_kMETiP",
     "landing_page_banner_nzbqBN",
     "landing_page_banner_wNz3Vn",
     "slideshow_iHhrW6",
-    "landing_page_banner_9T9rFj",
-    "landing_page_banner_dEmk7P",
-    "landing_page_banner_HfxDGk",
     "landing_page_banner_ew6gr8",
     "lp_videos_qMi7pq",
     "lp_testimonial_grid_8BKrhT"
