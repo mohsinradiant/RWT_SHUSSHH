@@ -30,14 +30,24 @@
           "settings": {
             "mobile_image": "shopify://shop_images/phone_banners_1_14e95fd0-9689-4e52-bfa3-994dc8801f0b.png",
             "desktop_image": "shopify://shop_images/Wen_banners_4.png",
-            "button_text": "SHOP NOW",
-            "button_url": "shopify://products/fap-the-ultimate-male-stroker"
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "slide_6a96HN": {
+          "type": "slide",
+          "settings": {
+            "mobile_image": "shopify://shop_images/normal_usp_banners-01.jpg",
+            "desktop_image": "shopify://shop_images/normal_usp_banners-02.png",
+            "button_text": "",
+            "button_url": ""
           }
         }
       },
       "block_order": [
         "slide_U8FRa7",
-        "slide_nd73jE"
+        "slide_nd73jE",
+        "slide_6a96HN"
       ],
       "settings": {}
     },
