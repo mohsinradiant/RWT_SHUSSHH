@@ -19,8 +19,8 @@
         "slide_U8FRa7": {
           "type": "slide",
           "settings": {
-            "mobile_image": "shopify://shop_images/TEMP_BANNER_WEB_66d4bc67-e5ba-4d6a-a725-714e7b7f805f.png",
-            "desktop_image": "shopify://shop_images/NEW_TEMP_BANNER_0d75f7f3-bebe-41fd-9e6d-beca1d1277af.png",
+            "mobile_image": "shopify://shop_images/NEW_TEMP_BANNER_0d75f7f3-bebe-41fd-9e6d-beca1d1277af.png",
+            "desktop_image": "shopify://shop_images/TEMP_BANNER_WEB_66d4bc67-e5ba-4d6a-a725-714e7b7f805f.png",
             "button_text": "SHOP NOW",
             "button_url": "shopify://products/fap-the-ultimate-male-stroker"
           }
