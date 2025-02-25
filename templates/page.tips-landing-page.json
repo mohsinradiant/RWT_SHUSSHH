@@ -418,30 +418,6 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "landing_page_banner_ew6gr8": {
-      "type": "landing-page-banner",
-      "settings": {
-        "section_heading": "",
-        "desktop_image": "shopify://shop_images/8_5fc309c0-389c-4f46-8d0b-e42130477f82.png",
-        "mobile_image": "shopify://shop_images/8_46a1aa2a-88ac-48c0-bf4a-d772f91d80fb.png"
-      }
-    },
-    "lp_videos_qMi7pq": {
-      "type": "lp-videos",
-      "blocks": {
-        "video_qF9Bzy": {
-          "type": "Video",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "video_qF9Bzy"
-      ],
-      "disabled": true,
-      "settings": {
-        "section_heading": "IT'S MAKING THEM WILD"
-      }
-    },
     "lp_testimonial_grid_8BKrhT": {
       "type": "lp-testimonial-grid",
       "blocks": {
@@ -541,6 +517,30 @@
       "settings": {
         "section_heading": "The Couples who tested it said some really good things"
       }
+    },
+    "landing_page_banner_ew6gr8": {
+      "type": "landing-page-banner",
+      "settings": {
+        "section_heading": "",
+        "desktop_image": "shopify://shop_images/8_5fc309c0-389c-4f46-8d0b-e42130477f82.png",
+        "mobile_image": "shopify://shop_images/8_46a1aa2a-88ac-48c0-bf4a-d772f91d80fb.png"
+      }
+    },
+    "lp_videos_qMi7pq": {
+      "type": "lp-videos",
+      "blocks": {
+        "video_qF9Bzy": {
+          "type": "Video",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "video_qF9Bzy"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "IT'S MAKING THEM WILD"
+      }
     }
   },
   "order": [
@@ -558,8 +558,8 @@
     "landing_page_banner_nzbqBN",
     "landing_page_banner_wNz3Vn",
     "slideshow_iHhrW6",
+    "lp_testimonial_grid_8BKrhT",
     "landing_page_banner_ew6gr8",
-    "lp_videos_qMi7pq",
-    "lp_testimonial_grid_8BKrhT"
+    "lp_videos_qMi7pq"
   ]
 }
