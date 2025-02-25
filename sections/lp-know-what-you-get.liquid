@@ -3,8 +3,8 @@
     <h2 class="page-width kwyg-heading section-heading">{{ section.settings.section_heading }}</h2>
   {% endif %}
   {% for block in section.blocks %}
-    <img class="lp-desktop-banner" src="{{section.settings.desktop_image |  image_url }}">
-    <img class="lp-mobile-banner" src="{{section.settings.mobile_image |  image_url }}">
+    <img class="lp-desktop-banner" src="{{block.desktop_image |  image_url }}">
+    <img class="lp-mobile-banner" src="{{block.mobile_image |  image_url }}">
   {% endfor %}
 </div>
 
