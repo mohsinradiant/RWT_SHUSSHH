@@ -269,7 +269,7 @@
         "item_bDYGey": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/saffron.png",
+            "image": "shopify://shop_images/5_bc4468af-dedb-4d3b-b0a1-ca3addf6fa3c.png",
             "heading": "Play Dip",
             "subheading": "Add a little bit of body text"
           }
@@ -583,6 +583,7 @@
     },
     "landing_page_banner_9T9rFj": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/This_one_for_WEB_ingredients.png",
