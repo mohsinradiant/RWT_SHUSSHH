@@ -1013,11 +1013,14 @@ sticky-header {
         aspect-ratio: 412/549 !important;
         height: auto !important;
     }
-#shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow_media_mobile_image,
-#shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow_media_mobile_image img{
-    aspect-ratio: 206/165 !important;
-    height: auto !important;
-}
+
+    #shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow_media_mobile_image,
+    #shopify-section-template--23925777301814__slideshow_iHhrW6 .slideshow_media_mobile_image img,
+    #shopify-section-template--23925777301814__slideshow_iHhrW6 .slider__slide {
+        aspect-ratio: 206/165 !important;
+        height: auto !important;
+    }
+
     .announcement-bar__message {
         padding: .65rem 0 !important;
     }
