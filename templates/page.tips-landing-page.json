@@ -244,6 +244,7 @@
     },
     "landing_page_banner_CT9UEq": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/3_fb5813db-9d10-4a50-9c1d-50c40f8b6fac.png",
@@ -252,6 +253,7 @@
     },
     "landing_page_banner_TpbtFF": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/4_ce8acde3-ca26-408e-a081-63b019173327.png",
@@ -260,6 +262,7 @@
     },
     "landing_page_banner_Tr3B4d": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/5_eb0064df-fab0-4f71-9feb-e4a3d8f99842.png",
@@ -268,6 +271,7 @@
     },
     "landing_page_banner_rLNPA4": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/6_c0cfc343-2b56-42fd-b6f5-5032a8757409.png",
@@ -276,6 +280,7 @@
     },
     "landing_page_banner_kMETiP": {
       "type": "landing-page-banner",
+      "disabled": true,
       "settings": {
         "section_heading": "",
         "desktop_image": "shopify://shop_images/7_002bd433-6c85-4376-a371-b1ce64bdba51.png",
