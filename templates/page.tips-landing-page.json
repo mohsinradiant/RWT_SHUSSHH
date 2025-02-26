@@ -154,15 +154,15 @@
           "settings": {
             "image": "shopify://shop_images/2_647a6743-58f2-44ea-bd01-1c03d5899d6c.png",
             "heading": "Maca Root",
-            "subheading": "3x desire stimulation & Doubles intimacy energy"
+            "subheading": "Triples intimate energy & Doubles passion levels"
           }
         },
         "item_ri4XUA": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/3_8dfd6a60-b5f7-4c42-9690-5d25f4571238.png",
-            "heading": "Panax Ginseng",
-            "subheading": "3x Intimate Energy & Double Passion Levels"
+            "heading": "Shilajit",
+            "subheading": "2x intimate stamina & Enhances sensual perception"
           }
         },
         "item_LVBmHe": {
@@ -170,7 +170,7 @@
           "settings": {
             "image": "shopify://shop_images/4_e9f95620-b866-4dcc-a5a3-6b06a70bc6ae.png",
             "heading": "Ashwagandha",
-            "subheading": "Deepens Emotional connection , Instant intimate Boost"
+            "subheading": "3x desire stimulation & Doubles intimacy energy"
           }
         },
         "item_bDYGey": {
@@ -296,6 +296,23 @@
         "mobile_image": "shopify://shop_images/1_7aa59131-289e-4f58-b76a-a89d09be4169.png"
       }
     },
+    "1740557497974573ee": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_c7tcmJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_c7tcmJ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "landing_page_banner_wNz3Vn": {
       "type": "landing-page-banner",
       "settings": {
@@ -359,6 +376,26 @@
         "slide_YV4rbb"
       ],
       "settings": {}
+    },
+    "17405575463766a4bc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_verified_badge_effDz3": {
+          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "judge_me_reviews_all_reviews_text_C3KKC8": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_text/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_verified_badge_effDz3",
+        "judge_me_reviews_all_reviews_text_C3KKC8"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     },
     "slideshow_iHhrW6": {
       "type": "slideshow",
@@ -616,8 +653,10 @@
     "landing_page_banner_rLNPA4",
     "landing_page_banner_kMETiP",
     "landing_page_banner_nzbqBN",
+    "1740557497974573ee",
     "landing_page_banner_wNz3Vn",
     "slideshow_home_jhYyxd",
+    "17405575463766a4bc",
     "slideshow_iHhrW6",
     "lp_testimonial_grid_8BKrhT",
     "landing_page_banner_ew6gr8",
