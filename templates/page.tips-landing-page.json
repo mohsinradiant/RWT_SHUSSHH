@@ -154,7 +154,7 @@
           "settings": {
             "image": "shopify://shop_images/2_647a6743-58f2-44ea-bd01-1c03d5899d6c.png",
             "heading": "Maca Root",
-            "subheading": "3x desire stimulation & Doubles intimacy energy"
+            "subheading": "Triples intimate energy & Doubles passion levels"
           }
         },
         "item_ri4XUA": {
@@ -296,6 +296,23 @@
         "mobile_image": "shopify://shop_images/1_7aa59131-289e-4f58-b76a-a89d09be4169.png"
       }
     },
+    "1740557497974573ee": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_c7tcmJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_c7tcmJ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "landing_page_banner_wNz3Vn": {
       "type": "landing-page-banner",
       "settings": {
@@ -359,6 +376,21 @@
         "slide_YV4rbb"
       ],
       "settings": {}
+    },
+    "17405575463766a4bc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_verified_badge_effDz3": {
+          "type": "shopify://apps/judge-me-reviews/blocks/verified_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_verified_badge_effDz3"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     },
     "slideshow_iHhrW6": {
       "type": "slideshow",
@@ -616,8 +648,10 @@
     "landing_page_banner_rLNPA4",
     "landing_page_banner_kMETiP",
     "landing_page_banner_nzbqBN",
+    "1740557497974573ee",
     "landing_page_banner_wNz3Vn",
     "slideshow_home_jhYyxd",
+    "17405575463766a4bc",
     "slideshow_iHhrW6",
     "lp_testimonial_grid_8BKrhT",
     "landing_page_banner_ew6gr8",
