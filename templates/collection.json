@@ -41,6 +41,14 @@
             "url": "shopify://collections/all"
           }
         },
+        "product_category_LLbff7": {
+          "type": "product_category",
+          "settings": {
+            "image": "shopify://shop_images/7_454558a5-6134-49a8-a40e-29370ca0daf7.png",
+            "text": "Dual Action",
+            "url": "shopify://collections/dual-functional"
+          }
+        },
         "product_category_zdtXfW": {
           "type": "product_category",
           "settings": {
@@ -56,31 +64,14 @@
             "text": "Bundles",
             "url": "/collections/bundles"
           }
-        },
-        "product_category_LLbff7": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/V-Day_Sasle.png",
-            "text": "V-day Sale",
-            "url": "/collections/sale"
-          }
-        },
-        "product_category_twKGnB": {
-          "type": "product_category",
-          "settings": {
-            "image": "shopify://shop_images/Lubes.png",
-            "text": "Lubricants",
-            "url": "/collections/lubes"
-          }
         }
       },
       "block_order": [
         "product_category_8bbeWH",
         "product_category_EWxNgJ",
-        "product_category_zdtXfW",
-        "product_category_7EUBfz",
         "product_category_LLbff7",
-        "product_category_twKGnB"
+        "product_category_zdtXfW",
+        "product_category_7EUBfz"
       ],
       "settings": {
         "products_per_page": 16,
