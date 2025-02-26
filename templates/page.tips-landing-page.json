@@ -296,6 +296,21 @@
         "mobile_image": "shopify://shop_images/1_7aa59131-289e-4f58-b76a-a89d09be4169.png"
       }
     },
+    "1740557042cc39b193": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_all_reviews_text_e8L9Aa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_text/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_all_reviews_text_e8L9Aa"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "landing_page_banner_wNz3Vn": {
       "type": "landing-page-banner",
       "settings": {
@@ -616,6 +631,7 @@
     "landing_page_banner_rLNPA4",
     "landing_page_banner_kMETiP",
     "landing_page_banner_nzbqBN",
+    "1740557042cc39b193",
     "landing_page_banner_wNz3Vn",
     "slideshow_home_jhYyxd",
     "slideshow_iHhrW6",
