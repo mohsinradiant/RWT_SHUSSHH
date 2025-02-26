@@ -38,7 +38,7 @@
           "type": "usp",
           "settings": {
             "image": "shopify://shop_images/222222222.png",
-            "text": "Free + Discreet Delivery"
+            "text": "Discreet Delivery"
           }
         },
         "dropdown_kpEQ3c": {
@@ -57,17 +57,11 @@
         },
         "dropdown_DYM66B": {
           "type": "dropdown",
+          "disabled": true,
           "settings": {
             "title": "Ingredients",
             "description": "",
             "image": "shopify://shop_images/Ingredients_1_1.png"
-          }
-        },
-        "dropdown_PaXHqz": {
-          "type": "dropdown",
-          "settings": {
-            "title": "delivery & returns",
-            "description": "Discreet Packaging: Your order will arrive in a plain, unmarked box—no branding, no product details, just privacy. Fast Shipping: Orders are dispatched within 24 hours and typically delivered within 3-5 days (depending on location). Tracking Available: Stay updated with real-time tracking once your order is shipped. Hassle-Free Returns & Replacements100-Day Warranty – We stand by our quality! If there’s an issue, we’ll replace it for free.Easy Returns: Unopened, unused products can be returned within 7 days of delivery.Need help? Contact our support team for quick resolutions.Your satisfaction & privacy matter to us!"
           }
         },
         "in_the_box_md3JBb": {
@@ -97,6 +91,13 @@
             "image": "shopify://shop_images/manual2_3132172e-2a51-4aa6-937b-feadffa46055.png",
             "text": "Manual"
           }
+        },
+        "dropdown_PaXHqz": {
+          "type": "dropdown",
+          "settings": {
+            "title": "delivery & returns",
+            "description": "Discreet Packaging: Your order will arrive in a plain, unmarked box—no branding, no product details, just privacy. Fast Shipping: Orders are dispatched within 24 hours and typically delivered within 3-5 days (depending on location). Tracking Available: Stay updated with real-time tracking once your order is shipped. Hassle-Free Returns & Replacements100-Day Warranty – We stand by our quality! If there’s an issue, we’ll replace it for free.Easy Returns: Unopened, unused products can be returned within 7 days of delivery.Need help? Contact our support team for quick resolutions.Your satisfaction & privacy matter to us!"
+          }
         }
       },
       "block_order": [
@@ -106,11 +107,11 @@
         "dropdown_kpEQ3c",
         "dropdown_apRaph",
         "dropdown_DYM66B",
-        "dropdown_PaXHqz",
         "in_the_box_md3JBb",
         "in_the_box_fYf4cx",
         "in_the_box_RycmLx",
-        "in_the_box_tJnT94"
+        "in_the_box_tJnT94",
+        "dropdown_PaXHqz"
       ],
       "settings": {
         "product": "tips-love-box",
