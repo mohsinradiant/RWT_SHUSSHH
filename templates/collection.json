@@ -62,7 +62,7 @@
           "settings": {
             "image": "shopify://shop_images/Bundles.png",
             "text": "Bundles",
-            "url": "/collections/bundles"
+            "url": "shopify://collections/all-bundles"
           }
         }
       },
