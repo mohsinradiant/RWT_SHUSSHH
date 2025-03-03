@@ -652,5 +652,13 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <!-- Begin Shopify–payment-cart JavaScript -->
+<script type="text/javascript">
+
+  var mid = '4509';
+
+</script>
+<script src="https://checkout-merchant.snapmint.com/js/v1/4509" defer></script>
+<!-- End Shopify-payment JavaScript -->
   </body>
 </html>
