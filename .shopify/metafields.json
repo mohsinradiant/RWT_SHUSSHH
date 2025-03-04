@@ -2,497 +2,14 @@
   "article": [],
   "blog": [],
   "brand": [],
-  "collection": [
-    {
-      "key": "bannertext",
-      "namespace": "custom",
-      "name": "bannertext",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "collections",
-      "namespace": "ecomposer",
-      "name": "Define sub collections for current collection",
-      "description": "Set the sub collection for curernt collection.",
-      "type": {
-        "name": "list.collection_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "banne_image_collectionpage",
-      "namespace": "custom",
-      "name": "banne_image_collectionpage",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "active_category_serial_number",
-      "namespace": "content",
-      "name": "Active Category Serial Number",
-      "description": "",
-      "type": {
-        "name": "number_integer",
-        "category": "NUMBER"
-      }
-    },
-    {
-      "key": "desktop_image",
-      "namespace": "content",
-      "name": "Desktop Image",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "mobile_image",
-      "namespace": "content",
-      "name": "Mobile Image",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    }
-  ],
+  "collection": [],
   "company": [],
   "company_location": [],
   "location": [],
   "market": [],
-  "order": [
-    {
-      "key": "custom_fields",
-      "namespace": "apz-checkout",
-      "name": "Tell us more about you",
-      "description": null,
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
-  "page": [
-    {
-      "key": "product_box",
-      "namespace": "custom",
-      "name": "Product Box",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_box_items",
-      "namespace": "custom",
-      "name": "Product Box items",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    }
-  ],
+  "order": [],
+  "page": [],
   "product": [
-    {
-      "key": "size",
-      "namespace": "custom",
-      "name": "Size",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "productbox_details",
-      "namespace": "custom",
-      "name": "Productbox_details",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "how_to_use",
-      "namespace": "custom",
-      "name": "How to Use",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "productinclusion",
-      "namespace": "custom",
-      "name": "Productinclusion",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "testimonial_1",
-      "namespace": "custom",
-      "name": "Testimonial 1",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "testimonial_2",
-      "namespace": "custom",
-      "name": "Testimonial 2",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "testimonial3",
-      "namespace": "custom",
-      "name": "Testimonial3",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "technical_specification",
-      "namespace": "custom",
-      "name": "Technical Specification",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq1",
-      "namespace": "custom",
-      "name": "Faq1",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq2",
-      "namespace": "custom",
-      "name": "Faq2",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq3",
-      "namespace": "custom",
-      "name": "Faq3",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq4",
-      "namespace": "custom",
-      "name": "Faq4",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq5",
-      "namespace": "custom",
-      "name": "Faq5",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "faq6",
-      "namespace": "custom",
-      "name": "Faq6",
-      "description": "",
-      "type": {
-        "name": "multi_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "countdown",
-      "namespace": "ecomposer",
-      "name": "EComposer product countdown end at",
-      "description": "Set date and time countdown end at",
-      "type": {
-        "name": "date_time",
-        "category": "DATE_TIME"
-      }
-    },
-    {
-      "key": "countdown_from",
-      "namespace": "ecomposer",
-      "name": "EComposer product countdown start at",
-      "description": "Set date and time countdown start at",
-      "type": {
-        "name": "date_time",
-        "category": "DATE_TIME"
-      }
-    },
-    {
-      "key": "rating",
-      "namespace": "reviews",
-      "name": "Product rating",
-      "description": "Average rating from customers",
-      "type": {
-        "name": "rating",
-        "category": "RATING"
-      }
-    },
-    {
-      "key": "rating_count",
-      "namespace": "reviews",
-      "name": "Product rating count",
-      "description": "Total number of ratings from customers",
-      "type": {
-        "name": "number_integer",
-        "category": "NUMBER"
-      }
-    },
-    {
-      "key": "image_cutout",
-      "namespace": "custom",
-      "name": "image-cutout",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "faq",
-      "namespace": "custom",
-      "name": "FAQ",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "witb_name",
-      "namespace": "custom",
-      "name": "witb-name",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "bgcolor",
-      "namespace": "custom",
-      "name": "bgcolor",
-      "description": "",
-      "type": {
-        "name": "color",
-        "category": "COLOR"
-      }
-    },
-    {
-      "key": "product_icon_1",
-      "namespace": "custom",
-      "name": "product-icon-1",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "video",
-      "namespace": "custom",
-      "name": "VIDEO",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "inside_the_box",
-      "namespace": "custom",
-      "name": "Inside the box desktop",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "inside_the_box_mobile",
-      "namespace": "custom",
-      "name": "Inside the box Mobile",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "box_inside_1",
-      "namespace": "custom",
-      "name": "Box Inside 1",
-      "description": "",
-      "type": {
-        "name": "list.mixed_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "tech_specs",
-      "namespace": "custom",
-      "name": "tech Specs - desktop",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "tech_specs_mobile",
-      "namespace": "custom",
-      "name": "tech specs mobile",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "vimeo_video",
-      "namespace": "custom",
-      "name": "vimeo video",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "videotest",
-      "namespace": "custom",
-      "name": "videotest",
-      "description": "",
-      "type": {
-        "name": "url",
-        "category": "URL"
-      }
-    },
-    {
-      "key": "text",
-      "namespace": "custom",
-      "name": "text",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "testmoni",
-      "namespace": "custom",
-      "name": "testmoni",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "video1",
-      "namespace": "custom",
-      "name": "VIDEO1",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "desc_product",
-      "namespace": "custom",
-      "name": "DESC_PRODUCT",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "video_cover",
-      "namespace": "custom",
-      "name": "VIDEO_COVER",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "custom_product",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Product",
-      "description": "Use to indicate whether or not the unique product identifiers (UPIs) GTIN, MPN, and brand are available for your product.",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "tech_specs_dd",
-      "namespace": "custom",
-      "name": "TECH SPECS DD",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_features",
-      "namespace": "custom",
-      "name": "Product Features",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
     {
       "key": "queries",
       "namespace": "shopify--discovery--product_search_boost",
@@ -534,6 +51,86 @@
       }
     },
     {
+      "key": "diamond_value_inr",
+      "namespace": "global",
+      "name": "Diamond Value (INR)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "diamond_weight_ct",
+      "namespace": "global",
+      "name": "Diamond Weight (ct)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "gold_value_inr",
+      "namespace": "global",
+      "name": "Gold Value (INR)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "gold_weight_g",
+      "namespace": "global",
+      "name": "Gold Weight (g)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "gst",
+      "namespace": "global",
+      "name": "GST (INR)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "total_making_cost_inr",
+      "namespace": "global",
+      "name": "Total Making Cost (INR)",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "pricing_details_head",
+      "namespace": "global",
+      "name": "Pricing Details Head",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "custom_product",
+      "namespace": "mm-google-shopping",
+      "name": "Google: Custom Product",
+      "description": "Use to indicate whether or not the unique product identifiers (UPIs) GTIN, MPN, and brand are available for your product.",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
       "key": "color-pattern",
       "namespace": "shopify",
       "name": "Color",
@@ -544,79 +141,69 @@
       }
     },
     {
-      "key": "dietary-preferences",
+      "key": "jewelry-material",
       "namespace": "shopify",
-      "name": "Dietary preferences",
-      "description": "Helps identify products suitable for specific diets, e.g. vegan, nut free",
+      "name": "Jewelry material",
+      "description": "Identifies the main material used in jewelry items, such as gold or enamel",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "allergen-information",
+      "key": "age-group",
       "namespace": "shopify",
-      "name": "Allergen information",
-      "description": "Indicates potential allergens present in food or beverages, such as wheat or peanuts",
+      "name": "Age group",
+      "description": "Defines the target age range for a product, such as adults or kids",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "product_card_usp",
-      "namespace": "content",
-      "name": "Product Card USP",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "product_card_description",
-      "namespace": "content",
-      "name": "Product Card Description",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "subheading",
-      "namespace": "content",
-      "name": "Subheading",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "info_fold_description",
-      "namespace": "content",
-      "name": "Info Fold Description",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "product_png_hotspots",
-      "namespace": "content",
-      "name": "Product PNG Hotspots",
-      "description": "",
+      "key": "jewelry-type",
+      "namespace": "shopify",
+      "name": "Jewelry type",
+      "description": "Distinguishes between types of jewelry, such as fine or imitation jewelry",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "content_fold_text",
+      "key": "target-gender",
+      "namespace": "shopify",
+      "name": "Target gender",
+      "description": "Identifies the intended gender for a product, such as female, male or unisex",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "ring-design",
+      "namespace": "shopify",
+      "name": "Ring design",
+      "description": "Describes the style of a ring, such as band or solitaire",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "product-features-badges",
       "namespace": "content",
-      "name": "Content Fold Text",
+      "name": "Product Features Badges",
+      "description": "",
+      "type": {
+        "name": "list.single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "product_details_list",
+      "namespace": "content",
+      "name": "Product Details List 2",
       "description": "",
       "type": {
         "name": "list.metaobject_reference",
@@ -624,72 +211,12 @@
       }
     },
     {
-      "key": "banner_1",
+      "key": "image_carousel",
       "namespace": "content",
-      "name": "Banner 1",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "banner_2",
-      "namespace": "content",
-      "name": "Banner 2",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "whats_in_the_box",
-      "namespace": "content",
-      "name": "What's in the box",
+      "name": "Image Carousel",
       "description": "",
       "type": {
         "name": "list.file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_video",
-      "namespace": "content",
-      "name": "Product Video",
-      "description": "",
-      "type": {
-        "name": "metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "combos_collection",
-      "namespace": "content",
-      "name": "Combos Collection",
-      "description": "",
-      "type": {
-        "name": "collection_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_bullets",
-      "namespace": "content",
-      "name": "Product Bullets",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "product_shoppable_videos",
-      "namespace": "content",
-      "name": "Product Shoppable Videos",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
@@ -704,95 +231,45 @@
       }
     },
     {
-      "key": "product_usp",
+      "key": "product_details_list_1",
       "namespace": "content",
-      "name": "Product USP",
+      "name": "Product Details List 1",
       "description": "",
       "type": {
         "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "info_images",
-      "namespace": "content",
-      "name": "Info Images",
-      "description": "",
-      "type": {
-        "name": "list.file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "what_s_in_the_box_2",
-      "namespace": "content",
-      "name": "What's in the box",
-      "description": "",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "floating_media",
-      "namespace": "content",
-      "name": "Floating Media?",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "floating_animation",
-      "namespace": "content",
-      "name": "Floating Animation",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "show_floating_image",
-      "namespace": "content",
-      "name": "Show Floating Image?",
-      "description": "",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "usp_grid_collage",
-      "namespace": "content",
-      "name": "USP Grid Collage Desktop",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "usp_grid_collage_mobile",
-      "namespace": "content",
-      "name": "USP Grid Collage Mobile",
-      "description": "",
-      "type": {
-        "name": "file_reference",
         "category": "REFERENCE"
       }
     }
   ],
   "variant": [
     {
-      "key": "color",
-      "namespace": "custom",
-      "name": "Color",
+      "key": "days_to_ship",
+      "namespace": "global",
+      "name": "Days to Ship",
       "description": "",
       "type": {
-        "name": "color",
-        "category": "COLOR"
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "diamond_grade",
+      "namespace": "global",
+      "name": "Diamond Grade",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "stock_status",
+      "namespace": "global",
+      "name": "Stock Status",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
       }
     },
     {
@@ -904,18 +381,17 @@
         "name": "single_line_text_field",
         "category": "TEXT"
       }
-    }
-  ],
-  "shop": [
+    },
     {
-      "key": "fastbundleconf",
-      "namespace": "rbrfb",
-      "name": "Fast Bundle Conf",
-      "description": "App's config for the widgets",
+      "key": "price_breakdown",
+      "namespace": "content",
+      "name": "Price Breakdown",
+      "description": "",
       "type": {
-        "name": "json",
-        "category": "JSON"
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
       }
     }
-  ]
+  ],
+  "shop": []
 }
