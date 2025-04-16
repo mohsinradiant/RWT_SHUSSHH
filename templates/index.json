@@ -241,7 +241,7 @@
       "type": "home-deal-of-the-day",
       "settings": {
         "product_1": "products-rosy-body-massager-india",
-        "product_2": "ecstasy-personal",
+        "product_2": "products-ecstasy-massager-india",
         "product_3": "lush-body-massager-india"
       }
     },
@@ -261,7 +261,7 @@
           "settings": {
             "video_url": "shopify://files/videos/tolstoy_aca10cea-191e-4c6b-9782-298e64d74f38.webm",
             "image": "shopify://shop_images/Group_264.png",
-            "product": "ecstasy-personal"
+            "product": "products-ecstasy-massager-india"
           }
         },
         "video_product_EHRaap": {
